@@ -1,11 +1,22 @@
 ---
-title: "template_quarto_website"
+title: "Intro to Programming"
+author: "Amy Yarnell, Irmarie Fraticelli-Rodriguez"
+title-block-banner: white
+title-block-banner-color: black
+navbar:
+    page-navigation: true
+format: 
+  html:
+    embed-resources: true
+toc: true
+editor: source
+css: styles.css
 ---
 
-This is a Quarto website.
+| Week | Topic                     |
+|------|---------------------------|
+| 1    | Intro to the Command Line |
+| 2    | R and RStudio             |
+| 3    | Python                    |
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 1
-```
+: Schedule
