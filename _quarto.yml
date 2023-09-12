@@ -2,17 +2,20 @@ project:
   type: website
 
 website:
-  title: "template_quarto_website"
+  title: "CDABS Intro to Programming"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: 01-introduction.md
+        text: Shell
+      
+      
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme: yeti
+    editor: source
     toc: true
 
 
