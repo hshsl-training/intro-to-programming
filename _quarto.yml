@@ -1,16 +1,38 @@
 project:
   type: website
+  render:
+  - "index.qmd"
+  - "*.md"
+           
 
 website:
   title: "CDABS Intro to Programming"
   navbar:
+    background: primary
+    search: true
     left:
-      - href: index.qmd
-        text: Home
-      - href: 01-introduction.md
-        text: Shell
-      
-      
+      - text: "Home"
+        file: index.qmd
+      - sidebar:shell
+      - sidebar:r
+      - sidebar:python
+
+  sidebar:
+    - id: shell
+      title: "Shell"
+      style: "docked"
+      background: light
+      collapse-level: 2
+      contents: shell/*.md
+        
+        
+    - id: r
+      title: "R"
+      contents: r/*.md
+        
+    - id: python
+      title: "Python"
+      contents: python/*.md
 
 format:
   html:

@@ -13,6 +13,8 @@ editor: source
 css: styles.css
 ---
 
+## Here's some interesting information and also some learning objectives and stuff like that.
+
 | Week | Topic                     |
 |------|---------------------------|
 | 1    | Intro to the Command Line |
