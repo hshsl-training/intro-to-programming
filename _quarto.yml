@@ -3,7 +3,7 @@ project:
   render:
   - "index.qmd"
   - "*.Rmd"
-  - "*.qmd"
+  - "*.md"
            
 
 website:
@@ -24,7 +24,7 @@ website:
       style: "docked"
       background: light
       collapse-level: 2
-      contents: shell_lesson/*.qmd
+      contents: shell_lesson/*.md
         
         
     - id: r
