@@ -2,7 +2,8 @@ project:
   type: website
   render:
   - "index.qmd"
-  - "*.md"
+  - "*.Rmd"
+  - "*.qmd"
            
 
 website:
@@ -23,16 +24,16 @@ website:
       style: "docked"
       background: light
       collapse-level: 2
-      contents: shell/*.md
+      contents: shell_lesson/*.qmd
         
         
     - id: r
       title: "R"
-      contents: r/*.md
+      contents: r_lesson/*.Rmd
         
     - id: python
       title: "Python"
-      contents: python/*.md
+      contents: python_lesson/*.md
 
 format:
   html:
