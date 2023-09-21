@@ -5,28 +5,21 @@ code-copy: true
 ---
 
 ## Lesson Objectives
-:::: {.columns}
 
-::: {.column width="50%"}
 **Objectives**
 
 - Describe key reasons for learning shell.
 - Navigate your file system using the command line.
 - Access and read help files for `bash` programs and use help files to identify useful command options.
 - Demonstrate the use of tab completion, and explain its advantages.
-:::
 
-::: {.column width="50%"}
 **Questions to be answered in this lesson**
 
 - What is a command shell and why would I use one?
 - How can I move around on my computer?
 - How can I see what files and directories I have?
 - How can I specify the location of a file or directory on my computer?
-```
-:::
 
-::::
 
 
 ## What is a shell and why should I care?
