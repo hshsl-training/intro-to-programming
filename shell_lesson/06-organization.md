@@ -68,7 +68,7 @@ $ pwd
 You should see the output:
 
 ```output
-/home/dcuser  
+/home/<your username here> 
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -86,20 +86,20 @@ always returns you to home.
 
 Use the `mkdir` command to make the following directories:
 
-- `dc_workshop`
-- `dc_workshop/docs`
-- `dc_workshop/data`
-- `dc_workshop/results`
+- `my_project`
+- `my_project/docs`
+- `my_project/data`
+- `my_project/results`
 
 :::::::::::::::  solution
 
 ### Solution
 
 ```bash
-$ mkdir dc_workshop
-$ mkdir dc_workshop/docs
-$ mkdir dc_workshop/data
-$ mkdir dc_workshop/results
+$ mkdir my_project
+$ mkdir my_project/docs
+$ mkdir my_project/data
+$ mkdir my_project/results
 ```
 
 :::::::::::::::::::::::::
@@ -117,14 +117,14 @@ $ ls -R dc_workshop
 You should see the following output:
 
 ```output
-dc_workshop/:
+my_project/:
 data  docs  results
 
-dc_workshop/data:
+my_project/data:
 
-dc_workshop/docs:
+my_project/docs:
 
-dc_workshop/results: 
+my_project/results: 
 ```
 
 ## Organizing your files
@@ -185,15 +185,15 @@ $ history | tail -n 7
 ### Exercise
 
 Using your knowledge of the shell, use the append redirect `>>` to create a file called
-`dc_workshop_log_XXXX_XX_XX.sh` (Use the four-digit year, two-digit month, and two digit day, e.g.
-`dc_workshop_log_2017_10_27.sh`)
+`my_project_log_XXXX_XX_XX.sh` (Use the four-digit year, two-digit month, and two digit day, e.g.
+`my_project_log_2023-10-05.sh`)
 
 :::::::::::::::  solution
 
 ### Solution
 
 ```bash
-$ history | tail -n 7 >> dc_workshop_log_2017_10_27.sh
+$ history | tail -n 7 >> my_project_log_2023-10-05.sh
 ```
 
 Note we used the last 7 lines as an example, the number of lines may vary.
@@ -206,7 +206,7 @@ You may have noticed that your history contains the `history` command itself. To
 from our log, let's use the `nano` text editor to fix the file:
 
 ```bash
-$ nano dc_workshop_log_2017_10_27.sh
+$ nano my_project_log_2017_10_27.sh
 ```
 
 (Remember to replace the `2017_10_27` with your workshop date.)
