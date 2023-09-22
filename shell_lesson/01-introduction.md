@@ -4,6 +4,13 @@ code-copy: true
 
 ---
 
+::: {.callout-note}
+All text and materials in these workshiops comes from the Data Carpentries. More especifically this lesson follows the Data Carpentries lesson "[Introduction to the Command Line for Genomics](https://datacarpentry.org/shell-genomics/)". 
+
+CDABS has modified this lesson to better fit our techonogical capabilities.
+:::
+ 
+
 ## Lesson Objectives
 
 **Objectives**
@@ -65,7 +72,11 @@ The dollar sign is a **prompt**, which shows us that the shell is waiting for in
 
 This symbol may be different if you are using a Linux or Mac computer.
 
+## The Data
 
+The data used in this lesson is related to the bioinformatics field, you will be handling `fastq` files and performing searches on it. 
+
+To get access to the data you must learn how to unzip a `tar.gz` file.
 
 ## Navigating your file system
 
@@ -183,7 +194,7 @@ This directory contains two files with `.fastq` extensions. FASTQ is a format fo
 
 
 
-### Shortcut: Tab Completion
+## Shortcut: Tab Completion
 
 Typing out file or directory names can waste a lot of time and it's easy to make typing mistakes. Instead we can use tab complete as a shortcut. When you start typing out the name of a directory or file, then hit the <kbd>Tab</kbd> key, the shell will try to fill in the rest of the directory or file name.
 
