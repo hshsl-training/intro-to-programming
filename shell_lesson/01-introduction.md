@@ -5,7 +5,7 @@ code-copy: true
 ---
 
 ::: {.callout-note}
-All text and materials in these workshiops comes from the Data Carpentries. More especifically this lesson follows the Data Carpentries lesson "[Introduction to the Command Line for Genomics](https://datacarpentry.org/shell-genomics/)". 
+All text and materials in these workshops comes from the Data Carpentries. More especifically this lesson follows the Data Carpentries lesson "[Introduction to the Command Line for Genomics](https://datacarpentry.org/shell-genomics/)". 
 
 CDABS has modified this lesson to better fit our techonogical capabilities.
 :::
