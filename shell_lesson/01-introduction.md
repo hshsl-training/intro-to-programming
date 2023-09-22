@@ -1,7 +1,6 @@
 ---
 title: Introducing the Shell
 code-copy: true
-
 ---
 
 ::: {.callout-note}
@@ -72,11 +71,33 @@ The dollar sign is a **prompt**, which shows us that the shell is waiting for in
 
 This symbol may be different if you are using a Linux or Mac computer.
 
+
 ## The Data
 
 The data used in this lesson is related to the bioinformatics field, you will be handling `fastq` files and performing searches on it. 
 
 To get access to the data you must learn how to unzip a `tar.gz` file.
+
+## Extracting data from `tar.gz` file
+
+The tar command stands for tape archive, and it creates a collection of files that can be compressed or uncompressed. 
+
+A `tar` file is a collection of files along with their metadata. This collection of files are only grouped and not compressed.
+
+Meanwhile, `tar.gz` file means a collection of files that have been compressed to use less storage space in the computer. 
+
+To uncompress the data files for this lesson you need to excecute the following command: 
+
+```bash
+tar -xvf shell_data.tar.gz
+```
+
+```output
+file1.txt
+file2.txt
+```
+
+Now that we have uncompressed all of our data files, how can we navigate to the shell_data folder and see its content?
 
 ## Navigating your file system
 
