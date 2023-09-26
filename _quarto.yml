@@ -27,7 +27,6 @@ website:
       contents:
       - "shell_lesson/01-introduction.md"
       - "shell_lesson/02-the-filesystem.md"
-      - "shell_lesson/03-working-with-files.md"
       - "shell_lesson/04-redirection.md"
       - "shell_lesson/05-writing-scripts.md"
       - "shell_lesson/06-organization.md"
