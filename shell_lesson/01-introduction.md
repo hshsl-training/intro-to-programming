@@ -1,7 +1,6 @@
 ---
 title: Introducing the Shell
 code-copy: true
-
 ---
 
 ::: {.callout-note}
@@ -16,7 +15,7 @@ CDABS has modified this lesson to better fit our techonogical capabilities.
 **Objectives**
 
 - Describe key reasons for learning shell.
-- Navigate your file system using the command line.
+- Navigate your file system using the Git Bash command line.
 - Access and read help files for `bash` programs and use help files to identify useful command options.
 - Demonstrate the use of tab completion, and explain its advantages.
 
@@ -28,40 +27,35 @@ CDABS has modified this lesson to better fit our techonogical capabilities.
 - How can I specify the location of a file or directory on my computer?
 
 
-
-## What is a shell and why should I care?
+## What is a shell?
 
 A *shell* is a computer program that presents a command line interface which allows you to control your computer using commands entered with a keyboard instead of controlling graphical user interfaces (GUIs) with a mouse/keyboard/touchscreen combination.
 
-There are many reasons to learn about the shell:
+There are different types of *shell* such as *Windows Powershell*, *Windows Command Shell*, *Bash* and *zsh* for Mac computers. 
 
-- Many bioinformatics tools can only be used through a command line interface. Many more have features and parameter options which are not available in the GUI. BLAST is an example. Many of the advanced functions are only accessible to users who know how to use a shell.
+For this workshop we will be using *Git Bash*, which is a command-line shell that enables *Git* commands and provides some unix based shell utilities but not all of them. The commands that we will be exploring can be also used in a *zsh* (Mac Terminal) or *PowerShell* (Windows Shell) with very little or no modifications.
 
-- The shell makes your work less boring. In bioinformatics you often need to repeat tasks with a large number of files. With the shell, you can automate those repetitive tasks and leave you free to do more exciting things.
+It is important to consider that *Git Bash* may not be compatible with other command line programs, and it is recommended to use [Windows Linux Subsystem](https://learn.microsoft.com/en-us/windows/wsl/install), a Linux Distribution if you plan on working with a Linux enviroment in a Windows machine. 
+
+
+##  Why should I learn Shell?
+
+There are many reasons that may benefit you from learning about about the shell:
+
+- *Automate repetitive tasks.* If you often need to repeat tasks with a large number of files, with the shell, you can automate those.  
   
-- The shell makes your work less error-prone. When humans do the same thing a hundred different times (or even ten times), they're likely to make a mistake. Your computer can do the same thing a thousand times with no mistakes.
+- *Make your work less error-prone.* The shell makes your work less error-prone. When humans do the same thing a hundred different times (or even ten times), they're likely to make a mistake. Your computer can do the same thing a thousand times with no mistakes.
 
-- The shell makes your work more reproducible. When you carry out your work in the command-line (rather than a GUI), your computer keeps a record of every step that you've carried out, which you can use to re-do your work when you need to. It also gives you a way to communicate unambiguously what you've done, so that others can inspect or apply your process to new data.
+- *Make your work reproductible.* By using the command-line, the your computer keeps a record of every step that you've carried out, which you can use to re-do your work when you need to. It also gives you a way to communicate unambiguously what you've done, so that others can inspect or apply your process to new data.
 
-- Many bioinformatic tasks require large amounts of computing power and can't realistically be run on your own machine. These tasks are best performed using remote computers or cloud computing, which can only be accessed through a shell.
+- *Save on computing capacity.* Sometimes, when we work with data some tasks may require large amounts of computing power and can't realistically be run on your own machine. These tasks are best performed using remote computers or cloud computing, which can only be accessed through a shell.
 
-In this lesson you will learn how to use the command line interface to move around in your file system.
-
-
-
-## How to access the shell
-
-On a Mac or Linux machine, you can access a shell through a program called "Terminal", which is already available on your computer. The Terminal is a window into which we will type commands. 
-
-If you're using Windows, you'll need to download a separate program to access the shell called "Git Bash" which is the one we are going to use today. 
-
-We will learn the basics of the shell by manipulating some data files. Some of these files are very large, and would take time to download to your computer.
+- *Get advantage of the command line tools.* Many bioinformatics tools can only be used through a command line interface. Many more have features and parameter options which are not available in the GUI. BLAST is an example. Many of the advanced functions are only accessible to users who know how to use a shell.
 
 
+## The *Git Bash* Window
 
-## The Git Bash Window
-
-As you open your Terminal, you may see something like the following:
+As you open your *Git Bash* Window, you may see something like the following:
 
 ```bash
 ComputerUserName-####ABC MINGW64 ~
@@ -72,11 +66,41 @@ The dollar sign is a **prompt**, which shows us that the shell is waiting for in
 
 This symbol may be different if you are using a Linux or Mac computer.
 
+
 ## The Data
 
 The data used in this lesson is related to the bioinformatics field, you will be handling `fastq` files and performing searches on it. 
 
 To get access to the data you must learn how to unzip a `tar.gz` file.
+
+## Extracting data from `tar.gz` file
+
+The tar command stands for tape archive, and it creates a collection of files that can be compressed or uncompressed. 
+
+A `tar` file is a collection of files along with their metadata. This collection of files are only grouped and not compressed.
+
+Meanwhile, `tar.gz` file means a collection of files that have been compressed to use less storage space in the computer. 
+
+The tar commands offers different operations as you perform this command. 
+This capability is called a `command flag`. Some of the tar command operations are:
+
+-x, to extract files
+-v, to display the files that you are appending or unappending. 
+-f, specifies the filename of the archive to be created or extracted
+
+To uncompress the data files for this lesson you need to excecute the following command: 
+
+```bash
+tar -xvf shell_data.tar.gz
+```
+
+```output
+file1.txt
+file2.txt
+```
+
+Now that we have uncompressed all of our data files, how can we navigate to the shell_data folder and see its content?
+
 
 ## Navigating your file system
 
@@ -88,7 +112,6 @@ Let's find out where we are by running a command called `pwd` (which stands for 
 
 At any moment, our **current working directory** is our current default directory,
 i.e., the directory that the computer assumes we want to run commands in, unless we explicitly specify something else.
-
 
 ```bash
 $ pwd
@@ -191,7 +214,6 @@ SRR097977.fastq  SRR098026.fastq
 ```
 
 This directory contains two files with `.fastq` extensions. FASTQ is a format for storing information about sequencing reads and their quality. We will be learning more about FASTQ files in a later lesson.
-
 
 
 ## Shortcut: Tab Completion
