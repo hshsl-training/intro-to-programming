@@ -86,7 +86,7 @@ prints the contents of `/home`.
 
 ## Exercise
 
-*Finding hidden directories*
+**Finding hidden directories**
 
 First navigate to the `shell_data` directory. There is a hidden directory within this directory. Explore the options for `ls` to find out how to see hidden directories. List the contents of the directory and identify the name of the text file in that directory.
 
@@ -94,10 +94,10 @@ Hint: hidden files and folders in Unix start with `.`, for example `.my_hidden_d
 
 **Solution**
 
-First use the `man` command to look at the options for `ls`.
+First use the `--help` command to look at the options for `ls`.
 
 ```bash
-$ man ls
+$ --help ls
 ```
 
 The `-a` option is short for `all` and says that it causes `ls` to "not ignore entries starting with ." This is the option we want.
@@ -234,7 +234,7 @@ Over time, it will become easier for you to keep a mental note of the structure 
 
 ## Exercise
 
-*Relative path resolution*
+**Relative path resolution**
 
 Using the filesystem diagram below, if `pwd` displays `/Users/thing`,
 what will `ls ../backup` display?
@@ -246,7 +246,7 @@ what will `ls ../backup` display?
 
 ![](fig/filesystem-challenge.svg){alt='File System for Challenge Questions'}
 
-*Solutions*
+**Solutions**
 
 1. No: there *is* a directory `backup` in `/Users`.
 2. No: this is the content of `Users/thing/backup`,
