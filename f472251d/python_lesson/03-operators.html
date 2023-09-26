@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CDABS Intro to Programming - Operators</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CDABS Intro to Programming</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-shell" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Shell</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-shell">    
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/01-introduction.html">
+ <span class="dropdown-text">Introducing the Shell</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/02-the-filesystem.html">
+ <span class="dropdown-text">Navigating Files and Directories</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/06-organization.html">
+ <span class="dropdown-text">Project Organization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/04-redirection.html">
+ <span class="dropdown-text">Redirection</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/03-working-with-files.html">
+ <span class="dropdown-text">Working with Files and Directories</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/05-writing-scripts.html">
+ <span class="dropdown-text">Writing Scripts and Working with Data</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">R</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-r">    
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Python</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-python">    
+        <li>
+    <a class="dropdown-item" href="../python_lesson/13-files.html">
+ <span class="dropdown-text">Analyzing Data from Multiple Files</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/16-cmdline.html">
+ <span class="dropdown-text">Command-Line Programs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/09-func.html">
+ <span class="dropdown-text">Creating Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/10-errors.html">
+ <span class="dropdown-text">Errors and Exceptions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/14-filtering.html">
+ <span class="dropdown-text">Filtering Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/17-conda.html">
+ <span class="dropdown-text">Installing Bioinformatics Packages</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/01-intro.html">
+ <span class="dropdown-text">Introduction to Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/06-conditionals.html">
+ <span class="dropdown-text">Making Choices</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/03-operators.html">
+ <span class="dropdown-text">Operators</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/12-plotting.html">
+ <span class="dropdown-text">Producing Plots</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/11-loaddata.html">
+ <span class="dropdown-text">Reading in Tabular Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/07-loop.html">
+ <span class="dropdown-text">Repeating Actions with Loops</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/04-collections.html">
+ <span class="dropdown-text">Storing Multiple Values in Collections</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/15-tidying.html">
+ <span class="dropdown-text">Tidying up the Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/02-variables.html">
+ <span class="dropdown-text">Types, Objects, Values and Variables</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/08-libraries.html">
+ <span class="dropdown-text">Using External Modules</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/05-scripts.html">
+ <span class="dropdown-text">Writing Python Scripts</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Operators</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/13-files.html" class="sidebar-item-text sidebar-link">Analyzing Data from Multiple Files</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/16-cmdline.html" class="sidebar-item-text sidebar-link">Command-Line Programs</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/09-func.html" class="sidebar-item-text sidebar-link">Creating Functions</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/10-errors.html" class="sidebar-item-text sidebar-link">Errors and Exceptions</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/14-filtering.html" class="sidebar-item-text sidebar-link">Filtering Data</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/17-conda.html" class="sidebar-item-text sidebar-link">Installing Bioinformatics Packages</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/01-intro.html" class="sidebar-item-text sidebar-link">Introduction to Python</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/06-conditionals.html" class="sidebar-item-text sidebar-link">Making Choices</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/03-operators.html" class="sidebar-item-text sidebar-link active">Operators</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/12-plotting.html" class="sidebar-item-text sidebar-link">Producing Plots</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/11-loaddata.html" class="sidebar-item-text sidebar-link">Reading in Tabular Data</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/07-loop.html" class="sidebar-item-text sidebar-link">Repeating Actions with Loops</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/04-collections.html" class="sidebar-item-text sidebar-link">Storing Multiple Values in Collections</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/15-tidying.html" class="sidebar-item-text sidebar-link">Tidying up the Analysis</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/02-variables.html" class="sidebar-item-text sidebar-link">Types, Objects, Values and Variables</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/08-libraries.html" class="sidebar-item-text sidebar-link">Using External Modules</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/05-scripts.html" class="sidebar-item-text sidebar-link">Writing Python Scripts</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#basic-operators" id="toc-basic-operators" class="nav-link active" data-scroll-target="#basic-operators">Basic Operators</a></li>
+  <li><a href="#going-further" id="toc-going-further" class="nav-link" data-scroll-target="#going-further">Going further</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Operators</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>The code <code>pd_episode03_operators.ipynb</code> for this episode can be downloaded from <a href="https://osf.io/8h9bm/download">here</a></strong></p>
+<p>We now know how to create variables to store our data but we don’t know how to manipulate them at the moment. This is done using ‘Operators’.</p>
+<section id="basic-operators" class="level2">
+<h2 class="anchored" data-anchor-id="basic-operators">Basic Operators</h2>
+<p>Operators are symbols that perform specific operations on one or more objects. A subset of these are the arithmetic operators you’re already familiar with:</p>
+<ul>
+<li>Multiplication: <code>a * b</code></li>
+<li>Addition: <code>a + b</code></li>
+<li>Subtraction: <code>a - b</code></li>
+<li>Division: <code>a / b</code></li>
+</ul>
+<p>For example, <code>a+b</code> is the addition operator being applied to the objects pointed at by the variables <code>a</code> and <code>b</code>. What operators you can use depends on what the objects you’re applying them to are so some things won’t work - you can’t divide two strings or add a string and a number for example.</p>
+<blockquote class="blockquote">
+<h2 id="under-the-hood" class="anchored">Under the Hood</h2>
+<p>It’s worth noting that operators in Python are nothing ‘special’ - they can be thought of as basically shorthand for other bits of code. These can range from simple things like numerical addition/subtraction/etc. to concatenation (combining) of two strings or performing the scalar product on matrices. {: .callout}</p>
+</blockquote>
+</section>
+<section id="going-further" class="level2">
+<h2 class="anchored" data-anchor-id="going-further">Going further</h2>
+<p>As well as these basic operators, there are also more language specific ones:</p>
+<ul>
+<li>Assignment: <code>a = b</code></li>
+<li>Addition/Subtraction and assignment: <code>a += b</code>, <code>a -= b</code></li>
+<li>Exponent: <code>a ** b</code> ( e.g.&nbsp;<code>10**3 = 1000</code> )</li>
+<li>Modulus: <code>%</code> (e.g.&nbsp;<code>9 % 4 = 1</code>)</li>
+<li>Floor Division: <code>a // b</code> (e.g.&nbsp;<code>9 // 4 = 2</code>)</li>
+<li>Subscript/Array: <code>[]</code></li>
+</ul>
+<p>You can see that assignment (<code>=</code>) which you’ve already met is just another operator - it will attempt to assign the object or value on the right to the variable on the left. Another of these you will use a lot is the Subscript/Array operator (<code>[]</code>). This is generally used to access elements of collections like getting a single character from a string, e.g.</p>
+<pre><code>my_str = "TESTING"
+first = my_str[0]
+third = my_str[2]</code></pre>
+<p>{: .language-python}</p>
+<blockquote class="blockquote">
+<h2 id="check-your-understanding" class="anchored">Check Your Understanding</h2>
+<p>What values do the variables <code>mass</code> and <code>age</code> have after each statement in the following program? Test your answers by executing the commands.</p>
+<pre><code>mass = 47.5
+age = 122
+mass = mass * 2.0
+age = age - 20</code></pre>
+<p>{: .language-python} {: .challenge}</p>
+</blockquote>
+<blockquote class="blockquote">
+<h2 id="challenge" class="anchored">Challenge</h2>
+<p>If you assign <code>a = 123</code>, what happens if you try to get the second digit of <code>a</code> via <code>a[1]</code>?</p>
+<blockquote class="blockquote">
+<h2 id="solution" class="anchored">Solution</h2>
+<p>Numbers are not stored in the written representation, so they can’t be treated like strings.</p>
+<pre><code>a = 123
+print(a[1])</code></pre>
+<p>{: .python} ~~~ TypeError: ‘int’ object is not subscriptable ~~~ {: .error}</p>
+<p>If you had a string then this would have worked as expected: ~~~ a = “123” print(a[1]) ~~~ {: .python} ~~~ 2 ~~~ {: .output} {: .solution} {: .challenge}</p>
+</blockquote>
+</blockquote>
+<blockquote class="blockquote">
+<h2 id="using-operators-in-python" class="anchored">Using operators in Python</h2>
+<p>Now you know how operators work, try to do the following: 1. Create two variables, one a float and the other an integer 2. Print the product of these 3. What happens when you divide a float and an int? 4. What happens when you divide two ints? 5. Create a string variable and output various letters from it {: .challenge}</p>
+</blockquote>
+<blockquote class="blockquote">
+<h2 id="in-place-operators" class="anchored">In-place Operators</h2>
+<p>What is the value of <code>a</code> and <code>b</code> after the following code is executed? Try it by running this code yourself ~~~ a = 10 b = 20 b += a print(a, b) ~~~ {: .language-python} &gt; ## Solution &gt; ~~~ &gt; 10 30 &gt; ~~~ &gt; {: .output} &gt; The addition and assignment operator (<code>b += a</code>) is shorthand for <code>b = b + a</code> so in this case, the &gt; value of <code>a</code> is added to <code>b</code> but <code>a</code> is left unchanged. {: .solution} {: .challenge}</p>
+</blockquote>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

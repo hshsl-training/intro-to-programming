@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CDABS Intro to Programming - Analyzing Data from Multiple Files</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CDABS Intro to Programming</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-shell" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Shell</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-shell">    
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/01-introduction.html">
+ <span class="dropdown-text">Introducing the Shell</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/02-the-filesystem.html">
+ <span class="dropdown-text">Navigating Files and Directories</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/06-organization.html">
+ <span class="dropdown-text">Project Organization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/04-redirection.html">
+ <span class="dropdown-text">Redirection</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/03-working-with-files.html">
+ <span class="dropdown-text">Working with Files and Directories</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/05-writing-scripts.html">
+ <span class="dropdown-text">Writing Scripts and Working with Data</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">R</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-r">    
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Python</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-python">    
+        <li>
+    <a class="dropdown-item" href="../python_lesson/13-files.html">
+ <span class="dropdown-text">Analyzing Data from Multiple Files</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/16-cmdline.html">
+ <span class="dropdown-text">Command-Line Programs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/09-func.html">
+ <span class="dropdown-text">Creating Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/10-errors.html">
+ <span class="dropdown-text">Errors and Exceptions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/14-filtering.html">
+ <span class="dropdown-text">Filtering Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/17-conda.html">
+ <span class="dropdown-text">Installing Bioinformatics Packages</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/01-intro.html">
+ <span class="dropdown-text">Introduction to Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/06-conditionals.html">
+ <span class="dropdown-text">Making Choices</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/03-operators.html">
+ <span class="dropdown-text">Operators</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/12-plotting.html">
+ <span class="dropdown-text">Producing Plots</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/11-loaddata.html">
+ <span class="dropdown-text">Reading in Tabular Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/07-loop.html">
+ <span class="dropdown-text">Repeating Actions with Loops</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/04-collections.html">
+ <span class="dropdown-text">Storing Multiple Values in Collections</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/15-tidying.html">
+ <span class="dropdown-text">Tidying up the Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/02-variables.html">
+ <span class="dropdown-text">Types, Objects, Values and Variables</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/08-libraries.html">
+ <span class="dropdown-text">Using External Modules</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/05-scripts.html">
+ <span class="dropdown-text">Writing Python Scripts</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Analyzing Data from Multiple Files</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/13-files.html" class="sidebar-item-text sidebar-link active">Analyzing Data from Multiple Files</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/16-cmdline.html" class="sidebar-item-text sidebar-link">Command-Line Programs</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/09-func.html" class="sidebar-item-text sidebar-link">Creating Functions</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/10-errors.html" class="sidebar-item-text sidebar-link">Errors and Exceptions</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/14-filtering.html" class="sidebar-item-text sidebar-link">Filtering Data</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/17-conda.html" class="sidebar-item-text sidebar-link">Installing Bioinformatics Packages</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/01-intro.html" class="sidebar-item-text sidebar-link">Introduction to Python</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/06-conditionals.html" class="sidebar-item-text sidebar-link">Making Choices</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/03-operators.html" class="sidebar-item-text sidebar-link">Operators</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/12-plotting.html" class="sidebar-item-text sidebar-link">Producing Plots</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/11-loaddata.html" class="sidebar-item-text sidebar-link">Reading in Tabular Data</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/07-loop.html" class="sidebar-item-text sidebar-link">Repeating Actions with Loops</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/04-collections.html" class="sidebar-item-text sidebar-link">Storing Multiple Values in Collections</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/15-tidying.html" class="sidebar-item-text sidebar-link">Tidying up the Analysis</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/02-variables.html" class="sidebar-item-text sidebar-link">Types, Objects, Values and Variables</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/08-libraries.html" class="sidebar-item-text sidebar-link">Using External Modules</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/05-scripts.html" class="sidebar-item-text sidebar-link">Writing Python Scripts</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Analyzing Data from Multiple Files</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>The code <code>pd_episode13_files.ipynb</code> for this episode can be downloaded from <a href="https://osf.io/mgswj/download">here</a></strong></p>
+<p>We now have almost everything we need to process all our data files. The only thing that’s missing is a library with a rather unpleasant name:</p>
+<pre><code>import glob</code></pre>
+<p>{: .language-python}</p>
+<p>The <code>glob</code> library contains a function, also called <code>glob</code>, that finds files and directories whose names match a pattern. We provide those patterns as strings: the character <code>*</code> matches zero or more characters, while <code>?</code> matches any one character. We can use this to get the names of all the CSV files in the current directory:</p>
+<pre><code>print(glob.glob('inflammation*.csv'))</code></pre>
+<p>{: .language-python}</p>
+<pre><code>['inflammation-05.csv', 'inflammation-11.csv', 'inflammation-12.csv', 'inflammation-08.csv',
+'inflammation-03.csv', 'inflammation-06.csv', 'inflammation-09.csv', 'inflammation-07.csv',
+'inflammation-10.csv', 'inflammation-02.csv', 'inflammation-04.csv', 'inflammation-01.csv']</code></pre>
+<p>{: .output}</p>
+<p>As these examples show, <code>glob.glob</code>’s result is a list of file and directory paths in arbitrary order. This means we can loop over it to do something with each filename in turn. In our case, the “something” we want to do is generate a set of plots for each file in our inflammation dataset. If we want to start by analyzing just the first three files in alphabetical order, we can use the <code>sorted</code> built-in function to generate a new sorted list from the <code>glob.glob</code> output:</p>
+<pre><code>import numpy
+import matplotlib.pyplot
+
+filenames = sorted(glob.glob('inflammation*.csv'))
+filenames = filenames[0:3]
+for f in filenames:
+    print(f)
+
+    data = numpy.loadtxt(fname=f, delimiter=',')
+
+    fig = matplotlib.pyplot.figure(figsize=(10.0, 3.0))
+
+    axes1 = fig.add_subplot(1, 3, 1)
+    axes2 = fig.add_subplot(1, 3, 2)
+    axes3 = fig.add_subplot(1, 3, 3)
+
+    axes1.set_ylabel('average')
+    axes1.plot(numpy.mean(data, axis=0))
+
+    axes2.set_ylabel('max')
+    axes2.plot(numpy.max(data, axis=0))
+
+    axes3.set_ylabel('min')
+    axes3.plot(numpy.min(data, axis=0))
+
+    fig.tight_layout()
+    matplotlib.pyplot.show()</code></pre>
+<p>{: .language-python}</p>
+<pre><code>inflammation-01.csv</code></pre>
+<p>{: .output}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../fig/03-loop_49_1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Analysis of inflammation-01.csv</figcaption><p></p>
+</figure>
+</div>
+<pre><code>inflammation-02.csv</code></pre>
+<p>{: .output}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../fig/03-loop_49_3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Analysis of inflammation-02.csv</figcaption><p></p>
+</figure>
+</div>
+<pre><code>inflammation-03.csv</code></pre>
+<p>{: .output}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../fig/03-loop_49_5.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Analysis of inflammation-03.csv</figcaption><p></p>
+</figure>
+</div>
+<p>Sure enough, the maxima of the first two data sets show exactly the same ramp as the first, and their minima show the same staircase structure; a different situation has been revealed in the third dataset, where the maxima are a bit less regular, but the minima are consistently zero.</p>
+<blockquote class="blockquote">
+<h2 id="plotting-differences" class="anchored">Plotting Differences</h2>
+<p>Plot the difference between the average of the first dataset and the average of the second dataset, i.e., the difference between the leftmost plot of the first two figures. Hint: Don’t forget that you can use arithmetic operators on arrays of the same size, e.g.&nbsp;A + B, C - D, etc. &gt; ## Solution &gt; ~~~ &gt; import glob &gt; import numpy &gt; import matplotlib.pyplot &gt; &gt; filenames = sorted(glob.glob(’inflammation*.csv’)) &gt; &gt; data0 = numpy.loadtxt(fname=filenames[0], delimiter=‘,’) &gt; data1 = numpy.loadtxt(fname=filenames[1], delimiter=‘,’) &gt; &gt; fig = matplotlib.pyplot.figure(figsize=(10.0, 3.0)) &gt; &gt; matplotlib.pyplot.ylabel(‘Difference in average’) &gt; matplotlib.pyplot.plot(data0.mean(axis=0) - data1.mean(axis=0)) &gt; &gt; fig.tight_layout() &gt; matplotlib.pyplot.show() &gt; ~~~ &gt; {: .language-python} {: .solution} {: .challenge}</p>
+</blockquote>
+<blockquote class="blockquote">
+<h2 id="generate-composite-statistics" class="anchored">Generate Composite Statistics</h2>
+<p>Use each of the files once to generate a dataset containing values averaged over all patients:</p>
+<pre><code>filenames = glob.glob('inflammation*.csv')
+composite_data = numpy.zeros((60,40))
+for f in filenames:
+    # sum each new file's data into composite_data as it's read
+    #
+# and then divide the composite_data by number of samples
+composite_data /= len(filenames)</code></pre>
+<p>{: .language-python}</p>
+<p>Then use pyplot to generate average, max, and min for all patients.</p>
+<blockquote class="blockquote">
+<h2 id="solution" class="anchored">Solution</h2>
+<pre><code>import glob
+import numpy
+import matplotlib.pyplot
+
+filenames = glob.glob('inflammation*.csv')
+composite_data = numpy.zeros((60,40))
+
+for f in filenames:
+    data = numpy.loadtxt(fname = f, delimiter=',')
+    composite_data += data
+
+composite_data/=len(filenames)
+
+fig = matplotlib.pyplot.figure(figsize=(10.0, 3.0))
+
+axes1 = fig.add_subplot(1, 3, 1)
+axes2 = fig.add_subplot(1, 3, 2)
+axes3 = fig.add_subplot(1, 3, 3)
+
+axes1.set_ylabel('average')
+axes1.plot(numpy.mean(composite_data, axis=0))
+
+axes2.set_ylabel('max')
+axes2.plot(numpy.max(composite_data, axis=0))
+
+axes3.set_ylabel('min')
+axes3.plot(numpy.min(composite_data, axis=0))
+
+fig.tight_layout()
+
+matplotlib.pyplot.show()</code></pre>
+<p>{: .language-python} {: .solution} {: .challenge}</p>
+</blockquote>
+</blockquote>
+<p>{% include links.md %}</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
