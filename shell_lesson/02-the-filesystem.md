@@ -39,10 +39,11 @@ $ cd untrimmed_fastq
 
 What if we want to move back up and out of this directory and to our top level directory? Can we type `cd shell_data`? Try it and see what happens.
 
+Command:
 ```bash
 $ cd shell_data
 ```
-
+Output:
 ```output
 -bash: cd: shell_data: No such file or directory
 ```
@@ -57,32 +58,30 @@ $ cd ..
 
 Now we can use `pwd` to make sure that we are in the directory we intended to navigate to, and `ls` to check that the contents of the directory are correct.
 
+Command:
 ```bash
 $ pwd
 ```
-
+Output:
 ```output
 /home/dcuser/shell_data
 ```
-
+Command:
 ```bash
 $ ls
 ```
-
+Output:
 ```output
 sra_metadata  untrimmed_fastq
 ```
 
 From this output, we can see that `..` did indeed take us back one level in our file system.
+You can chain these together like so prints the contents of `/home`.
 
-You can chain these together like so:
-
+Command:
 ```bash
 $ ls ../../
 ```
-
-prints the contents of `/home`.
-
 
 ## Exercise
 
@@ -102,10 +101,11 @@ $ --help ls
 
 The `-a` option is short for `all` and says that it causes `ls` to "not ignore entries starting with ." This is the option we want.
 
+Command:
 ```bash
 $ ls -a
 ```
-
+Output:
 ```output
 .  ..  .hidden	sra_metadata  untrimmed_fastq
 ```
@@ -115,26 +115,22 @@ The name of the hidden directory is `.hidden`. We can navigate to that directory
 ```bash
 $ cd .hidden
 ```
-
 And then list the contents of the directory using `ls`.
-
+Command:
 ```bash
 $ ls
 ```
-
+Output:
 ```output
 youfoundit.txt
 ```
 
-The name of the text file is `youfoundit.txt`.
-
-In most commands the flags can be combined together in no particular order to obtain the desired results/output.
+The name of the text file is `youfoundit.txt`. In most commands the flags can be combined together in no particular order to obtain the desired results/output.
 
 ```
 $ ls -Fa
 $ ls -laF
 ``` 
-
 
 ## Examining the contents of other directories
 
@@ -145,17 +141,15 @@ $ cd
 ```
 
 Then enter the command:
-
 ```bash
 $ ls shell_data
 ```
-
+Output:
 ```output
 sra_metadata  untrimmed_fastq
 ```
 
 This will list the contents of the `shell_data` directory without you needing to navigate there.
-
 The `cd` command works in a similar way.
 
 Try entering:
@@ -176,12 +170,12 @@ the intermediate directory.
 Navigate to your home directory. From there, list the contents of the `untrimmed_fastq` directory.
 
 **Solution**
-
+Command:
 ```bash
 $ cd
 $ ls shell_data/untrimmed_fastq/
 ```
-
+Output:
 ```output
 SRR097977.fastq  SRR098026.fastq 
 ```
@@ -190,13 +184,12 @@ SRR097977.fastq  SRR098026.fastq
 
 The `cd` command takes an argument which is a directory name. Directories can be specified using either a *relative* path or a full *absolute* path. The directories on the computer are arranged into a hierarchy. The full path tells you where a directory is in that hierarchy. Navigate to the home directory, then enter the `pwd` command.
 
+Command:
 ```bash
 $ cd  
 $ pwd  
 ```
-
 You will see:
-
 ```output
 /home/dcuser
 ```
@@ -208,13 +201,11 @@ Now enter the following command:
 ```bash
 $ cd /home/dcuser/shell_data/.hidden
 ```
-
 This jumps forward multiple levels to the `.hidden` directory. Now go back to the home directory.
 
 ```bash
 $ cd
 ```
-
 You can also navigate to the `.hidden` directory using:
 
 ```bash
