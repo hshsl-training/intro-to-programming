@@ -13,12 +13,22 @@ editor: source
 css: styles.css
 ---
 
+## Course Description: 
+
+Intro to the shell
+In this lesson, you will be learning about the command line, also known as the shell, terminal, bash, etc. You will learn concepts essential for using the command line for bioinformatics, such as navigating the file system, computationally manipulating your files (including copying, moving, and renaming), searching files, redirecting output, and writing shell scripts.
+  
+Intro to R and RStudio
+In this lesson, you will be learning about R and how it is used for data science and bioinformatics. You will learn about R syntax, data types, and how to set up and use RStudio – a powerful and convenient environment in which to work with R. You will also be introduced to the popular Tidyverse collection of packages for data wrangling and visualization.
+
+Intro to Python
+In this lesson, you will be learning about Python and how it is used for data science and bioinformatics. You will learn Python syntax and package management, using both a text editor and Jupyter notebooks to write and execute Python code. 
 ## Here's some interesting information and also some learning objectives and stuff like that.
 
-| Week | Topic                     |
+| Date | Topic                     |
 |------|---------------------------|
-| 1    | Intro to the Command Line |
-| 2    | R and RStudio             |
-| 3    | Python                    |
+| October 5th, 2023    | Intro to the Command Line |
+| October 12th, 2023   | R and RStudio             |
+| October 19th, 2023   | Python                    |
 
-: Schedule
+
