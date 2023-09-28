@@ -90,10 +90,11 @@ This capability is called a `command flag`. Some of the tar command operations a
 
 To uncompress the data files for this lesson you need to excecute the following command: 
 
+Command:
 ```bash
 tar -xvf shell_data.tar.gz
 ```
-
+Output:
 ```output
 file1.txt
 file2.txt
@@ -113,20 +114,22 @@ Let's find out where we are by running a command called `pwd` (which stands for 
 At any moment, our **current working directory** is our current default directory,
 i.e., the directory that the computer assumes we want to run commands in, unless we explicitly specify something else.
 
+Command:
 ```bash
 $ pwd
 ```
-
+Output:
 ```output
 TODO
 ```
 
 Let's look at how our file system is organized. We can see what files and subdirectories are in this directory by running `ls`, which stands for "listing":
 
+Command:
 ```bash
 $ ls
 ```
-
+Output:
 ```output
 TODO
 ```
@@ -137,16 +140,18 @@ The command to change locations in our file system is `cd`, followed by a direct
 
 Let's say we want to navigate to the `shell_data` directory we saw above. We can use the following command to get there:
 
+Command:
 ```bash
 $ cd shell_data
 ```
 
 Let's look at what is in this directory:
 
+Command:
 ```bash
 $ ls
 ```
-
+Output:
 ```output
 sra_metadata  untrimmed_fastq
 ```
@@ -154,10 +159,11 @@ sra_metadata  untrimmed_fastq
 We can make the `ls` output more comprehensible by using the **flag** `-F`,
 which tells `ls` to add a trailing `/` to the names of directories:
 
+Command:
 ```bash
 $ ls -F
 ```
-
+Output:
 ```output
 sra_metadata/  untrimmed_fastq/
 ```
@@ -170,8 +176,7 @@ To find out what they are, we can type:
 $ ls -- help
 ```
 
-`ls -- help` (short for manual) displays detailed documentation (also referred as man page or man file) for `bash` commands. It is a powerful resource to explore `bash` commands, understand their usage and flags. Some manual files are very long. You can scroll through the file using your keyboard's down arrow or use the <kbd>Space</kbd> key to go forward one page and the <kbd>b</kbd> key to go backwards one page. When you are done reading, hit <kbd>q</kbd> to quit.
-
+`ls -- help` displays detailed documentation for commands in`git bash`. It is a powerful resource to explore `bash` commands, understand their usage and flags. Some manual files are very long. You can scroll through the file using your keyboard's down arrow or use the <kbd>Space</kbd> key to go forward one page and the <kbd>b</kbd> key to go backwards one page. When you are done reading, hit <kbd>q</kbd> to quit.
 
 
 ## Exercise
@@ -180,35 +185,31 @@ Use the `-l` option for the `ls` command to display more information for each it
 in the directory. What is one piece of additional information this long format
 gives you that you don't see with the bare `ls` command?
 
+Command:
 ```bash
 $ ls -l
 ```
-
+Output:
 ```output
 total 8
 drwxr-x--- 2 dcuser dcuser 4096 Jul 30  2015 sra_metadata
 drwxr-xr-x 2 dcuser dcuser 4096 Nov 15  2017 untrimmed_fastq
 ```
 
-The additional information given includes the name of the owner of the file,
-when the file was last modified, and whether the current user has permission
-to read and write to the file.
+The additional information given includes the name of the owner of the file, when the file was last modified, and whether the current user has permission to read and write to the file.
 
 ::: {.callout-note}
-
-No one can possibly learn all of these arguments, that's what the manual page
-is for. You can (and should) refer to the manual page or other help files
-as needed.
-
+No one can possibly learn all of these arguments, that's what the manual page is for. You can (and should) refer to the manual page or other help files as needed.
 :::
 
 Let's go into the `untrimmed_fastq` directory and see what is in there.
 
+Command: 
 ```bash
 $ cd untrimmed_fastq
 $ ls -F
 ```
-
+Output:
 ```output
 SRR097977.fastq  SRR098026.fastq
 ```
@@ -218,22 +219,19 @@ This directory contains two files with `.fastq` extensions. FASTQ is a format fo
 
 ## Shortcut: Tab Completion
 
-Typing out file or directory names can waste a lot of time and it's easy to make typing mistakes. Instead we can use tab complete as a shortcut. When you start typing out the name of a directory or file, then hit the <kbd>Tab</kbd> key, the shell will try to fill in the rest of the directory or file name.
+Typing out file or directory names can waste a lot of time and it's easy to make typing mistakes.Instead we can use tab complete as a shortcut. When you start typing out the name of a directory or file, then hit the <kbd>Tab</kbd> key, the shell will try to fill in the rest of the directory or file name.
 
 Return to your home directory:
 
+Command: 
 ```bash
 $ cd
 ```
-
 then enter:
-
 ```bash
 $ cd she<tab>
 ```
-
-The shell will fill in the rest of the directory name for
-`shell_data`.
+The shell will fill in the rest of the directory name for `shell_data`.
 
 Now change directories to `untrimmed_fastq` in `shell_data`
 
@@ -244,8 +242,7 @@ $ cd untrimmed_fastq
 
 Using tab complete can be very helpful. However, it will only autocomplete a file or directory name if you've typed enough characters to provide a unique identifier for the file or directory you are trying to access.
 
-For example, if we now try to list the files which names start with `SR`
-by using tab complete:
+For example, if we now try to list the files which names start with `SR` by using tab complete:
 
 ```bash
 $ ls SR<tab>
@@ -253,20 +250,22 @@ $ ls SR<tab>
 
 The shell auto-completes your command to `SRR09`, because all file names in the directory begin with this prefix. When you hit <kbd>Tab</kbd> again, the shell will list the possible choices.
 
+Command:
 ```bash
 $ ls SRR09<tab><tab>
 ```
-
+Output:
 ```output
 SRR097977.fastq  SRR098026.fastq
 ```
 
 Tab completion can also fill in the names of programs, which can be useful if you remember the beginning of a program name.
 
+Command:
 ```bash
 $ pw<tab><tab>
 ```
-
+Output:
 ```output
 pwck      pwconv    pwd       pwdx      pwunconv
 ```
