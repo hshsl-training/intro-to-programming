@@ -246,7 +246,7 @@ $ ls ~
 ```
 
 ```output
-R  r_data  shell_data
+TODO 
 ```
 
 This prints the contents of your home directory, without you needing to type the full path.
