@@ -154,8 +154,7 @@ $ ls shell_data
 sra_metadata  untrimmed_fastq
 ```
 
-This will list the contents of the `shell_data` directory without
-you needing to navigate there.
+This will list the contents of the `shell_data` directory without you needing to navigate there.
 
 The `cd` command works in a similar way.
 
@@ -186,7 +185,6 @@ $ ls shell_data/untrimmed_fastq/
 ```output
 SRR097977.fastq  SRR098026.fastq 
 ```
-
 
 ## Full vs. Relative Paths
 
@@ -230,30 +228,6 @@ A relative path is like getting directions from someone on the street. They tell
 You can usually use either a full path or a relative path depending on what is most convenient. If we are in the home directory, it is more convenient to enter the full path. If we are in the working directory, it is more convenient to enter the relative path since it involves less typing.
 
 Over time, it will become easier for you to keep a mental note of the structure of the directories that you are using and how to quickly navigate amongst them.
-
-
-## Exercise
-
-**Relative path resolution**
-
-Using the filesystem diagram below, if `pwd` displays `/Users/thing`,
-what will `ls ../backup` display?
-
-1. `../backup: No such file or directory`
-2. `2012-12-01 2013-01-08 2013-01-27`
-3. `2012-12-01/ 2013-01-08/ 2013-01-27/`
-4. `original pnas_final pnas_sub`
-
-![](fig/filesystem-challenge.svg){alt='File System for Challenge Questions'}
-
-**Solutions**
-
-1. No: there *is* a directory `backup` in `/Users`.
-2. No: this is the content of `Users/thing/backup`,
-  but with `..` we asked for one level further up.
-1. No: see previous explanation.
-  Also, we did not specify `-F` to display `/` at the end of the directory names.
-1. Yes: `../backup` refers to `/Users/backup`.
 
 
 ## Navigational Shortcuts
