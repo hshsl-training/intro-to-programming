@@ -154,8 +154,7 @@ $ ls shell_data
 sra_metadata  untrimmed_fastq
 ```
 
-This will list the contents of the `shell_data` directory without
-you needing to navigate there.
+This will list the contents of the `shell_data` directory without you needing to navigate there.
 
 The `cd` command works in a similar way.
 
@@ -186,7 +185,6 @@ $ ls shell_data/untrimmed_fastq/
 ```output
 SRR097977.fastq  SRR098026.fastq 
 ```
-
 
 ## Full vs. Relative Paths
 
@@ -232,30 +230,6 @@ You can usually use either a full path or a relative path depending on what is m
 Over time, it will become easier for you to keep a mental note of the structure of the directories that you are using and how to quickly navigate amongst them.
 
 
-## Exercise
-
-**Relative path resolution**
-
-Using the filesystem diagram below, if `pwd` displays `/Users/thing`,
-what will `ls ../backup` display?
-
-1. `../backup: No such file or directory`
-2. `2012-12-01 2013-01-08 2013-01-27`
-3. `2012-12-01/ 2013-01-08/ 2013-01-27/`
-4. `original pnas_final pnas_sub`
-
-![](fig/filesystem-challenge.svg){alt='File System for Challenge Questions'}
-
-**Solutions**
-
-1. No: there *is* a directory `backup` in `/Users`.
-2. No: this is the content of `Users/thing/backup`,
-  but with `..` we asked for one level further up.
-1. No: see previous explanation.
-  Also, we did not specify `-F` to display `/` at the end of the directory names.
-1. Yes: `../backup` refers to `/Users/backup`.
-
-
 ## Navigational Shortcuts
 
 The root directory is the highest level directory in your file system and contains files that are important for your computer to perform its daily work. While you will be using the root (`/`) at the beginning of your absolute paths, it is important that you avoid working with data in these higher-level directories, as your commands can permanently alter files that the operating system needs to function. In many cases, trying to run commands in `root` directories will require special permissions which are not discussed here, so it's best to avoid them and work within your home directory. Dealing with the `home` directory is very common The tilde character, `~`, is a shortcut for your home directory. In our case, the `root` directory is **two** levels above our `home` directory, so `cd` or `cd ~` will take you to `/home/dcuser` and `cd /` will take you to `/`. Navigate to the `shell_data` directory:
@@ -272,7 +246,7 @@ $ ls ~
 ```
 
 ```output
-R  r_data  shell_data
+TODO 
 ```
 
 This prints the contents of your home directory, without you needing to type the full path.
