@@ -118,20 +118,12 @@ Command:
 ```bash
 $ pwd
 ```
-Output:
-```output
-TODO
-```
 
 Let's look at how our file system is organized. We can see what files and subdirectories are in this directory by running `ls`, which stands for "listing":
 
 Command:
 ```bash
 $ ls
-```
-Output:
-```output
-TODO
 ```
 
 `ls` prints the names of the files and directories in the current directory in alphabetical order, arranged neatly into columns. We'll be working within the `shell_data` subdirectory, and creating new subdirectories, throughout this workshop.
@@ -173,10 +165,10 @@ Anything with a "/" after it is a directory. Things with a "\*" after them are p
 To find out what they are, we can type:
 
 ```bash
-$ ls -- help
+$ ls --help
 ```
 
-`ls -- help` displays detailed documentation for commands in`git bash`. It is a powerful resource to explore `bash` commands, understand their usage and flags. Some manual files are very long. You can scroll through the file using your keyboard's down arrow or use the <kbd>Space</kbd> key to go forward one page and the <kbd>b</kbd> key to go backwards one page. When you are done reading, hit <kbd>q</kbd> to quit.
+`ls --help` displays detailed documentation for commands in`git bash`. It is a powerful resource to explore `bash` commands, understand their usage and flags. Some manual files are very long. You can scroll through the file using your keyboard's down arrow or use the <kbd>Space</kbd> key to go forward one page and the <kbd>b</kbd> key to go backwards one page. When you are done reading, hit <kbd>q</kbd> to quit.
 
 
 ## Exercise

@@ -10,6 +10,7 @@ CDABS has modified this lesson to better fit our techonogical capabilities.
 
 ## Lesson Objectives
 
+::: {.callout-note appearance="minimal"}
 **Objectives**
 
 
@@ -24,7 +25,7 @@ CDABS has modified this lesson to better fit our techonogical capabilities.
 - How can I create, copy and delete files and directories?
 - How can I control who has permission to modify a file?
 - How can I repeat recently used commands?
-
+:::
 
 ## Working with Files
 
@@ -40,7 +41,7 @@ have two results files, which are stored in our `untrimmed_fastq` directory.
 Navigate to your `untrimmed_fastq` directory:
 
 ```bash
-$ cd ~/shell_data/untrimmed_fastq
+$ cd shell_data/untrimmed_fastq
 ```
 
 We are interested in looking at the FASTQ files in this directory. We can list all files with the .fastq extension using the command:
@@ -64,8 +65,9 @@ $ ls *977.fastq
 ```output
 SRR097977.fastq
 ```
-
-This command lists every file in `/usr/bin` that ends in the characters `.sh`. Note that the output displays **full** paths to files, since each result starts with `/`.
+Now lest search for files in your root directory. 
+The following command lists every file in `/usr/bin` that ends in the characters `.sh`.
+Note that the output displays **full** paths to files, since each result starts with `/`.
 
 Command:
 ```bash
@@ -88,12 +90,15 @@ Bonus: List all of the files in `/usr/bin` that contain the letter 'a' or the le
 
 Hint: The bonus question requires a Unix wildcard that we haven't talked about yet. Try searching the internet for information about Unix wildcards to find what you need to solve the bonus problem.
 
+::: {.callout-caution collapse="true"}
 **Solution**
 
 1. `ls /usr/bin/c*`
 2. `ls /usr/bin/*a*`
 3. `ls /usr/bin/*o`  
 Bonus: `ls /usr/bin/*[ac]*`
+
+:::
 
 ## Exercise
 
@@ -112,6 +117,7 @@ The `*` is expanded to include any file that ends with `.fastq`. We can see that
 
 What would the output look like if the wildcard could *not* be matched? Compare the outputs of `echo *.missing` and `ls *.missing`.
 
+::: {.callout-caution collapse="true"}
 **Solution**
 
 Command:
@@ -122,7 +128,6 @@ Output:
 ```output
 *.missing
 ```
-
 Command:
 ```bash
 $ ls *.missing
@@ -131,6 +136,8 @@ Output:
 ```output
 ls: cannot access '*.missing': No such file or directory
 ```
+::: 
+
 
 ## Command History
 
