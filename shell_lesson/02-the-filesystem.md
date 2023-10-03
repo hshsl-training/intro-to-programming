@@ -43,8 +43,14 @@ Command:
 ```bash
 $ cd shell_data
 ```
-
-Your computer looked for a directory or file called `shell_data` within the directory you were already in. It didn't know you wanted to look at a directory level above the one you were located in.
+Output:
+*Note: This is an example of what it should display*
+```output
+$ cd cd: shell_data: No such file or directory
+```
+ 
+Your computer looked for a directory or file called `shell_data` within the directory you were already in. 
+It didn't know you wanted to look at a directory level above the one you were located in.
 
 We have a special command to tell the computer to move us back or up one directory level.
 
@@ -116,7 +122,6 @@ Command:
 ```bash
 $ ls
 ```
-
 Output:
 ```output
 youfoundit.txt
@@ -197,8 +202,9 @@ Now lets navigate directly to the `.hidden` folder
 ```bash
 $ cd <write the full path here>
 ```
-This jumps forward multiple levels to the `.hidden` directory. Now go back to the home directory.
+This jumps forward multiple levels to the `.hidden` directory.
 
+Now go back to the home directory.
 ```bash
 $ cd 
 ```
@@ -219,7 +225,7 @@ Over time, it will become easier for you to keep a mental note of the structure 
 
 ## Navigational Shortcuts
 
-The root directory is the highest level directory in your file system and contains files that are important for your computer to perform its daily work. While you will be using the root (`/`) at the beginning of your absolute paths, it is important that you avoid working with data in these higher-level directories, as your commands can permanently alter files that the operating system needs to function. In many cases, trying to run commands in `root` directories will require special permissions which are not discussed here, so it's best to avoid them and work within your home directory. Dealing with the `home` directory is very common The tilde character, `~`, is a shortcut for your home directory.
+The root directory is the highest level directory in your file system and contains files that are important for your computer to perform its daily work. While you will be using the root (`/`) at the beginning of your absolute paths, it is important that you avoid working with data in these higher-level directories, as your commands can permanently alter files that the operating system needs to function. In many cases, trying to run commands in `root` directories will require special permissions which are not discussed here, so it's best to avoid them and work within your home directory. Dealing with the `home` directory is very common. The tilde character, `~`, is a shortcut for your home directory.
 
 Now Navigate to the `shell_data` directory:
 
