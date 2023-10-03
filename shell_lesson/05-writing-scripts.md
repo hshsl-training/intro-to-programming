@@ -1,23 +1,26 @@
 ---
 title: Writing Scripts and Working with Data
-teaching: 20
-exercises: 20
+format: html
+code-copy: true
 ---
 
-::::::::::::::::::::::::::::::::::::::: objectives
+::: {.callout-note appearance="minimal"} 
 
+## Objectives
 - Use the `nano` text editor to modify text files.
 - Write a basic shell script.
 - Use the `bash` command to execute a shell script.
 - Use `chmod` to make a script an executable program.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
-:::::::::::::::::::::::::::::::::::::::: questions
+::: {.callout-note appearance="minimal"} 
+
+## Questions
 
 - How can we automate a commonly used set of commands?
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 ## Writing files
 
@@ -37,7 +40,7 @@ $ nano README.txt
 
 The text at the bottom of the screen shows the keyboard shortcuts for performing various tasks in `nano`. We will talk more about how to interpret this information soon.
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+::: {.callout-note collapse="true"}
 
 ## Which Editor?
 
@@ -62,7 +65,7 @@ your computer's start menu, the editor may want to save files in your desktop or
 documents directory instead. You can change this by navigating to
 another directory the first time you "Save As..."
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 Let's type in a few lines of text. Describe what the files in this
 directory are or what you've been doing with them.
@@ -73,7 +76,7 @@ press <kbd>Return</kbd> to accept the suggested default of `README.txt`.
 Once our file is saved, we can use <kbd>Ctrl</kbd>\-<kbd>X</kbd> to quit the `nano` editor and
 return to the shell.
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+::: {.callout-note}
 
 ## Control, Ctrl, or ^ Key
 
@@ -90,29 +93,29 @@ press the <kbd>X</kbd> key, described as any of:
 - `C-x`
 
 In `nano`, along the bottom of the screen you'll see `^G Get Help ^O WriteOut`.
-This means that you can use <kbd>Ctrl</kbd>\-<kbd>G</kbd> to get help and <kbd>Ctrl</kbd>\-<kbd>O</kbd> to save your
+This means that you can use <kbd>Ctrl</kbd>\+<kbd>G</kbd> to get help and <kbd>Ctrl</kbd>\+<kbd>O</kbd> to save your
 file.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 Now you've written a file. You can take a look at it with `less` or `cat`, or open it up again and edit it with `nano`.
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::: {.callout-tip} 
 
 ## Exercise
 
 Open `README.txt` and add the date to the top of the file and save the file.
 
-:::::::::::::::  solution
+:::: {.callout-caution collapse="true" icon="false"}
 
 ## Solution
 
 Use `nano README.txt` to open the file.  
-Add today's date and then use <kbd>Ctrl</kbd>\-<kbd>X</kbd> followed by `y` and <kbd>Enter</kbd> to save.
+Add today's date and then use <kbd>Ctrl</kbd>\+<kbd>X</kbd> followed by `y` and <kbd>Enter</kbd> to save.
 
-:::::::::::::::::::::::::
+::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 ## Writing scripts
 
@@ -142,7 +145,7 @@ $ bash bad-reads-script.sh
 
 It will look like nothing happened, but now if you look at `scripted_bad_reads.txt`, you can see that there are now reads in the file.
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::: {.callout-tip} 
 
 ## Exercise
 
@@ -151,7 +154,7 @@ We want the script to tell us when it's done.
 1. Open `bad-reads-script.sh` and add the line `echo "Script finished!"` after the `grep` command and save the file.
 2. Run the updated script.
 
-:::::::::::::::  solution
+:::: {.callout-caution collapse="true" icon="false"}
 
 ## Solution
 
@@ -160,16 +163,17 @@ $ bash bad-reads-script.sh
 Script finished!
 ```
 
-:::::::::::::::::::::::::
+::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 
+::: {.callout-note appearance="minimal"}
 
-:::::::::::::::::::::::::::::::::::::::: keypoints
+## Key Points
 
 - Scripts are a collection of commands executed together.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 

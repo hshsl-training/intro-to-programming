@@ -4,21 +4,25 @@ format: html
 code-copy: true
 ---
 
-::::::::::::::::::::::::::::::::::::::: objectives
+::: {.callout-note appearance="minimal"} 
+
+## Objectives
 
 - Employ the `grep` command to search for information within files.
 - Print the results of a command to a file.
 - Construct command pipelines with two or more stages.
 - Use `for` loops to run the same command for several input files.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
-:::::::::::::::::::::::::::::::::::::::: questions
+::: {.callout-note appearance="minimal"} 
+
+## Questions
 
 - How can I search within files?
 - How can I combine existing commands to do new things?
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 ## Searching files
 
@@ -97,7 +101,7 @@ CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ```
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::: {.callout-tip} 
 
 ## Exercise
 
@@ -108,8 +112,8 @@ CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
 2. Search for the sequence `AAGTT` in both FASTQ files.
   Have your search return all matching lines and the name (or identifier) for each sequence
   that contains a match.
-
-:::::::::::::::  solution
+  
+:::: {.callout-caution collapse="true" icon="false"}
 
 ## Solution
 
@@ -148,9 +152,10 @@ SRR098026.fastq-@SRR098026.158 HWUSI-EAS1599_1:2:1:1:1505 length=35
 SRR098026.fastq:GNNNNNNNNCAAAGTTGATCNNNNNNNNNTGTGCG
 ```
 
-:::::::::::::::::::::::::
+::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
+
 
 ## Redirecting output
 
@@ -159,8 +164,7 @@ All of these sequences were printed to our terminal screen, but in order to work
 sequences and perform other operations on them, we will need to capture that output in some
 way.
 
-We can do this with something called "redirection". The idea is that
-we are taking what would ordinarily be printed to the terminal screen and redirecting it to another location.
+We can do this with something called "redirection". The idea is that we are taking what would ordinarily be printed to the terminal screen and redirecting it to another location.
 In our case, we want to print this information to a file so that we can look at it later and
 use other commands to analyze this data.
 
@@ -174,7 +178,7 @@ in our FASTQ files that contain
 $ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
 ```
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+::: {.callout-warning collapse="true"}
 
 ## File extensions
 
@@ -185,7 +189,7 @@ name it with a `.fastq` extension. However, using a `.fastq` extension will lead
 when we move to using wildcards later in this episode. We'll point out where this becomes
 important. For now, it's good that you're thinking about file extensions!
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 The prompt should sit there a little bit, and then it should look like nothing
 happened. But type `ls`. You should see a new file called `bad_reads.txt`.
@@ -216,45 +220,13 @@ $ wc -l bad_reads.txt
 537 bad_reads.txt
 ```
 
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Exercise
-
-How many sequences are there in `SRR098026.fastq`? Remember that every sequence is formed by four lines.
-
-:::::::::::::::  solution
-
-## Solution
-
-```bash
-$ wc -l SRR098026.fastq
-```
-
-```output
-996
-```
-
-Now you can divide this number by four to get the number of sequences in your fastq file.
-
-```bash
-expr 996 / 4
-```
-
-```output
-249
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
+::: {.callout-tip} 
 
 ## Exercise
 
 How many sequences in `SRR098026.fastq` contain at least 3 consecutive Ns?
 
-:::::::::::::::  solution
+:::: {.callout-caution collapse="true" icon="false"}
 
 ## Solution
 
@@ -266,10 +238,9 @@ $ wc -l bad_reads.txt
 ```output
 249 bad_reads.txt
 ```
+::::
+:::
 
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 We might want to search multiple FASTQ files for sequences that match our search pattern.
 However, we need to be careful, because each time we use the `>` command to redirect output
@@ -332,7 +303,7 @@ $ wc -l bad_reads.txt
 537 bad_reads.txt
 ```
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+::: {.callout-note collapse="true"}
 
 ## File extensions - part 2
 
@@ -353,7 +324,7 @@ grep: input file ‘bad_reads.fastq' is also the output
 `grep` call because it matches the `*.fastq` pattern. Be careful with this as it can lead to
 some unintended results.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 Since we might have multiple different criteria we want to search for,
 creating a new output file each time has the potential to clutter up our workspace. We also
@@ -365,7 +336,8 @@ doesn't require us to create these intermediate files - the pipe command (`|`).
 This is probably not a key on
 your keyboard you use very much, so let's all take a minute to find that key.
 In the UK and US keyboard layouts, and several others,
-the `|` character can be found using the key combination <kbd>Shift</kbd>\+<kbd>\</kbd>.
+the `|` character can be found using the key combination <kbd>Shift</kbd> \+ <kbd>\\</kbd> .
+
 This may be different for other language-specific layouts.
 
 What `|` does is take the output that is scrolling by on the terminal and uses that output as input to another command.
@@ -392,8 +364,7 @@ $ echo $((537 / 4))
 ```output
 134
 ```
-
-or bonus - to do this programatically
+or to do this programatically
 
 ```bash
 $ echo $(($(grep -B1 -A2 NNNNNNNNNN *.fastq | wc -l) /4))
@@ -402,14 +373,23 @@ $ echo $(($(grep -B1 -A2 NNNNNNNNNN *.fastq | wc -l) /4))
 ```output
 134
 ```
-:::::::::::::::::::::::::::::::::::::::::  callout
+
+::: {.callout-important}
+
+Unix has a few different ways to do basic arithmetic, one of which we demonstrate here with `echo` and `$((expression))` notation. It's important to know that most built-in Unix utilities do not do floating point arithmetic - that is, calculations will always return an integer. 
+
+If you try `537 / 4` in a calculator you'll get `134.25`. Where does the extra line come from? In this case, there were two sequences that had no Ns and `grep` inserted some additional lines in our file to separate them out. For more information see: the full Data Carpentry [lesson](https://datacarpentry.org/shell-genomics/04-redirection.html#redirecting-output).
+:::
+
+
+::: {.callout-tip}
 
 ## Custom `grep` control
 
 Use `grep --help` (or `man grep` on a Mac) to read more about other options to customize the output of `grep` including extended options,
 anchoring characters, and much more.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 Redirecting output is often not intuitive, and can take some time to get used to. Once you're
 comfortable with redirection, however, you'll be able to combine any number of commands to
@@ -420,13 +400,13 @@ do anything all that impressive on their own, but when you start chaining
 them together, you can do some really powerful things very
 efficiently.
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+::: {.callout-tip}
 
 ## File manipulation and more practices with pipes
 
-To practice a bit more with the tools we've added to our tool kit so far and learn a few extra ones you can follow [this extra lesson](Extra_lesson.md) which uses the SRA metadata file.
+To practice a bit more with the tools we've added to our tool kit so far and learn a few extra ones you can follow [this extra lesson](https://datacarpentry.org/shell-genomics/Extra_lesson.html) which uses the SRA metadata file.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 ## Writing `for` loops
 
@@ -476,7 +456,20 @@ $ echo today is ${day}day      # now it works!
 today is Thursday
 ```
 
-Let's write a for loop to show us the first two lines of the fastq files we downloaded earlier. You will notice the shell prompt changes from `$` to `>` and back again as we were typing in our loop. The second prompt, `>`, is different to remind us that we haven't finished typing a complete command yet. A semicolon, `;`, can be used to separate two commands written on a single line.
+Let's write a for loop to show us the first two lines of the fastq files we downloaded earlier. 
+
+The basic template of a for loop is 
+
+::: {.callout-note appearance="minimal"}
+```
+for <variable> in <group to iterate over>
+  do
+    <line or lines of code involving the variable>
+done
+```
+:::
+
+So now let's try it
 
 ```bash
 $ cd ../untrimmed_fastq/
@@ -489,11 +482,15 @@ $ for filename in *.fastq
 > done
 ```
 
-The for loop begins with the formula `for <variable> in <group to iterate over>`. In this case, the word `filename` is designated
+You will notice the shell prompt changes from `$` to `>` and back again as we were typing in our loop. The second prompt, `>`, is different to remind us that we haven't finished typing a complete command yet. A semicolon, `;`, can be used to separate two commands written on a single line.
+
+In this case, the word `filename` is designated
 as the variable to be used over each iteration. In our case `SRR097977.fastq` and `SRR098026.fastq` will be substituted for `filename`
-because they fit the pattern of ending with .fastq in the directory we've specified. The next line of the for loop is `do`. The next line is
-the code that we want to execute. We are telling the loop to print the first two lines of each variable we iterate over. Finally, the
-word `done` ends the loop.
+because they fit the pattern of ending with .fastq in the directory we've specified. The next line of the for loop is `do`.
+
+The next line is the code that we want to execute. We are telling the loop to print the first two lines of each variable we iterate over. 
+
+Finally, the word `done` ends the loop.
 
 After executing the loop, you should see the first two lines of both fastq files printed to the terminal. Let's create a loop that
 will save this information to a file.
@@ -514,6 +511,7 @@ If you notice a mistake that is going to prevent your loop for executing correct
 Note that we are using `>>` to append the text to our `seq_info.txt` file. If we used `>`, the `seq_info.txt` file would be rewritten
 every time the loop iterates, so it would only have text from the last variable used. Instead, `>>` adds to the end of the file.
 
+::: {.callout-note collapse="true"}
 ## Using Basename in for loops
 
 Basename is a function in UNIX that is helpful for removing a uniform part of a name from a list of files. In this case, we will use basename to remove the `.fastq` extension from the files that we've been working with.
@@ -550,13 +548,13 @@ $ for filename in *.fastq
 > done
 ```
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+:::: {.callout-note}
 
 ## Exercise
 
 Print the file prefix of all of the `.txt` files in our current directory.
 
-:::::::::::::::  solution
+::::: {.callout-caution collapse="true" icon="false"}
 
 ## Solution
 
@@ -567,12 +565,11 @@ $ for filename in *.txt
 > echo ${name}
 > done
 ```
+:::::
+::::
 
-:::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-One way this is really useful is to move files. Let's rename all of our .txt files using `mv` so that they have the years on them, which will document when we created them.
+One way this is really useful is to move files. Let's rename all of our `.txt` files using `mv` so that they have the years on them, which will document when we created them.
 
 ```bash
 $ for filename in *.txt
@@ -581,14 +578,16 @@ $ for filename in *.txt
 > mv ${filename}  ${name}_2019.txt
 > done
 ```
+:::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+
+::: {.callout-note}
 
 ## Exercise
 
 Remove `_2019` from all of the `.txt` files.
 
-:::::::::::::::  solution
+:::: {.callout-caution collapse="true" icon="false"}
 
 ## Solution
 
@@ -599,12 +598,13 @@ $ for filename in *_2019.txt
 > mv ${filename} ${name}.txt
 > done
 ```
+::::
 
-:::::::::::::::::::::::::
+:::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+::: {.callout-note appearance="minimal"} 
 
-:::::::::::::::::::::::::::::::::::::::: keypoints
+## Key points
 
 - `grep` is a powerful search tool with many options for customization.
 - `>`, `>>`, and `|` are different ways of redirecting output.
@@ -614,6 +614,6 @@ $ for filename in *_2019.txt
 - `for` loops are used for iteration.
 - `basename` gets rid of repetitive parts of names.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 
