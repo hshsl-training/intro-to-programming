@@ -1,23 +1,26 @@
 ---
 title: Project Organization
-teaching: 15
-exercises: 15
+format: html
+code-copy: true
 ---
 
-::::::::::::::::::::::::::::::::::::::: objectives
+::: {.callout-note appearance="minimal"} 
+## Objectives
 
 - Create a file system for a bioinformatics project.
 - Explain what types of files should go in your `docs`, `data`, and `results` directories.
 - Use the `history` command and a text editor like `nano` to document your work on your project.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
-:::::::::::::::::::::::::::::::::::::::: questions
+::: {.callout-note appearance="minimal"} 
+
+## Questions
 
 - How can I organize my file system for a new bioinformatics project?
 - How can I document my work?
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 ## Getting your project started
 
@@ -71,16 +74,16 @@ You should see the output:
 /home/<your username here> 
 ```
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+::: {.callout-tip}
 
 ### Tip
 
 If you aren't in your home directory, the easiest way to get there is to enter the command `cd`, which
 always returns you to home.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::: {.callout-tip}
 
 ### Exercise
 
@@ -91,9 +94,9 @@ Use the `mkdir` command to make the following directories:
 - `my_project/data`
 - `my_project/results`
 
-:::::::::::::::  solution
+:::: {.callout-caution collapse="true" icon="false"}
 
-### Solution
+## Solution
 
 ```bash
 $ mkdir my_project
@@ -102,16 +105,16 @@ $ mkdir my_project/data
 $ mkdir my_project/results
 ```
 
-:::::::::::::::::::::::::
+::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 Use `ls -R` to verify that you have created these directories. The `-R` option for `ls` stands for recursive. This option causes
 `ls` to return the contents of each subdirectory within the directory
 iteratively.
 
 ```bash
-$ ls -R dc_workshop
+$ ls -R my_project
 ```
 
 You should see the following output:
@@ -120,11 +123,9 @@ You should see the following output:
 my_project/:
 data  docs  results
 
-my_project/data:
-
-my_project/docs:
-
-my_project/results: 
+my_project/data
+my_project/docs
+my_project/results 
 ```
 
 ## Organizing your files
@@ -139,7 +140,7 @@ your data that you never modify guarantees that you will always be
 able to start over if something goes wrong with your analysis. When
 starting any analysis, you can make a copy of your raw data file and
 do your manipulations on that file, rather than the raw version. We
-learned in [a previous episode](https://datacarpentry.org/shell-genomics/03-working-with-files#file-permissions) how to prevent overwriting our raw data
+learned in [a previous episode](03-working-with-files-part02#file-permissions) how to prevent overwriting our raw data
 files by setting restrictive file permissions.
 
 You can store any results that are generated from your analysis in
@@ -180,7 +181,7 @@ View the last n lines of your history (where n = approximately the last few line
 $ history | tail -n 7
 ```
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::: {.callout-tip} 
 
 ### Exercise
 
@@ -188,7 +189,7 @@ Using your knowledge of the shell, use the append redirect `>>` to create a file
 `my_project_log_XXXX_XX_XX.sh` (Use the four-digit year, two-digit month, and two digit day, e.g.
 `my_project_log_2023-10-05.sh`)
 
-:::::::::::::::  solution
+:::: {.callout-caution collapse="true" icon="false"}
 
 ### Solution
 
@@ -198,46 +199,46 @@ $ history | tail -n 7 >> my_project_log_2023-10-05.sh
 
 Note we used the last 7 lines as an example, the number of lines may vary.
 
-:::::::::::::::::::::::::
+::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 You may have noticed that your history contains the `history` command itself. To remove this redundancy
 from our log, let's use the `nano` text editor to fix the file:
 
 ```bash
-$ nano my_project_log_2017_10_27.sh
+$ nano my_project_log_2023-10-05.sh
 ```
 
-(Remember to replace the `2017_10_27` with your workshop date.)
+(Remember to replace the `2023-10-05` with the actual date.)
 
 From the `nano` screen, you can use your cursor to navigate, type, and delete any redundant lines.
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+::: {.callout-note collapse="true"}
 
 ### Navigating in Nano
 
 Although `nano` is useful, it can be frustrating to edit documents, as you
 can't use your mouse to navigate to the part of the document you would like to edit.
 Here are some useful keyboard shortcuts for moving around within a text document in
-`nano`. You can find more information by typing <kbd>Ctrl</kbd>\-<kbd>G</kbd> within `nano`.
+`nano`. You can find more information by typing <kbd>Ctrl</kbd>\+<kbd>G</kbd> within `nano`.
 
 | key   | action                                       | 
 | ----- | -------------------------------------------- |
-| <kbd>Ctrl</kbd>\-<kbd>Space</kbd> OR <kbd>Ctrl</kbd>\-<kbd>→</kbd>  | to move forward one word                     | 
-| <kbd>Alt</kbd>\-<kbd>Space</kbd> OR <kbd>Esc</kbd>\-<kbd>Space</kbd> OR <kbd>Ctrl</kbd>\-<kbd>←</kbd>   | to move back one word                        | 
-| <kbd>Ctrl</kbd>\-<kbd>A</kbd>  | to move to the beginning of the current line | 
-| <kbd>Ctrl</kbd>\-<kbd>E</kbd>  | to move to the end of the current line       | 
-| <kbd>Ctrl</kbd>\-<kbd>W</kbd>  | to search                                    | 
+| <kbd>Ctrl</kbd>\+<kbd>Space</kbd> OR <kbd>Ctrl</kbd>\+<kbd>→</kbd>  | to move forward one word                     | 
+| <kbd>Alt</kbd>\+<kbd>Space</kbd> OR <kbd>Esc</kbd>\+<kbd>Space</kbd> OR <kbd>Ctrl</kbd>\+<kbd>←</kbd>   | to move back one word                        | 
+| <kbd>Ctrl</kbd>\+<kbd>A</kbd>  | to move to the beginning of the current line | 
+| <kbd>Ctrl</kbd>\+<kbd>E</kbd>  | to move to the end of the current line       | 
+| <kbd>Ctrl</kbd>\+<kbd>W</kbd>  | to search                                    | 
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 Add a date line and comment to the line where you have created the directory. Recall that any
 text on a line after a `#` is ignored by bash when evaluating the text as code. For example:
 
 ```bash
-# 2017_10_27   
-# Created sample directories for the Data Carpentry workshop  
+# 2023-10-05 
+# Created sample directories for the Unix workshop
 ```
 
 Next, remove any lines of the history that are not relevant by navigating to those lines and using your
@@ -246,41 +247,42 @@ delete key. Save your file and close `nano`.
 Your file should look something like this:
 
 ```output
-# 2017_10_27
-# Created sample directories for the Data Carpentry workshop
+# 2023-10-05 
+# Created sample directories for the Unix workshop
 
-mkdir dc_workshop
-mkdir dc_workshop/docs
-mkdir dc_workshop/data
-mkdir dc_workshop/results
+mkdir my_project
+mkdir my_project/docs
+mkdir my_project/data
+mkdir my_project/results
 ```
 
 If you keep this file up to date, you can use it to re-do your work on your project if something happens to your results files. To demonstrate how this works, first delete
-your `dc_workshop` directory and all of its subdirectories. Look at your directory
+your `my_project` directory and all of its subdirectories. Look at your directory
 contents to verify the directory is gone.
 
 ```bash
-$ rm -r dc_workshop
+$ rm -r my_project
 $ ls
 ```
 
 ```output
-shell_data	dc_workshop_log_2017_10_27.sh
+shell_data	my_project_2023-10-05.sh
 ```
 
-Then run your workshop log file as a bash script. You should see the `dc_workshop`
+Then run your workshop log file as a bash script. You should see the `my_project`
 directory and all of its subdirectories reappear.
 
 ```bash
-$ bash dc_workshop_log_2017_10_27.sh
+$ bash my_project_log_2023-10-05.sh
 $ ls
 ```
 
 ```output
-shell_data	dc_workshop dc_workshop_log_2017_10_27.sh
+shell_data	my_project
+my_project_log_2023-10-05.sh
 ```
 
-It's important that we keep our workshop log file outside of our `dc_workshop` directory
+It's important that we keep our workshop log file outside of our `my_project` directory
 if we want to use it to recreate our work. It's also important for us to keep it up to
 date by regularly updating with the commands that we used to generate our results files.
 
@@ -289,19 +291,18 @@ projects. You now know how to navigate your file system, create, copy, move,
 and remove files and directories, and automate repetitive tasks using scripts and
 wildcards. With this solid foundation, you're ready to move on to apply all of these new
 skills to carrying out more sophisticated bioinformatics
-analysis work. Don't worry if everything doesn't feel perfectly comfortable yet. We're
-going to have many more opportunities for practice as we move forward on our
-bioinformatics journey!
+analysis work. Don't worry if everything doesn't feel perfectly comfortable yet. Practice makes perfect! Get in the habit of applying your new skills to your real work whenever you can.
 
-### References
+## References
 
 [A Quick Guide to Organizing Computational Biology Projects](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
 
-:::::::::::::::::::::::::::::::::::::::: keypoints
+::: {.callout-note appearance="minimal"} 
 
+## Key Points
 - Spend the time to organize your file system when you start a new project. Your future self will thank you!
 - Always save a write-protected copy of your raw data.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 
