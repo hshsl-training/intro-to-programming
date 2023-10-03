@@ -7,13 +7,10 @@ code-copy: true
 All text and materials in these workshops comes from the Data Carpentries. More especifically this lesson follows the Data Carpentries lesson "[Introduction to the Command Line for Genomics](https://datacarpentry.org/shell-genomics/)". 
 
 CDABS has modified this lesson to better fit our techonogical capabilities.
-
-## Lesson Objectives
+:::
 
 ::: {.callout-note appearance="minimal"}
 **Objectives**
-
-
 - View, search within, copy, move, and rename files. Create new directories.
 - Use wildcards (`*`) to perform operations on multiple files.
 - Make a file read only.
@@ -31,10 +28,7 @@ CDABS has modified this lesson to better fit our techonogical capabilities.
 
 ### Our data set: FASTQ files
 
-Now that we know how to navigate around our directory structure, let's
-start working with our sequencing files. We did a sequencing experiment and
-have two results files, which are stored in our `untrimmed_fastq` directory.
-
+Now that we know how to navigate around our directory structure, let's start working with our sequencing files. We did a sequencing experiment and have two results files, which are stored in our `untrimmed_fastq` directory.
 
 ### Wildcards
 
@@ -97,12 +91,11 @@ Hint: The bonus question requires a Unix wildcard that we haven't talked about y
 2. `ls /usr/bin/*a*`
 3. `ls /usr/bin/*o`  
 Bonus: `ls /usr/bin/*[ac]*`
-
 :::
 
 ## Exercise
 
-`echo` is a built-in shell command that writes its arguments, like a line of text to standard output The `echo` command can also be used with pattern matching characters, such as wildcard characters. Here we will use the `echo` command to see how the wildcard character is interpreted by the shell.
+`echo` is a built-in shell command that writes its arguments, like a line of text to standard output. The `echo` command can also be used with pattern matching characters, such as wildcard characters. Here we will use the `echo` command to see how the wildcard character is interpreted by the shell.
 
 Command:
 ```bash
@@ -115,7 +108,8 @@ SRR097977.fastq SRR098026.fastq
 
 The `*` is expanded to include any file that ends with `.fastq`. We can see that the output of `echo *.fastq` is the same as that of `ls *.fastq`.
 
-What would the output look like if the wildcard could *not* be matched? Compare the outputs of `echo *.missing` and `ls *.missing`.
+What would the output look like if the wildcard could *not* be matched? 
+Compare the outputs of `echo *.missing` and `ls *.missing`.
 
 ::: {.callout-caution collapse="true"}
 **Solution**
@@ -133,11 +127,11 @@ Command:
 $ ls *.missing
 ```
 Output:
+*Note: This is an example of what it should display*
 ```output
 ls: cannot access '*.missing': No such file or directory
 ```
 ::: 
-
 
 ## Command History
 
@@ -145,10 +139,8 @@ If you want to repeat a command that you've run recently, you can access previou
 
 A few more useful shortcuts:
 
-- <kbd>Ctrl</kbd>\+<kbd>C</kbd> will cancel the command you are writing, and give you a
-  fresh prompt.
-- <kbd>Ctrl</kbd>\+<kbd>R</kbd> will do a reverse-search through your command history.  This
-  is very useful.
+- <kbd>Ctrl</kbd>\+<kbd>C</kbd> will cancel the command you are writing, and give you a fresh prompt.
+- <kbd>Ctrl</kbd>\+<kbd>R</kbd> will do a reverse-search through your command history.  This is very useful.
 - <kbd>Ctrl</kbd>\+<kbd>L</kbd> or the `clear` command will clear your screen.
 
 You can also review your recent commands with the `history` command, by entering:
@@ -156,8 +148,7 @@ You can also review your recent commands with the `history` command, by entering
 ```bash
 $ history
 ```
-to see a numbered list of recent commands. You can reuse one of these commands
-directly by referring to the number of that command.
+to see a numbered list of recent commands. You can reuse one of these commands directly by referring to the number of that command.
 
 For example, if your history looked like this:
 
@@ -178,10 +169,11 @@ Type `!` (exclamation point) and then the number of the command from your histor
 
 Find the line number in your history for the command that listed all the .sh files in `/usr/bin`. Rerun that command.
 
+::: {.callout-caution collapse="true"}
 **Solution**
 
 First type `history`. Then use `!` followed by the line number to rerun that command.
-
+:::
 
 ## Examining Files
 
@@ -203,12 +195,12 @@ This will print out all of the contents of the `SRR098026.fastq` to the screen.
    
 2. From your home directory, and without changing directories, use one short command to print the contents of all of the files in the `~/shell_data/untrimmed_fastq` directory.
 
-
+::: {.callout-caution collapse="true"}
 **Solution**
 
 1. The last line of the file is `C:CCC::CCCCCCCC<8?6A:C28C<608'&&&,'$`.
 2. `cat ~/shell_data/untrimmed_fastq/*`
-
+:::
 
 `cat` is a terrific program, but when the file is really big, it can be annoying to use. The program, `less`, is useful for this case. `less` opens the file as read only, and lets you navigate through it. The navigation commands are identical to the `--help` program.
 
@@ -241,10 +233,10 @@ For instance, let's search forward for the sequence `TTTTT` in our file. You can
 
 What are the next three nucleotides (characters) after the first instance of the sequence quoted above?
 
+::: {.callout-caution collapse="true"}
 **Solution**
-
 `CAC`
-
+::: 
 Remember, the `--help` program actually uses `less` internally and therefore uses the same commands, so you can search documentation using "/" as well!
 
 There's another way that we can look at files, and in this case, just look at part of them. This can be particularly useful if we just want to see the beginning or end of the file, or see how it's formatted.
@@ -303,3 +295,9 @@ Output:
 ```output
 A!@B!BBB@ABAB#########!!!!!!!######
 ```
+
+**Lesson Keypoints**
+
+- You can view file contents using less, `cat`, `head` or `tail`.
+- The `history` command and the up arrow on your keyboard can be used to repeat recently used commands.
+- Using `echo` for The `echo`  pattern matching characters, and for printing stuff in the terminal. 
