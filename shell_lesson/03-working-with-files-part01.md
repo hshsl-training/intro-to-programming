@@ -11,9 +11,7 @@ CDABS has modified this lesson to better fit our techonogical capabilities.
 
 ::: {.callout-note appearance="minimal"}
 **Objectives**
-- View, search within, copy, move, and rename files. Create new directories.
 - Use wildcards (`*`) to perform operations on multiple files.
-- Make a file read only.
 - Use the `history` command to view and repeat recently used commands.
 
 **Questions to be answered in this lesson**
