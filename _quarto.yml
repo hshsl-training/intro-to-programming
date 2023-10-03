@@ -28,10 +28,10 @@ website:
       - "shell_lesson/01-introduction.md"
       - "shell_lesson/02-the-filesystem.md"
       - "shell_lesson/03-working-with-files-part01.md"
-      - "shell_lesson/03-working-with-files-part01.md"
-      - "shell_lesson/04-redirection.md"
-      - "shell_lesson/05-writing-scripts.md"
-      - "shell_lesson/06-organization.md"
+      - "shell_lesson/04-working-with-files-part01.md"
+      - "shell_lesson/05-redirection.md"
+      - "shell_lesson/06-writing-scripts.md"
+      - "shell_lesson/07-organization.md"
 
     - id: r
       title: "R"
