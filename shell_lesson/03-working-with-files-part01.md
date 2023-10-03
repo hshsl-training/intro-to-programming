@@ -17,8 +17,6 @@ CDABS has modified this lesson to better fit our techonogical capabilities.
 **Questions to be answered in this lesson**
 
 - How can I view and search file contents?
-- How can I create, copy and delete files and directories?
-- How can I control who has permission to modify a file?
 - How can I repeat recently used commands?
 :::
 
