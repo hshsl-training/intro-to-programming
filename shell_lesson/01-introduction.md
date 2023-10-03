@@ -10,8 +10,7 @@ CDABS has modified this lesson to better fit our techonogical capabilities.
 :::
  
 
-## Lesson Objectives
-
+::: {.callout-note appearance="minimal"}
 **Objectives**
 
 - Describe key reasons for learning shell.
@@ -25,7 +24,7 @@ CDABS has modified this lesson to better fit our techonogical capabilities.
 - How can I move around on my computer?
 - How can I see what files and directories I have?
 - How can I specify the location of a file or directory on my computer?
-
+:::
 
 ## What is a shell?
 
@@ -69,9 +68,8 @@ This symbol may be different if you are using a Linux or Mac computer.
 
 ## The Data
 
-The data used in this lesson is related to the bioinformatics field, you will be handling `fastq` files and performing searches on it. 
+The data and folder structure used in this lesson is related to the bioinformatics field, you will be handling `fastq` files and performing searches on it. To get access to the data you must learn how to unzip a `tar.gz` file.
 
-To get access to the data you must learn how to unzip a `tar.gz` file.
 
 ## Extracting data from `tar.gz` file
 
@@ -96,10 +94,15 @@ tar -xvf shell_data.tar.gz
 ```
 Output:
 ```output
-file1.txt
-file2.txt
+x shell_data/
+x shell_data/untrimmed_fastq/
+x shell_data/untrimmed_fastq/SRR097977.fastq
+x shell_data/untrimmed_fastq/SRR098026.fastq
+x shell_data/sra_metadata/
+x shell_data/sra_metadata/SraRunTable.txt
+x shell_data/.hidden/
+x shell_data/.hidden/youfoundit.txt
 ```
-
 Now that we have uncompressed all of our data files, how can we navigate to the shell_data folder and see its content?
 
 
@@ -118,20 +121,12 @@ Command:
 ```bash
 $ pwd
 ```
-Output:
-```output
-TODO
-```
 
 Let's look at how our file system is organized. We can see what files and subdirectories are in this directory by running `ls`, which stands for "listing":
 
 Command:
 ```bash
 $ ls
-```
-Output:
-```output
-TODO
 ```
 
 `ls` prints the names of the files and directories in the current directory in alphabetical order, arranged neatly into columns. We'll be working within the `shell_data` subdirectory, and creating new subdirectories, throughout this workshop.
@@ -173,33 +168,35 @@ Anything with a "/" after it is a directory. Things with a "\*" after them are p
 To find out what they are, we can type:
 
 ```bash
-$ ls -- help
+$ ls --help
 ```
 
-`ls -- help` displays detailed documentation for commands in`git bash`. It is a powerful resource to explore `bash` commands, understand their usage and flags. Some manual files are very long. You can scroll through the file using your keyboard's down arrow or use the <kbd>Space</kbd> key to go forward one page and the <kbd>b</kbd> key to go backwards one page. When you are done reading, hit <kbd>q</kbd> to quit.
+`ls --help` displays detailed documentation for commands in `git bash`. It is a powerful resource to explore `bash` commands, understand their usage and flags. Some manual files are very long. You can scroll through the file using your keyboard's down arrow or use the <kbd>Space</kbd> key to go forward one page and the <kbd>b</kbd> key to go backwards one page. When you are done reading, hit <kbd>q</kbd> to quit.
 
 
 ## Exercise
 
-Use the `-l` option for the `ls` command to display more information for each item
-in the directory. What is one piece of additional information this long format
-gives you that you don't see with the bare `ls` command?
+Use the `-l` option for the `ls` command to display more information for each item in the directory. What is one piece of additional information this long format gives you that you don't see with the bare `ls` command?
 
+::: {.callout-caution collapse="true"}
 Command:
 ```bash
 $ ls -l
 ```
+:::
+
 Output:
+*Note: This is an example of what it should display*
 ```output
 total 8
-drwxr-x--- 2 dcuser dcuser 4096 Jul 30  2015 sra_metadata
-drwxr-xr-x 2 dcuser dcuser 4096 Nov 15  2017 untrimmed_fastq
+drwxr-x--- user user 4096 Jul 30  2015 sra_metadata
+drwxr-xr-x user user 4096 Nov 15  2017 untrimmed_fastq
 ```
 
 The additional information given includes the name of the owner of the file, when the file was last modified, and whether the current user has permission to read and write to the file.
 
 ::: {.callout-note}
-No one can possibly learn all of these arguments, that's what the manual page is for. You can (and should) refer to the manual page or other help files as needed.
+No one can possibly learn all of these arguments, that's what the help page is for. You can (and should) refer to the help page or other help files as needed.
 :::
 
 Let's go into the `untrimmed_fastq` directory and see what is in there.
@@ -221,23 +218,32 @@ This directory contains two files with `.fastq` extensions. FASTQ is a format fo
 
 Typing out file or directory names can waste a lot of time and it's easy to make typing mistakes.Instead we can use tab complete as a shortcut. When you start typing out the name of a directory or file, then hit the <kbd>Tab</kbd> key, the shell will try to fill in the rest of the directory or file name.
 
-Return to your home directory:
 
+
+:::: {.columns}
+Return to your home directory and navigate to your desktop. 
+::: {.column width="50%"}
 Command: 
 ```bash
-$ cd
+$ cd 
+$ cd Desktop
 ```
-then enter:
+:::
+
+::: {.column width="50%"}
+Use the tab shorcut to return to shell_data directory. 
 ```bash
 $ cd she<tab>
 ```
-The shell will fill in the rest of the directory name for `shell_data`.
+:::
 
+::::
+
+The shell will fill in the rest of the directory name for `shell_data`.
 Now change directories to `untrimmed_fastq` in `shell_data`
 
 ```bash
-$ cd shell_data
-$ cd untrimmed_fastq
+$ cd un<tab><tab>
 ```
 
 Using tab complete can be very helpful. However, it will only autocomplete a file or directory name if you've typed enough characters to provide a unique identifier for the file or directory you are trying to access.
