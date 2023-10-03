@@ -10,7 +10,7 @@ CDABS has modified this lesson to better fit our techonogical capabilities.
 :::
  
 
-## Lesson Objectives
+::: {.callout-note appearance="minimal"}
 
 **Objectives**
 
@@ -25,7 +25,7 @@ CDABS has modified this lesson to better fit our techonogical capabilities.
 - How can I move around on my computer?
 - How can I see what files and directories I have?
 - How can I specify the location of a file or directory on my computer?
-
+:::
 
 ## What is a shell?
 
