@@ -3,25 +3,18 @@ title: Working with Files and Directories I
 code-copy: true
 ---
 
-::: {.callout-note}
-All text and materials in these workshops comes from the Data Carpentries. More especifically this lesson follows the Data Carpentries lesson "[Introduction to the Command Line for Genomics](https://datacarpentry.org/shell-genomics/)". 
-
-CDABS has modified this lesson to better fit our techonogical capabilities.
-:::
-
 ::: {.callout-note appearance="minimal"}
+
 **Objectives**
-- View, search within, copy, move, and rename files. Create new directories.
+
 - Use wildcards (`*`) to perform operations on multiple files.
-- Make a file read only.
 - Use the `history` command to view and repeat recently used commands.
 
 **Questions to be answered in this lesson**
 
 - How can I view and search file contents?
-- How can I create, copy and delete files and directories?
-- How can I control who has permission to modify a file?
 - How can I repeat recently used commands?
+- 
 :::
 
 ## Working with Files
@@ -69,7 +62,7 @@ $ ls /usr/bin/*.sh
 ```
 Output: 
 ```output
-/usr/bin/amuFormat.sh  /usr/bin/gettext.sh  /usr/bin/gvmap.sh
+/usr/bin/findssl.sh  /usr/bin/gettext.sh
 ```
 
 ## Exercise
@@ -84,8 +77,8 @@ Bonus: List all of the files in `/usr/bin` that contain the letter 'a' or the le
 
 Hint: The bonus question requires a Unix wildcard that we haven't talked about yet. Try searching the internet for information about Unix wildcards to find what you need to solve the bonus problem.
 
-::: {.callout-caution collapse="true"}
-**Solution**
+::: {.callout-tip collapse="true"}
+## Solution
 
 1. `ls /usr/bin/c*`
 2. `ls /usr/bin/*a*`
@@ -111,8 +104,8 @@ The `*` is expanded to include any file that ends with `.fastq`. We can see that
 What would the output look like if the wildcard could *not* be matched? 
 Compare the outputs of `echo *.missing` and `ls *.missing`.
 
-::: {.callout-caution collapse="true"}
-**Solution**
+::: {.callout-tip collapse="true"}
+##Solution
 
 Command:
 ```bash
@@ -127,7 +120,7 @@ Command:
 $ ls *.missing
 ```
 Output:
-*Note: This is an example of what it should display*
+*Note: This is an example*
 ```output
 ls: cannot access '*.missing': No such file or directory
 ```
@@ -169,8 +162,8 @@ Type `!` (exclamation point) and then the number of the command from your histor
 
 Find the line number in your history for the command that listed all the .sh files in `/usr/bin`. Rerun that command.
 
-::: {.callout-caution collapse="true"}
-**Solution**
+::: {.callout-tip collapse="true"}
+##Solution
 
 First type `history`. Then use `!` followed by the line number to rerun that command.
 :::
@@ -188,18 +181,17 @@ $ cat SRR098026.fastq
 ```
 This will print out all of the contents of the `SRR098026.fastq` to the screen.
 
-
 **Exercise**
 
 1. Print out the contents of the `~/shell_data/untrimmed_fastq/SRR097977.fastq` file. What is the last line of the file?
    
 2. From your home directory, and without changing directories, use one short command to print the contents of all of the files in the `~/shell_data/untrimmed_fastq` directory.
 
-::: {.callout-caution collapse="true"}
-**Solution**
+::: {.callout-tip collapse="true"}
+## Solution
 
 1. The last line of the file is `C:CCC::CCCCCCCC<8?6A:C28C<608'&&&,'$`.
-2. `cat ~/shell_data/untrimmed_fastq/*`
+2. `cat Desktop/unix_lesson/shell_data/untrimmed_fastq/*`
 :::
 
 `cat` is a terrific program, but when the file is really big, it can be annoying to use. The program, `less`, is useful for this case. `less` opens the file as read only, and lets you navigate through it. The navigation commands are identical to the `--help` program.
@@ -233,10 +225,11 @@ For instance, let's search forward for the sequence `TTTTT` in our file. You can
 
 What are the next three nucleotides (characters) after the first instance of the sequence quoted above?
 
-::: {.callout-caution collapse="true"}
-**Solution**
+::: {.callout-tip collapse="true"}
+## Solution
 `CAC`
 ::: 
+
 Remember, the `--help` program actually uses `less` internally and therefore uses the same commands, so you can search documentation using "/" as well!
 
 There's another way that we can look at files, and in this case, just look at part of them. This can be particularly useful if we just want to see the beginning or end of the file, or see how it's formatted.
@@ -279,6 +272,7 @@ A!@B!BBB@ABAB#########!!!!!!!######
 ```
 
 The `-n` option to either of these commands can be used to print the first or last `n` lines of a file.
+
 Command:
 ```bash
 $ head -n 1 SRR098026.fastq
@@ -298,6 +292,6 @@ A!@B!BBB@ABAB#########!!!!!!!######
 
 **Lesson Keypoints**
 
-- You can view file contents using less, `cat`, `head` or `tail`.
+- You can view file contents using less, `cat`, `head`, `less` or `tail`.
 - The `history` command and the up arrow on your keyboard can be used to repeat recently used commands.
 - Using `echo` for The `echo`  pattern matching characters, and for printing stuff in the terminal. 

@@ -3,13 +3,12 @@ title: Introducing the Shell
 code-copy: true
 ---
 
-::: {.callout-note}
+::: {.callout-note collapse="true"}
 All text and materials in these workshops comes from the Data Carpentries. More especifically this lesson follows the Data Carpentries lesson "[Introduction to the Command Line for Genomics](https://datacarpentry.org/shell-genomics/)". 
 
 CDABS has modified this lesson to better fit our techonogical capabilities.
 :::
  
-
 ::: {.callout-note appearance="minimal"}
 **Objectives**
 
@@ -66,46 +65,6 @@ The dollar sign is a **prompt**, which shows us that the shell is waiting for in
 This symbol may be different if you are using a Linux or Mac computer.
 
 
-## The Data
-
-The data and folder structure used in this lesson is related to the bioinformatics field, you will be handling `fastq` files and performing searches on it. To get access to the data you must learn how to unzip a `tar.gz` file.
-
-
-## Extracting data from `tar.gz` file
-
-The tar command stands for tape archive, and it creates a collection of files that can be compressed or uncompressed. 
-
-A `tar` file is a collection of files along with their metadata. This collection of files are only grouped and not compressed.
-
-Meanwhile, `tar.gz` file means a collection of files that have been compressed to use less storage space in the computer. 
-
-The tar commands offers different operations as you perform this command. 
-This capability is called a `command flag`. Some of the tar command operations are:
-
--x, to extract files
--v, to display the files that you are appending or unappending. 
--f, specifies the filename of the archive to be created or extracted
-
-To uncompress the data files for this lesson you need to excecute the following command: 
-
-Command:
-```bash
-tar -xvf shell_data.tar.gz
-```
-Output:
-```output
-x shell_data/
-x shell_data/untrimmed_fastq/
-x shell_data/untrimmed_fastq/SRR097977.fastq
-x shell_data/untrimmed_fastq/SRR098026.fastq
-x shell_data/sra_metadata/
-x shell_data/sra_metadata/SraRunTable.txt
-x shell_data/.hidden/
-x shell_data/.hidden/youfoundit.txt
-```
-Now that we have uncompressed all of our data files, how can we navigate to the shell_data folder and see its content?
-
-
 ## Navigating your file system
 
 The part of the operating system that manages files and directories is called the **file system**. It organizes our data into files, which hold information, and directories (also called "folders"), which hold files or other directories.
@@ -114,8 +73,7 @@ Several commands are frequently used to create, inspect, rename, and delete file
 
 Let's find out where we are by running a command called `pwd` (which stands for "print working directory").
 
-At any moment, our **current working directory** is our current default directory,
-i.e., the directory that the computer assumes we want to run commands in, unless we explicitly specify something else.
+At any moment, our **current working directory** is our current default directory, i.e., the directory that the computer assumes we want to run commands in, unless we explicitly specify something else.
 
 Command:
 ```bash
@@ -151,8 +109,7 @@ Output:
 sra_metadata  untrimmed_fastq
 ```
 
-We can make the `ls` output more comprehensible by using the **flag** `-F`,
-which tells `ls` to add a trailing `/` to the names of directories:
+We can make the `ls` output more comprehensible by using the **flag** `-F`, which tells `ls` to add a trailing `/` to the names of directories:
 
 Command:
 ```bash
@@ -173,29 +130,32 @@ $ ls --help
 
 `ls --help` displays detailed documentation for commands in `git bash`. It is a powerful resource to explore `bash` commands, understand their usage and flags. Some manual files are very long. You can scroll through the file using your keyboard's down arrow or use the <kbd>Space</kbd> key to go forward one page and the <kbd>b</kbd> key to go backwards one page. When you are done reading, hit <kbd>q</kbd> to quit.
 
-
 ## Exercise
 
-Use the `-l` option for the `ls` command to display more information for each item in the directory. What is one piece of additional information this long format gives you that you don't see with the bare `ls` command?
+Use the `-l` option for the `ls` command to display more information for each item in the directory. 
 
-::: {.callout-caution collapse="true"}
+What is one piece of additional information this long format gives you that you don't see with the bare `ls` command?
+
+::: {.callout-tip collapse="true"}
+
+## Solution
 Command:
 ```bash
 $ ls -l
 ```
-:::
 
 Output:
-*Note: This is an example of what it should display*
+*Note: This is an example*
 ```output
 total 8
 drwxr-x--- user user 4096 Jul 30  2015 sra_metadata
 drwxr-xr-x user user 4096 Nov 15  2017 untrimmed_fastq
 ```
+:::
 
 The additional information given includes the name of the owner of the file, when the file was last modified, and whether the current user has permission to read and write to the file.
 
-::: {.callout-note}
+::: {.callout-tip}
 No one can possibly learn all of these arguments, that's what the help page is for. You can (and should) refer to the help page or other help files as needed.
 :::
 
@@ -213,34 +173,27 @@ SRR097977.fastq  SRR098026.fastq
 
 This directory contains two files with `.fastq` extensions. FASTQ is a format for storing information about sequencing reads and their quality. We will be learning more about FASTQ files in a later lesson.
 
-
 ## Shortcut: Tab Completion
 
 Typing out file or directory names can waste a lot of time and it's easy to make typing mistakes.Instead we can use tab complete as a shortcut. When you start typing out the name of a directory or file, then hit the <kbd>Tab</kbd> key, the shell will try to fill in the rest of the directory or file name.
 
-
-
-:::: {.columns}
 Return to your home directory and navigate to your desktop. 
-::: {.column width="50%"}
+
 Command: 
 ```bash
 $ cd 
 $ cd Desktop
+$ cd unix_lesson
 ```
-:::
-
-::: {.column width="50%"}
 Use the tab shorcut to return to shell_data directory. 
+
 ```bash
 $ cd she<tab>
 ```
-:::
-
-::::
 
 The shell will fill in the rest of the directory name for `shell_data`.
-Now change directories to `untrimmed_fastq` in `shell_data`
+
+Now, change directories to `untrimmed_fastq` 
 
 ```bash
 $ cd un<tab><tab>
