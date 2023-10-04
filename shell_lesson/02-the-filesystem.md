@@ -166,7 +166,7 @@ This will take you to the `untrimmed_fastq` directory without having to go throu
 Navigate to your home directory. From there, list the contents of the `untrimmed_fastq` directory.
 
 ::: {.callout-tip collapse="true"}
-## Solution**
+## Solution
 Command:
 ```bash
 $ cd
