@@ -3,12 +3,6 @@ title: Navigating Files and Directories
 code-copy: true
 ---
 
-::: {.callout-note}
-All text and materials in these workshops comes from the Data Carpentries. More especifically this lesson follows the Data Carpentries lesson "[Introduction to the Command Line for Genomics](https://datacarpentry.org/shell-genomics/)". 
-
-CDABS has modified this lesson to better fit our techonogical capabilities.
-:::
-
 ::: {.callout-note appearance="minimal"}
 
 **Objectives**
@@ -33,6 +27,8 @@ Use the commands we've learned so far to navigate to the `shell_data/untrimmed_f
 
 ```bash
 $ cd
+$ cd Desktop
+$ cd unix_lesson
 $ cd shell_data
 $ cd untrimmed_fastq
 ```
@@ -44,13 +40,12 @@ Command:
 $ cd shell_data
 ```
 Output:
-*Note: This is an example of what it should display*
+*Note: This is an example*
 ```output
 $ cd cd: shell_data: No such file or directory
 ```
  
-Your computer looked for a directory or file called `shell_data` within the directory you were already in. 
-It didn't know you wanted to look at a directory level above the one you were located in.
+Your computer looked for a directory or file called `shell_data` within the directory you were already in. It didn't know you wanted to look at a directory level above the one you were located in.
 
 We have a special command to tell the computer to move us back or up one directory level.
 
@@ -94,8 +89,8 @@ First use the `--help` command to look at the options for `ls`.
 $ --help ls
 ```
 
-::: {.callout-caution collapse="true"}
-**Solution**
+::: {.callout-tip collapse="true"}
+## Solution
 
 The `-a` option is short for `all` and says that it causes `ls` to "not ignore entries starting with ." 
 This is the option we want.
@@ -164,15 +159,14 @@ $ cd shell_data/untrimmed_fastq
 
 This will take you to the `untrimmed_fastq` directory without having to go through the intermediate directory.
 
-
 ## Exercice
 
 **Navigating practice**
 
 Navigate to your home directory. From there, list the contents of the `untrimmed_fastq` directory.
 
-::: {.callout-caution collapse="true"}
-**Solution**
+::: {.callout-tip collapse="true"}
+## Solution
 Command:
 ```bash
 $ cd
@@ -184,34 +178,42 @@ SRR097977.fastq  SRR098026.fastq
 ```
 :::
 
-
 ## Full vs. Relative Paths
 
-The `cd` command takes an argument which is a directory name. Directories can be specified using either a *relative* path or a full *absolute* path. The directories on the computer are arranged into a hierarchy. The full path tells you where a directory is in that hierarchy. Navigate to the home directory, then enter the `pwd` command.
+The `cd` command takes an argument which is a directory name. Directories can be specified using either a *relative* path or a full *absolute* path. The directories on the computer are arranged into a hierarchy. 
+
+The full path tells you where a directory is in that hierarchy. 
+
+Navigate to the home directory, then enter the `pwd` command.
 
 Command:
 ```bash
-$ cd  
+$ cd ~
 $ pwd  
+```
+Output:
+*Note: This is an example*
+```output
+$ /usr/home/⟨username⟩
 ```
 
 This command will display the full name of your home directory. The very top of the hierarchy is a directory called `/` which is usually referred to as the *root directory* .
 
-Now lets navigate directly to the `.hidden` folder
+Now lets navigate directly to the `.hidden` folder using the full path. 
 
 ```bash
-$ cd <write the full path here>
+$ cd /usr/home/⟨username⟩/Desktop/unix_lesson/shell_data/.hidden
 ```
-This jumps forward multiple levels to the `.hidden` directory.
 
-Now go back to the home directory.
+This jumps forward multiple levels to the `.hidden` directory. Now go back to the home directory.
+
 ```bash
 $ cd 
 ```
 You can also navigate to the `.hidden` directory using:
 
 ```bash
-$ cd shell_data/.hidden
+$ cd Desktop/unix_lesson/shell_data/.hidden
 ```
 
 These two commands have the same effect, they both take us to the `.hidden` directory. The first uses the absolute path, giving the full address from the home directory. The second uses a relative path, giving only the address from the working directory. A full path always starts with a `/`. A relative path does not.
@@ -222,27 +224,24 @@ You can usually use either a full path or a relative path depending on what is m
 
 Over time, it will become easier for you to keep a mental note of the structure of the directories that you are using and how to quickly navigate amongst them.
 
-
 ## Navigational Shortcuts
 
-The root directory is the highest level directory in your file system and contains files that are important for your computer to perform its daily work. While you will be using the root (`/`) at the beginning of your absolute paths, it is important that you avoid working with data in these higher-level directories, as your commands can permanently alter files that the operating system needs to function. In many cases, trying to run commands in `root` directories will require special permissions which are not discussed here, so it's best to avoid them and work within your home directory. Dealing with the `home` directory is very common. The tilde character, `~`, is a shortcut for your home directory.
+The root directory is the highest level directory in your file system and contains files that are important for your computer to perform its daily work. While you will be using the root (`/`) at the beginning of your absolute paths, it is important that you avoid working with data in these higher-level directories, as your commands can permanently alter files that the operating system needs to function. Dealing with the `home` directory is very common. The tilde character, `~`, is a shortcut for your home directory.
 
 Now Navigate to the `shell_data` directory:
 
 ```bash
-$ cd
-$ cd shell_data
+$ cd ..
 ```
-
 Then enter the command:
 
 ```bash
 $ ls ~
 ```
+
 This prints the contents of your home directory, without you needing to type the full path.
 
-The commands `cd`, and `cd ~` are very useful for quickly navigating back to your home directory. 
-We will be using the `~` character in later lessons to specify our home directory.
+The commands `cd`, and `cd ~` are very useful for quickly navigating back to your home directory.  
 
 **Lesson Keypoints**
 
