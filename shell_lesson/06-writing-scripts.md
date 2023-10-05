@@ -14,7 +14,7 @@ code-copy: true
 
 :::
 
-::: {.callout-note appearance="minimal"} 
+::: {.callout-note appearance="minimal"}
 
 ## Questions
 
@@ -129,10 +129,10 @@ We're going to create a new file to put this command in. We'll call it `bad-read
 $ nano bad-reads-script.sh
 ```
 
-Bad reads have a lot of N's, so we're going to look for  `NNNNNNNNNN` with `grep`. We want the whole FASTQ record, so we're also going to get the one line above the sequence and the two lines below. We also want to look in all the files that end with `.fastq`, so we're going to use the `*` wildcard.
+Bad reads have a lot of N's, so we're going to look for  `N{10}` with `grep`. We want the whole FASTQ record, so we're also going to get the one line above the sequence and the two lines below. We also want to look in all the files that end with `.fastq`, so we're going to use the `*` wildcard.
 
 ```bash
-grep -B1 -A2 NNNNNNNNNN *.fastq > scripted_bad_reads.txt
+grep -B1 -A2 -E "N{10}" *.fastq > scripted_bad_reads.txt
 ```
 
 Type your `grep` command into the file and save it as before. Be careful that you did not add the `$` at the beginning of the line.
