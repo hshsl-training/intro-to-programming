@@ -34,6 +34,6 @@ In this lesson, you will be learning about Python and how it is used for data sc
 
 ## Resources
 
-All of our courses are built using the [Data Carpentries](https://datacarpentry.org/) educational content. 
+This material was lightly adapted from the [Data Carpentry Genomics Curriculum](https://datacarpentry.org/lessons/#genomics-workshop) which is shared under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.
 
 

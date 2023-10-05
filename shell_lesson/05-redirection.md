@@ -15,7 +15,7 @@ code-copy: true
 
 :::
 
-::: {.callout-note appearance="minimal"} 
+::: {.callout-note appearance="minimal"}
 
 ## Questions
 
@@ -101,6 +101,14 @@ CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ```
 
+`grep` stands for *global regular expression print*. Regular expressions (or regex) are a system and syntax for sophisticated pattern matching in text (i.e in *strings*). We won't be delving deeping into regex syntax here (for more on regex see [this lesson](https://librarycarpentry.org/lc-data-intro/01-regular-expressions.html)), but we can make our code a little more succinct using the `-E` flag and a regex for matching a character a specified number of times.
+
+```bash
+$ grep -B1 -A2 -E "N{10}" SRR098026.fastq
+```
+and we get the same output as above.
+
+
 ::: {.callout-tip} 
 
 ## Exercise
@@ -156,7 +164,6 @@ SRR098026.fastq:GNNNNNNNNCAAAGTTGATCNNNNNNNNNTGTGCG
 
 :::
 
-
 ## Redirecting output
 
 `grep` allowed us to identify sequences in our FASTQ files that match a particular pattern.
@@ -175,7 +182,7 @@ in our FASTQ files that contain
 'NNNNNNNNNN' to another file called `bad_reads.txt`.
 
 ```bash
-$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
+$ grep -B1 -A2 -E "N{10}" SRR098026.fastq > bad_reads.txt
 ```
 
 ::: {.callout-warning collapse="true"}
@@ -248,7 +255,7 @@ to a file, the new output will replace the output that was already present in th
 This is called "overwriting". 
 
 ```bash
-$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
+$ grep -B1 -A2 -E "N{10}" SRR098026.fastq > bad_reads.txt
 $ wc -l bad_reads.txt
 ```
 
@@ -257,7 +264,7 @@ $ wc -l bad_reads.txt
 ```
 
 ```bash
-$ grep -B1 -A2 NNNNNNNNNN SRR097977.fastq > bad_reads.txt
+$ grep -B1 -A2 -E "N{10}" SRR097977.fastq > bad_reads.txt
 $ wc -l bad_reads.txt
 ```
 
@@ -273,7 +280,7 @@ We can avoid overwriting our files by using the command `>>`. `>>` is known as t
 append new output to the end of a file, rather than overwriting it.
 
 ```bash
-$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
+$ grep -B1 -A2 -E "N{10}" SRR098026.fastq > bad_reads.txt
 $ wc -l bad_reads.txt
 ```
 
@@ -282,7 +289,7 @@ $ wc -l bad_reads.txt
 ```
 
 ```bash
-$ grep -B1 -A2 NNNNNNNNNN SRR097977.fastq >> bad_reads.txt
+$ grep -B1 -A2 -E "N{10}" SRR097977.fastq >> bad_reads.txt
 $ wc -l bad_reads.txt
 ```
 
@@ -313,7 +320,7 @@ and then ran the command above using a `.fastq` extension instead of a `.txt` ex
 would give us a warning.
 
 ```bash
-grep -B1 -A2 NNNNNNNNNN *.fastq > bad_reads.fastq
+grep -B1 -A2 -E "N{10}" *.fastq > bad_reads.fastq
 ```
 
 ```output
@@ -347,7 +354,7 @@ the output of the grep search to the command `wc -l`. This can be helpful for in
 you would like to save it to a file.
 
 ```bash
-$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq | wc -l 
+$ grep -B1 -A2 -E "N{10}" SRR098026.fastq | wc -l 
 ```
 
 ```output
@@ -367,7 +374,7 @@ $ echo $((537 / 4))
 or to do this programatically
 
 ```bash
-$ echo $(($(grep -B1 -A2 NNNNNNNNNN *.fastq | wc -l) /4))
+$ echo $(($(grep -B1 -A2 -E "N{10}" *.fastq | wc -l) /4))
 ```
 
 ```output

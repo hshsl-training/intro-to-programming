@@ -8,6 +8,9 @@ project:
 
 website:
   title: "CDABS Intro to Programming"
+  page-footer: "This material was lightly adapted from the [Data Carpentry Genomics Curriculum](https://datacarpentry.org/lessons/#genomics-workshop) which is shared under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) license."
+  repo-url: https://github.com/hshsl-training/intro-to-programming
+  repo-actions: [edit, issue]
   navbar:
     background: primary
     search: true
@@ -28,7 +31,7 @@ website:
       - "shell_lesson/01-introduction.md"
       - "shell_lesson/02-the-filesystem.md"
       - "shell_lesson/03-working-with-files-part01.md"
-      - "shell_lesson/04-working-with-files-part01.md"
+      - "shell_lesson/04-working-with-files-part02.md"
       - "shell_lesson/05-redirection.md"
       - "shell_lesson/06-writing-scripts.md"
       - "shell_lesson/07-organization.md"

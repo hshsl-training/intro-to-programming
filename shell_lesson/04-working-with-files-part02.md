@@ -4,6 +4,25 @@ format: html
 code-copy: true
 ---
 
+::: {.callout-note appearance="minimal"}
+
+## Objectives 
+
+- View, search within, copy, move, and rename files. Create new directories
+- Make a file read only.
+
+:::
+
+::: {.callout-note appearance="minimal"}
+
+## Questions
+
+- How can I view and search file contents?
+- How can I create, copy and delete files and directories?
+- How can I control who has permission to modify a file?
+
+:::
+
 ## Details on the FASTQ format
 
 Although it looks complicated (and it is), it's easy to understand the
@@ -213,7 +232,7 @@ $ rm -r backup
 This will delete not only the directory, but all files within the directory. If you have write-protected files in the directory,
 you will be asked whether you want to override your permission settings.
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::: {.callout-tip}
 
 ## Exercise
 
@@ -226,7 +245,7 @@ Starting in the `shell_data/untrimmed_fastq/` directory, do the following:
 3. Use a wildcard to move all of your backup files to a new backup directory.
 4. Change the permissions on all of your backup files to be write-protected.
 
-:::::::::::::::  solution
+:::: {.callout-caution collapse="true" icon="false"}
 
 ## Solution
 
@@ -241,17 +260,17 @@ Starting in the `shell_data/untrimmed_fastq/` directory, do the following:
 -r--r--r-- 1 <username> 43332 <username> SRR098026-backup.fastq
 ```
 
-:::::::::::::::::::::::::
+::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
-:::::::::::::::::::::::::::::::::::::::: keypoints
+::: {.callout-note appearance="minimal"}
 
-- You can view file contents using `less`, `cat`, `head` or `tail`.
+## Key points
+
 - The commands `cp`, `mv`, and `mkdir` are useful for manipulating existing files and creating new directories.
 - You can view file permissions using `ls -l` and change permissions using `chmod`.
-- The `history` command and the up arrow on your keyboard can be used to repeat recently used commands.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
 

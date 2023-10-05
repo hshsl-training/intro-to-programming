@@ -1,1 +1,0 @@
-Sitemap: https://hshsl-training.github.io/intro-to-programming/sitemap.xml

@@ -4,13 +4,13 @@ code-copy: true
 ---
 
 ::: {.callout-note collapse="true"}
-All text and materials in these workshops comes from the Data Carpentries. More especifically this lesson follows the Data Carpentries lesson "[Introduction to the Command Line for Genomics](https://datacarpentry.org/shell-genomics/)". 
+All text and materials in these workshops comes from the Data Carpentries. More specifically this lesson follows the Data Carpentries lesson "[Introduction to the Command Line for Genomics](https://datacarpentry.org/shell-genomics/)". 
 
-CDABS has modified this lesson to better fit our techonogical capabilities.
 :::
  
 ::: {.callout-note appearance="minimal"}
-**Objectives**
+
+## Objectives
 
 - Describe key reasons for learning shell.
 - Navigate your file system using the Git Bash command line.
