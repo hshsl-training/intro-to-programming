@@ -43,10 +43,10 @@ website:
       - "r_lesson/01-r-basics.Rmd"
       - "r_lesson/02-data-prelude.Rmd"
       - "r_lesson/03-basics-factors-dataframes.Rmd"   
-      - "r_lesson/04-bioconductor-vcfr.Rmd"
-      - "r_lesson/05-dplyr.Rmd"
-      - "r_lesson/06-data-visualization.Rmd"
-      - "r_lesson/07-r-help.Rmd"
+      - "r_lesson/04-dplyr.Rmd"
+      - "r_lesson/05-data-visualization.Rmd"
+      - "r_lesson/06-r-help.Rmd"
+      - "r_lesson/07-bioconductor-vcfr.Rmd"
         
     - id: python
       title: "Python"

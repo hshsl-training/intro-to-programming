@@ -3,11 +3,6 @@ title: Introducing the Shell
 code-copy: true
 ---
 
-::: {.callout-note collapse="true"}
-All text and materials in these workshops comes from the Data Carpentries. More specifically this lesson follows the Data Carpentries lesson "[Introduction to the Command Line for Genomics](https://datacarpentry.org/shell-genomics/)". 
-
-:::
- 
 ::: {.callout-note appearance="minimal"}
 
 ## Objectives
