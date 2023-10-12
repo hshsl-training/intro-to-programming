@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CDABS Intro to Programming - R Basics II - factors and data frames</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CDABS Intro to Programming</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-shell" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Shell</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-shell">    
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/01-introduction.html">
+ <span class="dropdown-text">Introducing the Shell</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/02-the-filesystem.html">
+ <span class="dropdown-text">Navigating Files and Directories</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/03-working-with-files-part01.html">
+ <span class="dropdown-text">Working with Files and Directories I</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/04-working-with-files-part02.html">
+ <span class="dropdown-text">Working with Files and Directories II</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/05-redirection.html">
+ <span class="dropdown-text">Redirection</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/06-writing-scripts.html">
+ <span class="dropdown-text">Writing Scripts and Working with Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/07-organization.html">
+ <span class="dropdown-text">Project Organization</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">R</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-r">    
+        <li>
+    <a class="dropdown-item" href="../r_lesson/00-introduction.html">
+ <span class="dropdown-text">Introduction to R and R Studio</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../r_lesson/01-r-basics.html">
+ <span class="dropdown-text">R Basics I - objects, functions, vectors</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../r_lesson/02-data-prelude.html">
+ <span class="dropdown-text">Introduction to the example dataset and file type</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../r_lesson/03-basics-factors-dataframes.html">
+ <span class="dropdown-text">R Basics II - factors and data frames</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../r_lesson/04-dplyr.html">
+ <span class="dropdown-text">Data Wrangling and Analyses with Tidyverse</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../r_lesson/05-data-visualization.html">
+ <span class="dropdown-text">Data Visualization with ggplot2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../r_lesson/06-r-help.html">
+ <span class="dropdown-text">Getting help with R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../r_lesson/07-bioconductor-vcfr.html">
+ <span class="dropdown-text">Using packages from Bioconductor</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Python</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-python">    
+        <li>
+    <a class="dropdown-item" href="../python_lesson/blank_lesson.html">
+ <span class="dropdown-text">Blank Lesson</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">R Basics II - factors and data frames</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../r_lesson/00-introduction.html" class="sidebar-item-text sidebar-link">Introduction to R and R Studio</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../r_lesson/01-r-basics.html" class="sidebar-item-text sidebar-link">R Basics I - objects, functions, vectors</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../r_lesson/02-data-prelude.html" class="sidebar-item-text sidebar-link">Introduction to the example dataset and file type</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../r_lesson/03-basics-factors-dataframes.html" class="sidebar-item-text sidebar-link active">R Basics II - factors and data frames</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../r_lesson/04-dplyr.html" class="sidebar-item-text sidebar-link">Data Wrangling and Analyses with Tidyverse</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../r_lesson/05-data-visualization.html" class="sidebar-item-text sidebar-link">Data Visualization with ggplot2</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../r_lesson/06-r-help.html" class="sidebar-item-text sidebar-link">Getting help with R</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../r_lesson/07-bioconductor-vcfr.html" class="sidebar-item-text sidebar-link">Using packages from Bioconductor</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#working-with-spreadsheets-tabular-data" id="toc-working-with-spreadsheets-tabular-data" class="nav-link active" data-scroll-target="#working-with-spreadsheets-tabular-data">Working with spreadsheets (tabular data)</a></li>
+  <li><a href="#importing-tabular-data-into-r" id="toc-importing-tabular-data-into-r" class="nav-link" data-scroll-target="#importing-tabular-data-into-r">Importing tabular data into R</a></li>
+  <li><a href="#working-with-data-frames" id="toc-working-with-data-frames" class="nav-link" data-scroll-target="#working-with-data-frames">Working with data frames</a>
+  <ul class="collapse">
+  <li><a href="#subsetting-data-frames" id="toc-subsetting-data-frames" class="nav-link" data-scroll-target="#subsetting-data-frames">Subsetting data frames</a></li>
+  <li><a href="#summarizing-data-frames" id="toc-summarizing-data-frames" class="nav-link" data-scroll-target="#summarizing-data-frames">Summarizing data frames</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hshsl-training/intro-to-programming/edit/main/r_lesson/03-basics-factors-dataframes.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/hshsl-training/intro-to-programming/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">R Basics II - factors and data frames</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="callout-note callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Explain the basic principle of tidy datasets</li>
+<li>Be able to load a tabular dataset into the R environment.</li>
+<li>Be able to determine the structure of a data frame including its dimensions and the datatypes of variables</li>
+<li>Be able to subset/retrieve values from a data frame</li>
+<li>Be able to import data from Excel</li>
+</ul>
+</div>
+</div>
+<div class="callout-note callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Questions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>How do I get started with tabular data (e.g.&nbsp;spreadsheets) in R?</li>
+<li>What are some best practices for reading data into R?</li>
+</ul>
+</div>
+</div>
+<section id="working-with-spreadsheets-tabular-data" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-spreadsheets-tabular-data">Working with spreadsheets (tabular data)</h2>
+<p>A substantial amount of the data we work with in genomics will be tabular data, this is data arranged in rows and columns - also known as spreadsheets. For more on how to work with spreadsheets effectively (<a href="https://datacarpentry.org/organization-genomics/">check out this lesson</a>). For our purposes, we want to remind you of a few principles before we work with our first set of example data:</p>
+<p><strong>1) Keep raw data separate from analyzed data</strong></p>
+<p>This is principle number one because if you can’t tell which files are the original raw data, you risk making some serious mistakes (e.g.&nbsp;drawing conclusion from data which have been manipulated in some unknown way).</p>
+<p><strong>2) Keep spreadsheet data Tidy</strong></p>
+<p>The simplest principle of <strong>Tidy data</strong> is that we have one row in our spreadsheet for each observation or sample, and one column for every variable that we measure or report on.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig/tidy-data.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As simple as this sounds, it’s very easily violated. Most data scientists agree that significant amounts of their time is spent tidying data for analysis. Read more about data organization in <a href="https://datacarpentry.org/organization-genomics/">this lesson</a> and in <a href="https://www.jstatsoft.org/article/view/v059i10">this paper</a>.</p>
+<p><strong>3) Trust but verify</strong></p>
+<p>Finally, while you don’t need to be paranoid about data, you should have a plan for how you will prepare it for analysis. <strong>This a focus of this lesson.</strong> You probably already have a lot of intuition, expectations, assumptions about your data - the range of values you expect, how many values should have been recorded, etc. Of course, as the data get larger our human ability to keep track will start to fail (and yes, it can fail for small data sets too). R will help you to examine your data so that you can have greater confidence in your analysis, and its reproducibility.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip: Keeping your raw data separate
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When you work with data in R, you are not changing the original file you loaded that data from. This is different than (for example) working with a spreadsheet program where changing the value of the cell leaves you one “save”-click away from overwriting the original file. You have to purposely use a writing function (e.g.&nbsp;<code>write_csv()</code>) to save data loaded into R. In that case, be sure to save the manipulated data into a new file. More on this later in the lesson.</p>
+</div>
+</div>
+</section>
+<section id="importing-tabular-data-into-r" class="level2">
+<h2 class="anchored" data-anchor-id="importing-tabular-data-into-r">Importing tabular data into R</h2>
+<p>There are several ways to import data into R. Here, we will see how to import data through the RStudio interface, and with code. Either way, we will use a function called <code>read_csv()</code>, which is part of the <strong><code>tidyverse</code></strong> package, <strong><code>readr</code></strong>.</p>
+<p>Now, let’s read in the file <code>combined_tidy_vcf.csv</code> which will be located in <code>r_lesson/raw_data</code>. In the <code>Files</code> pane of RStudio, click on the name of file we want to read in, and select <code>Import Dataset</code>. This will open up the import widget.</p>
+<div class="cell" data-layout-align="center" alt="screenshot of file editor with csv file selected, and Import Dataset highlighted from dropdown menu.">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig/import_csv.PNG" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In this widget you can see a preview of the data and make adjustments to data types, separators, header rows, etc. For now, we’ll see change the name to <code>variants</code>. This will be the object name once the file is imported. By default, the file name will be used as the object name, but it may often be preferable to change this to something shorter, but still descriptive.</p>
+<p>Also note that, you can see the code that is generated underlying the widget. We can add that code to a script for better reproducibility of our process.</p>
+<div class="cell" data-layout-align="center" alt="screenshot of import widget, options section is highlighted">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig/import_options.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now, you can copy the code from the code preview window, or look in your history pane, select the lines of code that were generated, and send them <code>To source</code>, i.e.&nbsp;to our script.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## read in a CSV file and save it as 'variants'</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>variants <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"r_lesson/raw_data/combined_tidy_vcf.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s take a closer look at what the code is doing.</p>
+<ol type="1">
+<li>loading the library <strong><code>readr</code></strong>. As mentioned earlier, this is part of the <strong><code>tidyverse</code></strong> family of packages. (R has a built in function similarly named <code>read.csv()</code>, they work similarly, but since we will be working with the <strong><code>tidyverse</code></strong>, we’ll choose the <strong><code>readr</code></strong>.)</li>
+<li>creating a new object called <code>variants</code></li>
+<li>assigning to that object the output of the <code>read_csv()</code> function.</li>
+<li>calling the function on our <code>combined_tidy_vcf.csv</code> file. That is, the file name is given as the <strong>argument</strong> of our function. Note that the file path must be in quotes. You can also supply URLs as file paths if your data is online.</li>
+</ol>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you press the <kbd>TAB</kbd> key inside the quotes, RStudio will help you autocomplete the file name. Use this to avoid typos!</p>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+
+</div>
+<p>One of the first things you should notice now that our data is loaded is that in the Environment window, you have the <code>variants</code> object, listed as 801 obs. (observations/rows) of 29 variables (columns). Double-clicking on the name of the object will open a view of the data in a new tab.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig/rstudio_dataframeview.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+What about Excel (and other) files?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can use the same process described above to import an Excel file, like <code>Ecoli_metadata.xlsx</code> in our <code>raw_data</code> folder. The main difference is that we use the library <strong><code>readxl</code></strong> to do the import. The options allow you to do things like select a specific worksheet if your workbook has more than one. It is also possible to import data from other systems like SPSS, STATA, and SAS with the <strong><code>haven</code></strong> package.</p>
+</div>
+</div>
+</section>
+<section id="working-with-data-frames" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-data-frames">Working with data frames</h2>
+<p>A <strong>data frame is the standard way in R to store tabular data</strong>. A data fame could also be thought of as a collection of vectors, all of which have the same length. While each column is one data type, the data frame over all can have multiple data types.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig/data-frame.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Using only two functions, we can learn a lot about out data frame including some summary statistics as well as well as the “structure” of the data frame. Let’s examine what each of these functions can tell us:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## get summary statistics on a data frame</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(variants)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  sample_id            CHROM                POS             ID         
+ Length:801         Length:801         Min.   :   1521   Mode:logical  
+ Class :character   Class :character   1st Qu.:1115970   NA's:801      
+ Mode  :character   Mode  :character   Median :2290361                 
+                                       Mean   :2243682                 
+                                       3rd Qu.:3317082                 
+                                       Max.   :4629225                 
+                                                                       
+     REF                ALT                 QUAL          FILTER       
+ Length:801         Length:801         Min.   :  4.385   Mode:logical  
+ Class :character   Class :character   1st Qu.:139.000   NA's:801      
+ Mode  :character   Mode  :character   Median :195.000                 
+                                       Mean   :172.276                 
+                                       3rd Qu.:225.000                 
+                                       Max.   :228.000                 
+                                                                       
+   INDEL              IDV              IMF               DP       
+ Mode :logical   Min.   : 2.000   Min.   :0.5714   Min.   : 2.00  
+ FALSE:700       1st Qu.: 7.000   1st Qu.:0.8824   1st Qu.: 7.00  
+ TRUE :101       Median : 9.000   Median :1.0000   Median :10.00  
+                 Mean   : 9.396   Mean   :0.9219   Mean   :10.57  
+                 3rd Qu.:11.000   3rd Qu.:1.0000   3rd Qu.:13.00  
+                 Max.   :20.000   Max.   :1.0000   Max.   :79.00  
+                 NA's   :700      NA's   :700                     
+      VDB                 RPB              MQB              BQB        
+ Min.   :0.0005387   Min.   :0.0000   Min.   :0.0000   Min.   :0.1153  
+ 1st Qu.:0.2180410   1st Qu.:0.3776   1st Qu.:0.1070   1st Qu.:0.6963  
+ Median :0.4827410   Median :0.8663   Median :0.2872   Median :0.8615  
+ Mean   :0.4926291   Mean   :0.6970   Mean   :0.5330   Mean   :0.7784  
+ 3rd Qu.:0.7598940   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :0.9997130   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+                     NA's   :773      NA's   :773      NA's   :773     
+      MQSB              SGB               MQ0F           ICB         
+ Min.   :0.01348   Min.   :-0.6931   Min.   :0.00000   Mode:logical  
+ 1st Qu.:0.95494   1st Qu.:-0.6762   1st Qu.:0.00000   NA's:801      
+ Median :1.00000   Median :-0.6620   Median :0.00000                 
+ Mean   :0.96428   Mean   :-0.6444   Mean   :0.01127                 
+ 3rd Qu.:1.00000   3rd Qu.:-0.6364   3rd Qu.:0.00000                 
+ Max.   :1.01283   Max.   :-0.4536   Max.   :0.66667                 
+ NA's   :48                                                          
+   HOB                AC          AN        DP4                  MQ       
+ Mode:logical   Min.   :1   Min.   :1   Length:801         Min.   :10.00  
+ NA's:801       1st Qu.:1   1st Qu.:1   Class :character   1st Qu.:60.00  
+                Median :1   Median :1   Mode  :character   Median :60.00  
+                Mean   :1   Mean   :1                      Mean   :58.19  
+                3rd Qu.:1   3rd Qu.:1                      3rd Qu.:60.00  
+                Max.   :1   Max.   :1                      Max.   :60.00  
+                                                                          
+    Indiv               gt_PL            gt_GT   gt_GT_alleles     
+ Length:801         Min.   :   310   Min.   :1   Length:801        
+ Class :character   1st Qu.:  1760   1st Qu.:1   Class :character  
+ Mode  :character   Median :  2290   Median :1   Mode  :character  
+                    Mean   :  3392   Mean   :1                     
+                    3rd Qu.:  2550   3rd Qu.:1                     
+                    Max.   :255156   Max.   :1                     
+                                                                   </code></pre>
+</div>
+</div>
+<p>Our data frame had 29 variables, so we get 29 fields that summarize the data. The <code>QUAL</code>, <code>IMF</code>, and <code>VDB</code> variables (and several others) are numerical data and so you get summary statistics on the min and max values for these columns, as well as mean, median, and interquartile ranges. Many of the other variables (e.g.&nbsp;<code>sample_id</code>) are treated as characters data (more on this in a bit).</p>
+<p>Now, let’s use the <code>str()</code> (structure) function to look a little more closely at how data frames work:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## get the structure of a data frame</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(variants)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You should notice quite a bit of information printing to your console:</p>
+<ul>
+<li>the object type <code>tibble</code> is displayed. A tibble is a <strong><code>tidyverse</code></strong> version of the data frame. It has some properties like printing out nicely to the console, but for our purposes in this class, we will use the terms “data frame” and “tibble” interchangeably.</li>
+<li>After the object type is the dimensions, in this case 801 observations (rows) and 29 variables (columns).</li>
+<li>Each variable (column) has a name (e.g.&nbsp;<code>sample_id</code>). This is followed by the object mode (e.g.&nbsp;chr, int, etc.). Notice that before each variable name there is a <code>$</code> - this will be important later.</li>
+<li>Note that we can find this information in the environment pane also.</li>
+</ul>
+<section id="subsetting-data-frames" class="level3">
+<h3 class="anchored" data-anchor-id="subsetting-data-frames">Subsetting data frames</h3>
+<p>Next, we are going to talk about how you can get specific values from data frames.</p>
+<p>The first thing to remember is that a data frame is two-dimensional (rows and columns). Therefore, to select a specific value we will will once again use <code>[]</code> (bracket) notation, but we will specify more than one value (except in some cases where we are taking a range).</p>
+<p>Let’s say I wanted the first row and first column</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>variants[<span class="dv">1</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  sample_id 
+  &lt;chr&gt;     
+1 SRR2584863</code></pre>
+</div>
+</div>
+<p>or I can select the first three rows and first three columns with <code>:</code> to get a range.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>variants[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  sample_id  CHROM         POS
+  &lt;chr&gt;      &lt;chr&gt;       &lt;dbl&gt;
+1 SRR2584863 CP000819.1   9972
+2 SRR2584863 CP000819.1 263235
+3 SRR2584863 CP000819.1 281923</code></pre>
+</div>
+</div>
+<p>If we want to select all rows and one or more columns, we leave the space before the comma blank.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>variants[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 801 × 5
+   sample_id  CHROM          POS ID    REF                             
+   &lt;chr&gt;      &lt;chr&gt;        &lt;dbl&gt; &lt;lgl&gt; &lt;chr&gt;                           
+ 1 SRR2584863 CP000819.1    9972 NA    T                               
+ 2 SRR2584863 CP000819.1  263235 NA    G                               
+ 3 SRR2584863 CP000819.1  281923 NA    G                               
+ 4 SRR2584863 CP000819.1  433359 NA    CTTTTTTT                        
+ 5 SRR2584863 CP000819.1  473901 NA    CCGC                            
+ 6 SRR2584863 CP000819.1  648692 NA    C                               
+ 7 SRR2584863 CP000819.1 1331794 NA    C                               
+ 8 SRR2584863 CP000819.1 1733343 NA    G                               
+ 9 SRR2584863 CP000819.1 2103887 NA    ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+10 SRR2584863 CP000819.1 2333538 NA    AT                              
+# ℹ 791 more rows</code></pre>
+</div>
+</div>
+<p>or we can leave out the comma entirely</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>variants[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 801 × 5
+   sample_id  CHROM          POS ID    REF                             
+   &lt;chr&gt;      &lt;chr&gt;        &lt;dbl&gt; &lt;lgl&gt; &lt;chr&gt;                           
+ 1 SRR2584863 CP000819.1    9972 NA    T                               
+ 2 SRR2584863 CP000819.1  263235 NA    G                               
+ 3 SRR2584863 CP000819.1  281923 NA    G                               
+ 4 SRR2584863 CP000819.1  433359 NA    CTTTTTTT                        
+ 5 SRR2584863 CP000819.1  473901 NA    CCGC                            
+ 6 SRR2584863 CP000819.1  648692 NA    C                               
+ 7 SRR2584863 CP000819.1 1331794 NA    C                               
+ 8 SRR2584863 CP000819.1 1733343 NA    G                               
+ 9 SRR2584863 CP000819.1 2103887 NA    ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+10 SRR2584863 CP000819.1 2333538 NA    AT                              
+# ℹ 791 more rows</code></pre>
+</div>
+</div>
+<p>Alternatively, if we want all columns and just one or more rows, we leave the space after the comma blank</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>variants[<span class="dv">1</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 29
+  sample_id  CHROM    POS ID    REF   ALT    QUAL FILTER INDEL   IDV   IMF    DP
+  &lt;chr&gt;      &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;lgl&gt;  &lt;lgl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 SRR2584863 CP000…  9972 NA    T     G        91 NA     FALSE    NA    NA     4
+# ℹ 17 more variables: VDB &lt;dbl&gt;, RPB &lt;dbl&gt;, MQB &lt;dbl&gt;, BQB &lt;dbl&gt;, MQSB &lt;dbl&gt;,
+#   SGB &lt;dbl&gt;, MQ0F &lt;dbl&gt;, ICB &lt;lgl&gt;, HOB &lt;lgl&gt;, AC &lt;dbl&gt;, AN &lt;dbl&gt;, DP4 &lt;chr&gt;,
+#   MQ &lt;dbl&gt;, Indiv &lt;chr&gt;, gt_PL &lt;dbl&gt;, gt_GT &lt;dbl&gt;, gt_GT_alleles &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>To select non-consecutive columns, use <code>c()</code>. You can always save these results to a new object.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## put the first three columns of variants into a new data frame called subset</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>variants_subset <span class="ot">&lt;-</span> variants[,<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">6</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Subsetting vectors vs data frames
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The subsetting notation is very similar to what we learned for vectors. The key differences include:</p>
+<ul>
+<li>Typically provide two values separated by commas: data.frame[row, column]</li>
+<li>In cases where you are taking a continuous range of numbers use a colon between the numbers (start:stop, inclusive)</li>
+<li>For a non continuous set of numbers, pass a vector using <code>c()</code></li>
+<li>Index using the name of a column(s) by passing them as vectors using <code>c()</code></li>
+</ul>
+</div>
+</div>
+<p>It will generally be easier for us to access columns by name, rather than index. We can do this with the <code>$</code> to access a column.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## extract the "ALT" column to a new object</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>alt_alleles <span class="ot">&lt;-</span> variants_subset<span class="sc">$</span>ALT</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(alt_alleles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "G"         "T"         "T"         "CTTTTTTTT" "CCGCGC"    "T"        </code></pre>
+</div>
+</div>
+<p>Like with vectors, we can use brackets with logical operators to subset based on a condition. We can also use a combination of <code>$</code> and <code>[]</code> notation. Since we are filtering for just the rows we want, we put the condition before the <code>,</code>.</p>
+<p>Let’s try some conditional filtering to look for just the rows with the nucleotide ‘A’ in the <code>ALT</code> column.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>variants_subset[variants_subset<span class="sc">$</span>ALT <span class="sc">==</span> <span class="st">"A"</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 211 × 4
+   sample_id  CHROM          POS ALT  
+   &lt;chr&gt;      &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;
+ 1 SRR2584863 CP000819.1 1331794 A    
+ 2 SRR2584863 CP000819.1 1733343 A    
+ 3 SRR2584863 CP000819.1 2999330 A    
+ 4 SRR2584863 CP000819.1 3401754 A    
+ 5 SRR2584866 CP000819.1   10563 A    
+ 6 SRR2584866 CP000819.1   64042 A    
+ 7 SRR2584866 CP000819.1   98404 A    
+ 8 SRR2584866 CP000819.1  105581 A    
+ 9 SRR2584866 CP000819.1  241885 A    
+10 SRR2584866 CP000819.1  241950 A    
+# ℹ 201 more rows</code></pre>
+</div>
+</div>
+<p>or we can look for all the single-nucleotide alleles (SNPs).</p>
+<p>First let’s create an object to store the values of our DNA bases.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>bases <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"C"</span>, <span class="st">"G"</span>, <span class="st">"T"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next we can use the <code>%in%</code> operator. This is a logical operator which is similar to <code>==</code>, but can be used to filter on multiple values. Here we are saying to check for each of the four bases we captured in the bases object.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>snps <span class="ot">&lt;-</span> variants_subset[variants_subset<span class="sc">$</span>ALT <span class="sc">%in%</span> bases, ]</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(snps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  sample_id  CHROM          POS ALT  
+  &lt;chr&gt;      &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;
+1 SRR2584863 CP000819.1    9972 G    
+2 SRR2584863 CP000819.1  263235 T    
+3 SRR2584863 CP000819.1  281923 T    
+4 SRR2584863 CP000819.1  648692 T    
+5 SRR2584863 CP000819.1 1331794 A    
+6 SRR2584863 CP000819.1 1733343 A    </code></pre>
+</div>
+</div>
+<p>This leaves us with a data frame (or tibble) of the 707 rows in which the alternative alleles were single nucleotides.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Exercise: Subsetting a data frame
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Try the following indices and functions and try to figure out what they return</strong></p>
+<ol type="a">
+<li><p><code>variants[1,1]</code></p></li>
+<li><p><code>variants[2,4]</code></p></li>
+<li><p><code>variants[801,29]</code></p></li>
+<li><p><code>variants[2, ]</code></p></li>
+<li><p><code>variants[-1, ]</code></p></li>
+<li><p><code>variants[1:4,1]</code></p></li>
+<li><p><code>variants[1:10,c("REF","ALT")]</code></p></li>
+<li><p><code>variants[,c("sample_id")]</code></p></li>
+<li><p><code>head(variants)</code></p></li>
+<li><p><code>tail(variants)</code></p></li>
+<li><p><code>variants$sample_id</code></p></li>
+<li><p><code>variants[variants$REF == "A",]</code></p></li>
+</ol>
+<div class="callout-warning callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>variants[<span class="dv">1</span>,<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  sample_id 
+  &lt;chr&gt;     
+1 SRR2584863</code></pre>
+</div>
+</div>
+<ol start="2" type="a">
+<li></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>variants[<span class="dv">2</span>,<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  ID   
+  &lt;lgl&gt;
+1 NA   </code></pre>
+</div>
+</div>
+<ol start="3" type="a">
+<li></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>variants[<span class="dv">801</span>,<span class="dv">29</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  gt_GT_alleles
+  &lt;chr&gt;        
+1 T            </code></pre>
+</div>
+</div>
+<ol start="4" type="a">
+<li></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>variants[<span class="dv">2</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 29
+  sample_id  CHROM    POS ID    REF   ALT    QUAL FILTER INDEL   IDV   IMF    DP
+  &lt;chr&gt;      &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;lgl&gt;  &lt;lgl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 SRR2584863 CP00… 263235 NA    G     T        85 NA     FALSE    NA    NA     6
+# ℹ 17 more variables: VDB &lt;dbl&gt;, RPB &lt;dbl&gt;, MQB &lt;dbl&gt;, BQB &lt;dbl&gt;, MQSB &lt;dbl&gt;,
+#   SGB &lt;dbl&gt;, MQ0F &lt;dbl&gt;, ICB &lt;lgl&gt;, HOB &lt;lgl&gt;, AC &lt;dbl&gt;, AN &lt;dbl&gt;, DP4 &lt;chr&gt;,
+#   MQ &lt;dbl&gt;, Indiv &lt;chr&gt;, gt_PL &lt;dbl&gt;, gt_GT &lt;dbl&gt;, gt_GT_alleles &lt;chr&gt;</code></pre>
+</div>
+</div>
+<ol start="5" type="a">
+<li></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>variants[<span class="sc">-</span><span class="dv">1</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 29
+  sample_id  CHROM    POS ID    REF   ALT    QUAL FILTER INDEL   IDV   IMF    DP
+  &lt;chr&gt;      &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;lgl&gt;  &lt;lgl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 SRR2584863 CP00… 2.63e5 NA    G     T        85 NA     FALSE    NA  NA       6
+2 SRR2584863 CP00… 2.82e5 NA    G     T       217 NA     FALSE    NA  NA      10
+3 SRR2584863 CP00… 4.33e5 NA    CTTT… CTTT…    64 NA     TRUE     12   1      12
+4 SRR2584863 CP00… 4.74e5 NA    CCGC  CCGC…   228 NA     TRUE      9   0.9    10
+5 SRR2584863 CP00… 6.49e5 NA    C     T       210 NA     FALSE    NA  NA      10
+6 SRR2584863 CP00… 1.33e6 NA    C     A       178 NA     FALSE    NA  NA       8
+# ℹ 17 more variables: VDB &lt;dbl&gt;, RPB &lt;dbl&gt;, MQB &lt;dbl&gt;, BQB &lt;dbl&gt;, MQSB &lt;dbl&gt;,
+#   SGB &lt;dbl&gt;, MQ0F &lt;dbl&gt;, ICB &lt;lgl&gt;, HOB &lt;lgl&gt;, AC &lt;dbl&gt;, AN &lt;dbl&gt;, DP4 &lt;chr&gt;,
+#   MQ &lt;dbl&gt;, Indiv &lt;chr&gt;, gt_PL &lt;dbl&gt;, gt_GT &lt;dbl&gt;, gt_GT_alleles &lt;chr&gt;</code></pre>
+</div>
+</div>
+<ol start="6" type="a">
+<li></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>variants[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 1
+  sample_id 
+  &lt;chr&gt;     
+1 SRR2584863
+2 SRR2584863
+3 SRR2584863
+4 SRR2584863</code></pre>
+</div>
+</div>
+<ol start="7" type="a">
+<li></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>variants[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="fu">c</span>(<span class="st">"REF"</span>,<span class="st">"ALT"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 2
+   REF                              ALT                                         
+   &lt;chr&gt;                            &lt;chr&gt;                                       
+ 1 T                                G                                           
+ 2 G                                T                                           
+ 3 G                                T                                           
+ 4 CTTTTTTT                         CTTTTTTTT                                   
+ 5 CCGC                             CCGCGC                                      
+ 6 C                                T                                           
+ 7 C                                A                                           
+ 8 G                                A                                           
+ 9 ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCA…
+10 AT                               ATT                                         </code></pre>
+</div>
+</div>
+<ol start="8" type="a">
+<li></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>variants[,<span class="fu">c</span>(<span class="st">"sample_id"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 1
+  sample_id 
+  &lt;chr&gt;     
+1 SRR2584863
+2 SRR2584863
+3 SRR2584863
+4 SRR2584863
+5 SRR2584863
+6 SRR2584863</code></pre>
+</div>
+</div>
+<ol type="i">
+<li></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(variants)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 29
+  sample_id  CHROM    POS ID    REF   ALT    QUAL FILTER INDEL   IDV   IMF    DP
+  &lt;chr&gt;      &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;lgl&gt;  &lt;lgl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 SRR2584863 CP00…   9972 NA    T     G        91 NA     FALSE    NA  NA       4
+2 SRR2584863 CP00… 263235 NA    G     T        85 NA     FALSE    NA  NA       6
+3 SRR2584863 CP00… 281923 NA    G     T       217 NA     FALSE    NA  NA      10
+4 SRR2584863 CP00… 433359 NA    CTTT… CTTT…    64 NA     TRUE     12   1      12
+5 SRR2584863 CP00… 473901 NA    CCGC  CCGC…   228 NA     TRUE      9   0.9    10
+6 SRR2584863 CP00… 648692 NA    C     T       210 NA     FALSE    NA  NA      10
+# ℹ 17 more variables: VDB &lt;dbl&gt;, RPB &lt;dbl&gt;, MQB &lt;dbl&gt;, BQB &lt;dbl&gt;, MQSB &lt;dbl&gt;,
+#   SGB &lt;dbl&gt;, MQ0F &lt;dbl&gt;, ICB &lt;lgl&gt;, HOB &lt;lgl&gt;, AC &lt;dbl&gt;, AN &lt;dbl&gt;, DP4 &lt;chr&gt;,
+#   MQ &lt;dbl&gt;, Indiv &lt;chr&gt;, gt_PL &lt;dbl&gt;, gt_GT &lt;dbl&gt;, gt_GT_alleles &lt;chr&gt;</code></pre>
+</div>
+</div>
+<ol start="10" type="a">
+<li></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(variants)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 29
+  sample_id  CHROM    POS ID    REF   ALT    QUAL FILTER INDEL   IDV   IMF    DP
+  &lt;chr&gt;      &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;lgl&gt;  &lt;lgl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 SRR2589044 CP00… 3.44e6 NA    G     T       184 NA     FALSE    NA    NA     9
+2 SRR2589044 CP00… 3.48e6 NA    A     G       225 NA     FALSE    NA    NA    12
+3 SRR2589044 CP00… 3.89e6 NA    AG    AGG     101 NA     TRUE      4     1     4
+4 SRR2589044 CP00… 3.90e6 NA    A     AC       70 NA     TRUE      3     1     3
+5 SRR2589044 CP00… 4.10e6 NA    A     G       177 NA     FALSE    NA    NA     8
+6 SRR2589044 CP00… 4.43e6 NA    TGG   T       225 NA     TRUE     10     1    10
+# ℹ 17 more variables: VDB &lt;dbl&gt;, RPB &lt;dbl&gt;, MQB &lt;dbl&gt;, BQB &lt;dbl&gt;, MQSB &lt;dbl&gt;,
+#   SGB &lt;dbl&gt;, MQ0F &lt;dbl&gt;, ICB &lt;lgl&gt;, HOB &lt;lgl&gt;, AC &lt;dbl&gt;, AN &lt;dbl&gt;, DP4 &lt;chr&gt;,
+#   MQ &lt;dbl&gt;, Indiv &lt;chr&gt;, gt_PL &lt;dbl&gt;, gt_GT &lt;dbl&gt;, gt_GT_alleles &lt;chr&gt;</code></pre>
+</div>
+</div>
+<ol start="11" type="a">
+<li></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>variants<span class="sc">$</span>sample_id</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "SRR2584863" "SRR2584863" "SRR2584863" "SRR2584863" "SRR2584863"
+[6] "SRR2584863"</code></pre>
+</div>
+</div>
+<ol start="12" type="a">
+<li></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>variants[variants<span class="sc">$</span>REF <span class="sc">==</span> <span class="st">"A"</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 29
+  sample_id  CHROM    POS ID    REF   ALT    QUAL FILTER INDEL   IDV   IMF    DP
+  &lt;chr&gt;      &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;lgl&gt;  &lt;lgl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 SRR2584863 CP00… 2.41e6 NA    A     C       104 NA     FALSE    NA    NA     9
+2 SRR2584863 CP00… 2.45e6 NA    A     C       225 NA     FALSE    NA    NA    20
+3 SRR2584863 CP00… 2.67e6 NA    A     T       225 NA     FALSE    NA    NA    19
+4 SRR2584863 CP00… 3.34e6 NA    A     C       211 NA     FALSE    NA    NA    10
+5 SRR2584863 CP00… 3.48e6 NA    A     G       200 NA     FALSE    NA    NA     9
+6 SRR2584863 CP00… 3.49e6 NA    A     C       225 NA     FALSE    NA    NA    13
+# ℹ 17 more variables: VDB &lt;dbl&gt;, RPB &lt;dbl&gt;, MQB &lt;dbl&gt;, BQB &lt;dbl&gt;, MQSB &lt;dbl&gt;,
+#   SGB &lt;dbl&gt;, MQ0F &lt;dbl&gt;, ICB &lt;lgl&gt;, HOB &lt;lgl&gt;, AC &lt;dbl&gt;, AN &lt;dbl&gt;, DP4 &lt;chr&gt;,
+#   MQ &lt;dbl&gt;, Indiv &lt;chr&gt;, gt_PL &lt;dbl&gt;, gt_GT &lt;dbl&gt;, gt_GT_alleles &lt;chr&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="summarizing-data-frames" class="level3">
+<h3 class="anchored" data-anchor-id="summarizing-data-frames">Summarizing data frames</h3>
+<p>In addition to <code>summary()</code>, there are other useful base R functions for summarizing your data, or columns in your data.</p>
+<p>Use <code>unique()</code> to find the unique values in a column. For instance, we could double check that our operation on the <code>ALT</code> column worked.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(snps<span class="sc">$</span>ALT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "G" "T" "A" "C"</code></pre>
+</div>
+</div>
+<p><code>table()</code> will give you unique values, plus a count of how often they appear.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(snps<span class="sc">$</span>ALT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  A   C   G   T 
+211 139 154 203 </code></pre>
+</div>
+</div>
+<div class="callout-note callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Key points
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>It is easy to import data into R from tabular formats including Excel. However, you still need to check that R has imported and interpreted your data correctly</li>
+<li>There are best practices for organizing your data (keeping it tidy) and R is great for this</li>
+<li>Base R has many useful functions for manipulating your data, but all of R’s capabilities are greatly enhanced by software packages developed by the community</li>
+</ul>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">This material was lightly adapted from the <a href="https://datacarpentry.org/lessons/#genomics-workshop">Data Carpentry Genomics Curriculum</a> which is shared under a <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> license.</div>
+  </div>
+</footer>
+
+
+
+</body></html>

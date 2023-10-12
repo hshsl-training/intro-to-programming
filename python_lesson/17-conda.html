@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CDABS Intro to Programming - Installing Bioinformatics Packages</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CDABS Intro to Programming</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-shell" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Shell</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-shell">    
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/01-introduction.html">
+ <span class="dropdown-text">Introducing the Shell</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/02-the-filesystem.html">
+ <span class="dropdown-text">Navigating Files and Directories</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/06-organization.html">
+ <span class="dropdown-text">Project Organization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/04-redirection.html">
+ <span class="dropdown-text">Redirection</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/03-working-with-files.html">
+ <span class="dropdown-text">Working with Files and Directories</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shell_lesson/05-writing-scripts.html">
+ <span class="dropdown-text">Writing Scripts and Working with Data</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-r" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">R</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-r">    
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Python</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-python">    
+        <li>
+    <a class="dropdown-item" href="../python_lesson/13-files.html">
+ <span class="dropdown-text">Analyzing Data from Multiple Files</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/16-cmdline.html">
+ <span class="dropdown-text">Command-Line Programs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/09-func.html">
+ <span class="dropdown-text">Creating Functions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/10-errors.html">
+ <span class="dropdown-text">Errors and Exceptions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/14-filtering.html">
+ <span class="dropdown-text">Filtering Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/17-conda.html">
+ <span class="dropdown-text">Installing Bioinformatics Packages</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/01-intro.html">
+ <span class="dropdown-text">Introduction to Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/06-conditionals.html">
+ <span class="dropdown-text">Making Choices</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/03-operators.html">
+ <span class="dropdown-text">Operators</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/12-plotting.html">
+ <span class="dropdown-text">Producing Plots</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/11-loaddata.html">
+ <span class="dropdown-text">Reading in Tabular Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/07-loop.html">
+ <span class="dropdown-text">Repeating Actions with Loops</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/04-collections.html">
+ <span class="dropdown-text">Storing Multiple Values in Collections</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/15-tidying.html">
+ <span class="dropdown-text">Tidying up the Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/02-variables.html">
+ <span class="dropdown-text">Types, Objects, Values and Variables</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/08-libraries.html">
+ <span class="dropdown-text">Using External Modules</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../python_lesson/05-scripts.html">
+ <span class="dropdown-text">Writing Python Scripts</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Installing Bioinformatics Packages</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/13-files.html" class="sidebar-item-text sidebar-link">Analyzing Data from Multiple Files</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/16-cmdline.html" class="sidebar-item-text sidebar-link">Command-Line Programs</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/09-func.html" class="sidebar-item-text sidebar-link">Creating Functions</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/10-errors.html" class="sidebar-item-text sidebar-link">Errors and Exceptions</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/14-filtering.html" class="sidebar-item-text sidebar-link">Filtering Data</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/17-conda.html" class="sidebar-item-text sidebar-link active">Installing Bioinformatics Packages</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/01-intro.html" class="sidebar-item-text sidebar-link">Introduction to Python</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/06-conditionals.html" class="sidebar-item-text sidebar-link">Making Choices</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/03-operators.html" class="sidebar-item-text sidebar-link">Operators</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/12-plotting.html" class="sidebar-item-text sidebar-link">Producing Plots</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/11-loaddata.html" class="sidebar-item-text sidebar-link">Reading in Tabular Data</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/07-loop.html" class="sidebar-item-text sidebar-link">Repeating Actions with Loops</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/04-collections.html" class="sidebar-item-text sidebar-link">Storing Multiple Values in Collections</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/15-tidying.html" class="sidebar-item-text sidebar-link">Tidying up the Analysis</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/02-variables.html" class="sidebar-item-text sidebar-link">Types, Objects, Values and Variables</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/08-libraries.html" class="sidebar-item-text sidebar-link">Using External Modules</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python_lesson/05-scripts.html" class="sidebar-item-text sidebar-link">Writing Python Scripts</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting Started</a>
+  <ul class="collapse">
+  <li><a href="#check-your-installation" id="toc-check-your-installation" class="nav-link" data-scroll-target="#check-your-installation">Check your installation</a></li>
+  <li><a href="#installing-conda" id="toc-installing-conda" class="nav-link" data-scroll-target="#installing-conda">Installing Conda</a></li>
+  </ul></li>
+  <li><a href="#setting-up-channels" id="toc-setting-up-channels" class="nav-link" data-scroll-target="#setting-up-channels">Setting up channels</a></li>
+  <li><a href="#finding-packages" id="toc-finding-packages" class="nav-link" data-scroll-target="#finding-packages">Finding Packages</a></li>
+  <li><a href="#install-packages" id="toc-install-packages" class="nav-link" data-scroll-target="#install-packages">Install packages</a></li>
+  <li><a href="#updating-and-checking-out-whats-installed" id="toc-updating-and-checking-out-whats-installed" class="nav-link" data-scroll-target="#updating-and-checking-out-whats-installed">Updating and checking out whats installed</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Installing Bioinformatics Packages</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>So far we have seen the fundamentals of using Python as well as libraries for cleaning, analyzing and visualizing data like Matplotlib and NumPy using Python. When you hear about Python being used for Bioinformatics or Machine Learning however much of the time doing that work requires loading and using software developed with Python and other programming languages. When you are considering expanding your analytical repertoire to using these packages you are faced with a decision. Will I download this software from the developers website or will I use a package manager. There are tremendous benefits to using package managers. The most important benefit is ease of installation of the software as well as updating software that has been installed using a package manager. One important channel/package manager to familiarize yourself with is <a href="https://bioconda.github.io/user/install.html">Bioconda</a> which is part of the <a href="https://docs.conda.io/en/latest/">Conda</a> open-source package management system and environment management system.</p>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<p><strong>Bioconda supports only 64-bit Linux and Mac OS.</strong> this means folks on Windows will need either a virtual machine running Linux or have the Windows Subsystem for Linux installed on their computer to use Bioconda.</p>
+<p>The first thing required to install Bioconda packages is to have Conda installed. If you have an Anaconda Python installation, you already have Conda. Otherwise, the best way to install it is with the Miniconda package. The Python 3 version is recommended.</p>
+<section id="check-your-installation" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-installation">Check your installation</h3>
+<p>To check your installation of Conda run:</p>
+<pre><code>$ conda --version</code></pre>
+<p>{: .language-shell}</p>
+<p>You should see an output such as this: ~~~ conda 4.10.3 ~~~ {: .output}</p>
+</section>
+<section id="installing-conda" class="level3">
+<h3 class="anchored" data-anchor-id="installing-conda">Installing Conda</h3>
+<p>If you dont see that output you can install Conda on your platform with these commands according to Conda <a href="https://bioconda.github.io/user/install.html">documentation</a></p>
+<p>On MacOS run: ~~~ $ curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh sh Miniconda3-latest-MacOSX-x86_64.sh ~~~ {: .language-shell}</p>
+<p>On Linux, run: ~~~ $ curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh sh Miniconda3-latest-Linux-x86_64.sh ~~~ {: .language-shell}</p>
+<p>Follow the instructions in the installer. If you encounter problems, refer to the <strong><a href="https://conda.io/en/latest/miniconda.html">Miniconda</a></strong> documentation.</p>
+</section>
+</section>
+<section id="setting-up-channels" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-channels">Setting up channels</h2>
+<p>After installing conda you will need to add the bioconda channel as well as the other channels bioconda depends on. It is important to add them in this order so that the priority is set correctly (that is, conda-forge is highest priority).</p>
+<p>The <a href="https://conda-forge.org/">conda-forge</a> channel contains many general-purpose packages not already found in the defaults channel.</p>
+<pre><code>$ conda config --add channels defaults
+$ conda config --add channels bioconda
+$ conda config --add channels conda-forge</code></pre>
+<p>{: .language-shell}</p>
+<ul>
+<li><p>conda-forge: Most dependencies (numpy, scipy, zlib, CRAN packages, etc.)</p></li>
+<li><p>bioconda: Most bioinf packages (salmon, STAR, samtools, DESeq2, etc.)</p></li>
+<li><p>defaults: Packages built by Anaconda Inc.</p></li>
+</ul>
+</section>
+<section id="finding-packages" class="level2">
+<h2 class="anchored" data-anchor-id="finding-packages">Finding Packages</h2>
+<ul>
+<li><p>Search https://anaconda.org</p></li>
+<li><p>Search Google for package name + bioconda</p></li>
+<li><p>Use <code>conda search</code></p></li>
+</ul>
+<pre><code>$ conda search pysam</code></pre>
+<p>{: .language-shell}</p>
+<p>The output will show this:</p>
+<pre><code># Name                       Version           Build  Channel             
+[...]
+pysam                       0.16.0.1  py37h3ee3bc3_1  bioconda            
+pysam                       0.16.0.1  py37h3ee3bc3_2  bioconda            
+pysam                       0.16.0.1  py37h505b978_3  bioconda            
+pysam                       0.16.0.1  py38h4ebacbe_3  bioconda            
+pysam                       0.16.0.1  py38hb3e8b06_1  bioconda            
+pysam                       0.16.0.1  py38hb3e8b06_2  bioconda            
+pysam                       0.16.0.1  py39h56703ae_3  bioconda </code></pre>
+<p>{: .output}</p>
+<ul>
+<li>Packages have versions, build numbers, build hashes/strings
+<ul>
+<li>Build hashes include dependency information</li>
+</ul></li>
+<li>Bioconda packages are also listed at <a href="http://bioconda.github.io/conda-package_index.html" class="uri">http://bioconda.github.io/conda-package_index.html</a></li>
+</ul>
+<blockquote class="blockquote">
+<h2 id="how-to-find-recent-versions-of-bioconda-packages" class="anchored">How to find recent versions of bioconda packages?</h2>
+<p>What are the most recent versions of samtools and Snakemake?</p>
+<blockquote class="blockquote">
+<h2 id="solution" class="anchored">Solution</h2>
+<p>To accomplish this use the <code>conda search</code> command with the <code>package name</code> then pipe the results to <code>tail -n1</code> since the most recent version of the packages always appear at the end of the output from <code>conda search</code> .</p>
+<pre><code>$ conda search samtools | tail -n1</code></pre>
+<p>{: .language-shell}</p>
+<pre><code>samtools                        1.13      h7596a89_0  bioconda </code></pre>
+<p>{: .output}</p>
+<pre><code>$ conda search snakemake | tail -n1</code></pre>
+<p>{: .language-shell}</p>
+<pre><code>snakemake                      6.7.0      hdfd78af_0  bioconda</code></pre>
+<p>{: .output} {: .solution} {: .challenge}</p>
+</blockquote>
+</blockquote>
+</section>
+<section id="install-packages" class="level2">
+<h2 class="anchored" data-anchor-id="install-packages">Install packages</h2>
+<p>After browsing the packages to see what’s available and knowing bioconda is now enabled, any packages on the bioconda channel can be installed into the current conda environment:</p>
+<pre><code>$ conda install bwa</code></pre>
+<p>{: .language-shell}</p>
+</section>
+<section id="updating-and-checking-out-whats-installed" class="level2">
+<h2 class="anchored" data-anchor-id="updating-and-checking-out-whats-installed">Updating and checking out whats installed</h2>
+<p>To check all the conda packages installed on your system:</p>
+<pre><code>$ conda list</code></pre>
+<p>{: .language-shell}</p>
+<pre><code># packages in environment at /Users/jpcourneya/miniconda3:
+#
+# Name                    Version                   Build  Channel
+appnope                   0.1.2            py38h50d1736_1    conda-forge
+argon2-cffi               20.1.0           py38h96a0964_2    conda-forge
+async_generator           1.10                       py_0    conda-forge
+attrs                     20.3.0                   pypi_0    pypi
+backcall                  0.2.0              pyh9f0ad1d_0    conda-forge
+[...]
+trimmomatic               0.39                 hdfd78af_2    bioconda
+urllib3                   1.26.6             pyhd8ed1ab_0    conda-forge
+wcwidth                   0.2.5              pyh9f0ad1d_2    conda-forge
+webencodings              0.5.1                    pypi_0    pypi
+wheel                     0.36.2             pyhd3deb0d_0    conda-forge</code></pre>
+<p>{: .output}</p>
+<p>To update all your package, on some kind of routine you’d type:</p>
+<pre><code>$ conda update -all</code></pre>
+<p>{: .language-shell}</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
