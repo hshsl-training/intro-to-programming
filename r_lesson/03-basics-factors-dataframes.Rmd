@@ -110,8 +110,6 @@ knitr::include_graphics("fig/import_options.png")
 ```
 
 Now, you can copy the code from the code preview window, or look in your history pane, select the lines of code that were generated, and send them `To source`, i.e. to our script. 
-
-
 ```{r, eval=FALSE, purl=FALSE}
 ## read in a CSV file and save it as 'variants'
 
@@ -132,7 +130,7 @@ If you press the <kbd>TAB</kbd> key inside the quotes, RStudio will help you aut
 :::
 
 
-```{r, echo=FALSE, eval=TRUE, purl=FALSE}
+```{r, echo=FALSE, eval=TRUE, purl=FALSE, warning=FALSE, message=FALSE}
 ## silently read in CSV file from FigShare
 
 library(readr)
