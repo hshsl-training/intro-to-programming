@@ -299,15 +299,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#why-learn-r" id="toc-why-learn-r" class="nav-link" data-scroll-target="#why-learn-r">Why learn R?</a></li>
-  <li><a href="#starting-out-in-r" id="toc-starting-out-in-r" class="nav-link" data-scroll-target="#starting-out-in-r">Starting out in R</a>
-  <ul class="collapse">
-  <li><a href="#downloading-installing-and-running-r" id="toc-downloading-installing-and-running-r" class="nav-link" data-scroll-target="#downloading-installing-and-running-r">Downloading, Installing and Running R</a></li>
-  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio">RStudio</a></li>
-  <li><a href="#rstudio-cloud" id="toc-rstudio-cloud" class="nav-link" data-scroll-target="#rstudio-cloud">RStudio Cloud</a></li>
-  </ul></li>
-  <li><a href="#working-in-the-console" id="toc-working-in-the-console" class="nav-link" data-scroll-target="#working-in-the-console">Working in the Console</a></li>
+  <li><a href="#working-in-the-console" id="toc-working-in-the-console" class="nav-link active" data-scroll-target="#working-in-the-console">Working in the Console</a></li>
   <li><a href="#objects" id="toc-objects" class="nav-link" data-scroll-target="#objects">Objects</a>
   <ul class="collapse">
   <li><a href="#creating-objects" id="toc-creating-objects" class="nav-link" data-scroll-target="#creating-objects">Creating Objects</a></li>
@@ -320,14 +312,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">Vectors</a></li>
   <li><a href="#creating-and-subsetting-vectors" id="toc-creating-and-subsetting-vectors" class="nav-link" data-scroll-target="#creating-and-subsetting-vectors">Creating and subsetting vectors</a></li>
   <li><a href="#adding-to-removing-or-replacing-values-in-existing-vectors" id="toc-adding-to-removing-or-replacing-values-in-existing-vectors" class="nav-link" data-scroll-target="#adding-to-removing-or-replacing-values-in-existing-vectors">Adding to, removing, or replacing values in existing vectors</a></li>
-  <li><a href="#exercise-examining-and-subsetting-vectors" id="toc-exercise-examining-and-subsetting-vectors" class="nav-link" data-scroll-target="#exercise-examining-and-subsetting-vectors">Exercise: Examining and subsetting vectors</a></li>
   <li><a href="#logical-subsetting" id="toc-logical-subsetting" class="nav-link" data-scroll-target="#logical-subsetting">Logical Subsetting</a></li>
   <li><a href="#a-few-final-vector-tricks" id="toc-a-few-final-vector-tricks" class="nav-link" data-scroll-target="#a-few-final-vector-tricks">A few final vector tricks</a></li>
-  <li><a href="#review-exercise-1" id="toc-review-exercise-1" class="nav-link" data-scroll-target="#review-exercise-1">Review Exercise 1</a></li>
-  <li><a href="#review-exercise-2" id="toc-review-exercise-2" class="nav-link" data-scroll-target="#review-exercise-2">Review Exercise 2</a></li>
-  <li><a href="#review-exercise-3" id="toc-review-exercise-3" class="nav-link" data-scroll-target="#review-exercise-3">Review Exercise 3</a></li>
-  <li><a href="#review-exercise-4" id="toc-review-exercise-4" class="nav-link" data-scroll-target="#review-exercise-4">Review Exercise 4</a></li>
-  <li><a href="#review-exercise-5" id="toc-review-exercise-5" class="nav-link" data-scroll-target="#review-exercise-5">Review Exercise 5</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hshsl-training/intro-to-programming/edit/main/r_lesson/01-r-basics.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/hshsl-training/intro-to-programming/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -351,78 +337,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
-<ul>
-<li>Understand the value of learning R</li>
-<li>Navigate RStudio</li>
-<li>Define terms: object, function, argument, package, vector, data frame.</li>
-<li>Use help documentation in RStudio.</li>
-</ul>
-</section>
-<section id="why-learn-r" class="level2">
-<h2 class="anchored" data-anchor-id="why-learn-r">Why learn R?</h2>
-<ul>
-<li><p><strong>R is free, open-source, and cross-platform.</strong> Anyone can inspect the source code to see how R works. Because of this transparency, there is less chance for mistakes, and if you (or someone else) find some, you can report and fix bugs. Because R is open source and is supported by a large community of developers and users, there is a very large selection of third-party add-on packages which are freely available to extend R’s native capabilities.</p></li>
-<li><p><strong>R code is great for reproducibility</strong>. Reproducibility is when someone else (including your future self) can obtain the same results from the same dataset when using the same analysis. R integrates with other tools to generate manuscripts from your code. If you collect more data, or fix a mistake in your dataset, the figures and the statistical tests in your manuscript are updated automatically.</p></li>
-<li><p><strong>R relies on a series of written commands, not on remembering a succession of pointing and clicking.</strong> If you want to redo your analysis because you collected more data, you don’t have to remember which button you clicked in which order to obtain your results; you just have to run your script again.</p></li>
-<li><p><strong>R is interdisciplinary and extensible</strong> With 10,000+ packages that can be installed to extend its capabilities, R provides a framework that allows you to combine statistical approaches from many scientific disciplines to best suit the analytical framework you need to analyze your data. For instance, R has packages for image analysis, GIS, time series, population genetics, and a lot more.</p></li>
-<li><p><strong>R works on data of all shapes and sizes.</strong> The skills you learn with R scale easily with the size of your dataset. Whether your dataset has hundreds or millions of lines, it won’t make much difference to you. R is designed for data analysis. It comes with special data structures and data types that make handling of missing data and statistical factors convenient. R can connect to spreadsheets, databases, and many other data formats, on your computer or on the web.</p></li>
-<li><p><strong>R produces high-quality graphics.</strong> The plotting functionalities in R are endless, and allow you to adjust any aspect of your graph to convey most effectively the message from your data.</p></li>
-<li><p><strong>R has a large and welcoming community.</strong> Thousands of people use R daily. Many of them are willing to help you through mailing lists and websites such as <a href="https://stackoverflow.com/">Stack Overflow</a>, or on the <a href="https://community.rstudio.com/">RStudio community</a>. Questions which are backed up with <a href="https://www.tidyverse.org/help/">short, reproducible code snippets</a> are more likely to attract knowledgeable responses.</p></li>
-</ul>
-</section>
-<section id="starting-out-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="starting-out-in-r">Starting out in R</h2>
-<p><a href="https://cran.rstudio.com/">R</a> is both a programming language and an interactive environment for data exploration and statistics.</p>
-<p>Working with R is primarily text-based. The basic mode of use for R is that the user provides commands in the R language and then R computes and displays the result.</p>
-<section id="downloading-installing-and-running-r" class="level3">
-<h3 class="anchored" data-anchor-id="downloading-installing-and-running-r">Downloading, Installing and Running R</h3>
-<p><strong>Download</strong><br>
-R can be downloaded from <a href="https://cran.rstudio.com/index.html">CRAN (The Comprehensive R Archive Network)</a> for Windows, Linux, or Mac.</p>
-<p><strong>Install</strong><br>
-Installation of R is like most software packages and you will be guided. Should you have any issues or need help you can refer to <a href="https://cran.r-project.org/doc/manuals/r-release/R-admin.html">R Installation and Administration</a></p>
-<p><strong>Running</strong><br>
-R can be launched from your software or applications launcher or When working at a command line on UNIX or Windows, the command <code>R</code> can be used for starting the main R program in the form <code>R</code></p>
-<p>You will see a console similar to this appear:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig/console.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>While it is possible to work solely through the console or using a command line interface, the ideal environment to work in R is RStudio.</p>
-</section>
-<section id="rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="rstudio">RStudio</h3>
-<p>We will be working in <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a>.</p>
-<p>The main way of working with R is the <em>console</em>, where you enter commands and view results. RStudio surrounds this with various conveniences.</p>
-<p>RStudio is divided into four “panes”. The placement of these panes and their content can be customized (see menu, Tools -&gt; Global Options -&gt; Pane Layout).</p>
-<p>The Default Layout is:</p>
-<ul>
-<li>Top Left - <strong>Source</strong>: your scripts and documents</li>
-<li>Bottom Left - <strong>Console</strong>: what R would look and be like without RStudio</li>
-<li>Top Right - <strong>Environment/History</strong>: look here to see what you have done</li>
-<li>Bottom Right - <strong>Files</strong> and more: see the contents of the project/working directory here, like your Script.R file</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig/rstudio_session_4pane_layout.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="rstudio-cloud" class="level3">
-<h3 class="anchored" data-anchor-id="rstudio-cloud">RStudio Cloud</h3>
-<p>RStudio Cloud is a browser-based version of RStudio. It will allow you to use RStudio without needing to download anything to your computer. You can also easily share your R projects with others. While we recommend downloading RStudio for regular use, there may be times you find it helpful to have a cloud based solution.</p>
-</section>
-</section>
 <section id="working-in-the-console" class="level2">
 <h2 class="anchored" data-anchor-id="working-in-the-console">Working in the Console</h2>
 <p>The console is an interactive environment for RStudio, click on the “Console” pane, type <code>3 + 3</code> and press enter. R displays the result of the calculation.</p>
@@ -561,7 +475,7 @@ Note
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>gene_name <span class="ot">&lt;-</span> <span class="st">'pten'</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>human_diploid_chr_num <span class="ot">&lt;-</span>  <span class="dv">2</span> <span class="sc">*</span> human_chr_number</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Once an object has a value, you can change that value by overwriting it. R will not give you a warning or error if you overwriting an object, which may or may not be a good thing depending on how you look at it.</p>
+<p>Once an object has a value, you can change that value by overwriting it. R will not give you a warning or error if you overwrite an object, which may or may not be a good thing depending on how you look at it.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gene_name has the value 'pten'</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># We will now assign the new value 'tp53'</span></span>
@@ -597,7 +511,7 @@ Others_pRefer.to_RENOUNCEconvention #avoid</code></pre>
 </section>
 <section id="functions-and-their-arguments" class="level2">
 <h2 class="anchored" data-anchor-id="functions-and-their-arguments">Functions and their arguments</h2>
-<p>Functions are “canned scripts” that automate more complicated sets of commands including operations assignments, etc. Many functions are predefined, or can be made available by importing R <em>packages</em> (more on that later). A function usually gets one or more inputs called <em>arguments</em>. Functions often (but not always) return a <em>value</em>.</p>
+<p>Functions are “canned scripts” that automate more complicated sets of commands. Many functions are predefined, or can be made available by importing R <em>packages</em> (more on that later). A function usually gets one or more inputs called <em>arguments</em>. Functions often (but not always) return a <em>value</em>.</p>
 <p>A typical example would be the function <code>round()</code>. The input (the argument) must be a number, and the return value (in fact, the output) is that number rounded to the nearest whole number. Executing a function (‘running it’) is called <em>calling</em> the function. You can save the output of a function to an object. The format would look like:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">round</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -621,7 +535,7 @@ Others_pRefer.to_RENOUNCEconvention #avoid</code></pre>
 <pre><code>[1] 3</code></pre>
 </div>
 </div>
-<p>Here, we’ve called <code>round()</code> on . That’s because the default action of the function is to round to the nearest whole number. If we want more digits we can see how to do that by getting information about the <code>round</code> function. We can use <code>args(round)</code> or look at the help for this function using <code>?round</code>.</p>
+<p>The default action of the function is to round to the nearest whole number. If we want more digits we can see how to do that by getting information about the <code>round</code> function. We can use <code>args(round)</code> or look at the help for this function using <code>?round</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">args</span>(round)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -716,8 +630,21 @@ Exercise
 </section>
 <section id="vectors" class="level2">
 <h2 class="anchored" data-anchor-id="vectors">Vectors</h2>
-<p>A <em>vector</em> is a collection of values. “Vector” means different things in different fields (mathematics, geometry, biology), but in R it is a fancy name for a collection of values. We call the individual values <em>elements</em> of the vector. It is one of the most common data structures you will work with in R. ## Vectors</p>
-<p>Vectors are probably the most used commonly used object type in R. <strong>A vector is a collection of values that are all of the same type (numbers, characters, etc.)</strong>. One of the most common ways to create a vector is to use the <code>c()</code> function - the “concatenate” or “combine” function. Inside the function you may enter one or more values; for multiple values, separate each value with a comma:</p>
+<p>Vectors are probably the most used commonly used object type in R. “Vector” means different things in different fields (mathematics, geometry, biology), but in R a vector is a collection of values that are all of the same type (numbers, characters, etc.).</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Data Types
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are numerous data types. Some of the other most common data types you will encounter are numeric data, character data and logical data. Vectors of one data type only are called atomic vectors. Read more about vectors and data types in the book <a href="https://r4ds.had.co.nz/vectors.html">R for Data Science</a></p>
+</div>
+</div>
+<p>One of the most common ways to create a vector is to use the <code>c()</code> function - the “concatenate” or “combine” function. Inside the function you may enter one or more values; for multiple values, separate each value with a comma:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the SNP gene name vector</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -778,7 +705,8 @@ Exercise
 <pre><code>[1] "rs53576"   "rs6152"    "rs1799971"</code></pre>
 </div>
 </div>
-<p>There are additional (and perhaps less commonly used) ways of subsetting a vector (see <a href="https://thomasleeper.com/Rcourse/Tutorials/vectorindexing.html">these examples</a>). Also, several of these subsetting expressions can be combined:</p>
+<p>There are additional (and perhaps less commonly used) ways of subsetting a vector (see <a href="https://thomasleeper.com/Rcourse/Tutorials/vectorindexing.html">these examples</a>.</p>
+<p>Also, several of these subsetting expressions can be combined:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the 1st through the 3rd value, and 4th value in the snp vector</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># yes, this is a little silly in a vector of only 4 values.</span></span>
@@ -826,9 +754,16 @@ Exercise
 <pre><code>[1] "OXTR"   "ACTN3"  "AR"     "OPRM1"  "CYP1A1" "APOA5" </code></pre>
 </div>
 </div>
-</section>
-<section id="exercise-examining-and-subsetting-vectors" class="level2 challenge">
-<h2 class="anchored" data-anchor-id="exercise-examining-and-subsetting-vectors">Exercise: Examining and subsetting vectors</h2>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Exercise: Examining and subsetting vectors
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Answer the following questions to test your knowledge of vectors</p>
 <p>Which of the following are true of vectors in R? A) All vectors have a mode <strong>or</strong> a length<br>
 B) All vectors have a mode <strong>and</strong> a length<br>
@@ -836,9 +771,19 @@ C) Vectors may have different lengths<br>
 D) Items within a vector may be of different modes<br>
 E) You can use the <code>c()</code> to add one or more items to an existing vector<br>
 F) You can use the <code>c()</code> to add a vector to an existing vector</p>
-<div class="solution proof">
+<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <ol type="A">
-<li><span class="proof-title"><em>Solution</em> (Solution). </span></li>
 <li>False - Vectors have both of these properties<br>
 </li>
 <li>True<br>
@@ -851,6 +796,10 @@ a vector must be of this mode.</li>
 </li>
 <li>True</li>
 </ol>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="logical-subsetting" class="level2">
@@ -958,79 +907,131 @@ The magic of programming
 <h2 class="anchored" data-anchor-id="a-few-final-vector-tricks">A few final vector tricks</h2>
 <p>Finally, there are a few other common retrieve or replace operations you may want to know about. First, you can check to see if any of the values of your vector are missing (i.e.&nbsp;are <code>NA</code>, that stands for <code>not avaliable</code>). Missing data will get a more detailed treatment later, but the <code>is.NA()</code> function will return a logical vector, with TRUE for any NA value:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># current value of 'snp_genes':</span></span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="co"># chr [1:7] "OXTR" "ACTN3" "AR" "OPRM1" "CYP1A1" NA "APOA5"</span></span>
-<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(snp_genes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>snp_genes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"OXTR"</span>, <span class="st">"ACTN3"</span>, <span class="st">"AR"</span>, <span class="st">"OPRM1"</span>, <span class="st">"CYP1A1"</span>, <span class="cn">NA</span>, <span class="st">"APOA5"</span>)</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(snp_genes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<pre><code>[1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(snp_genes))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
 </div>
 </div>
 <p>Sometimes, you may wish to find out if a specific value (or several values) is present a vector. You can do this using the comparison operator <code>%in%</code>, which will return TRUE for any value in your collection that is in the vector you are searching:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># current value of 'snp_genes':</span></span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="co"># chr [1:7] "OXTR" "ACTN3" "AR" "OPRM1" "CYP1A1" NA "APOA5"</span></span>
-<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="co"># test to see if "ACTN3" or "APO5A" is in the snp_genes vector</span></span>
-<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="co"># if you are looking for more than one value, you must pass this as a vector</span></span>
-<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"ACTN3"</span>,<span class="st">"APOA5"</span>) <span class="sc">%in%</span> snp_genes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># current value of 'snp_genes':</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="co"># chr [1:7] "OXTR" "ACTN3" "AR" "OPRM1" "CYP1A1" NA "APOA5"</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="co"># test to see if "ACTN3" or "APO5A" is in the snp_genes vector</span></span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="co"># if you are looking for more than one value, you must pass this as a vector</span></span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>snp_genes <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"ACTN3"</span>,<span class="st">"APOA5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE TRUE</code></pre>
+<pre><code>[1] FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE</code></pre>
 </div>
 </div>
-</section>
-<section id="review-exercise-1" class="level2 challenge">
-<h2 class="anchored" data-anchor-id="review-exercise-1">Review Exercise 1</h2>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Exercise 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>What data modes are the following vectors? a. <code>snps</code><br>
 b. <code>snp_chromosomes</code><br>
 c.&nbsp;<code>snp_positions</code></p>
-<div class="solution proof">
+<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<span class="proof-title"><em>Solution</em> (Solution). </span>
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(snps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(snps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(snp_chromosomes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(snp_chromosomes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(snp_positions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mode</span>(snp_positions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "numeric"</code></pre>
 </div>
 </div>
 </div>
-</section>
-<section id="review-exercise-2" class="level2 challenge">
-<h2 class="anchored" data-anchor-id="review-exercise-2">Review Exercise 2</h2>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Exercise 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Add the following values to the specified vectors: a. To the <code>snps</code> vector add: “rs662799”<br>
 b. To the <code>snp_chromosomes</code> vector add: 11<br>
 c.&nbsp;To the <code>snp_positions</code> vector add: 116792991</p>
-<div class="solution proof">
+<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<span class="proof-title"><em>Solution</em> (Solution). </span>
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>snps <span class="ot">&lt;-</span> <span class="fu">c</span>(snps, <span class="st">"rs662799"</span>)</span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>snps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>snps <span class="ot">&lt;-</span> <span class="fu">c</span>(snps, <span class="st">"rs662799"</span>)</span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>snps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "rs53576"   "rs1815739" "rs6152"    "rs1799971" "rs662799" </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>snp_chromosomes <span class="ot">&lt;-</span> <span class="fu">c</span>(snp_chromosomes, <span class="st">"11"</span>) <span class="co"># did you use quotes?</span></span>
-<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>snp_chromosomes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>snp_chromosomes <span class="ot">&lt;-</span> <span class="fu">c</span>(snp_chromosomes, <span class="st">"11"</span>) <span class="co"># did you use quotes?</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>snp_chromosomes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "3"  "11" "X"  "6"  "11"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>snp_positions <span class="ot">&lt;-</span> <span class="fu">c</span>(snp_positions, <span class="dv">116792991</span>)</span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>snp_positions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>snp_positions <span class="ot">&lt;-</span> <span class="fu">c</span>(snp_positions, <span class="dv">116792991</span>)</span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>snp_positions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]   8762685  66560624  67545785 154039662 116792991</code></pre>
 </div>
 </div>
 </div>
-</section>
-<section id="review-exercise-3" class="level2 challenge">
-<h2 class="anchored" data-anchor-id="review-exercise-3">Review Exercise 3</h2>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Exercise 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Make the following change to the <code>snp_genes</code> vector:</p>
 <p>Hint: Your vector should look like this in ‘Environment’: <code>chr [1:7] "OXTR" "ACTN3" "AR" "OPRM1" "CYP1A1" NA "APOA5"</code>. If not recreate the vector by running this expression: <code>snp_genes &lt;- c("OXTR", "ACTN3", "AR", "OPRM1", "CYP1A1", NA, "APOA5")</code></p>
 <ol type="a">
@@ -1038,20 +1039,41 @@ c.&nbsp;To the <code>snp_positions</code> vector add: 116792991</p>
 </li>
 <li>Add 2 NA values to the end of <code>snp_genes</code></li>
 </ol>
-<div class="solution proof">
+<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<span class="proof-title"><em>Solution</em> (Solution). </span>
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>snp_genes <span class="ot">&lt;-</span> snp_genes[<span class="sc">-</span><span class="dv">5</span>]</span>
-<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>snp_genes <span class="ot">&lt;-</span> <span class="fu">c</span>(snp_genes, <span class="cn">NA</span>, <span class="cn">NA</span>)</span>
-<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>snp_genes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>snp_genes <span class="ot">&lt;-</span> snp_genes[<span class="sc">-</span><span class="dv">5</span>]</span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>snp_genes <span class="ot">&lt;-</span> <span class="fu">c</span>(snp_genes, <span class="cn">NA</span>, <span class="cn">NA</span>)</span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>snp_genes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "OXTR"  "ACTN3" "AR"    "OPRM1" "APOA5" NA      NA     </code></pre>
+<pre><code>[1] "OXTR"  "ACTN3" "AR"    "OPRM1" NA      "APOA5" NA      NA     </code></pre>
 </div>
 </div>
 </div>
-</section>
-<section id="review-exercise-4" class="level2 challenge">
-<h2 class="anchored" data-anchor-id="review-exercise-4">Review Exercise 4</h2>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Exercise 4
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Using indexing, create a new vector named <code>combined</code> that contains:</p>
 <ul>
 <li>The the 1st value in <code>snp_genes</code></li>
@@ -1059,92 +1081,84 @@ c.&nbsp;To the <code>snp_positions</code> vector add: 116792991</p>
 <li>The 1st value in <code>snp_chromosomes</code></li>
 <li>The 1st value in <code>snp_positions</code></li>
 </ul>
-<div class="solution proof">
+<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<span class="proof-title"><em>Solution</em> (Solution). </span>
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>combined <span class="ot">&lt;-</span> <span class="fu">c</span>(snp_genes[<span class="dv">1</span>], snps[<span class="dv">1</span>], snp_chromosomes[<span class="dv">1</span>], snp_positions[<span class="dv">1</span>])</span>
-<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>combined</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>combined <span class="ot">&lt;-</span> <span class="fu">c</span>(snp_genes[<span class="dv">1</span>], snps[<span class="dv">1</span>], snp_chromosomes[<span class="dv">1</span>], snp_positions[<span class="dv">1</span>])</span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>combined</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "OXTR"    "rs53576" "3"       "8762685"</code></pre>
 </div>
 </div>
 </div>
-</section>
-<section id="review-exercise-5" class="level2 challenge">
-<h2 class="anchored" data-anchor-id="review-exercise-5">Review Exercise 5</h2>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Exercise 5
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>What type of data is <code>combined</code>?</p>
-<div class="solution proof">
+<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<span class="proof-title"><em>Solution</em> (Solution). </span>
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(combined)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(combined)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
 </div>
 </div>
-</section>
-<div class="callout callout callout-style-simple no-icon callout-captioned">
+</div>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-simple no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Lists
+Key points
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Lists are quite useful in R, but we won’t be using them in the genomics lessons. That said, you may come across lists in the way that some bioinformatics programs may store and/or return data to you. One of the key attributes of a list is that, unlike a vector, a list may contain data of more than one mode. Learn more about creating and using lists using this <a href="https://r4ds.had.co.nz/vectors.html#lists">nice tutorial</a>. In this one example, we will create a named list and show you how to retrieve items from the list.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a named list using the 'list' function and our SNP examples</span></span>
-<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Note, for easy reading we have placed each item in the list on a separate line</span></span>
-<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Nothing special about this, you can do this for any multiline commands</span></span>
-<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a><span class="co"># To run this command, make sure the entire command (all 4 lines) are highlighted</span></span>
-<span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a><span class="co"># before running</span></span>
-<span id="cb86-6"><a href="#cb86-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Note also, as we are doing all this inside the list() function use of the</span></span>
-<span id="cb86-7"><a href="#cb86-7" aria-hidden="true" tabindex="-1"></a><span class="co"># '=' sign is good style</span></span>
-<span id="cb86-8"><a href="#cb86-8" aria-hidden="true" tabindex="-1"></a>snp_data <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">genes =</span> snp_genes,</span>
-<span id="cb86-9"><a href="#cb86-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">refference_snp =</span> snps,</span>
-<span id="cb86-10"><a href="#cb86-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">chromosome =</span> snp_chromosomes,</span>
-<span id="cb86-11"><a href="#cb86-11" aria-hidden="true" tabindex="-1"></a>                 <span class="at">position =</span> snp_positions)</span>
-<span id="cb86-12"><a href="#cb86-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine the structure of the list</span></span>
-<span id="cb86-13"><a href="#cb86-13" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(snp_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>List of 4
- $ genes         : chr [1:7] "OXTR" "ACTN3" "AR" "OPRM1" ...
- $ refference_snp: chr [1:5] "rs53576" "rs1815739" "rs6152" "rs1799971" ...
- $ chromosome    : chr [1:5] "3" "11" "X" "6" ...
- $ position      : num [1:5] 8.76e+06 6.66e+07 6.75e+07 1.54e+08 1.17e+08</code></pre>
-</div>
-</div>
-<p>To get all the values for the <code>position</code> object in the list, we use the <code>$</code> notation:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># return all the values of position object</span></span>
-<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>snp_data<span class="sc">$</span>position</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]   8762685  66560624  67545785 154039662 116792991</code></pre>
-</div>
-</div>
-<p>To get the first value in the <code>position</code> object, use the <code>[]</code> notation to index:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># return first value of the position object</span></span>
-<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a>snp_data<span class="sc">$</span>position[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 8762685</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="keypoints">
 <ul>
 <li>Effectively using R is a journey of months or years. Still you don’t have to be an expert to use R and you can start using and analyzing your data with with about a day’s worth of training</li>
 <li>It is important to understand how data are organized by R in a given object type and how the mode of that type (e.g.&nbsp;numeric, character, logical, etc.) will determine how R will operate on that data.</li>
 <li>Working with vectors effectively prepares you for understanding how data are organized in R.</li>
 </ul>
 </div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

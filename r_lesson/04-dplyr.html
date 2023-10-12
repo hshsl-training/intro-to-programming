@@ -306,15 +306,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#the-pipe" id="toc-the-pipe" class="nav-link" data-scroll-target="#the-pipe">The <code>pipe %&gt;%</code></a></li>
   </ul></li>
   <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><code>filter()</code></a></li>
-  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><code>mutate()</code></a>
-  <ul class="collapse">
-  <li><a href="#group_by-and-summarize-functions" id="toc-group_by-and-summarize-functions" class="nav-link" data-scroll-target="#group_by-and-summarize-functions"><code>group\_by()</code> and <code>summarize()</code> functions</a></li>
-  </ul></li>
-  <li><a href="#count" id="toc-count" class="nav-link" data-scroll-target="#count"><code>count()</code></a>
-  <ul class="collapse">
+  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><code>mutate()</code></a></li>
+  <li><a href="#group_by-and-summarize" id="toc-group_by-and-summarize" class="nav-link" data-scroll-target="#group_by-and-summarize"><code>group_by()</code> and <code>summarize()</code></a></li>
+  <li><a href="#count" id="toc-count" class="nav-link" data-scroll-target="#count"><code>count()</code></a></li>
+  <li><a href="#reshaping-data-frames" id="toc-reshaping-data-frames" class="nav-link" data-scroll-target="#reshaping-data-frames">Reshaping data frames</a></li>
   <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
-  </ul></li>
-  <li><a href="#key-points" id="toc-key-points" class="nav-link" data-scroll-target="#key-points">Key points</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hshsl-training/intro-to-programming/edit/main/r_lesson/04-dplyr.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/hshsl-training/intro-to-programming/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -817,10 +813,10 @@ Alternative solution
 #   gt_GT_alleles &lt;chr&gt;</code></pre>
 </div>
 </div>
-<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
 Exercise
@@ -828,17 +824,17 @@ Exercise
 </div>
 <div class="callout-body-container callout-body">
 <p>Select all the mutations that occurred between the positions 1e6 (one million) and 2e6 (inclusive) that have a QUAL greater than 200, and exclude INDEL mutations. Hint: to flip logical values such as TRUE to a FALSE, we can use to negation symbol “!”. (eg. !TRUE == FALSE).</p>
-<div class="callout-warning callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
 Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(variants, POS <span class="sc">&gt;=</span> <span class="fl">1e6</span> <span class="sc">&amp;</span> POS <span class="sc">&lt;=</span> <span class="fl">2e6</span>, QUAL <span class="sc">&gt;</span> <span class="dv">200</span>, <span class="sc">!</span>INDEL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -951,10 +947,10 @@ Solution
 16 A     C         9</code></pre>
 </div>
 </div>
-<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
 Exercise: Pipe and filter
@@ -962,17 +958,17 @@ Exercise: Pipe and filter
 </div>
 <div class="callout-body-container callout-body">
 <p>Starting with the <code>variants</code> data frame, use pipes to subset the data to include only observations from SRR2584863 sample, where the filtered depth (DP) is at least 10. Showing only 5th through 11th rows of columns <code>REF</code>, <code>ALT</code>, and <code>POS</code>.</p>
-<div class="callout-warning callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
 Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a> variants <span class="sc">%&gt;%</span></span>
@@ -1028,10 +1024,10 @@ Solution
 #   gt_GT_alleles &lt;chr&gt;, POLPROB &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
 Exercise
@@ -1039,17 +1035,17 @@ Exercise
 </div>
 <div class="callout-body-container callout-body">
 <p>There are a lot of columns in our data set, so let’s just look at the <code>sample_id</code>, <code>POS</code>, <code>QUAL</code>, and <code>POLPROB</code> columns for now. Add a line to the above code to only show those columns.</p>
-<div class="callout-warning callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
 Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse show">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>variants <span class="sc">%&gt;%</span></span>
@@ -1077,8 +1073,9 @@ Solution
 </div>
 </div>
 </div>
-<section id="group_by-and-summarize-functions" class="level3">
-<h3 class="anchored" data-anchor-id="group_by-and-summarize-functions"><code>group\_by()</code> and <code>summarize()</code> functions</h3>
+</section>
+<section id="group_by-and-summarize" class="level2">
+<h2 class="anchored" data-anchor-id="group_by-and-summarize"><code>group_by()</code> and <code>summarize()</code></h2>
 <p>Many data analysis tasks can be approached using the “split-apply-combine” paradigm: split the data into groups, apply some analysis to each group, and then combine the results. <code>dplyr</code> makes this very easy through the use of the <code>group_by()</code> function, which splits the data into groups.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>variants <span class="sc">%&gt;%</span></span>
@@ -1161,7 +1158,6 @@ Solution
 </div>
 </div>
 </section>
-</section>
 <section id="count" class="level2">
 <h2 class="anchored" data-anchor-id="count"><code>count()</code></h2>
 <p>Since counting or tallying values is a common use case for <code>group_by()</code>, an alternative function was created <code>count()</code>:</p>
@@ -1178,30 +1174,30 @@ Solution
 </div>
 </div>
 <p><code>count()</code> works similarly to the base R function we looked at in the last section <code>table()</code>, but it outputs the data as a tibble.</p>
-<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Challenge
+Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
 <li>How many mutations are INDELs?</li>
 </ul>
-<div class="callout-warning callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-caution callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
 Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse show">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>variants <span class="sc">%&gt;%</span></span>
@@ -1219,18 +1215,9 @@ Solution
 </div>
 </div>
 </div>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Reshaping data frames
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
+</section>
+<section id="reshaping-data-frames" class="level2">
+<h2 class="anchored" data-anchor-id="reshaping-data-frames">Reshaping data frames</h2>
 <p>It can sometimes be useful to transform the “long” tidy format, into the wide format. This transformation can be done with the <code>pivot_wider()</code> function provided by the <code>tidyr</code> package (also part of the <code>tidyverse</code>).</p>
 <p><code>pivot_wider()</code> takes a data frame as the first argument, and two arguments: the column name that will become the columns and the column name that will become the cells in the wide data.</p>
 <div class="cell">
@@ -1263,20 +1250,23 @@ Reshaping data frames
 3 CP000819.1 SRR2589044     9.3</code></pre>
 </div>
 </div>
-</div>
-</div>
-</div>
-<section id="resources" class="level3">
-<h3 class="anchored" data-anchor-id="resources">Resources</h3>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
 <ul>
 <li><p><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf">Handy dplyr cheatsheet</a></p></li>
 <li><p><a href="https://github.com/USEPA/workshops/blob/main/r/2015/introR/rmd_posts/2015-01-14-03-Clean.Rmd">Much of this lesson was copied or adapted from Jeff Hollister’s materials</a></p></li>
 </ul>
-<p>:::</p>
-</section>
-</section>
-<section id="key-points" class="level2">
-<h2 class="anchored" data-anchor-id="key-points">Key points</h2>
+<div class="callout-note callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Key points
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li>Use the <code>dplyr</code> package to manipulate data frames.</li>
 <li>Use <code>glimpse()</code> to quickly look at your data frame.</li>
@@ -1285,7 +1275,8 @@ Reshaping data frames
 <li>Use <code>mutate()</code> to create new variables.</li>
 <li>Use <code>group_by()</code> and <code>summarize()</code> to work with subsets of data.</li>
 </ul>
-<p>:::</p>
+</div>
+</div>
 
 
 </section>

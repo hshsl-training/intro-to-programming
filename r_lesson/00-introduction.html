@@ -242,8 +242,9 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#downloading-installing-and-running-r" id="toc-downloading-installing-and-running-r" class="nav-link" data-scroll-target="#downloading-installing-and-running-r">Downloading, Installing and Running R</a></li>
   <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio">RStudio</a></li>
-  <li><a href="#rstudio-cloud" id="toc-rstudio-cloud" class="nav-link" data-scroll-target="#rstudio-cloud">RStudio Cloud</a></li>
+  <li><a href="#posit-cloud" id="toc-posit-cloud" class="nav-link" data-scroll-target="#posit-cloud">Posit Cloud</a></li>
   </ul></li>
+  <li><a href="#setting-up-a-project" id="toc-setting-up-a-project" class="nav-link" data-scroll-target="#setting-up-a-project">Setting up a project</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hshsl-training/intro-to-programming/edit/main/r_lesson/00-introduction.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/hshsl-training/intro-to-programming/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -315,7 +316,7 @@ R can be launched from your software or applications launcher or When working at
 <section id="rstudio" class="level3">
 <h3 class="anchored" data-anchor-id="rstudio">RStudio</h3>
 <p>We will be working in <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a>.</p>
-<p>The main way of working with R is the <em>console</em>, where you enter commands and view results. RStudio surrounds this with various conveniences.</p>
+<p>The <em>console</em> provides an interactive way of working with R; you enter commands and view results. RStudio surrounds this with various conveniences.</p>
 <p>RStudio is divided into four “panes”. The placement of these panes and their content can be customized (see menu, Tools -&gt; Global Options -&gt; Pane Layout).</p>
 <p>The Default Layout is:</p>
 <ul>
@@ -334,12 +335,21 @@ R can be launched from your software or applications launcher or When working at
 </div>
 </div>
 </section>
-<section id="rstudio-cloud" class="level3">
-<h3 class="anchored" data-anchor-id="rstudio-cloud">RStudio Cloud</h3>
-<p>RStudio Cloud is a browser-based version of RStudio. It will allow you to use RStudio without needing to download anything to your computer. You can also easily share your R projects with others. While we recommend downloading RStudio for regular use, there may be times you find it helpful to have a cloud based solution.</p>
-
-
+<section id="posit-cloud" class="level3">
+<h3 class="anchored" data-anchor-id="posit-cloud">Posit Cloud</h3>
+<p><a href="https://posit.cloud/">Posit Cloud</a> is a browser-based version of RStudio (Posit being the company that owns RStudio). It will allow you to use RStudio without needing to download anything to your computer. You can also easily share your R projects with others. While we recommend downloading RStudio for regular use, there may be times you find it helpful to have a cloud based solution.</p>
 </section>
+</section>
+<section id="setting-up-a-project" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-a-project">Setting up a project</h2>
+<p>A R Project is an RStudio feature that makes it easy to keep all scripts, data, and other material together for a given project.</p>
+<p>To create a new project go to</p>
+<pre><code>File &gt; New Project &gt; Create Project From Existing Directory
+</code></pre>
+<p>Then we can use the wizard to navigate to the <code>r_lesson</code> folder on our Desktop. For now you can leave the <code>Open in New Session</code> button unchecked.</p>
+<p>Now you should notice an <code>.Rproj</code> file in your files pane. This is essentially a container file for everything in this directory.</p>
+
+
 </section>
 
 </main> <!-- /main -->
