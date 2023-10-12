@@ -1,33 +1,39 @@
 ---
 title: Data Wrangling and Analyses with Tidyverse
-teaching: 40
-exercises: 15
 source: Rmd
 ---
 
-::::::::::::::::::::::::::::::::::::::: objectives
+```{r, echo=FALSE, eval=TRUE, purl=FALSE, warning=FALSE, message=FALSE}
+## silently read in CSV file from FigShare
 
-- Describe what the `dplyr` package in R is used for.
-- Apply common `dplyr` functions to manipulate data in R.
-- Employ the ‘pipe’ operator to link together a sequence of functions.
-- Employ the ‘mutate’ function to apply other chosen functions to existing columns and create new columns of data.
+library(readr)
+variants <- read_csv("https://ndownloader.figshare.com/files/14632895")
+```
+
+
+::: {.callout-note appearance="minimal"}
+
+## Objectives
+
+- Describe what the **`dplyr`** package in R is used for.
+- Apply common **`dplyr`** functions to manipulate data in R.
+- Employ the `pipe` operator to link together a sequence of functions.
+- Employ the `mutate()` function to apply other chosen functions to existing columns and create new columns of data.
 - Employ the ‘split-apply-combine’ concept to split the data into groups, apply analysis to each group, and combine the results.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
-:::::::::::::::::::::::::::::::::::::::: questions
+::: {.callout-note appearance="minimal"}
+
+## Questions
 
 - How can I manipulate data frames without repeating myself?
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-```{r, include=FALSE}
-```
+:::
 
 Bracket subsetting is handy, but it can be cumbersome and difficult to read, especially for complicated operations.
 
-Luckily, the [`dplyr`](https://cran.r-project.org/package=dplyr)
-package provides a number of very useful functions for manipulating data frames
+Luckily, the [**`dplyr`**](https://cran.r-project.org/package=dplyr) package provides a number of very useful functions for manipulating data frames
 in a way that will reduce repetition, reduce the probability of making
 errors, and probably even save you some typing. As an added bonus, you might
 even find the `dplyr` grammar easier to read.
@@ -55,8 +61,8 @@ install.packages("ggplot2") ## installs ggplot2 package
 install.packages("readr") ## install readr package
 ```
 
-You might get asked to choose a CRAN mirror -- this is asking you to
-choose a site to download the package from. The choice doesn't matter too much; I'd recommend choosing the RStudio mirror.
+You only need to install a package once per computer, but you need to load it
+every time you open a new R session and want to use that package.
 
 ```{r, message=FALSE, purl=FALSE}
 library("dplyr")          ## loads in dplyr package to use
@@ -65,54 +71,21 @@ library("ggplot2")          ## loads in ggplot2 package to use
 library("readr")          ## load in readr package to use
 ```
 
-You only need to install a package once per computer, but you need to load it
+You only need to install a package once per computer, but you need to load it with the `library()` function
 every time you open a new R session and want to use that package.
 
-:::::::::::::::::::::::::::::::::::::::::  callout
 
-## Tip: Installing packages
+## What is **`dplyr`**?
 
-It may be temping to install the `tidyverse` package, as it contains many
-useful collection of packages for this lesson and beyond. However, when
-teaching or following this lesson, we advise that participants install
-`dplyr`, `readr`, `ggplot2`, and `tidyr` individually as shown above.
-Otherwise, a substaial amount of the lesson will be spend waiting for the
-installation to complete.
+The package `dplyr` provides easy
+tools for the most common data manipulation tasks. This package is also included in the [`tidyverse` package](https://www.tidyverse.org/), which is a collection of eight different core packages (`dplyr`, `ggplot2`, `tibble`, `tidyr`, `readr`, `purrr`, `stringr`, and `forcats`) and many others that have been added over the years. It is built to work directly with data frames. 
 
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-## What is dplyr?
-
-The package `dplyr` is a fairly new (2014) package that tries to provide easy
-tools for the most common data manipulation tasks. This package is also included in the [`tidyverse` package](https://www.tidyverse.org/), which is a collection of eight different packages (`dplyr`, `ggplot2`, `tibble`, `tidyr`, `readr`, `purrr`, `stringr`, and `forcats`). It is built to work directly
-with data frames. The thinking behind it was largely inspired by the package
-`plyr` which has been in use for some time but suffered from being slow in some
-cases.` dplyr` addresses this by porting much of the computation to C++. An
-additional feature is the ability to work with data stored directly in an
-external database. The benefits of doing this are that the data can be managed
-natively in a relational database, queries can be conducted on that database,
-and only the results of the query returned.
-
-This addresses a common problem with R in that all operations are conducted in
-memory and thus the amount of data you can work with is limited by available
-memory. The database connections essentially remove that limitation in that you
-can have a database that is over 100s of GB, conduct queries on it directly and pull
-back just what you need for analysis in R.
-
-### Loading .csv files in tidy style
-
-The Tidyverse's `readr` package provides its own unique way of loading .csv files in to R using `read_csv()`, which is similar to `read.csv()`. `read_csv()` allows users to load in their data faster, doesn't create row names, and allows you to access non-standard variable names (ie. variables that start with numbers of contain spaces), and outputs your data on the R console in a tidier way. In short, it's a much friendlier way of loading in potentially messy data.
-
-Now let's load our vcf .csv file using `read_csv()`:
-
-```{r, include=FALSE, echo=FALSE, eval=TRUE, purl=FALSE}
-variants <- read_csv("data/combined_tidy_vcf.csv") 
-```
-
-### Taking a quick look at data frames
+## Taking a quick look at data frames
 
 Similar to `str()`, which comes built into R, `glimpse()` is a `dplyr` function that (as the name suggests) gives a glimpse of the data frame.
+
+
 
 ```{r, echo=FALSE, eval=TRUE, purl=FALSE}
 glimpse(variants)
@@ -120,7 +93,7 @@ glimpse(variants)
 
 In the above output, we can already gather some information about `variants`, such as the number of rows and columns, column names, type of vector in the columns, and the first few entries of each column. Although what we see is similar to outputs of `str()`, this method gives a cleaner visual output.
 
-### Selecting columns and filtering rows
+## `select`()
 
 To select columns of a data frame, use `select()`. The first argument to this function is the data frame (`variants`), and the subsequent arguments are the columns to keep.
 
@@ -141,15 +114,43 @@ select(variants, -CHROM)
 select(variants, ends_with("B"))
 ```
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::: {.callout-tip}
 
-## Challenge
+Check out the help documentation for `select()` and see what other helper functions are available.
+
+:::
+
+
+### The `pipe %>%`
+
+We can make our task easier by using a special operator called the pipe. Pipes let you take the output of one function and send it directly to the next, which is
+useful when you need to do many things to the same data set. This helps you avoid messy and hard to read nested expressions, or needing to create many intermediate objects. 
+
+Pipes in R look like
+`%>%` and are made available via the `magrittr` package, which is installed as
+part of `dplyr`. If you use RStudio, you can type the pipe with
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you're using a PC,
+or <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you're using a Mac.
+
+The first required argument of most `dplyr` functions is the data frame you will be performing the function on. Therefore, an expression using the pipe will usually start with a data frame. So let's try rewriting our select statement to use the pipe.
+
+```{r, echo=TRUE, eval=TRUE, purl=FALSE}
+variants %>% 
+  select(sample_id, REF, ALT, DP)
+```
+
+Notice that when you use the pipe RStudio will be able to helpfully autocomplete column names for you, which is a good way to reduce typing and avoid errors.
+
+
+::: {.callout-tip appearance="minimal"}
+
+## Exercise
 
 Create a table that contains all the columns with the letter "i" and column "POS",
 without columns "Indiv" and "FILTER".
 Hint: look at for a function called `contains()`, which can be found in the help documentation for ends with we just covered (`?ends_with`). Note that contains() is not case sensistive.
 
-:::::::::::::::  solution
+:::: {.callout-warning collapse="True" appearance="minimal}
 
 ## Solution
 
@@ -161,11 +162,11 @@ variants_result <- select(variants_subset, -Indiv, -FILTER)
 variants_result
 ```
 
-:::::::::::::::::::::::::
+::::
 
 We can also get to `variants_result` in one line of code:
 
-:::::::::::::::  solution
+:::: {.callout-warning collapse="True" appearance="minimal}
 
 ## Alternative solution
 
@@ -174,14 +175,18 @@ variants_result <- select(variants, POS, contains("i"), -Indiv, -FILTER)
 variants_result
 ```
 
-:::::::::::::::::::::::::
+::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
-To choose rows, use `filter()`:
+## `filter()`
+
+`select()` lets you choose columns. To choose rows, use `filter()`:
 
 ```{r, echo=TRUE, eval=TRUE, purl=FALSE}
-filter(variants, sample_id == "SRR2584863")
+
+variants %>% 
+  filter(sample_id == "SRR2584863")
 ```
 
 `filter()` will keep all the rows that match the conditions that are provided.
@@ -189,11 +194,16 @@ Here are a few examples:
 
 ```{r}
 # rows for which the reference genome has T or G
-filter(variants, REF %in% c("T", "G"))
+variants %>% 
+  filter(REF %in% c("T", "G"))
+
 # rows that have TRUE in the column INDEL
-filter(variants, INDEL)
+variants %>% 
+  filter(INDEL)
+
 # rows that don't have missing data in the IDV column
-filter(variants, !is.na(IDV))
+variants %>% 
+  filter(!is.na(IDV))
 ```
 
 We have a column titled "QUAL". This is a Phred-scaled confidence
@@ -204,7 +214,8 @@ have a QUAL score above a certain threshold:
 
 ```{r}
 # rows with QUAL values greater than or equal to 100
-filter(variants, QUAL >= 100)
+variants %>% 
+  filter(QUAL >= 100)
 ```
 
 `filter()` allows you to combine multiple conditions. You can separate them using a `,` as arguments to the function, they will be combined using the `&` (AND) logical operator. If you need to use the `|` (OR) logical operator, you can specify it explicitly:
@@ -212,21 +223,24 @@ filter(variants, QUAL >= 100)
 ```{r}
 # this is equivalent to:
 #   filter(variants, sample_id == "SRR2584863" & QUAL >= 100)
-filter(variants, sample_id == "SRR2584863", QUAL >= 100)
+variants %>% 
+  filter(sample_id == "SRR2584863", QUAL >= 100)
+
 # using `|` logical operator
-filter(variants, sample_id == "SRR2584863", (MQ >= 50 | QUAL >= 100))
+variants %>% 
+  filter(sample_id == "SRR2584863", (MQ >= 50 | QUAL >= 100))
 ```
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::: {.callout-tip appearance="minimal"}
 
-## Challenge
+## Exercise
 
 Select all the mutations that occurred between the positions 1e6 (one million)
 and 2e6 (inclusive) that have a QUAL greater than 200, and exclude INDEL mutations.
 Hint: to flip logical values such as TRUE to a FALSE, we can use to negation symbol
 "!". (eg. !TRUE == FALSE).
 
-:::::::::::::::  solution
+:::: {.callout-warning collapse="True" appearance="minimal}
 
 ## Solution
 
@@ -234,21 +248,11 @@ Hint: to flip logical values such as TRUE to a FALSE, we can use to negation sym
 filter(variants, POS >= 1e6 & POS <= 2e6, QUAL > 200, !INDEL)
 ```
 
-:::::::::::::::::::::::::
+::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
-### Pipes
-
-But what if you wanted to select and filter? We can do this with pipes. Pipes, are a fairly recent addition to R. Pipes let you
-take the output of one function and send it directly to the next, which is
-useful when you need to many things to the same data set. It was
-possible to do this before pipes were added to R, but it was
-much messier and more difficult. Pipes in R look like
-`%>%` and are made available via the `magrittr` package, which is installed as
-part of `dplyr`. If you use RStudio, you can type the pipe with
-<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you're using a PC,
-or <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you're using a Mac.
+Because of the pipe it's easy to combine different actions like selecting and filtering without the need to create intermediate objects or write messy nested code.
 
 ```{r, echo=TRUE, eval=TRUE, purl=FALSE}
 variants %>%
@@ -283,7 +287,7 @@ This new object includes all of the data from this sample. Let's look at just
 the first six rows to confirm it's what we want:
 
 ```{r, purl=FALSE}
-SRR2584863_variants
+head(SRR2584863_variants)
 ```
 
 Similar to `head()` and `tail()` functions, we can also look at the first or last six rows using tidyverse function `slice()`. Slice is a more versatile function that allows users to specify a range to view:
@@ -296,7 +300,7 @@ SRR2584863_variants %>% slice(1:6)
 SRR2584863_variants %>% slice(10:25)
 ```
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::: {.callout-tip appearance="minimal"}
 
 ## Exercise: Pipe and filter
 
@@ -305,7 +309,7 @@ to include only observations from SRR2584863 sample,
 where the filtered depth (DP) is at least 10.
 Showing only 5th through 11th rows of columns `REF`, `ALT`, and `POS`.
 
-:::::::::::::::  solution
+:::: {.callout-warning collapse="True" appearance="minimal}
 
 ## Solution
 
@@ -316,11 +320,11 @@ Showing only 5th through 11th rows of columns `REF`, `ALT`, and `POS`.
  select(sample_id, DP, REF, ALT, POS)
 ```
 
-:::::::::::::::::::::::::
+::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
-### Mutate
+## `mutate()`
 
 Frequently you'll want to create new columns based on the values in existing
 columns, for example to do unit conversions or find the ratio of values in two
@@ -339,7 +343,7 @@ variants %>%
   mutate(POLPROB = 1 - (10 ^ -(QUAL/10)))
 ```
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::: {.callout-tip appearance="minimal"}
 
 ## Exercise
 
@@ -347,7 +351,7 @@ There are a lot of columns in our data set, so let's just look at the
 `sample_id`, `POS`, `QUAL`, and `POLPROB` columns for now. Add a
 line to the above code to only show those columns.
 
-:::::::::::::::  solution
+:::: {.callout-warning collapse="True" appearance="minimal}
 
 ## Solution
 
@@ -357,63 +361,34 @@ variants %>%
  select(sample_id, POS, QUAL, POLPROB)
 ```
 
-:::::::::::::::::::::::::
+::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::
 
-### group\_by() and  summarize() functions
+### `group\_by()` and  `summarize()` functions
 
 Many data analysis tasks can be approached using the "split-apply-combine"
 paradigm: split the data into groups, apply some analysis to each group, and
 then combine the results. `dplyr` makes this very easy through the use of the
 `group_by()` function, which splits the data into groups.
 
-We can use `group_by()` to tally the number of mutations detected in each sample
-using the function `tally()`:
-
-```{r, purl=FALSE, message=FALSE}
-variants %>%
-  group_by(sample_id) %>%
-  tally()
-```
-
-Since counting or tallying values is a common use case for `group_by()`, an alternative function was created to bypasses `group_by()` using the function `count()`:
-
-```{r, purl=FALSE, message=FALSE}
-variants %>%
-  count(sample_id)
-```
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Challenge
-
-- How many mutations are INDELs?
-
-:::::::::::::::  solution
-
-## Solution
 
 ```{r}
 variants %>%
-  count(INDEL)
+  group_by(sample_id)
 ```
 
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-When the data is grouped, `summarize()` can be used to collapse each group into
-a single-row summary. `summarize()` does this by applying an aggregating
+You might notice that nothing appears to have changed. `group_by()` is often used together with other functions, like `summarize()`. When the data is grouped, `summarize()` can be used to collapse each group into a single-row summary. `summarize()` does this by applying an aggregating
 or summary function to each group.
 
 It can be a bit tricky at first, but we can imagine physically splitting the data
 frame by groups and applying a certain function to summarize the data.
 
-<center>
-<img src="fig/split_apply_combine.png" alt="rstudio default session" style="width: 500px;"/>
-</center>
+```{r eval=FALSE}
+knitr::include_graphics("fig/split_apply_combine.png")
+```
 ^[The figure was adapted from the Software Carpentry lesson, [R for Reproducible Scientific Analysis](https://swcarpentry.github.io/r-novice-gapminder/13-dplyr/)]
+
 
 We can also apply many other functions to individual columns to get other
 summary statistics. For example,we can use built-in functions like `mean()`,
@@ -424,6 +399,18 @@ It's a way to make sure that users know they have missing data, and make a
 conscious decision on how to deal with it. When dealing with simple statistics
 like the mean, the easiest way to ignore `NA` (the missing data) is
 to use `na.rm = TRUE` (`rm` stands for remove).
+
+So to view the mean filtered depth (`DP`) for each sample:
+
+```{r, purl=FALSE, message=FALSE}
+variants %>%
+  group_by(sample_id) %>%
+  summarize(mean_DP = mean(DP))
+```
+
+This will create a new column called mean_DP (note the similarity in syntax to `mutate()`)
+
+We can produce multiple summary columns in the same function call, by separating each with commas.
 
 So to view the mean, median, maximum, and minimum filtered depth (`DP`) for each sample:
 
@@ -437,7 +424,48 @@ variants %>%
     max_DP = max(DP))
 ```
 
-### Reshaping data frames
+
+We could use `group_by()` and `summarize()` to find the number of mutations detected in each sample.
+
+```{r, purl=FALSE, message=FALSE}
+variants %>%
+  group_by(sample_id) %>%
+  summarize(n=n())
+```
+
+## `count()`
+
+Since counting or tallying values is a common use case for `group_by()`, an alternative function was created `count()`:
+
+```{r, purl=FALSE, message=FALSE}
+variants %>%
+  count(sample_id)
+```
+
+`count()` works similarly to the base R function we looked at in the last section `table()`, but it outputs the data as a tibble.
+
+::: {.callout-tip appearance="minimal"}
+
+## Challenge
+
+- How many mutations are INDELs?
+
+:::: {.callout-warning collapse="True" appearance="minimal}
+
+## Solution
+
+```{r}
+variants %>%
+  count(INDEL)
+```
+
+::::
+
+:::
+
+:::{.callout-note collapse="True"}
+
+## Reshaping data frames
 
 It can sometimes be useful to transform the "long" tidy format, into the wide format. This transformation can be done with the `pivot_wider()` function provided by the `tidyr` package (also part of the `tidyverse`).
 
@@ -458,13 +486,17 @@ variants_wide %>%
   pivot_longer(-CHROM, names_to = "sample_id", values_to = "mean_DP")
 ```
 
+:::
+
 ### Resources
 
 - [Handy dplyr cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf)
 
 - [Much of this lesson was copied or adapted from Jeff Hollister's materials](https://github.com/USEPA/workshops/blob/main/r/2015/introR/rmd_posts/2015-01-14-03-Clean.Rmd)
 
-:::::::::::::::::::::::::::::::::::::::: keypoints
+:::
+
+## Key points
 
 - Use the `dplyr` package to manipulate data frames.
 - Use `glimpse()` to quickly look at your data frame.
@@ -473,6 +505,5 @@ variants_wide %>%
 - Use `mutate()` to create new variables.
 - Use `group_by()` and `summarize()` to work with subsets of data.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
+:::
 
