@@ -111,7 +111,7 @@ command line interface, the ideal environment to work in R is RStudio.
 We will be working in
 [RStudio](https://www.rstudio.com/products/rstudio/download/). 
 
-The main way of working with R is the *console*, where you enter
+The *console* provides an interactive way of working with R; you enter
 commands and view results. RStudio surrounds this with various
 conveniences.
 
@@ -133,9 +133,24 @@ The Default Layout is:
 knitr::include_graphics("fig/rstudio_session_4pane_layout.png")
 ```
 
-### RStudio Cloud
+### Posit Cloud
 
-RStudio Cloud is a browser-based version of RStudio. It will allow you
+[Posit Cloud](https://posit.cloud/) is a browser-based version of RStudio (Posit being the company that owns RStudio). It will allow you
 to use RStudio without needing to download anything to your computer.
 You can also easily share your R projects with others. While we
 recommend downloading RStudio for regular use, there may be times you find it helpful to have a cloud based solution.
+
+## Setting up a project
+
+A R Project is an RStudio feature that makes it easy to keep all scripts, data, and other material together for a given project.
+
+To create a new project go to 
+
+```
+File > New Project > Create Project From Existing Directory
+
+```
+
+Then we can use the wizard to navigate to the `r_lesson` folder on our Desktop. For now you can leave the `Open in New Session` button unchecked.
+
+Now you should notice an `.Rproj` file in your files pane. This is essentially a container file for everything in this directory.

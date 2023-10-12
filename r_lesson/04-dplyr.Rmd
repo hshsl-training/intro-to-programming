@@ -231,7 +231,7 @@ variants %>%
   filter(sample_id == "SRR2584863", (MQ >= 50 | QUAL >= 100))
 ```
 
-::: {.callout-tip appearance="minimal"}
+::: {.callout-tip}
 
 ## Exercise
 
@@ -240,7 +240,7 @@ and 2e6 (inclusive) that have a QUAL greater than 200, and exclude INDEL mutatio
 Hint: to flip logical values such as TRUE to a FALSE, we can use to negation symbol
 "!". (eg. !TRUE == FALSE).
 
-:::: {.callout-warning collapse="True" appearance="minimal}
+:::: {.callout-caution collapse="true" icon="false"}
 
 ## Solution
 
@@ -300,7 +300,7 @@ SRR2584863_variants %>% slice(1:6)
 SRR2584863_variants %>% slice(10:25)
 ```
 
-::: {.callout-tip appearance="minimal"}
+::: {.callout-tip}
 
 ## Exercise: Pipe and filter
 
@@ -309,7 +309,7 @@ to include only observations from SRR2584863 sample,
 where the filtered depth (DP) is at least 10.
 Showing only 5th through 11th rows of columns `REF`, `ALT`, and `POS`.
 
-:::: {.callout-warning collapse="True" appearance="minimal}
+:::: {.callout-caution collapse="true" icon="false"}
 
 ## Solution
 
@@ -343,7 +343,7 @@ variants %>%
   mutate(POLPROB = 1 - (10 ^ -(QUAL/10)))
 ```
 
-::: {.callout-tip appearance="minimal"}
+::: {.callout-tip}
 
 ## Exercise
 
@@ -351,7 +351,7 @@ There are a lot of columns in our data set, so let's just look at the
 `sample_id`, `POS`, `QUAL`, and `POLPROB` columns for now. Add a
 line to the above code to only show those columns.
 
-:::: {.callout-warning collapse="True" appearance="minimal}
+:::: {.callout-caution collapse="true" icon="false"}
 
 ## Solution
 
@@ -365,7 +365,7 @@ variants %>%
 
 :::
 
-### `group\_by()` and  `summarize()` functions
+## `group_by()` and `summarize()` 
 
 Many data analysis tasks can be approached using the "split-apply-combine"
 paradigm: split the data into groups, apply some analysis to each group, and
@@ -444,13 +444,13 @@ variants %>%
 
 `count()` works similarly to the base R function we looked at in the last section `table()`, but it outputs the data as a tibble.
 
-::: {.callout-tip appearance="minimal"}
+::: {.callout-tip}
 
-## Challenge
+## Exercise
 
 - How many mutations are INDELs?
 
-:::: {.callout-warning collapse="True" appearance="minimal}
+:::: {.callout-caution collapse="true" icon="false"}
 
 ## Solution
 
@@ -462,8 +462,6 @@ variants %>%
 ::::
 
 :::
-
-:::{.callout-note collapse="True"}
 
 ## Reshaping data frames
 
@@ -486,16 +484,13 @@ variants_wide %>%
   pivot_longer(-CHROM, names_to = "sample_id", values_to = "mean_DP")
 ```
 
-:::
-
-### Resources
+## Resources
 
 - [Handy dplyr cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf)
 
 - [Much of this lesson was copied or adapted from Jeff Hollister's materials](https://github.com/USEPA/workshops/blob/main/r/2015/introR/rmd_posts/2015-01-14-03-Clean.Rmd)
 
-:::
-
+:::{.callout-note appearance="minimal"}
 ## Key points
 
 - Use the `dplyr` package to manipulate data frames.
