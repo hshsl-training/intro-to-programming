@@ -85,6 +85,11 @@ later in the lesson.
 
 :::
 
+To practice good data management, let's create two new folders (we can do this in our `Files` pane)
+- `raw_data`
+- `output_data`
+
+Then we can move our two data files into the `raw_data` folder.
 
 ## Importing tabular data into R
 
