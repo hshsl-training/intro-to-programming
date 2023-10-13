@@ -1,0 +1,9 @@
+
+# Conda Enviroments
+
+```{python}
+conda create -n test
+conda activate test
+conda deactivate 
+conda activate project-name
+```

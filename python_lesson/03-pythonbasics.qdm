@@ -1,0 +1,9 @@
+
+# Python Basics
+
+```{python}
+x = 1
+print(x)
+```
+
+

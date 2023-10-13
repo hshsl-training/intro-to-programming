@@ -1,0 +1,84 @@
+# Install Miniconda
+
+The Miniconda installer will install python. You don't need to intall it before hand.
+
+Website with instructions: https://docs.conda.io/projects/miniconda/en/latest/#quick-command-line-install
+
+---
+
+# Testing Student Environment
+
+## Create Conda Environment
+
+A conda environt will be used to install dependencies
+
+```
+conda create -n python-intro
+conda activate python-intro
+```
+
+After creating the environment and enabling it, the terminal should show you a prefix with the environment name. Example:
+
+```
+(python-intro) student@intropython:~$
+```
+
+## Install dependencies
+
+We want the students to be able to install jupyter, pandas, biopython, and seaborn packages. 
+
+```
+conda install jupyter pandas biopython seaborn
+```
+
+To verify that the packages have been installed you can use:
+
+```
+conda list
+```
+
+The packages should appear in alphabetical order. 
+
+## Start jupyter notebook
+
+To run a jupyter notebook:
+
+```
+jupyter notebook
+```
+
+It should provide you with a localhost url that you can visit, or it may pop-up automatically. 
+
+# The data
+
+## Files that will be needed for the course are: 
+
+"combined_tidy_vcf.csv"
+"ls_orchid.fasta"
+"ls_orchid.gbk"
+
+## To test if the data is working: 
+
+## Working with pandas:
+
+```
+import pandas as pd
+df = pd.read_csv('/home/student/Documents/project_name/data/combined_tidy_vcf.csv')
+df.head()
+```
+This commands should pull the data into a pandas dataframe and display the first rows
+Pay attention to the directory path. Student should have a project_name folder and a data folder. Inside that data folder should be stored the three files mentioned above. 
+
+## Working with Biopython: 
+
+```
+from Bio import Seq, pairwise2
+seq1= "CTTTTTTT"
+seq2= "CTTTTTTTT"
+alignments = pairwise2.align.globalxx(seq1,seq2)
+
+for alignment in alignments:
+    print(pairwise2.format_alignment(*alignment))
+```
+This commands should contrast two gene sequences and display the aligments in a pretty format. 
+ 
