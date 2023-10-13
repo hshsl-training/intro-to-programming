@@ -1,7 +1,33 @@
+---
+title: Class Setup
+code-copy: true
+---
 
-# Class setup
+For this course we are going to be using a virtual machine that runs a Ubuntu/Linux operating system. 
+In that virtual machine, we are going to deploy a jupyter notebook and learn the basics of the python syntax, learn some pandas and biopython commands.
 
-```{python}
-x = 1
-print(x)
-```
+## The main goal of the course is: 
+- To showcase a reproductible research environment.
+- To learn the basic Python syntax and data types.
+- To explore two Python packages, Pandas and Biopython. 
+
+## Tecnological Resourses to Replicate this tutorial. 
+- Install [Oracle VM VirtualBox Manager](https://www.virtualbox.org/wiki/Downloads).
+- Download [Ubuntu Desktop](https://ubuntu.com/download/desktop). 
+- Set up your [Virtual Machine using VirtualBox & Ubuntu Destkop](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview).
+- Install [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/#quick-command-line-install) using the terminal in your newly created VM (remember to follow the Linux instructions).
+  
+## What is a Virtual Machine? 
+
+A virtual machine simulates computer hardware by destinating a portion of your physical computer RAM, CPU and Storage to virtual device. Its like having a computer inside another computer. The software that deploys virtual machines is called a hypervisor. VirtualBox will be the hypervisor for this tutorial.
+
+[INSERT VM DIAGRAM]
+
+## What are the benefits of a Virtual Machine?
+
+You can play around, break things, install multiple software, try different operating systems without harming your host machine's operating system.
+
+## Accessing the VM
+
+[MAKE INSTRUCTIONS FOR WINDOWS]
+[INSERT SCREENSHOTS]
