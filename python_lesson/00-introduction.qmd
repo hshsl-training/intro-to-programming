@@ -27,6 +27,8 @@ A virtual machine simulates computer hardware by destinating a portion of your p
 
 You can play around, break things, install multiple software, try different operating systems without harming your host machine's operating system.
 
+For this workshop, we are using virtual machines so all participants have the same computing environment.
+
 ## Accessing the VM
 
 [MAKE INSTRUCTIONS FOR WINDOWS]
