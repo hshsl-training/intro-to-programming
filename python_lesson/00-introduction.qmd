@@ -1,0 +1,68 @@
+---
+title: Reproducible Research Enviroments with Python
+code-copy: true
+---
+
+## What is reproducible research environments?
+
+The term reproducible research is the idea of compiling enough information about your code, data, text files, software use, software licencing, and other information that allows other researchers to replicate not only the computer systems used for analysis, but the experiment itself too. 
+
+To accomplish this, there are softwares that allows you to automatically collect information about the programs, code or packages that you are using and the analytical changes that you are performing in your research environment. Some of those software are Jupyter Notebook and MiniConda. 
+
+This is also very convenient for research labs or research colleages that need to share or emulate the same computing environment in order to perform their research. 
+
+::: {.callout-tip}
+## Want to learn more about research reproducibility?
+
+Goodman, S. N., Fanelli, D., & Ioannidis, J. P. A. (2016). What does research reproducibility mean? Science Translational Medicine, 8(341). doi: 10.1126/scitranslmed.aaf5027
+
+The Turing Way Community. (2021, November 10). The Turing Way: A handbook for reproducible, ethical and collaborative research. https://the-turing-way.netlify.app/index.html#
+:::
+
+## Introduction and Class Setup
+
+This course is designed to introduce participants to a reproducible research environment. Briefly, it attempts to provide an experience of how to interact with a Jupyter notebooks web interface where documentation and computational processes are combined in a single document. Likewise, participants will be able to interact with the Conda package manager. Conda minimizes research software installation errors by allowing the creation of virtual environments. Finally, participants will be exposed to the Python programming language by being able to practice basic commands, and will be briefly introduced to two Python packages, Pandas and BioPython.
+
+::: {.callout-note appearance="minimal"}
+**Objectives**
+
+- Introduce participants to Conda, a popular package and environment management tool.
+- Teach participants how to create and manage Conda environments.
+- Introduce participants to Jupyter Notebooks 
+- Teach participants how to create, edit, and use Jupyter Notebooks effectively.
+- Introduce participants to the fundamentals of Python programming.
+- Provide hands-on experience through practical coding exercises.
+:::
+
+::: {.callout-note collapse="true"}
+## Tecnological Resourses to Replicate this tutorial. 
+- Install [Oracle VM VirtualBox Manager](https://www.virtualbox.org/wiki/Downloads).
+- Download [Ubuntu Desktop](https://ubuntu.com/download/desktop). 
+- Set up your [Virtual Machine using VirtualBox & Ubuntu Destkop](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview).
+- Install [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/#quick-command-line-install) using the terminal in your newly created VM (remember to follow the Linux instructions).
+:::
+
+
+## What is a Virtual Machine? 
+
+A virtual machine simulates computer hardware by destinating a portion of your physical computer RAM, CPU and Storage to virtual device. Its like having a computer inside another computer. The software that deploys virtual machines is called a hypervisor. VirtualBox will be the hypervisor for this tutorial.
+
+[INSERT VM DIAGRAM]
+
+## What are the benefits of a Virtual Machine?
+
+You can play around, break things, install multiple software, try different operating systems without harming your host machine's operating system.
+
+For this workshop, we are using virtual machines so all participants have the same computing environment.
+
+## Accessing the VM
+
+[MAKE INSTRUCTIONS FOR WINDOWS]
+[INSERT SCREENSHOTS]
+
+
+::: {.callout-note collapse="true"}
+All text and materials in these workshops comes from the Data Carpentries. More especifically this lesson follows the Data Carpentries lesson "[Programming with Python](https://j-p-courneya.github.io/Intro-Python-Bioinformatics/)". 
+
+CDABS has modified this lesson to better fit our techonogical capabilities.
+:::

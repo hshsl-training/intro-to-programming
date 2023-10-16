@@ -1,0 +1,150 @@
+---
+title: Reproducible Research Enviroments with Python
+code-copy: true
+---
+
+::: {.callout-note collapse="true"}
+All text and materials in these part of the workshop comes from [Happy Belly Bioinformatics, An Introduction to Conda](https://astrobiomike.github.io/unix/conda-intro)
+CDABS has modified this lesson to better fit our techonogical capabilities.
+:::
+
+## What is Conda?
+
+Conda virtual environments provide a way to install external packages without worrying about package conflicts. It is posible to create a web-development environment where we install Flask, Gunicorn and Requests libraries and a separate environment where we install pandas, biopython and other packages used to analyze data. Without virtual environments, a package installation may cause your operating system to break due to version conflicts. In the virtual environment, only programs run inside the enviroment will be affected by any of your installations.
+
+
+::: {.callout-note appearance="minimal"}
+**Course Setup**
+Conda is already installed in your Virtual Machines. 
+If you are attempting to follow this intructions from your computer and do not have installed Conda, you can follow this instructions: 
+
+Install [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/#quick-command-line-install)
+:::
+
+Once logged in your VM, open a terminal window to create a conda virtual environment. 
+
+## Base environment
+
+A 'base' conda environment, is like the home base inside conda. In this place we do not want to install programs because they may have conflicts with whatever you may end up doing in the future. 
+
+To avoid any potential issues in between projects it is recomended to create a conda enviroment, and after activating the conda environment, install the packages that your research may need.
+
+Your terminal display should look something similar to the following: 
+
+```{output}
+(base) student@hostname~ % 
+```
+
+The `(base)` symbolizes that you are in the conda base environment. 
+
+## Making a new environment
+
+To create a new conda environment write the following command: 
+
+```{bash}
+conda create -n name-of-the-new-environment
+```
+
+The base command is `conda create`, then we are specifying the name of our new environment with `-n name-of-the-new-environment`. After hitting enter, the terminal is going to start some procesess and is going to ask you if you want to proceed with the creation of the conda environment. Select `y` (yes) and it will finish the process of creating the environment. 
+
+You will be seeing in your terminal something similar to the following: 
+
+```{output}
+Retrieving notices: ...working... done
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /Users/username/anaconda3/envs/name-of-the-new-environment
+
+Proceed ([y]/n)? y
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate name-of-the-new-environment
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+```
+
+## Activate an environment
+
+After creating the new environment, you need to activate so you can use it. 
+To activate that environment, we need to execute:
+
+```{bash}
+conda activate name-of-the-new-environment
+```
+
+When you activate the environment, your terminal prompt will change to display the name of your new environment. That will letyou know that we have moved from the `base` environment to the new one. 
+
+```{output}
+(name-of-the-new-environment) student@hostname~ % 
+```
+
+You can also see a list of all the environments created by using the following command: 
+
+```{bash}
+conda env list
+```
+
+`conda env list` will display all the available conda environments and will place an asterist to the ones that you are using at the moment.
+
+It will display something similar to the following: 
+```{output}
+(name-of-the-new-environment) student@hostname ~ % conda env list
+# conda environments:
+#
+name-of-the-new-environme    *  /Users/ifraticelli/anaconda3
+python-intro                  /Users/ifraticelli/anaconda3/envs/python-intro
+test                         /Users/ifraticelli/anaconda3/envs/test
+
+```
+
+To verify what are the packages that your virtual environment has you can also use `conda list`. 
+
+It will display something similar to the following: 
+```{output}
+(name-of-the-new-environment) student@hostname % conda list
+# packages in environment at /Users/ifraticelli/anaconda3/envs/python-intro:
+#
+# Name                    Version                   Build  Channel
+pure_eval                 0.2.2              pyhd8ed1ab_0    conda-forge
+pygments                  2.16.1             pyhd8ed1ab_0    conda-forge
+python                    3.11.5               hf27a42d_0  
+python-dateutil           2.8.2              pyhd3eb1b0_0  
+python-tzdata             2023.3             pyhd3eb1b0_0  
+python_abi                3.11                    2_cp311    conda-forge
+...                       ...                     ...           ...
+```
+
+## Exiting an environment
+
+You can deactivate a conda eniroment at any time by running the following code. 
+
+```{bash}
+conda deactivate
+```
+
+## In class exercise: 
+
+1) Move to the conda environment called 'python-intro'. 
+2) Then name two the conda packages that the `python-intro` environment has. 
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+1) `conda activate python-intro`
+2) Pandas, BioPython, Python...
+
+:::
+
+## What to learn more about Conda Packages?
+
+If you want to learn more about Conda Packages you can visit their repository at the [Anaconda Website](https://anaconda.org/anaconda/repo).
