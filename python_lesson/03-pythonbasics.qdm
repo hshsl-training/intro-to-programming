@@ -3,11 +3,12 @@ title: Reproducible Research Enviroments with Python
 code-copy: true
 ---
 
+## Python Basics: Types, Objects, Values, Variables and Operators
 ::: {.callout-note appearance="minimal"}
 
 **Questions:**
 - "How can I store and access basic information in Python?"
-- - "How do I manipulate objects and data in Python?"
+- "How do I manipulate objects and data in Python?"
   
 **Objectives:**
 - "Explain what Types, Objects, Values and Variables are with respect to Python"
