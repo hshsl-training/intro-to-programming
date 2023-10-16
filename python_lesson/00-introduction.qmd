@@ -3,6 +3,22 @@ title: Reproducible Research Enviroments with Python
 code-copy: true
 ---
 
+## What is reproducible research environments?
+
+The term reproducible research is the idea of compiling enough information about your code, data, text files, software use, software licencing, and other information that allows other researchers to replicate not only the computer systems used for analysis, but the experiment itself too. 
+
+To accomplish this, there are softwares that allows you to automatically collect information about the programs, code or packages that you are using and the analytical changes that you are performing in your research environment. Some of those software are Jupyter Notebook and MiniConda. 
+
+This is also very convenient for research labs or research colleages that need to share or emulate the same computing environment in order to perform their research. 
+
+::: {.callout-tip}
+## Want to learn more about research reproducibility?
+
+Goodman, S. N., Fanelli, D., & Ioannidis, J. P. A. (2016). What does research reproducibility mean? Science Translational Medicine, 8(341). doi: 10.1126/scitranslmed.aaf5027
+
+The Turing Way Community. (2021, November 10). The Turing Way: A handbook for reproducible, ethical and collaborative research. https://the-turing-way.netlify.app/index.html#
+:::
+
 ## Introduction and Class Setup
 
 This course is designed to introduce participants to a reproducible research environment. Briefly, it attempts to provide an experience of how to interact with a Jupyter notebooks web interface where documentation and computational processes are combined in a single document. Likewise, participants will be able to interact with the Conda package manager. Conda minimizes research software installation errors by allowing the creation of virtual environments. Finally, participants will be exposed to the Python programming language by being able to practice basic commands, and will be briefly introduced to two Python packages, Pandas and BioPython.
