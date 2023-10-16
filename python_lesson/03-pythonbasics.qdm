@@ -1,3 +1,25 @@
+---
+title: Reproducible Research Enviroments with Python
+code-copy: true
+---
+## What is Python?
+Python is a general purpose programming language which means that it wasn't designed
+to solve a particular problem or group of problems (like R or Matlab) but **any** problem you 
+can think of to solve on a computer. Consequently, you can use Python to do almost anything from 
+analyze data to running computer systems to creating games.
+
+Though comprised of fairly basic syntax (i.e. the grammar of the commands you give it) it is incredibly
+powerful. It is relatively easy to pick up as well and thanks to a very large and growing
+set of external modules (or blocks of code) written by other programmers, you can do complicated things
+quickly and easily.
+
+One of the reasons for this power is that it is (to a certain degree) an **interpreted** language. This means that the code
+you type gets translated into instructions the computer can understand as Python reads it. There is not a
+separate optimisation or 'compilation' step to create your executable/binary before you can run your code like there is with some other languages like C++. This
+allows the language to be very dynamic but does have the drawback of being slower than others.
+However, there are many ways Python has of overcoming these drawbacks and you will almost certainly
+never notice a problem!
+
 
 # Python Basics
 

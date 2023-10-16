@@ -1,9 +1,29 @@
+---
+title: Reproducible Research Enviroments with Python
+code-copy: true
+---
 
-# Conda Enviroments
+::: {.callout-note collapse="true"}
+All text and materials in these part of the workshop comes from [Happy Belly Bioinformatics, An Introduction to Conda](https://astrobiomike.github.io/unix/conda-intro)
+CDABS has modified this lesson to better fit our techonogical capabilities.
+:::
+
+## What is Conda and why do we love it?
+Conda is a package and environment manager that is by far the easiest way to handle installing most of the tools we want to use in bioinformatics. 
+Being “conda-installable” requires that someone (could be the developer, could be others) has gone through the trouble of making it that way, so not everything is available, but almost everything we’re likely to want to use is. 
+Going hand-in-hand with making things easier to install is conda’s other value, that it handles different environments very nicely for us. Sometimes Program A will depend on a specific version of Program B. 
+But then, Program C will depend on a different version of Program B, and this causes problems. Conda lets us easily create and manage separate environments to avoid these types of version conflicts, and automatically checks for us when we try to install something new (so we find out now, before we break something somewhere under the hood and have no idea what happened). 
+The benefits go further, like helping with reproducibility too, but let’s get into it!
+
 
 ```{python}
 conda create -n test
 conda activate test
+Install a package biopython
 conda deactivate 
 conda activate project-name
 ```
+
+ Include a reference of conda packages
+ - Mostrar repositorio de miniconda
+
