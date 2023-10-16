@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CDABS Intro to Programming - Introduction to the example dataset and file type</title>
+<title>CDABS Intro to Programming - Reproducible Research Enviroments with Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -180,7 +180,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../r_lesson/02-data-prelude.html">Introduction to the example dataset and file type</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../python_lesson/00-introduction.html">Reproducible Research Enviroments with Python</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -194,50 +194,8 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/00-introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to R and R Studio</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../r_lesson/01-r-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R Basics I - objects, functions, vectors</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../r_lesson/02-data-prelude.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Introduction to the example dataset and file type</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../r_lesson/03-basics-factors-dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R Basics II - factors and data frames</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../r_lesson/04-dplyr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Wrangling and Analyses with Tidyverse</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../r_lesson/05-data-visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Visualization with ggplot2</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../r_lesson/06-r-help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Getting help with R</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../r_lesson/07-bioconductor-vcfr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using packages from Bioconductor</span></a>
+  <a href="../python_lesson/00-introduction.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Reproducible Research Enviroments with Python</span></a>
   </div>
 </li>
     </ul>
@@ -250,20 +208,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
-  <li><a href="#introduction-to-the-dataset" id="toc-introduction-to-the-dataset" class="nav-link" data-scroll-target="#introduction-to-the-dataset">Introduction to the dataset</a></li>
-  <li><a href="#how-vcf-files-are-generated" id="toc-how-vcf-files-are-generated" class="nav-link" data-scroll-target="#how-vcf-files-are-generated">How VCF files are generated</a></li>
-  <li><a href="#how-variant-calls-are-stored-in-vcf-files" id="toc-how-variant-calls-are-stored-in-vcf-files" class="nav-link" data-scroll-target="#how-variant-calls-are-stored-in-vcf-files">How variant calls are stored in VCF files</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#what-is-reproducible-research-environments" id="toc-what-is-reproducible-research-environments" class="nav-link active" data-scroll-target="#what-is-reproducible-research-environments">What is reproducible research environments?</a></li>
+  <li><a href="#introduction-and-class-setup" id="toc-introduction-and-class-setup" class="nav-link" data-scroll-target="#introduction-and-class-setup">Introduction and Class Setup</a></li>
+  <li><a href="#what-is-a-virtual-machine" id="toc-what-is-a-virtual-machine" class="nav-link" data-scroll-target="#what-is-a-virtual-machine">What is a Virtual Machine?</a></li>
+  <li><a href="#what-are-the-benefits-of-a-virtual-machine" id="toc-what-are-the-benefits-of-a-virtual-machine" class="nav-link" data-scroll-target="#what-are-the-benefits-of-a-virtual-machine">What are the benefits of a Virtual Machine?</a></li>
+  <li><a href="#accessing-the-vm" id="toc-accessing-the-vm" class="nav-link" data-scroll-target="#accessing-the-vm">Accessing the VM</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hshsl-training/intro-to-programming/edit/main/r_lesson/02-data-prelude.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/hshsl-training/intro-to-programming/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hshsl-training/intro-to-programming/edit/main/python_lesson/00-introduction.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/hshsl-training/intro-to-programming/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to the example dataset and file type</h1>
+<h1 class="title">Reproducible Research Enviroments with Python</h1>
 </div>
 
 
@@ -278,258 +236,98 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div class="objectives">
+<section id="what-is-reproducible-research-environments" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-reproducible-research-environments">What is reproducible research environments?</h2>
+<p>The term reproducible research is the idea of compiling enough information about your code, data, text files, software use, software licencing, and other information that allows other researchers to replicate not only the computer systems used for analysis, but the experiment itself too.</p>
+<p>To accomplish this, there are softwares that allows you to automatically collect information about the programs, code or packages that you are using and the analytical changes that you are performing in your research environment. Some of those software are Jupyter Notebook and MiniConda.</p>
+<p>This is also very convenient for research labs or research colleages that need to share or emulate the same computing environment in order to perform their research.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Want to learn more about research reproducibility?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Goodman, S. N., Fanelli, D., &amp; Ioannidis, J. P. A. (2016). What does research reproducibility mean? Science Translational Medicine, 8(341). doi: 10.1126/scitranslmed.aaf5027</p>
+<p>The Turing Way Community. (2021, November 10). The Turing Way: A handbook for reproducible, ethical and collaborative research. https://the-turing-way.netlify.app/index.html#</p>
+</div>
+</div>
+</section>
+<section id="introduction-and-class-setup" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-and-class-setup">Introduction and Class Setup</h2>
+<p>This course is designed to introduce participants to a reproducible research environment. Briefly, it attempts to provide an experience of how to interact with a Jupyter notebooks web interface where documentation and computational processes are combined in a single document. Likewise, participants will be able to interact with the Conda package manager. Conda minimizes research software installation errors by allowing the creation of virtual environments. Finally, participants will be exposed to the Python programming language by being able to practice basic commands, and will be briefly introduced to two Python packages, Pandas and BioPython.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Objectives</strong></p>
 <ul>
-<li>Know what the example dataset represents</li>
-<li>Know the concepts of how VCF files are generated</li>
+<li>Introduce participants to Conda, a popular package and environment management tool.</li>
+<li>Teach participants how to create and manage Conda environments.</li>
+<li>Introduce participants to Jupyter Notebooks</li>
+<li>Teach participants how to create, edit, and use Jupyter Notebooks effectively.</li>
+<li>Introduce participants to the fundamentals of Python programming.</li>
+<li>Provide hands-on experience through practical coding exercises.</li>
 </ul>
 </div>
-<div class="questions">
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tecnological Resourses to Replicate this tutorial.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <ul>
-<li>What data are we using in the lesson?</li>
-<li>What are VCF files?</li>
+<li>Install <a href="https://www.virtualbox.org/wiki/Downloads">Oracle VM VirtualBox Manager</a>.</li>
+<li>Download <a href="https://ubuntu.com/download/desktop">Ubuntu Desktop</a>.</li>
+<li>Set up your <a href="https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview">Virtual Machine using VirtualBox &amp; Ubuntu Destkop</a>.</li>
+<li>Install <a href="https://docs.conda.io/projects/miniconda/en/latest/#quick-command-line-install">Miniconda</a> using the terminal in your newly created VM (remember to follow the Linux instructions).</li>
 </ul>
 </div>
-<section id="preface" class="level2">
-<h2 class="anchored" data-anchor-id="preface">Preface</h2>
-<p>The Intro to R and RStudio for Genomics is a part of the Genomics Data Carpentry lessons. In this lesson we will learn the necessary skill sets for R and RStudio and apply them directly to a real next-generation sequencing (NGS) data in the variant calling format (VCF) file type. Previous Genomics Data Carpentry lessons teach learners how to generate a VCF file from FASTQ files downloaded from NCBI Sequence Read Archive (SRA), so we won’t cover that here. Instead, in this episode we will give a brief overview of the data and a what VCF file types are for those who wish to teach the Intro to R and RStudio for Genomics lesson independently of the Genomics Data Carpentry lessons.</p>
-<p>This dataset was selected for several reasons, including:</p>
-<ul>
-<li>Simple, but iconic NGS-problem: Examine a population where we want to characterize changes in sequence <em>a priori</em></li>
-<li>Dataset publicly available - in this case through the NCBI SRA (<a href="https://www.ncbi.nlm.nih.gov/sra">http://www.ncbi.nlm.nih.gov/sra</a>)</li>
-</ul>
+</div>
+</div>
 </section>
-<section id="introduction-to-the-dataset" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-to-the-dataset">Introduction to the dataset</h2>
-<p>Microbes are ideal organisms for exploring ‘Long-term Evolution Experiments’ (LTEEs) - thousands of generations can be generated and stored in a way that would be virtually impossible for more complex eukaryotic systems. In <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4988878/">Tenaillon et al 2016</a>, 12 populations of <em>Escherichia coli</em> were propagated for more than 50,000 generations in a glucose-limited minimal medium. This medium was supplemented with citrate which <em>E. coli</em> cannot metabolize in the aerobic conditions of the experiment. Sequencing of the populations at regular time points reveals that spontaneous citrate-using mutants (Cit+) appeared in a population of <em>E.coli</em> (designated Ara-3) at around 31,000 generations. It should be noted that spontaneous Cit+ mutants are extraordinarily rare - inability to metabolize citrate is one of the defining characters of the <em>E. coli</em> species. Eventually, Cit+ mutants became the dominant population as the experimental growth medium contained a high concentration of citrate relative to glucose. Around the same time that this mutation emerged, another phenotype become prominent in the Ara-3 population. Many <em>E. coli</em> began to develop excessive numbers of mutations, meaning they became hypermutable.</p>
-<p>Strains from generation 0 to generation 50,000 were sequenced, including ones that were both Cit+ and Cit- and hypermutable in later generations.</p>
-<p>For the purposes of this workshop we’re going to be working with 3 of the sequence reads from this experiment.</p>
-<table class="table">
-<colgroup>
-<col style="width: 3%">
-<col style="width: 82%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 3%">
-<col style="width: 2%">
-<col style="width: 4%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>SRA Run Number</th>
-<th>Clone</th>
-<th>Generation</th>
-<th>Cit</th>
-<th>Hypermutable</th>
-<th>Read Length</th>
-<th>Sequencing Depth</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>SRR2589044</td>
-<td>REL2181A</td>
-<td>5,000</td>
-<td>Unknown</td>
-<td>None</td>
-<td>150</td>
-<td>60.2</td>
-</tr>
-<tr class="even">
-<td>SRR2584863</td>
-<td>REL7179B</td>
-<td>15,000</td>
-<td>Unknown</td>
-<td>None</td>
-<td>150</td>
-<td>88</td>
-</tr>
-<tr class="odd">
-<td>SRR2584866</td>
-<td>REL11365</td>
-<td>50,000</td>
-<td>Cit+</td>
-<td>plus</td>
-<td>150</td>
-<td>138.3</td>
-</tr>
-</tbody>
-</table>
-<p>We want to be able to look at differences in mutation rates between hypermutable and non-hypermutable strains. We also want to analyze the sequences to figure out what changes occurred in genomes to make the strains Cit+. Ultimately, we will use R to answer the questions:</p>
-<ul>
-<li>How many base pair changes are there between the Cit+ and Cit- strains?</li>
-<li>What are the base pair changes between strains?</li>
-</ul>
+<section id="what-is-a-virtual-machine" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-virtual-machine">What is a Virtual Machine?</h2>
+<p>A virtual machine simulates computer hardware by destinating a portion of your physical computer RAM, CPU and Storage to virtual device. Its like having a computer inside another computer. The software that deploys virtual machines is called a hypervisor. VirtualBox will be the hypervisor for this tutorial.</p>
+<p>[INSERT VM DIAGRAM]</p>
 </section>
-<section id="how-vcf-files-are-generated" class="level2">
-<h2 class="anchored" data-anchor-id="how-vcf-files-are-generated">How VCF files are generated</h2>
-<p>Publicly accessible sequencing files in FASTQ formats can be downloaded from NCBI SRA. However, at FASTQ files contain unaligned sequences of varying quality, and requires clean up and alignment steps for variants to be called from the reference genome.</p>
-<p>Five steps are taken to transform FASTQ files to variant calls contained in VCF files and at each step, specialized non-R based bioinformatics tools that are used:</p>
-<center>
-<img src="fig/variant_calling_workflow.png" alt="variant calling workflow. Sequence reads (FASTQ files), Quality control (FASTQ files), Alignment to Genome (SAM/BAM files), Alignment cleanup (BAM file ready for variant calling), Variant Calling (VCF file)" style="width: 250px;">
-</center>
+<section id="what-are-the-benefits-of-a-virtual-machine" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-the-benefits-of-a-virtual-machine">What are the benefits of a Virtual Machine?</h2>
+<p>You can play around, break things, install multiple software, try different operating systems without harming your host machine’s operating system.</p>
+<p>For this workshop, we are using virtual machines so all participants have the same computing environment.</p>
 </section>
-<section id="how-variant-calls-are-stored-in-vcf-files" class="level2">
-<h2 class="anchored" data-anchor-id="how-variant-calls-are-stored-in-vcf-files">How variant calls are stored in VCF files</h2>
-<p>VCF files contain variants that were called against a reference genome. These files are slightly more complicated than regular tables you can open using programs like Excel and contain two sections: header and records.</p>
-<p>Below you will see the header (which describes the format), the time and date the file was created, the version of bcftools that was used, the command line parameters used, and some additional information:</p>
-<pre><code>##fileformat=VCFv4.2
-##FILTER=&lt;ID=PASS,Description="All filters passed"&gt;
-##bcftoolsVersion=1.8+htslib-1.8
-##bcftoolsCommand=mpileup -O b -o results/bcf/SRR2584866_raw.bcf -f data/ref_genome/ecoli_rel606.fasta results/bam/SRR2584866.aligned.sorted.bam
-##reference=file://data/ref_genome/ecoli_rel606.fasta
-##contig=&lt;ID=CP000819.1,length=4629812&gt;
-##ALT=&lt;ID=*,Description="Represents allele(s) other than observed."&gt;
-##INFO=&lt;ID=INDEL,Number=0,Type=Flag,Description="Indicates that the variant is an INDEL."&gt;
-##INFO=&lt;ID=IDV,Number=1,Type=Integer,Description="Maximum number of reads supporting an indel"&gt;
-##INFO=&lt;ID=IMF,Number=1,Type=Float,Description="Maximum fraction of reads supporting an indel"&gt;
-##INFO=&lt;ID=DP,Number=1,Type=Integer,Description="Raw read depth"&gt;
-##INFO=&lt;ID=VDB,Number=1,Type=Float,Description="Variant Distance Bias for filtering splice-site artefacts in RNA-seq data (bigger is better)",Version=
-##INFO=&lt;ID=RPB,Number=1,Type=Float,Description="Mann-Whitney U test of Read Position Bias (bigger is better)"&gt;
-##INFO=&lt;ID=MQB,Number=1,Type=Float,Description="Mann-Whitney U test of Mapping Quality Bias (bigger is better)"&gt;
-##INFO=&lt;ID=BQB,Number=1,Type=Float,Description="Mann-Whitney U test of Base Quality Bias (bigger is better)"&gt;
-##INFO=&lt;ID=MQSB,Number=1,Type=Float,Description="Mann-Whitney U test of Mapping Quality vs Strand Bias (bigger is better)"&gt;
-##INFO=&lt;ID=SGB,Number=1,Type=Float,Description="Segregation based metric."&gt;
-##INFO=&lt;ID=MQ0F,Number=1,Type=Float,Description="Fraction of MQ0 reads (smaller is better)"&gt;
-##FORMAT=&lt;ID=PL,Number=G,Type=Integer,Description="List of Phred-scaled genotype likelihoods"&gt;
-##FORMAT=&lt;ID=GT,Number=1,Type=String,Description="Genotype"&gt;
-##INFO=&lt;ID=ICB,Number=1,Type=Float,Description="Inbreeding Coefficient Binomial test (bigger is better)"&gt;
-##INFO=&lt;ID=HOB,Number=1,Type=Float,Description="Bias in the number of HOMs number (smaller is better)"&gt;
-##INFO=&lt;ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes for each ALT allele, in the same order as listed"&gt;
-##INFO=&lt;ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes"&gt;
-##INFO=&lt;ID=DP4,Number=4,Type=Integer,Description="Number of high-quality ref-forward , ref-reverse, alt-forward and alt-reverse bases"&gt;
-##INFO=&lt;ID=MQ,Number=1,Type=Integer,Description="Average mapping quality"&gt;
-##bcftools_callVersion=1.8+htslib-1.8
-##bcftools_callCommand=call --ploidy 1 -m -v -o results/bcf/SRR2584866_variants.vcf results/bcf/SRR2584866_raw.bcf; Date=Tue Oct  9 18:48:10 2018</code></pre>
-<p>Followed by information on each of the variations observed:</p>
-<pre><code>#CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  results/bam/SRR2584866.aligned.sorted.bam
-CP000819.1      1521    .       C       T       207     .       DP=9;VDB=0.993024;SGB=-0.662043;MQSB=0.974597;MQ0F=0;AC=1;AN=1;DP4=0,0,4,5;MQ=60
-CP000819.1      1612    .       A       G       225     .       DP=13;VDB=0.52194;SGB=-0.676189;MQSB=0.950952;MQ0F=0;AC=1;AN=1;DP4=0,0,6,5;MQ=60
-CP000819.1      9092    .       A       G       225     .       DP=14;VDB=0.717543;SGB=-0.670168;MQSB=0.916482;MQ0F=0;AC=1;AN=1;DP4=0,0,7,3;MQ=60
-CP000819.1      9972    .       T       G       214     .       DP=10;VDB=0.022095;SGB=-0.670168;MQSB=1;MQ0F=0;AC=1;AN=1;DP4=0,0,2,8;MQ=60      GT:PL
-CP000819.1      10563   .       G       A       225     .       DP=11;VDB=0.958658;SGB=-0.670168;MQSB=0.952347;MQ0F=0;AC=1;AN=1;DP4=0,0,5,5;MQ=60
-CP000819.1      22257   .       C       T       127     .       DP=5;VDB=0.0765947;SGB=-0.590765;MQSB=1;MQ0F=0;AC=1;AN=1;DP4=0,0,2,3;MQ=60      GT:PL
-CP000819.1      38971   .       A       G       225     .       DP=14;VDB=0.872139;SGB=-0.680642;MQSB=1;MQ0F=0;AC=1;AN=1;DP4=0,0,4,8;MQ=60      GT:PL
-CP000819.1      42306   .       A       G       225     .       DP=15;VDB=0.969686;SGB=-0.686358;MQSB=1;MQ0F=0;AC=1;AN=1;DP4=0,0,5,9;MQ=60      GT:PL
-CP000819.1      45277   .       A       G       225     .       DP=15;VDB=0.470998;SGB=-0.680642;MQSB=0.95494;MQ0F=0;AC=1;AN=1;DP4=0,0,7,5;MQ=60
-CP000819.1      56613   .       C       G       183     .       DP=12;VDB=0.879703;SGB=-0.676189;MQSB=1;MQ0F=0;AC=1;AN=1;DP4=0,0,8,3;MQ=60      GT:PL
-CP000819.1      62118   .       A       G       225     .       DP=19;VDB=0.414981;SGB=-0.691153;MQSB=0.906029;MQ0F=0;AC=1;AN=1;DP4=0,0,8,10;MQ=59
-CP000819.1      64042   .       G       A       225     .       DP=18;VDB=0.451328;SGB=-0.689466;MQSB=1;MQ0F=0;AC=1;AN=1;DP4=0,0,7,9;MQ=60      GT:PL</code></pre>
-<p>The first few columns represent the information we have about a predicted variation.</p>
-<table class="table">
-<colgroup>
-<col style="width: 4%">
-<col style="width: 95%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>column</th>
-<th>info</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>CHROM</td>
-<td>contig location where the variation occurs</td>
-</tr>
-<tr class="even">
-<td>POS</td>
-<td>position within the contig where the variation occurs</td>
-</tr>
-<tr class="odd">
-<td>ID</td>
-<td>a <code>.</code> until we add annotation information</td>
-</tr>
-<tr class="even">
-<td>REF</td>
-<td>reference genotype (forward strand)</td>
-</tr>
-<tr class="odd">
-<td>ALT</td>
-<td>sample genotype (forward strand)</td>
-</tr>
-<tr class="even">
-<td>QUAL</td>
-<td>Phred-scaled probability that the observed variant exists at this site (higher is better)</td>
-</tr>
-<tr class="odd">
-<td>FILTER</td>
-<td>a <code>.</code> if no quality filters have been applied, PASS if a filter is passed, or the name of the filters this variant failed</td>
-</tr>
-</tbody>
-</table>
-<p>In an ideal world, the information in the <code>QUAL</code> column would be all we needed to filter out bad variant calls. However, in reality we need to filter on multiple other metrics.</p>
-<p>The last two columns contain the genotypes and can be tricky to decode.</p>
-<table class="table">
-<colgroup>
-<col style="width: 4%">
-<col style="width: 95%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>column</th>
-<th>info</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>FORMAT</td>
-<td>lists in order the metrics presented in the final column</td>
-</tr>
-<tr class="even">
-<td>results</td>
-<td>lists the values associated with those metrics in order</td>
-</tr>
-</tbody>
-</table>
-<p>For our file, the metrics presented are GT:PL:GQ.</p>
-<table class="table">
-<colgroup>
-<col style="width: 4%">
-<col style="width: 95%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>metric</th>
-<th>definition</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>AD, DP</td>
-<td>the depth per allele by sample and coverage</td>
-</tr>
-<tr class="even">
-<td>GT</td>
-<td>the genotype for the sample at this loci. For a diploid organism, the GT field indicates the two alleles carried by the sample, encoded by a 0 for the REF allele, 1 for the first ALT allele, 2 for the second ALT allele, etc. A 0/0 means homozygous reference, 0/1 is heterozygous, and 1/1 is homozygous for the alternate allele.</td>
-</tr>
-<tr class="odd">
-<td>PL</td>
-<td>the likelihoods of the given genotypes</td>
-</tr>
-<tr class="even">
-<td>GQ</td>
-<td>the Phred-scaled confidence for the genotype</td>
-</tr>
-</tbody>
-</table>
-<p>For more information on VCF files visit The Broad Institute’s <a href="https://gatk.broadinstitute.org/hc/en-us/articles/360035531692-VCF-Variant-Call-Format">VCF guide</a>.</p>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p>Tenaillon O, Barrick JE, Ribeck N, Deatherage DE, Blanchard JL, Dasgupta A, Wu GC, Wielgoss S, Cruveiller S, Médigue C, Schneider D, Lenski RE. Tempo and mode of genome evolution in a 50,000-generation experiment (2016) Nature. 536(7615): 165–170. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4988878/">Paper</a>, <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4988878/#">Supplemental materials</a> Data on NCBI SRA: <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/?study=SRP064605">https://trace.ncbi.nlm.nih.gov/Traces/sra/?study=SRP064605</a> Data on EMBL-EBI ENA: <a href="https://www.ebi.ac.uk/ena/data/view/PRJNA295606">https://www.ebi.ac.uk/ena/data/view/PRJNA295606</a></p>
-<p>This episode was adapted from the Data Carpentry Genomic lessons:</p>
-<ul>
-<li><a href="https://datacarpentry.org/organization-genomics/data/">Project organization and management for Genomics</a></li>
-<li><a href="https://datacarpentry.org/wrangling-genomics/04-variant_calling/index.html">Data wrangling and processing for genomics</a></li>
-</ul>
-<div class="keypoints">
-<ul>
-<li>The dataset comes from a real world experiment in E. coli.</li>
-<li>Publicly available FASTQ files can be downloaded from NCBI SRA.</li>
-<li>Several steps are taken outside of R/RStudio to create VCF files from FASTQ files.</li>
-<li>VCF files store variant calls in a special format.</li>
-</ul>
+<section id="accessing-the-vm" class="level2">
+<h2 class="anchored" data-anchor-id="accessing-the-vm">Accessing the VM</h2>
+<p>[MAKE INSTRUCTIONS FOR WINDOWS] [INSERT SCREENSHOTS]</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>All text and materials in these workshops comes from the Data Carpentries. More especifically this lesson follows the Data Carpentries lesson “<a href="https://j-p-courneya.github.io/Intro-Python-Bioinformatics/">Programming with Python</a>”.</p>
+<p>CDABS has modified this lesson to better fit our techonogical capabilities.</p>
+</div>
+</div>
 </div>
 
 
