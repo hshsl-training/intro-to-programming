@@ -3,14 +3,11 @@ title: Reproducible Research Enviroments with Python
 code-copy: true
 ---
 
-::: {.callout-note collapse="true"}
-All text and materials in these workshops comes from the Data Carpentries. More especifically this lesson follows the Data Carpentries lesson "[Programming with Python](https://j-p-courneya.github.io/Intro-Python-Bioinformatics/)". 
+## Introduction and Class Setup
 
-CDABS has modified this lesson to better fit our techonogical capabilities.
-:::
+This course is designed to introduce participants to a reproducible research environment. Briefly, it attempts to provide an experience of how to interact with a Jupyter notebooks web interface where documentation and computational processes are combined in a single document. Likewise, participants will be able to interact with the Conda package manager. Conda minimizes research software installation errors by allowing the creation of virtual environments. Finally, participants will be exposed to the Python programming language by being able to practice basic commands, and will be briefly introduced to two Python packages, Pandas and BioPython.
 
 ::: {.callout-note appearance="minimal"}
-
 **Objectives**
 
 - Introduce participants to Conda, a popular package and environment management tool.
@@ -19,7 +16,6 @@ CDABS has modified this lesson to better fit our techonogical capabilities.
 - Teach participants how to create, edit, and use Jupyter Notebooks effectively.
 - Introduce participants to the fundamentals of Python programming.
 - Provide hands-on experience through practical coding exercises.
-
 :::
 
 ::: {.callout-note collapse="true"}
@@ -30,9 +26,7 @@ CDABS has modified this lesson to better fit our techonogical capabilities.
 - Install [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/#quick-command-line-install) using the terminal in your newly created VM (remember to follow the Linux instructions).
 :::
 
-For this course we are going to be using a virtual machine that runs a Ubuntu/Linux operating system. 
-In that virtual machine, we are going to deploy a jupyter notebook and learn the basics of the python syntax, learn some pandas and biopython commands.
-  
+
 ## What is a Virtual Machine? 
 
 A virtual machine simulates computer hardware by destinating a portion of your physical computer RAM, CPU and Storage to virtual device. Its like having a computer inside another computer. The software that deploys virtual machines is called a hypervisor. VirtualBox will be the hypervisor for this tutorial.
@@ -49,3 +43,10 @@ For this workshop, we are using virtual machines so all participants have the sa
 
 [MAKE INSTRUCTIONS FOR WINDOWS]
 [INSERT SCREENSHOTS]
+
+
+::: {.callout-note collapse="true"}
+All text and materials in these workshops comes from the Data Carpentries. More especifically this lesson follows the Data Carpentries lesson "[Programming with Python](https://j-p-courneya.github.io/Intro-Python-Bioinformatics/)". 
+
+CDABS has modified this lesson to better fit our techonogical capabilities.
+:::
