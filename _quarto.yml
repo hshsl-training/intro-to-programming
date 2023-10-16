@@ -50,7 +50,14 @@ website:
         
     - id: python
       title: "Python"
-      contents: python_lesson/*.qmd
+      contents: 
+      - python_lesson/00-*.qmd
+      - python_lesson/01-*.qmd
+      - python_lesson/02-*.qmd
+      - python_lesson/03-*.qmd
+      - python_lesson/04-*.qmd
+      - python_lesson/05-*.qmd
+      - python_lesson/06-*.qmd
 
 format:
   html:
