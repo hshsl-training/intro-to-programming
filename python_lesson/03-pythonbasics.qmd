@@ -8,16 +8,18 @@ jupyter: python3
 ::: {.callout-note appearance="minimal"}
 
 **Questions:**
+
 - "How can I store and access basic information in Python?"
 - "How do I manipulate objects and data in Python?"
   
 **Objectives:**
+
 - "Explain what Types, Objects, Values and Variables are with respect to Python"
 - "Introduce the basic variable types"
 - "Show how to initialise, access and change variables"
 - "Show how to perform operations on python objects"
 - "Introduce the basic operators"
-  
+
 :::
 
 ## What is Python?
@@ -33,16 +35,13 @@ Now we have learned the technical aspects of using the Python interpreter, we ca
 ## Python at the Terminal
 
 We could be using Python from the terminal, and perform basic calculations like the following:
-```{bash}
-
+```bash
 python3
-
 ```
 
 In your terminal something similar to the following should appear: 
 
-```{output}
-
+```bash
 Python 3.11.2 (v3.11.2:878ead1ac1, Feb  7 2023, 10:02:41) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
@@ -51,17 +50,12 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 And you can perfom math calculations like the following: 
 
-```{python}
-
+```python
 3 + 5 * 4
-
 ```
-
 Output:
-```{output}
-
+```output
 23
-
 ```
 
 But this is not a great use of Python capabilities, and again it will not allow us to have a reproducible environment.
@@ -73,8 +67,10 @@ So lets move on to our Jupyter Notebook and lets start running some python code!
 
 To do anything useful with data, we need to assign its value to a *variable* otherwise we'd have to write the whole analysis as one long calculation.
 
-**But what is a variable?** And what is it's relation to how Python organizes the information you
-give it? This is all covered by four terms:
+**But what is a variable?** 
+And what is it's relation to how Python organizes the information you give it? 
+
+This is all covered by four terms:
 
 * Types – How to interpret data in a memory location ('object') and what operations can be performed by it
 * Object – Defined area of memory that holds the data ('values') associated with a type
@@ -239,7 +235,8 @@ Note the difference between a string (indicated by quotes) and a variable name (
 3. No. This will raise an error as it is trying to change the value of a constant string (`"test2"`)
 4. No. Same as for 3
    
-:::  
+:::
+:::: 
 
 :::: {.callout-note appearance="minimal"}
 ## Choosing a Name
@@ -296,9 +293,9 @@ As well as these basic operators, there are also more language specific ones:
 - Exponent: `a ** b` ( e.g. `10**3 = 1000` )
 - Modulus: `%` (e.g. `9 % 4 = 1`)
 - Floor Division: `a // b` (e.g. `9 // 4 = 2`) 
-- Subscript/Array: `[]`
+- Indexing: `[]`
 
-You can see that assignment (`=`) which you've already met is just another operator - it will attempt to assign the object or value on the right to the variable on the left. Another of these you will use a lot is the Subscript/Array operator (`[]`). This is generally used to access elements of collections like getting a single character from a string, e.g.
+You can see that assignment (`=`) which you've already met is just another operator - it will attempt to assign the object or value on the right to the variable on the left. Another of these you will use a lot is the Indexing operator (`[]`). This is generally used to access elements of collections like getting a single character from a string, e.g.
 
 ```{python}
 my_str = "TESTING"

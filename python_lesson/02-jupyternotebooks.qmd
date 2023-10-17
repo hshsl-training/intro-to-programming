@@ -16,7 +16,7 @@ If you are attempting to follow this intructions from your computer and do not h
 
 If you have already installed miniconda and created a conda environment, just run the following command: 
 
-```{output}
+```bash
 conda install jupyter 
 ```
 
@@ -30,12 +30,13 @@ To start a Jupyter Notebook Server, you just need to write in the terminal:
 jupyter notebook
 ```
 
-This command may run up a series of processes that will end up in two ways,
-1) The terminal may end up providing you a link to click on so you can access the Jupyter Notebook.
+This command may run up a series of processes that will end up in two ways:
+
+- The terminal may end up providing you a link to click on so you can access the Jupyter Notebook.
    
 OR
 
-2) A Chrome, Firefox or Edge window will pop-up with a Jupyter Notebook tab open. 
+- A Chrome, Firefox or Edge window will pop-up with a Jupyter Notebook tab open. 
 
 ## Creating a Notebook
 
