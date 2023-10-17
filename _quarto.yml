@@ -4,7 +4,7 @@ project:
   - "*.qmd"
   - "*.Rmd"
   - "*.md"
-           
+
 
 website:
   title: "CDABS Intro to Programming"
@@ -51,13 +51,13 @@ website:
     - id: python
       title: "Python"
       contents: 
-      - python_lesson/00-*.qmd
-      - python_lesson/01-*.qmd
-      - python_lesson/02-*.qmd
-      - python_lesson/03-*.qmd
-      - python_lesson/04-*.qmd
-      - python_lesson/05-*.qmd
-      - python_lesson/06-*.qmd
+      - python_lesson/00-introduction.qmd
+      - python_lesson/01-condaenvironments.qmd
+      - python_lesson/02-jupyternotebooks.qmd
+      - python_lesson/03-pythonbasics.qmd
+      - python_lesson/04-controlstructures1.qmd
+      - python_lesson/05-controlstructures2.qmd
+      - python_lesson/06-biopython.qmd
 
 format:
   html:

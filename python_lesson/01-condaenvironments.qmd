@@ -1,6 +1,7 @@
 ---
-title: Reproducible Research Enviroments with Python
+title: Conda Environments
 code-copy: true
+jupyter: python3
 ---
 
 ::: {.callout-note collapse="true"}
@@ -41,7 +42,7 @@ The `(base)` symbolizes that you are in the conda base environment.
 
 To create a new conda environment write the following command: 
 
-```{bash}
+```{output}
 conda create -n name-of-the-new-environment
 ```
 
@@ -54,7 +55,7 @@ Retrieving notices: ...working... done
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
 
-## Package Plan ##
+## Package Plan 
 
   environment location: /Users/username/anaconda3/envs/name-of-the-new-environment
 
@@ -78,7 +79,7 @@ Executing transaction: done
 After creating the new environment, you need to activate so you can use it. 
 To activate that environment, we need to execute:
 
-```{bash}
+```{output}
 conda activate name-of-the-new-environment
 ```
 
@@ -90,11 +91,11 @@ When you activate the environment, your terminal prompt will change to display t
 
 You can also see a list of all the environments created by using the following command: 
 
-```{bash}
+```{output}
 conda env list
 ```
 
-`conda env list` will display all the available conda environments and will place an asterist to the ones that you are using at the moment.
+Hey `conda env list` will display all the available conda environments and will place an asterist to the ones that you are using at the moment.
 
 It will display something similar to the following: 
 ```{output}
@@ -128,7 +129,7 @@ python_abi                3.11                    2_cp311    conda-forge
 
 You can deactivate a conda eniroment at any time by running the following code. 
 
-```{bash}
+```{output}
 conda deactivate
 ```
 

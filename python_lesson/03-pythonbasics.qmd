@@ -1,6 +1,7 @@
 ---
-title: Reproducible Research Enviroments with Python
+title: Python Basics
 code-copy: true
+jupyter: python3
 ---
 
 ## Python Basics: Types, Objects, Values, Variables and Operators
@@ -177,7 +178,7 @@ weight_kg_text = "weight in kilograms:"
 To indicate a string, you need to enclose it in matching single or double quotes. Python will accept both
 but it's generally a good idea to use double quotes as if you tried to assign a string with an apostrope in it using single quotes, you will get an error. Give this a try:
 
-```{python}
+```{output}
 
 msg = 'All's well'
 
@@ -325,9 +326,9 @@ age = age - 20
 ::: {.callout-tip collapse="true"}
 ## Solution
 Numbers are not stored in the written representation, so they can't be treated like strings.
-```{python}
-> > a = 123
-> > print(a[1])
+```{output}
+a = 123
+print(a[1])
 ```
 
 Output:

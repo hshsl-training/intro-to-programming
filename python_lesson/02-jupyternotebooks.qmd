@@ -1,5 +1,5 @@
 ---
-title: Reproducible Research Enviroments with Python
+title: Jupyter Notebooks
 code-copy: true
 ---
 
@@ -16,7 +16,7 @@ If you are attempting to follow this intructions from your computer and do not h
 
 If you have already installed miniconda and created a conda environment, just run the following command: 
 
-```{bash}
+```{output}
 conda install jupyter 
 ```
 
@@ -26,7 +26,7 @@ conda install jupyter
 
 To start a Jupyter Notebook Server, you just need to write in the terminal:
 
-```{bash}
+```{output}
 jupyter notebook
 ```
 
@@ -234,7 +234,7 @@ This will then drop you back to the shell prompt you were at before.
 
 
 
-```{python}
+```{output}
 jupyer notebook
 ```
 

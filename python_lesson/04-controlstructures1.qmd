@@ -1,6 +1,7 @@
 ---
-title: Reproducible Research Enviroments with Python
+title: Control Structures I
 code-copy: true
+jupyter: python3
 ---
 
 ## Python Basics: If statements and conditional execution
