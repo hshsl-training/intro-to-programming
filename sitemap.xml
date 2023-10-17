@@ -2,78 +2,98 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hshsl-training.github.io/intro-to-programming/shell_lesson/07-organization.html</loc>
-    <lastmod>2023-10-16T23:45:37.012Z</lastmod>
+    <lastmod>2023-10-17T01:38:03.180Z</lastmod>
   </url>
   <url>
     <loc>https://hshsl-training.github.io/intro-to-programming/shell_lesson/05-redirection.html</loc>
-    <lastmod>2023-10-16T23:45:34.984Z</lastmod>
+    <lastmod>2023-10-17T01:38:01.128Z</lastmod>
   </url>
   <url>
     <loc>https://hshsl-training.github.io/intro-to-programming/shell_lesson/03-working-with-files-part01.html</loc>
-    <lastmod>2023-10-16T23:45:32.402Z</lastmod>
+    <lastmod>2023-10-17T01:37:58.421Z</lastmod>
   </url>
   <url>
     <loc>https://hshsl-training.github.io/intro-to-programming/shell_lesson/01-introduction.html</loc>
-    <lastmod>2023-10-16T23:45:30.121Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hshsl-training.github.io/intro-to-programming/r_lesson/07-bioconductor-vcfr.html</loc>
-    <lastmod>2023-10-16T23:45:27.782Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hshsl-training.github.io/intro-to-programming/r_lesson/05-data-visualization.html</loc>
-    <lastmod>2023-10-16T23:45:23.878Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hshsl-training.github.io/intro-to-programming/r_lesson/03-basics-factors-dataframes.html</loc>
-    <lastmod>2023-10-16T23:45:04.955Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hshsl-training.github.io/intro-to-programming/r_lesson/01-r-basics.html</loc>
-    <lastmod>2023-10-16T23:44:57.888Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hshsl-training.github.io/intro-to-programming/python_lesson/00-introduction.html</loc>
-    <lastmod>2023-10-16T23:44:53.340Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hshsl-training.github.io/intro-to-programming/about.html</loc>
-    <lastmod>2023-10-16T23:44:48.754Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hshsl-training.github.io/intro-to-programming/index.html</loc>
-    <lastmod>2023-10-16T23:44:52.161Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hshsl-training.github.io/intro-to-programming/r_lesson/00-introduction.html</loc>
-    <lastmod>2023-10-16T23:44:55.015Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hshsl-training.github.io/intro-to-programming/r_lesson/02-data-prelude.html</loc>
-    <lastmod>2023-10-16T23:44:59.931Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hshsl-training.github.io/intro-to-programming/r_lesson/04-dplyr.html</loc>
-    <lastmod>2023-10-16T23:45:10.711Z</lastmod>
+    <lastmod>2023-10-17T01:37:56.195Z</lastmod>
   </url>
   <url>
     <loc>https://hshsl-training.github.io/intro-to-programming/r_lesson/06-r-help.html</loc>
-    <lastmod>2023-10-16T23:45:25.752Z</lastmod>
+    <lastmod>2023-10-17T01:37:52.553Z</lastmod>
   </url>
   <url>
-    <loc>https://hshsl-training.github.io/intro-to-programming/python_lesson/blank_lesson.html</loc>
-    <lastmod>2023-10-16T23:45:28.334Z</lastmod>
+    <loc>https://hshsl-training.github.io/intro-to-programming/r_lesson/04-dplyr.html</loc>
+    <lastmod>2023-10-17T01:37:37.396Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hshsl-training.github.io/intro-to-programming/r_lesson/02-data-prelude.html</loc>
+    <lastmod>2023-10-17T01:37:26.285Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hshsl-training.github.io/intro-to-programming/r_lesson/00-introduction.html</loc>
+    <lastmod>2023-10-17T01:37:21.334Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hshsl-training.github.io/intro-to-programming/python_lesson/05-controlstructures2.html</loc>
+    <lastmod>2023-10-17T01:37:15.691Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hshsl-training.github.io/intro-to-programming/python_lesson/03-pythonbasics.html</loc>
+    <lastmod>2023-10-17T01:37:07.910Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hshsl-training.github.io/intro-to-programming/python_lesson/01-condaenvironments.html</loc>
+    <lastmod>2023-10-17T01:36:58.950Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hshsl-training.github.io/intro-to-programming/index.html</loc>
+    <lastmod>2023-10-17T01:36:49.482Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hshsl-training.github.io/intro-to-programming/about.html</loc>
+    <lastmod>2023-10-17T01:36:46.188Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hshsl-training.github.io/intro-to-programming/python_lesson/00-introduction.html</loc>
+    <lastmod>2023-10-17T01:36:55.018Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hshsl-training.github.io/intro-to-programming/python_lesson/02-jupyternotebooks.html</loc>
+    <lastmod>2023-10-17T01:37:03.347Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hshsl-training.github.io/intro-to-programming/python_lesson/04-controlstructures1.html</loc>
+    <lastmod>2023-10-17T01:37:12.033Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hshsl-training.github.io/intro-to-programming/python_lesson/06-biopython.html</loc>
+    <lastmod>2023-10-17T01:37:19.651Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hshsl-training.github.io/intro-to-programming/r_lesson/01-r-basics.html</loc>
+    <lastmod>2023-10-17T01:37:24.235Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hshsl-training.github.io/intro-to-programming/r_lesson/03-basics-factors-dataframes.html</loc>
+    <lastmod>2023-10-17T01:37:31.819Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hshsl-training.github.io/intro-to-programming/r_lesson/05-data-visualization.html</loc>
+    <lastmod>2023-10-17T01:37:50.820Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hshsl-training.github.io/intro-to-programming/r_lesson/07-bioconductor-vcfr.html</loc>
+    <lastmod>2023-10-17T01:37:54.413Z</lastmod>
   </url>
   <url>
     <loc>https://hshsl-training.github.io/intro-to-programming/shell_lesson/02-the-filesystem.html</loc>
-    <lastmod>2023-10-16T23:45:31.214Z</lastmod>
+    <lastmod>2023-10-17T01:37:57.251Z</lastmod>
   </url>
   <url>
     <loc>https://hshsl-training.github.io/intro-to-programming/shell_lesson/04-working-with-files-part02.html</loc>
-    <lastmod>2023-10-16T23:45:33.499Z</lastmod>
+    <lastmod>2023-10-17T01:37:59.607Z</lastmod>
   </url>
   <url>
     <loc>https://hshsl-training.github.io/intro-to-programming/shell_lesson/06-writing-scripts.html</loc>
-    <lastmod>2023-10-16T23:45:35.860Z</lastmod>
+    <lastmod>2023-10-17T01:38:01.991Z</lastmod>
   </url>
 </urlset>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CDABS Intro to Programming - Introduction to R and R Studio</title>
+<title>CDABS Intro to Programming - Conda Environments</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -204,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../r_lesson/00-introduction.html">Introduction to R and R Studio</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../python_lesson/01-condaenvironments.html">Conda Environments</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -218,50 +252,44 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/00-introduction.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Introduction to R and R Studio</span></a>
+  <a href="../python_lesson/00-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reproducible Research Enviroments with Python</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/01-r-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R Basics I - objects, functions, vectors</span></a>
+  <a href="../python_lesson/01-condaenvironments.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Conda Environments</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/02-data-prelude.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to the example dataset and file type</span></a>
+  <a href="../python_lesson/02-jupyternotebooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jupyter Notebooks</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/03-basics-factors-dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R Basics II - factors and data frames</span></a>
+  <a href="../python_lesson/03-pythonbasics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Basics</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/04-dplyr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Wrangling and Analyses with Tidyverse</span></a>
+  <a href="../python_lesson/04-controlstructures1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Control Structures I</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/05-data-visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Visualization with ggplot2</span></a>
+  <a href="../python_lesson/05-controlstructures2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Control Structures II</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/06-r-help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Getting help with R</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../r_lesson/07-bioconductor-vcfr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using packages from Bioconductor</span></a>
+  <a href="../python_lesson/06-biopython.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Packages: Pandas and BioPython</span></a>
   </div>
 </li>
     </ul>
@@ -274,24 +302,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#why-learn-r" id="toc-why-learn-r" class="nav-link" data-scroll-target="#why-learn-r">Why learn R?</a></li>
-  <li><a href="#starting-out-in-r" id="toc-starting-out-in-r" class="nav-link" data-scroll-target="#starting-out-in-r">Starting out in R</a>
-  <ul class="collapse">
-  <li><a href="#downloading-installing-and-running-r" id="toc-downloading-installing-and-running-r" class="nav-link" data-scroll-target="#downloading-installing-and-running-r">Downloading, Installing and Running R</a></li>
-  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio">RStudio</a></li>
-  <li><a href="#posit-cloud" id="toc-posit-cloud" class="nav-link" data-scroll-target="#posit-cloud">Posit Cloud</a></li>
-  </ul></li>
-  <li><a href="#setting-up-a-project" id="toc-setting-up-a-project" class="nav-link" data-scroll-target="#setting-up-a-project">Setting up a project</a></li>
+  <li><a href="#what-is-conda" id="toc-what-is-conda" class="nav-link active" data-scroll-target="#what-is-conda">What is Conda?</a></li>
+  <li><a href="#base-environment" id="toc-base-environment" class="nav-link" data-scroll-target="#base-environment">Base environment</a></li>
+  <li><a href="#making-a-new-environment" id="toc-making-a-new-environment" class="nav-link" data-scroll-target="#making-a-new-environment">Making a new environment</a></li>
+  <li><a href="#activate-an-environment" id="toc-activate-an-environment" class="nav-link" data-scroll-target="#activate-an-environment">Activate an environment</a></li>
+  <li><a href="#exiting-an-environment" id="toc-exiting-an-environment" class="nav-link" data-scroll-target="#exiting-an-environment">Exiting an environment</a></li>
+  <li><a href="#in-class-exercise" id="toc-in-class-exercise" class="nav-link" data-scroll-target="#in-class-exercise">In class exercise:</a></li>
+  <li><a href="#want-to-learn-more-about-conda-packages" id="toc-want-to-learn-more-about-conda-packages" class="nav-link" data-scroll-target="#want-to-learn-more-about-conda-packages">Want to learn more about Conda Packages?</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hshsl-training/intro-to-programming/edit/main/r_lesson/00-introduction.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/hshsl-training/intro-to-programming/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hshsl-training/intro-to-programming/edit/main/python_lesson/01-condaenvironments.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/hshsl-training/intro-to-programming/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to R and R Studio</h1>
+<h1 class="title">Conda Environments</h1>
 </div>
 
 
@@ -306,86 +332,138 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
-<ul>
-<li>Understand the value of learning R</li>
-<li>Navigate RStudio</li>
-<li>Define terms: object, function, argument, package, vector, data frame.</li>
-<li>Use help documentation in RStudio.</li>
-</ul>
-</section>
-<section id="why-learn-r" class="level2">
-<h2 class="anchored" data-anchor-id="why-learn-r">Why learn R?</h2>
-<ul>
-<li><p><strong>R is free, open-source, and cross-platform.</strong> Anyone can inspect the source code to see how R works. Because of this transparency, there is less chance for mistakes, and if you (or someone else) find some, you can report and fix bugs. Because R is open source and is supported by a large community of developers and users, there is a very large selection of third-party add-on packages which are freely available to extend R’s native capabilities.</p></li>
-<li><p><strong>R code is great for reproducibility</strong>. Reproducibility is when someone else (including your future self) can obtain the same results from the same dataset when using the same analysis. R integrates with other tools to generate manuscripts from your code. If you collect more data, or fix a mistake in your dataset, the figures and the statistical tests in your manuscript are updated automatically.</p></li>
-<li><p><strong>R relies on a series of written commands, not on remembering a succession of pointing and clicking.</strong> If you want to redo your analysis because you collected more data, you don’t have to remember which button you clicked in which order to obtain your results; you just have to run your script again.</p></li>
-<li><p><strong>R is interdisciplinary and extensible</strong> With 10,000+ packages that can be installed to extend its capabilities, R provides a framework that allows you to combine statistical approaches from many scientific disciplines to best suit the analytical framework you need to analyze your data. For instance, R has packages for image analysis, GIS, time series, population genetics, and a lot more.</p></li>
-<li><p><strong>R works on data of all shapes and sizes.</strong> The skills you learn with R scale easily with the size of your dataset. Whether your dataset has hundreds or millions of lines, it won’t make much difference to you. R is designed for data analysis. It comes with special data structures and data types that make handling of missing data and statistical factors convenient. R can connect to spreadsheets, databases, and many other data formats, on your computer or on the web.</p></li>
-<li><p><strong>R produces high-quality graphics.</strong> The plotting functionalities in R are endless, and allow you to adjust any aspect of your graph to convey most effectively the message from your data.</p></li>
-<li><p><strong>R has a large and welcoming community.</strong> Thousands of people use R daily. Many of them are willing to help you through mailing lists and websites such as <a href="https://stackoverflow.com/">Stack Overflow</a>, or on the <a href="https://community.rstudio.com/">RStudio community</a>. Questions which are backed up with <a href="https://www.tidyverse.org/help/">short, reproducible code snippets</a> are more likely to attract knowledgeable responses.</p></li>
-</ul>
-</section>
-<section id="starting-out-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="starting-out-in-r">Starting out in R</h2>
-<p><a href="https://cran.rstudio.com/">R</a> is both a programming language and an interactive environment for data exploration and statistics.</p>
-<p>Working with R is primarily text-based. The basic mode of use for R is that the user provides commands in the R language and then R computes and displays the result.</p>
-<section id="downloading-installing-and-running-r" class="level3">
-<h3 class="anchored" data-anchor-id="downloading-installing-and-running-r">Downloading, Installing and Running R</h3>
-<p><strong>Download</strong><br>
-R can be downloaded from <a href="https://cran.rstudio.com/index.html">CRAN (The Comprehensive R Archive Network)</a> for Windows, Linux, or Mac.</p>
-<p><strong>Install</strong><br>
-Installation of R is like most software packages and you will be guided. Should you have any issues or need help you can refer to <a href="https://cran.r-project.org/doc/manuals/r-release/R-admin.html">R Installation and Administration</a></p>
-<p><strong>Running</strong><br>
-R can be launched from your software or applications launcher or When working at a command line on UNIX or Windows, the command <code>R</code> can be used for starting the main R program in the form <code>R</code></p>
-<p>You will see a console similar to this appear:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig/console.png" class="img-fluid figure-img" width="414"></p>
-</figure>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>All text and materials in these part of the workshop comes from <a href="https://astrobiomike.github.io/unix/conda-intro">Happy Belly Bioinformatics, An Introduction to Conda</a> CDABS has modified this lesson to better fit our techonogical capabilities.</p>
 </div>
 </div>
 </div>
-<p>While it is possible to work solely through the console or using a command line interface, the ideal environment to work in R is RStudio.</p>
+<section id="what-is-conda" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-conda">What is Conda?</h2>
+<p>Conda virtual environments provide a way to install external packages without worrying about package conflicts. It is posible to create a web-development environment where we install Flask, Gunicorn and Requests libraries and a separate environment where we install pandas, biopython and other packages used to analyze data. Without virtual environments, a package installation may cause your operating system to break due to version conflicts. In the virtual environment, only programs run inside the enviroment will be affected by any of your installations.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Course Setup</strong> Conda is already installed in your Virtual Machines. If you are attempting to follow this intructions from your computer and do not have installed Conda, you can follow this instructions:</p>
+<p>Install <a href="https://docs.conda.io/projects/miniconda/en/latest/#quick-command-line-install">Miniconda</a></p>
+</div>
+</div>
+</div>
+<p>Once logged in your VM, open a terminal window to create a conda virtual environment.</p>
 </section>
-<section id="rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="rstudio">RStudio</h3>
-<p>We will be working in <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a>.</p>
-<p>The <em>console</em> provides an interactive way of working with R; you enter commands and view results. RStudio surrounds this with various conveniences.</p>
-<p>RStudio is divided into four “panes”. The placement of these panes and their content can be customized (see menu, Tools -&gt; Global Options -&gt; Pane Layout).</p>
-<p>The Default Layout is:</p>
-<ul>
-<li>Top Left - <strong>Source</strong>: your scripts and documents</li>
-<li>Bottom Left - <strong>Console</strong>: what R would look and be like without RStudio</li>
-<li>Top Right - <strong>Environment/History</strong>: look here to see what you have done</li>
-<li>Bottom Right - <strong>Files</strong> and more: see the contents of the project/working directory here, like your Script.R file</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig/rstudio_session_4pane_layout.png" class="img-fluid figure-img" width="1197"></p>
-</figure>
+<section id="base-environment" class="level2">
+<h2 class="anchored" data-anchor-id="base-environment">Base environment</h2>
+<p>A ‘base’ conda environment, is like the home base inside conda. In this place we do not want to install programs because they may have conflicts with whatever you may end up doing in the future.</p>
+<p>To avoid any potential issues in between projects it is recomended to create a conda enviroment, and after activating the conda environment, install the packages that your research may need.</p>
+<p>Your terminal display should look something similar to the following:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">student@hostname~</span> % </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>(base)</code> symbolizes that you are in the conda base environment.</p>
+</section>
+<section id="making-a-new-environment" class="level2">
+<h2 class="anchored" data-anchor-id="making-a-new-environment">Making a new environment</h2>
+<p>To create a new conda environment write the following command:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> name-of-the-new-environment</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The base command is <code>conda create</code>, then we are specifying the name of our new environment with <code>-n name-of-the-new-environment</code>. After hitting enter, the terminal is going to start some procesess and is going to ask you if you want to proceed with the creation of the conda environment. Select <code>y</code> (yes) and it will finish the process of creating the environment.</p>
+<p>You will be seeing in your terminal something similar to the following:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Retrieving</span> notices: ...working... done</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Collecting</span> package metadata <span class="er">(</span><span class="ex">current_repodata.json</span><span class="kw">)</span><span class="bu">:</span> done</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Solving</span> environment: done</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">## Package Plan </span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">environment</span> location: /Users/username/anaconda3/envs/name-of-the-new-environment</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Proceed</span> <span class="er">(</span><span class="ex">[y]/n</span><span class="kw">)</span><span class="ex">?</span> y</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ex">Preparing</span> transaction: done</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="ex">Verifying</span> transaction: done</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="ex">Executing</span> transaction: done</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># To activate this environment, use</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#     $ conda activate name-of-the-new-environment</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># To deactivate an active environment, use</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">#     $ conda deactivate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="activate-an-environment" class="level2">
+<h2 class="anchored" data-anchor-id="activate-an-environment">Activate an environment</h2>
+<p>After creating the new environment, you need to activate so you can use it. To activate that environment, we need to execute:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate name-of-the-new-environment</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When you activate the environment, your terminal prompt will change to display the name of your new environment. That will letyou know that we have moved from the <code>base</code> environment to the new one.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">name-of-the-new-environment</span><span class="kw">)</span> <span class="ex">student@hostname~</span> % </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can also see a list of all the environments created by using the following command:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>conda env list</code> will display all the available conda environments and will place an asterist to the ones that you are using at the moment.</p>
+<p>It will display something similar to the following:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">name-of-the-new-environment</span><span class="kw">)</span> <span class="ex">student@hostname</span> ~ % conda env list</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># conda environments:</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">name-of-the-new-environme</span>    <span class="pp">*</span>  /Users/ifraticelli/anaconda3</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python-intro</span>                  /Users/ifraticelli/anaconda3/envs/python-intro</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">test</span>                         /Users/ifraticelli/anaconda3/envs/test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To verify what are the packages that your virtual environment has you can also use <code>conda list</code>.</p>
+<p>It will display something similar to the following:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">name-of-the-new-environment</span><span class="kw">)</span> <span class="ex">student@hostname</span> % conda list</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># packages in environment at /Users/ifraticelli/anaconda3/envs/python-intro:</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Name                    Version                   Build  Channel</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pure_eval</span>                 0.2.2              pyhd8ed1ab_0    conda-forge</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="ex">pygments</span>                  2.16.1             pyhd8ed1ab_0    conda-forge</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span>                    3.11.5               hf27a42d_0  </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="ex">python-dateutil</span>           2.8.2              pyhd3eb1b0_0  </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="ex">python-tzdata</span>             2023.3             pyhd3eb1b0_0  </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="ex">python_abi</span>                3.11                    2_cp311    conda-forge</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span>                       ...                     ...           ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exiting-an-environment" class="level2">
+<h2 class="anchored" data-anchor-id="exiting-an-environment">Exiting an environment</h2>
+<p>You can deactivate a conda eniroment at any time by running the following code.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactivate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="in-class-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-exercise">In class exercise:</h2>
+<ol type="1">
+<li>Move to the conda environment called ‘python-intro’.</li>
+<li>Then name two the conda packages that the <code>python-intro</code> environment has.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><code>conda activate python-intro</code></li>
+<li>Pandas, BioPython, Python…</li>
+</ol>
 </div>
 </div>
 </div>
 </section>
-<section id="posit-cloud" class="level3">
-<h3 class="anchored" data-anchor-id="posit-cloud">Posit Cloud</h3>
-<p><a href="https://posit.cloud/">Posit Cloud</a> is a browser-based version of RStudio (Posit being the company that owns RStudio). It will allow you to use RStudio without needing to download anything to your computer. You can also easily share your R projects with others. While we recommend downloading RStudio for regular use, there may be times you find it helpful to have a cloud based solution.</p>
-</section>
-</section>
-<section id="setting-up-a-project" class="level2">
-<h2 class="anchored" data-anchor-id="setting-up-a-project">Setting up a project</h2>
-<p>A R Project is an RStudio feature that makes it easy to keep all scripts, data, and other material together for a given project.</p>
-<p>To create a new project go to</p>
-<pre><code>File &gt; New Project &gt; Create Project From Existing Directory
-</code></pre>
-<p>Then we can use the wizard to navigate to the <code>r_lesson</code> folder on our Desktop. For now you can leave the <code>Open in New Session</code> button unchecked.</p>
-<p>Now you should notice an <code>.Rproj</code> file in your files pane. This is essentially a container file for everything in this directory.</p>
+<section id="want-to-learn-more-about-conda-packages" class="level2">
+<h2 class="anchored" data-anchor-id="want-to-learn-more-about-conda-packages">Want to learn more about Conda Packages?</h2>
+<p>If you want to learn more about Conda Packages you can visit their repository at the <a href="https://anaconda.org/anaconda/repo">Anaconda Website</a>.</p>
 
 
 </section>

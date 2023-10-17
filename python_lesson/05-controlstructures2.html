@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CDABS Intro to Programming - Introduction to R and R Studio</title>
+<title>CDABS Intro to Programming - Control Structures II</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -204,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../r_lesson/00-introduction.html">Introduction to R and R Studio</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../python_lesson/05-controlstructures2.html">Control Structures II</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -218,50 +252,44 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/00-introduction.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Introduction to R and R Studio</span></a>
+  <a href="../python_lesson/00-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reproducible Research Enviroments with Python</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/01-r-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R Basics I - objects, functions, vectors</span></a>
+  <a href="../python_lesson/01-condaenvironments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conda Environments</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/02-data-prelude.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to the example dataset and file type</span></a>
+  <a href="../python_lesson/02-jupyternotebooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jupyter Notebooks</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/03-basics-factors-dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R Basics II - factors and data frames</span></a>
+  <a href="../python_lesson/03-pythonbasics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Basics</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/04-dplyr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Wrangling and Analyses with Tidyverse</span></a>
+  <a href="../python_lesson/04-controlstructures1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Control Structures I</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/05-data-visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Visualization with ggplot2</span></a>
+  <a href="../python_lesson/05-controlstructures2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Control Structures II</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/06-r-help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Getting help with R</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../r_lesson/07-bioconductor-vcfr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using packages from Bioconductor</span></a>
+  <a href="../python_lesson/06-biopython.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Packages: Pandas and BioPython</span></a>
   </div>
 </li>
     </ul>
@@ -274,24 +302,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#why-learn-r" id="toc-why-learn-r" class="nav-link" data-scroll-target="#why-learn-r">Why learn R?</a></li>
-  <li><a href="#starting-out-in-r" id="toc-starting-out-in-r" class="nav-link" data-scroll-target="#starting-out-in-r">Starting out in R</a>
-  <ul class="collapse">
-  <li><a href="#downloading-installing-and-running-r" id="toc-downloading-installing-and-running-r" class="nav-link" data-scroll-target="#downloading-installing-and-running-r">Downloading, Installing and Running R</a></li>
-  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio">RStudio</a></li>
-  <li><a href="#posit-cloud" id="toc-posit-cloud" class="nav-link" data-scroll-target="#posit-cloud">Posit Cloud</a></li>
-  </ul></li>
-  <li><a href="#setting-up-a-project" id="toc-setting-up-a-project" class="nav-link" data-scroll-target="#setting-up-a-project">Setting up a project</a></li>
+  <li><a href="#control-structures-2" id="toc-control-structures-2" class="nav-link active" data-scroll-target="#control-structures-2">Control Structures 2</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hshsl-training/intro-to-programming/edit/main/r_lesson/00-introduction.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/hshsl-training/intro-to-programming/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hshsl-training/intro-to-programming/edit/main/python_lesson/05-controlstructures2.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/hshsl-training/intro-to-programming/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to R and R Studio</h1>
+<h1 class="title">Control Structures II</h1>
 </div>
 
 
@@ -306,86 +326,14 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
-<ul>
-<li>Understand the value of learning R</li>
-<li>Navigate RStudio</li>
-<li>Define terms: object, function, argument, package, vector, data frame.</li>
-<li>Use help documentation in RStudio.</li>
-</ul>
-</section>
-<section id="why-learn-r" class="level2">
-<h2 class="anchored" data-anchor-id="why-learn-r">Why learn R?</h2>
-<ul>
-<li><p><strong>R is free, open-source, and cross-platform.</strong> Anyone can inspect the source code to see how R works. Because of this transparency, there is less chance for mistakes, and if you (or someone else) find some, you can report and fix bugs. Because R is open source and is supported by a large community of developers and users, there is a very large selection of third-party add-on packages which are freely available to extend R’s native capabilities.</p></li>
-<li><p><strong>R code is great for reproducibility</strong>. Reproducibility is when someone else (including your future self) can obtain the same results from the same dataset when using the same analysis. R integrates with other tools to generate manuscripts from your code. If you collect more data, or fix a mistake in your dataset, the figures and the statistical tests in your manuscript are updated automatically.</p></li>
-<li><p><strong>R relies on a series of written commands, not on remembering a succession of pointing and clicking.</strong> If you want to redo your analysis because you collected more data, you don’t have to remember which button you clicked in which order to obtain your results; you just have to run your script again.</p></li>
-<li><p><strong>R is interdisciplinary and extensible</strong> With 10,000+ packages that can be installed to extend its capabilities, R provides a framework that allows you to combine statistical approaches from many scientific disciplines to best suit the analytical framework you need to analyze your data. For instance, R has packages for image analysis, GIS, time series, population genetics, and a lot more.</p></li>
-<li><p><strong>R works on data of all shapes and sizes.</strong> The skills you learn with R scale easily with the size of your dataset. Whether your dataset has hundreds or millions of lines, it won’t make much difference to you. R is designed for data analysis. It comes with special data structures and data types that make handling of missing data and statistical factors convenient. R can connect to spreadsheets, databases, and many other data formats, on your computer or on the web.</p></li>
-<li><p><strong>R produces high-quality graphics.</strong> The plotting functionalities in R are endless, and allow you to adjust any aspect of your graph to convey most effectively the message from your data.</p></li>
-<li><p><strong>R has a large and welcoming community.</strong> Thousands of people use R daily. Many of them are willing to help you through mailing lists and websites such as <a href="https://stackoverflow.com/">Stack Overflow</a>, or on the <a href="https://community.rstudio.com/">RStudio community</a>. Questions which are backed up with <a href="https://www.tidyverse.org/help/">short, reproducible code snippets</a> are more likely to attract knowledgeable responses.</p></li>
-</ul>
-</section>
-<section id="starting-out-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="starting-out-in-r">Starting out in R</h2>
-<p><a href="https://cran.rstudio.com/">R</a> is both a programming language and an interactive environment for data exploration and statistics.</p>
-<p>Working with R is primarily text-based. The basic mode of use for R is that the user provides commands in the R language and then R computes and displays the result.</p>
-<section id="downloading-installing-and-running-r" class="level3">
-<h3 class="anchored" data-anchor-id="downloading-installing-and-running-r">Downloading, Installing and Running R</h3>
-<p><strong>Download</strong><br>
-R can be downloaded from <a href="https://cran.rstudio.com/index.html">CRAN (The Comprehensive R Archive Network)</a> for Windows, Linux, or Mac.</p>
-<p><strong>Install</strong><br>
-Installation of R is like most software packages and you will be guided. Should you have any issues or need help you can refer to <a href="https://cran.r-project.org/doc/manuals/r-release/R-admin.html">R Installation and Administration</a></p>
-<p><strong>Running</strong><br>
-R can be launched from your software or applications launcher or When working at a command line on UNIX or Windows, the command <code>R</code> can be used for starting the main R program in the form <code>R</code></p>
-<p>You will see a console similar to this appear:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig/console.png" class="img-fluid figure-img" width="414"></p>
-</figure>
+<section id="control-structures-2" class="level1">
+<h1>Control Structures 2</h1>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="op">+</span><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>10</code></pre>
 </div>
 </div>
-</div>
-<p>While it is possible to work solely through the console or using a command line interface, the ideal environment to work in R is RStudio.</p>
-</section>
-<section id="rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="rstudio">RStudio</h3>
-<p>We will be working in <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a>.</p>
-<p>The <em>console</em> provides an interactive way of working with R; you enter commands and view results. RStudio surrounds this with various conveniences.</p>
-<p>RStudio is divided into four “panes”. The placement of these panes and their content can be customized (see menu, Tools -&gt; Global Options -&gt; Pane Layout).</p>
-<p>The Default Layout is:</p>
-<ul>
-<li>Top Left - <strong>Source</strong>: your scripts and documents</li>
-<li>Bottom Left - <strong>Console</strong>: what R would look and be like without RStudio</li>
-<li>Top Right - <strong>Environment/History</strong>: look here to see what you have done</li>
-<li>Bottom Right - <strong>Files</strong> and more: see the contents of the project/working directory here, like your Script.R file</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig/rstudio_session_4pane_layout.png" class="img-fluid figure-img" width="1197"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="posit-cloud" class="level3">
-<h3 class="anchored" data-anchor-id="posit-cloud">Posit Cloud</h3>
-<p><a href="https://posit.cloud/">Posit Cloud</a> is a browser-based version of RStudio (Posit being the company that owns RStudio). It will allow you to use RStudio without needing to download anything to your computer. You can also easily share your R projects with others. While we recommend downloading RStudio for regular use, there may be times you find it helpful to have a cloud based solution.</p>
-</section>
-</section>
-<section id="setting-up-a-project" class="level2">
-<h2 class="anchored" data-anchor-id="setting-up-a-project">Setting up a project</h2>
-<p>A R Project is an RStudio feature that makes it easy to keep all scripts, data, and other material together for a given project.</p>
-<p>To create a new project go to</p>
-<pre><code>File &gt; New Project &gt; Create Project From Existing Directory
-</code></pre>
-<p>Then we can use the wizard to navigate to the <code>r_lesson</code> folder on our Desktop. For now you can leave the <code>Open in New Session</code> button unchecked.</p>
-<p>Now you should notice an <code>.Rproj</code> file in your files pane. This is essentially a container file for everything in this directory.</p>
 
 
 </section>

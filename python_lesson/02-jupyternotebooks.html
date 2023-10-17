@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CDABS Intro to Programming - Introduction to R and R Studio</title>
+<title>CDABS Intro to Programming - Jupyter Notebooks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -204,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../r_lesson/00-introduction.html">Introduction to R and R Studio</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../python_lesson/02-jupyternotebooks.html">Jupyter Notebooks</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -218,50 +252,44 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/00-introduction.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Introduction to R and R Studio</span></a>
+  <a href="../python_lesson/00-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reproducible Research Enviroments with Python</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/01-r-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R Basics I - objects, functions, vectors</span></a>
+  <a href="../python_lesson/01-condaenvironments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conda Environments</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/02-data-prelude.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to the example dataset and file type</span></a>
+  <a href="../python_lesson/02-jupyternotebooks.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Jupyter Notebooks</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/03-basics-factors-dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R Basics II - factors and data frames</span></a>
+  <a href="../python_lesson/03-pythonbasics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Basics</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/04-dplyr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Wrangling and Analyses with Tidyverse</span></a>
+  <a href="../python_lesson/04-controlstructures1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Control Structures I</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/05-data-visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Visualization with ggplot2</span></a>
+  <a href="../python_lesson/05-controlstructures2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Control Structures II</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../r_lesson/06-r-help.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Getting help with R</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../r_lesson/07-bioconductor-vcfr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using packages from Bioconductor</span></a>
+  <a href="../python_lesson/06-biopython.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Packages: Pandas and BioPython</span></a>
   </div>
 </li>
     </ul>
@@ -274,24 +302,27 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#why-learn-r" id="toc-why-learn-r" class="nav-link" data-scroll-target="#why-learn-r">Why learn R?</a></li>
-  <li><a href="#starting-out-in-r" id="toc-starting-out-in-r" class="nav-link" data-scroll-target="#starting-out-in-r">Starting out in R</a>
+  <li><a href="#what-is-a-jupyter-notebook" id="toc-what-is-a-jupyter-notebook" class="nav-link active" data-scroll-target="#what-is-a-jupyter-notebook">What is a Jupyter Notebook?</a></li>
+  <li><a href="#start-a-jupyter-notebook" id="toc-start-a-jupyter-notebook" class="nav-link" data-scroll-target="#start-a-jupyter-notebook">Start a Jupyter Notebook:</a></li>
+  <li><a href="#creating-a-notebook" id="toc-creating-a-notebook" class="nav-link" data-scroll-target="#creating-a-notebook">Creating a Notebook</a></li>
+  <li><a href="#naming-your-notebook" id="toc-naming-your-notebook" class="nav-link" data-scroll-target="#naming-your-notebook">Naming your notebook</a></li>
+  <li><a href="#running-cells" id="toc-running-cells" class="nav-link" data-scroll-target="#running-cells">Running Cells</a></li>
+  <li><a href="#getting-python-to-do-something" id="toc-getting-python-to-do-something" class="nav-link" data-scroll-target="#getting-python-to-do-something">Getting Python to do something</a></li>
+  <li><a href="#jupyter-notebook-menus" id="toc-jupyter-notebook-menus" class="nav-link" data-scroll-target="#jupyter-notebook-menus">Jupyter Notebook menus</a></li>
+  <li><a href="#adding-rich-content-to-your-notebook" id="toc-adding-rich-content-to-your-notebook" class="nav-link" data-scroll-target="#adding-rich-content-to-your-notebook">Adding Rich Content to your Notebook</a>
   <ul class="collapse">
-  <li><a href="#downloading-installing-and-running-r" id="toc-downloading-installing-and-running-r" class="nav-link" data-scroll-target="#downloading-installing-and-running-r">Downloading, Installing and Running R</a></li>
-  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio">RStudio</a></li>
-  <li><a href="#posit-cloud" id="toc-posit-cloud" class="nav-link" data-scroll-target="#posit-cloud">Posit Cloud</a></li>
+  <li><a href="#cell-types" id="toc-cell-types" class="nav-link" data-scroll-target="#cell-types">Cell Types</a></li>
+  <li><a href="#styling-text-with-markdown" id="toc-styling-text-with-markdown" class="nav-link" data-scroll-target="#styling-text-with-markdown">Styling text with Markdown</a></li>
   </ul></li>
-  <li><a href="#setting-up-a-project" id="toc-setting-up-a-project" class="nav-link" data-scroll-target="#setting-up-a-project">Setting up a project</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hshsl-training/intro-to-programming/edit/main/r_lesson/00-introduction.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/hshsl-training/intro-to-programming/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hshsl-training/intro-to-programming/edit/main/python_lesson/02-jupyternotebooks.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/hshsl-training/intro-to-programming/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to R and R Studio</h1>
+<h1 class="title">Jupyter Notebooks</h1>
 </div>
 
 
@@ -306,88 +337,158 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<section id="what-is-a-jupyter-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-jupyter-notebook">What is a Jupyter Notebook?</h2>
+<p>For this lesson we will be creating and using Jupyter Notebooks. The Jupyter Notebook is an open source web application that you can use to create and share documents that contain live code, equations, visualizations, and text. Jupyter Notebook is maintained by the people at Project Jupyter. Jupyter supports over 40 programming languages, including Python, R, Julia, and Scala. Notebooks can be shared with others using email, Dropbox, GitHub and the Jupyter Notebook Viewer.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Course Setup</strong> Jupyter Notebook is already installed in your Virtual Machines. If you are attempting to follow this intructions from your computer and do not have installed Jupyter Notebook, you can follow this instructions:</p>
+<p>If you have already installed miniconda and created a conda environment, just run the following command:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install jupyter </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="start-a-jupyter-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="start-a-jupyter-notebook">Start a Jupyter Notebook:</h2>
+<p>To start a Jupyter Notebook Server, you just need to write in the terminal:</p>
+<pre class="{output}"><code>jupyter notebook</code></pre>
+<p>This command may run up a series of processes that will end up in two ways:</p>
 <ul>
-<li>Understand the value of learning R</li>
-<li>Navigate RStudio</li>
-<li>Define terms: object, function, argument, package, vector, data frame.</li>
-<li>Use help documentation in RStudio.</li>
+<li>The terminal may end up providing you a link to click on so you can access the Jupyter Notebook.</li>
+</ul>
+<p>OR</p>
+<ul>
+<li>A Chrome, Firefox or Edge window will pop-up with a Jupyter Notebook tab open.</li>
 </ul>
 </section>
-<section id="why-learn-r" class="level2">
-<h2 class="anchored" data-anchor-id="why-learn-r">Why learn R?</h2>
-<ul>
-<li><p><strong>R is free, open-source, and cross-platform.</strong> Anyone can inspect the source code to see how R works. Because of this transparency, there is less chance for mistakes, and if you (or someone else) find some, you can report and fix bugs. Because R is open source and is supported by a large community of developers and users, there is a very large selection of third-party add-on packages which are freely available to extend R’s native capabilities.</p></li>
-<li><p><strong>R code is great for reproducibility</strong>. Reproducibility is when someone else (including your future self) can obtain the same results from the same dataset when using the same analysis. R integrates with other tools to generate manuscripts from your code. If you collect more data, or fix a mistake in your dataset, the figures and the statistical tests in your manuscript are updated automatically.</p></li>
-<li><p><strong>R relies on a series of written commands, not on remembering a succession of pointing and clicking.</strong> If you want to redo your analysis because you collected more data, you don’t have to remember which button you clicked in which order to obtain your results; you just have to run your script again.</p></li>
-<li><p><strong>R is interdisciplinary and extensible</strong> With 10,000+ packages that can be installed to extend its capabilities, R provides a framework that allows you to combine statistical approaches from many scientific disciplines to best suit the analytical framework you need to analyze your data. For instance, R has packages for image analysis, GIS, time series, population genetics, and a lot more.</p></li>
-<li><p><strong>R works on data of all shapes and sizes.</strong> The skills you learn with R scale easily with the size of your dataset. Whether your dataset has hundreds or millions of lines, it won’t make much difference to you. R is designed for data analysis. It comes with special data structures and data types that make handling of missing data and statistical factors convenient. R can connect to spreadsheets, databases, and many other data formats, on your computer or on the web.</p></li>
-<li><p><strong>R produces high-quality graphics.</strong> The plotting functionalities in R are endless, and allow you to adjust any aspect of your graph to convey most effectively the message from your data.</p></li>
-<li><p><strong>R has a large and welcoming community.</strong> Thousands of people use R daily. Many of them are willing to help you through mailing lists and websites such as <a href="https://stackoverflow.com/">Stack Overflow</a>, or on the <a href="https://community.rstudio.com/">RStudio community</a>. Questions which are backed up with <a href="https://www.tidyverse.org/help/">short, reproducible code snippets</a> are more likely to attract knowledgeable responses.</p></li>
-</ul>
+<section id="creating-a-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-notebook">Creating a Notebook</h2>
+<p>After starting a Notebook server the next thing to do is create or open an actual Notebook document!</p>
+<p>To create the Notebook click the <kbd>New</kbd> button (upper right) which opens a drop down with a list of choices. You will select the option for Python 3. The webpage should now look like this:</p>
+<p><img src="../fig/createJupyterNB.png" alt="drawing" width="100%"></p>
 </section>
-<section id="starting-out-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="starting-out-in-r">Starting out in R</h2>
-<p><a href="https://cran.rstudio.com/">R</a> is both a programming language and an interactive environment for data exploration and statistics.</p>
-<p>Working with R is primarily text-based. The basic mode of use for R is that the user provides commands in the R language and then R computes and displays the result.</p>
-<section id="downloading-installing-and-running-r" class="level3">
-<h3 class="anchored" data-anchor-id="downloading-installing-and-running-r">Downloading, Installing and Running R</h3>
-<p><strong>Download</strong><br>
-R can be downloaded from <a href="https://cran.rstudio.com/index.html">CRAN (The Comprehensive R Archive Network)</a> for Windows, Linux, or Mac.</p>
-<p><strong>Install</strong><br>
-Installation of R is like most software packages and you will be guided. Should you have any issues or need help you can refer to <a href="https://cran.r-project.org/doc/manuals/r-release/R-admin.html">R Installation and Administration</a></p>
-<p><strong>Running</strong><br>
-R can be launched from your software or applications launcher or When working at a command line on UNIX or Windows, the command <code>R</code> can be used for starting the main R program in the form <code>R</code></p>
-<p>You will see a console similar to this appear:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig/console.png" class="img-fluid figure-img" width="414"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>While it is possible to work solely through the console or using a command line interface, the ideal environment to work in R is RStudio.</p>
+<section id="naming-your-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="naming-your-notebook">Naming your notebook</h2>
+<p>You will notice that at the top of the page is the word Untitled. This is the title for the page and the name of your Notebook. Go ahead and change it to something more meaningful. Just move your mouse over the word <code>Untitled</code> and click on the text. You should now see an in-browser dialog titled Rename Notebook.</p>
+<p><img src="../fig/renameJupyterNB.png" alt="drawing" width="100%"></p>
 </section>
-<section id="rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="rstudio">RStudio</h3>
-<p>We will be working in <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a>.</p>
-<p>The <em>console</em> provides an interactive way of working with R; you enter commands and view results. RStudio surrounds this with various conveniences.</p>
-<p>RStudio is divided into four “panes”. The placement of these panes and their content can be customized (see menu, Tools -&gt; Global Options -&gt; Pane Layout).</p>
-<p>The Default Layout is:</p>
-<ul>
-<li>Top Left - <strong>Source</strong>: your scripts and documents</li>
-<li>Bottom Left - <strong>Console</strong>: what R would look and be like without RStudio</li>
-<li>Top Right - <strong>Environment/History</strong>: look here to see what you have done</li>
-<li>Bottom Right - <strong>Files</strong> and more: see the contents of the project/working directory here, like your Script.R file</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig/rstudio_session_4pane_layout.png" class="img-fluid figure-img" width="1197"></p>
-</figure>
-</div>
-</div>
-</div>
+<section id="running-cells" class="level2">
+<h2 class="anchored" data-anchor-id="running-cells">Running Cells</h2>
+<p>A Notebook’s cell defaults to using code whenever you first create one, and that cell uses the kernel that you chose when you started your Notebook.</p>
+<p>In this case, you started yours with Python 3 as your kernel, so that means you can write Python code in your code cells. Since your initial Notebook has only one empty cell in it, the Notebook can’t really do anything.</p>
+<p>Thus, to verify that everything is working as it should, you can add some Python code to the cell and try running its contents.</p>
 </section>
-<section id="posit-cloud" class="level3">
-<h3 class="anchored" data-anchor-id="posit-cloud">Posit Cloud</h3>
-<p><a href="https://posit.cloud/">Posit Cloud</a> is a browser-based version of RStudio (Posit being the company that owns RStudio). It will allow you to use RStudio without needing to download anything to your computer. You can also easily share your R projects with others. While we recommend downloading RStudio for regular use, there may be times you find it helpful to have a cloud based solution.</p>
-</section>
-</section>
-<section id="setting-up-a-project" class="level2">
-<h2 class="anchored" data-anchor-id="setting-up-a-project">Setting up a project</h2>
-<p>A R Project is an RStudio feature that makes it easy to keep all scripts, data, and other material together for a given project.</p>
-<p>To create a new project go to</p>
-<pre><code>File &gt; New Project &gt; Create Project From Existing Directory
+<section id="getting-python-to-do-something" class="level2">
+<h2 class="anchored" data-anchor-id="getting-python-to-do-something">Getting Python to do something</h2>
+<p>Now we can start and (possibly more importantly!) exit Python, we can try to get it do something by giving it a command. The Jupyter Notebook intepreter (i.e.&nbsp;the <code>In [x]:</code> prompt) works in a very similar way to the shell except that here you will be typing python code directly instead of running programs. We shall start by getting Python to print something. This is very basic but will be invaluable going forward:</p>
+<pre><code>print("Hello World")</code></pre>
+<p>{: .language-python}</p>
+<p>Running a cell means that you will execute the cell’s contents. To execute a cell, you can just select the cell and click the Run button that is in the row of buttons along the top. It’s towards the middle. If you prefer using your keyboard, you can just press <kbd>Shift</kbd>+<kbd>Enter</kbd>.</p>
+<p><img src="../fig/cell_run_jupyter.png" alt="drawing" width="100%"></p>
+<p>So what did we just do? We typed in a python statement that was interpreted by Python and acted on when we pressed <kbd>Shift</kbd>+<kbd>Enter</kbd>. It interpreted this as ’call the function <code>print</code> with the argument <code>"Hello World"</code>. It went away, ran the appropriate code and returned.</p>
+<p>But what does the <code>print</code> function do? In this case, it’s fairly self-expanatory but if you wanted to know more you can use the <code>help</code> function:</p>
+<pre><code>help(print)</code></pre>
+<p>{: .language-python} ~~~ Help on built-in function print in module builtins:</p>
+<p>print(…) print(value, …, sep=’ ‘, end=’’, file=sys.stdout, flush=False)</p>
+<pre><code>Prints the values to a stream, or to sys.stdout by default.
+Optional keyword arguments:
+file:  a file-like object (stream); defaults to the current sys.stdout.
+sep:   string inserted between values, default a space.
+end:   string appended after the last value, default a newline.
+flush: whether to forcibly flush the stream.</code></pre>
+<pre><code>{: .output}
+
+Jupyter Notebooks also have shell-like behavior in that you can use `Tab` to auto-complete a function or variable name:
 </code></pre>
-<p>Then we can use the wizard to navigate to the <code>r_lesson</code> folder on our Desktop. For now you can leave the <code>Open in New Session</code> button unchecked.</p>
-<p>Now you should notice an <code>.Rproj</code> file in your files pane. This is essentially a container file for everything in this directory.</p>
+<p>pri [Tab] ~~~ {: .language-python}</p>
+<pre><code>print</code></pre>
+<p>{: .language-python}</p>
+<blockquote class="blockquote">
+<h2 id="exploring-tab-completion" class="anchored">Exploring Tab Completion</h2>
+<p>On up-to-date versions of Jupyter, the Tab completion functionality will also suggest the commands you mean if several match and also show the arguments a function might take.</p>
+<p>Give this a try by doing:</p>
+<pre><code>pr [Tab]
+print( [Tab]</code></pre>
+<p>{: .language-python}</p>
+<p>What happens if you press <code>Tab</code> multiple times? {: .challenge}</p>
+</blockquote>
+<p>An important thing to remember whenever programming in Python though is that the code is <strong>case sensitive</strong>. This means that <code>print</code> is completely different and unrelated to <code>Print</code>. To show this, type the following:</p>
+<pre><code>Print("Hello World")</code></pre>
+<p>{: .language-python}</p>
+<pre><code>---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-1-82ee0b7fee85&gt; in &lt;module&gt;()
+----&gt; 1 Print("Hello World")
+
+NameError: name 'Print' is not defined</code></pre>
+<p>{: .error}</p>
+<p>As you can see, Python didn’t know what <code>Print</code> was so showed an error (a <code>NameError</code> in this case).</p>
+</section>
+<section id="jupyter-notebook-menus" class="level2">
+<h2 class="anchored" data-anchor-id="jupyter-notebook-menus">Jupyter Notebook menus</h2>
+<p>The Jupyter notebook has several menus that help you interact with the notebook. The menus are found along the top similar to menus from other applications. You are encouraged to go through the menu tabs and explore what possibilities exist within each. It is worth noting that many of the commands within the menu tabs will provide a corresponding keyboard short-cut to use them for reducing mouse fatigue. Use of the menu resources will become more apparent as you proceed in working with Jupyter Notebooks.</p>
+<p>The <em>Help</em> menu is particularly useful. The <em>Help</em> menu is where you go to learn about the Notebook’s keyboard shortcuts, a user interface tour, and lots of reference material.</p>
+</section>
+<section id="adding-rich-content-to-your-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="adding-rich-content-to-your-notebook">Adding Rich Content to your Notebook</h2>
+<p>Jupyter Notebook supports adding rich content to its cells. Lets take a look some of the things you can do with your cells using Markup and Code.</p>
+<section id="cell-types" class="level3">
+<h3 class="anchored" data-anchor-id="cell-types">Cell Types</h3>
+<p>There are 3 cell types you can create in a Notebook: Code, Markdown, Raw NBConvert. The <kbd>Cell</kbd> menu <em>Cell Type</em> selection shows you them with their corresponding keyboard short-cut:</p>
+<p><img src="../fig/cell_type_jupyter.png" alt="drawing" width="40%"></p>
+<p>The primary cell types that you will use are the Code and Markdown cell types. You have already learned how code cells work, so let’s learn how to style your text with Markdown.</p>
+</section>
+<section id="styling-text-with-markdown" class="level3">
+<h3 class="anchored">Styling text with Markdown</h3>
+<p>Jupyter Notebook supports Markdown, which is a markup language that is a superset of HTML. We will look at some of the basic styling possible using Markdown in the following examples, for a more extensive guide visit: <a href="https://medium.com/analytics-vidhya/the-ultimate-markdown-guide-for-jupyter-notebook-d5e5abf728fd">Ultimate Markdown Guide</a></p>
+<p>To write Markdown in the Notebook, lets first set a new cell to Markdown or use keyboard short-cut <kbd>M</kbd> and add some text to the cell:</p>
+<p><img src="../fig/md_cell_new_jupyter.png" alt="drawing" width="80%"></p>
+<p>Run the cell using your favorite method and it should look like this:</p>
+<p><img src="../fig/md_cell_rendered_jupyter.png" alt="drawing" width="80%"></p>
+<p>To make your text <strong>BOLD</strong>, use a double underscore or a double asterisk.</p>
+<p>Creating headers in Markdown involves placing a pound sign at the beginning of a line and making a space after! The more pound signs you use, the smaller the header. Jupyter Notebook even kind of previews it for you:</p>
+<p><img src="../fig/md_headers_jupyter.png" alt="drawing" width="80%"></p>
+<p>Running the cell you are left with a beautiful header for your notebook.</p>
+<p><img src="../fig/md_headers_rendered_jupyter.png" alt="drawing" width="80%"></p>
+<p>In case you want to insert a code example that you don’t expect to be run by the end user, there’s a Markdown for that too! For inline code highlighting, just surround the code with backticks. If you want to insert a block of code, you can use triple backticks and also specify the programming language:</p>
+<p><img src="../fig/md_syntax-highlight_jupyter.png" alt="drawing" width="80%"></p>
+<p>Jupyter notebooks provide a wide set of features to explore and use. You will want to investigate more on the topic. Some important topics not covered are Exporting Notebooks, Installing Kernels, Notebook extensions, hosting your Jupyter Notebook on Jupyter Hub and more!</p>
+<blockquote class="blockquote">
+<h2 id="python-vs.-jupyter" class="anchored" data-anchor-id="styling-text-with-markdown">Python vs.&nbsp;Jupyter</h2>
+<p>You may be wondering why you type <code>jupyter notebook</code> to run the Python interpreter rather than just <code>python</code>. This does also work but this is a much more basic interpreter than Jupyter Notebook that doesn’t have tab completion, syntax highlighting, etc. If you ever need an interactive Python prompt, Jupyter notebook is the best option! {: .callout}</p>
+</blockquote>
+<p>To quit out, you can do the following:</p>
+<ul>
+<li>Hit the <kbd>Quit</kbd> button then close the browser tab</li>
+<li>In the shell press <kbd>Cntrl</kbd> <kbd>C</kbd> twice anmd then close the browser tab containing the running Jupyter Notebook.</li>
+</ul>
+<p>This will then drop you back to the shell prompt you were at before.</p>
+<pre class="{output}"><code>jupyer notebook</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>All text and materials in these workshops comes from the Data Carpentries. More especifically this lesson follows the Data Carpentries lesson “<a href="https://j-p-courneya.github.io/Intro-Python-Bioinformatics/">Programming with Python</a>”.</p>
+<p>CDABS has modified this lesson to better fit our techonogical capabilities.</p>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
