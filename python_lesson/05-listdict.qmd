@@ -1,14 +1,14 @@
 ---
-title: List and Dictionaries
+title: "Data Structures: List and Dictionaries"
 code-copy: true
 toc: true
 toc-depth: 4
 jupyter: python3
 ---
 
-# Python Basics: Lists and Dictionaries 
+## Python Basics: Lists and Dictionaries 
 
-We have learnt how to store single bits of data in variables but what happens when we have several bits of data that are associated with each other and need to be stored together? For example, a vector, array or list of names? For this we can use the built-in collection types of list and dict (short for dictionary). 
+We have learn how to store single bits of data in variables but what happens when we have several bits of data that are associated with each other and need to be stored together? For example, a vector, array or list of names? For this we can use the built-in collection types of list and dict (short for dictionary). 
 
 ## Lists 
 
