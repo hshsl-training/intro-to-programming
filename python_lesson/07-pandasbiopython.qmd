@@ -1,0 +1,42 @@
+---
+title: "Python Packages: Pandas and BioPython"
+code-copy: true
+jupyter: python3
+---
+Biopython features include parsers for various Bioinformatics file formats (BLAST, Clustalw, FASTA, Genbank,...), access to online services (NCBI, Expasy,...), interfaces to common and not-so-common programs (Clustalw, DSSP, MSMS...), a standard sequence class, various clustering modules, a KD tree data structure etc. and even documentation.
+
+Pairwise Sequence Alignments
+
+
+# Biopython
+
+import pandas as pd
+df = pd.read_csv('/Users/ifraticelli/Documents/Projects_Visual_Studio/intro-to-programming/python_lesson/combined_tidy_vcf.csv')
+
+df.info()
+df.head()
+df.tail()
+df.columns
+df.isnull()
+df.isnull().sum()
+df.loc[df['alt'].apply(len) >= 5]
+
+from Bio import Seq, pairwise2
+
+type(df.loc[8]['ref'])
+ref = df.loc[8]['ref']
+alt = df.loc[8]['alt']
+
+#refseq = Seq.Seq(ref)
+#altseq = Seq.Seq(alt)
+
+alignments = pairwise2.align.globalxx(ref,alt)
+
+for alignment in alignments:
+    print(pairwise2.format_alignment(*alignment))
+
+```{python}
+5+5
+```
+
+

@@ -1,13 +1,12 @@
 ---
-title: Control Structures II
+title: List and Dictionaries
 code-copy: true
 toc: true
 toc-depth: 4
 jupyter: python3
 ---
 
-
-# Control Structures 2
+# Python Basics: Lists and Dictionaries 
 
 We have learnt how to store single bits of data in variables but what happens when we have several bits of data that are associated with each other and need to be stored together? For example, a vector, array or list of names? For this we can use the built-in collection types of list and dict (short for dictionary). 
 
@@ -23,7 +22,7 @@ We create a list by putting values inside square brackets and separating the val
 odds = [1, 3, 5, 7]
 print('odds are:', odds)
 even = [2, 4, 6, 8]
-print('evem are:', even)
+print('even are:', even)
 empty = list()
 print('empty list:', empty)
 ```
@@ -224,4 +223,46 @@ In this ocasion by using `copy` we create a new list with the same contents. Thi
 ::::
 
 ## Dictionaries
+
+In Python, you can use a type of collection called a Dictionary. Values stored in a dictionary are associated with a key that you can then use to retrieve the value instead of using an index.
+
+Dictionaries are like lists. They both share the following properties:
+
+- Both can be used to store values.
+- Both can be changed in place and can grow and shrink on demand.
+- Both can be nested: a dictionary can contain another dictionary, a list can contain another list, and a list can contain a dictionary and vice versa.
+
+Example of a dictionary: 
+
+ ```{python}
+ cat = {
+    'name': 'Tomasina', 
+    'age': 5 , 
+    'color': 'white', 
+    'breed': 'american shorthair', 
+    'diagnosis': 'FIV',
+}
+ ```
+
+In this example the dictionary its called cat. The keys in this dictionary are `name`, `age`, `breed`, `color`, `diagnosis` and `owner`. The `value` is the object that is mapped to the `key`, like `"name":"Tomasina"`
+
+If you need to retrieve the value of a key, you can do the following:
+
+```{python}
+cat['name']
+```
+
+By using the key name, you can print out the values of the key. 
+
+You can use any immutable object as a key (in practice this is generally numbers or strings!) and store any object as the value including lists or other dicts. As with lists, there are several ways to add entries to a dictionary. The easiest of these is to simply reference a new key and assign it a value:
+
+```{python}
+cat['owner'] = 'Leo'
+print(cat)
+```
+
+The new key-value pair has been added at the end of the dictionary!
+
+The differences between lists and dictionaries is how objects are accessed. 
+A List objects is accessed by position index ([0,1,2…]) while dictionary objects are accessed using keys. 
 

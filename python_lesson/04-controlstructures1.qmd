@@ -4,7 +4,7 @@ code-copy: true
 jupyter: python3
 ---
 
-## Python Basics: If statements and conditional execution
+## Python Basics: If statements and Conditional Execution
 
 ::: {.callout-note appearance="minimal"}
 

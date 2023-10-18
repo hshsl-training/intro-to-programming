@@ -56,8 +56,9 @@ website:
       - python_lesson/02-jupyternotebooks.qmd
       - python_lesson/03-pythonbasics.qmd
       - python_lesson/04-controlstructures1.qmd
-      - python_lesson/05-controlstructures2.qmd
-      - python_lesson/06-biopython.qmd
+      - python_lesson/05-listdict.qmd
+      - python_lesson/06-controlstructure2.qmd
+      - python_lesson/07-pandasbiopython.qmd
 
 format:
   html:
