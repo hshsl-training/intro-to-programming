@@ -5,28 +5,18 @@ code-copy: true
 
 ## What is a Jupyter Notebook?
 
-For this lesson we will be creating and using Jupyter Notebooks. The Jupyter Notebook is an open source web application that you can use to create and share documents that contain live code, equations, visualizations, and text. 
-Jupyter Notebook is maintained by the people at Project Jupyter. Jupyter supports over 40 programming languages, including Python, R, Julia, and Scala. 
-Notebooks can be shared with others using email, Dropbox, GitHub and the Jupyter Notebook Viewer.
+For this lesson we will be creating and using Jupyter Notebooks. The Jupyter Notebook is an open source web application that you can use to create and share documents that contain live code, equations, visualizations, and text. Jupyter Notebook is maintained by the people at Project Jupyter. Jupyter supports over 40 programming languages, including Python, R, Julia, and Scala. Notebooks can be shared with others using email, Dropbox, GitHub and the Jupyter Notebook Viewer.
 
-::: {.callout-note appearance="minimal"}
-**Course Setup**
-Jupyter Notebook is already installed in your Virtual Machines. 
-If you are attempting to follow this intructions from your computer and do not have installed Jupyter Notebook, you can follow this instructions: 
+## Python vs. Jupyter
 
-If you have already installed miniconda and created a conda environment, just run the following command: 
+You may be wondering why you type `jupyter notebook` to run the Python interpreter rather than just `python`. This does also work but this is a much more basic interpreter than Jupyter Notebook that doesn't have tab completion, syntax highlighting, etc. If you ever need an interactive Python prompt, Jupyter notebook is the best option!
 
-```bash
-conda install jupyter 
-```
-
-:::
 
 ## Start a Jupyter Notebook:
 
-To start a Jupyter Notebook Server, you just need to write in the terminal:
+For this lesson, Jupyter Notebook is installed in a specific Conda environment. In our class computer that environment is called `python-intro`. After activating the conda environment using `Conda activate python intro`, you can start a Jupyter Notebook server with the following command:
 
-```{output}
+```bash
 jupyter notebook
 ```
 
@@ -38,15 +28,19 @@ OR
 
 - A Chrome, Firefox or Edge window will pop-up with a Jupyter Notebook tab open. 
 
+
 ## Creating a Notebook
 
 After starting a Notebook server the next thing to do is create or open an actual Notebook document! 
 
 To create the Notebook click the <KBD>New</KBD> button (upper right) which opens a drop down with a list of choices. 
-You will select the option for Python 3. The webpage should now look like this:
+You will select the option for Python 3. 
 
-<img src="../fig/createJupyterNB.png" alt="drawing" width="100%"/>
+![New Notebook](../python_lesson/fig/new-notebook.png)
 
+The webpage should now look like this:
+
+![Create Jupyter Notebook](../python_lesson/fig/createJupyterNB.png)
 
 
 ## Naming your notebook
@@ -57,7 +51,7 @@ Go ahead and change it to something more meaningful.
 Just move your mouse over the word `Untitled` and click on the text. 
 You should now see an in-browser dialog titled Rename Notebook. 
 
-<img src="../fig/renameJupyterNB.png" alt="drawing" width="100%"/>
+![Rename Jupyter Notebook](../python_lesson/fig/renameJupyterNB.png)
 
 
 
@@ -71,8 +65,6 @@ Since your initial Notebook has only one empty cell in it, the Notebook can’t 
 
 Thus, to verify that everything is working as it should, you can add some Python code to the cell and try running its contents.
 
-
-
 ## Getting Python to do something
 
 Now we can start and (possibly more importantly!) exit Python, we can try to get it do something
@@ -81,16 +73,16 @@ a very similar way to the shell except that here you will be typing python code 
 of running programs. We shall start by getting Python to print something. This is very basic but
 will be invaluable going forward:
 
-~~~
+```python
 print("Hello World")
-~~~
-{: .language-python}
+```
 
 Running a cell means that you will execute the cell’s contents. 
 To execute a cell, you can just select the cell and click the Run button that is in the row of buttons along the top. 
 It’s towards the middle. If you prefer using your keyboard, you can just press <KBD>Shift</KBD>+<KBD>Enter</KBD>.
 
-<img src="../fig/cell_run_jupyter.png" alt="drawing" width="100%"/>
+![Run a Cell in Jupyter Notebook](../python_lesson/fig/cell_run_jupyter.png)
+
 
 So what did we just do? We typed in a python statement that was interpreted by Python and acted
 on when we pressed <KBD>Shift</KBD>+<KBD>Enter</KBD>. It interpreted this as 'call the function `print` with the argument
@@ -99,75 +91,18 @@ on when we pressed <KBD>Shift</KBD>+<KBD>Enter</KBD>. It interpreted this as 'ca
 But what does the `print` function do? In this case, it's fairly self-expanatory but if you wanted
 to know more you can use the `help` function:
 
-~~~
+```{python}
 help(print)
-~~~
-{: .language-python}
-~~~
-Help on built-in function print in module builtins:
-
-print(...)
-    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
-    
-    Prints the values to a stream, or to sys.stdout by default.
-    Optional keyword arguments:
-    file:  a file-like object (stream); defaults to the current sys.stdout.
-    sep:   string inserted between values, default a space.
-    end:   string appended after the last value, default a newline.
-    flush: whether to forcibly flush the stream.
-~~~
-{: .output}
+```
 
 Jupyter Notebooks also have shell-like behavior in that you can use `Tab` to auto-complete a function or variable name:
 
-~~~
+```python
 pri [Tab]
-~~~
-{: .language-python}
-
-~~~
+```
+```python
 print
-~~~
-{: .language-python}
-
-> ## Exploring Tab Completion
->
-> On up-to-date versions of Jupyter, the Tab completion functionality will also suggest the commands
-> you mean if several match and also show the arguments a function might take.
->
-> Give this a try by doing:
->
-> ~~~
-> pr [Tab]
-> print( [Tab]
-> ~~~
-> {: .language-python}
->
-> What happens if you press `Tab` multiple times?
-{: .challenge}
-
-An important thing to remember whenever programming in Python though is that the code is 
-**case sensitive**. This means that `print` is completely different and unrelated to `Print`.
-To show this, type the following:
-
-~~~
-Print("Hello World")
-~~~
-{: .language-python}
-
-~~~
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-<ipython-input-1-82ee0b7fee85> in <module>()
-----> 1 Print("Hello World")
-
-NameError: name 'Print' is not defined
-~~~
-{: .error}
-
-As you can see, Python didn't know what `Print` was so showed an error (a `NameError` in this case).
-
-
+```
 
 ## Jupyter Notebook menus
 
@@ -176,19 +111,16 @@ The Jupyter notebook has several menus that help you interact with the notebook.
 The _Help_ menu is particularly useful. The _Help_ menu is where you go to learn about the Notebook’s keyboard shortcuts, a user interface tour, and lots of reference material.
 
 ## Adding Rich Content to your Notebook
+
 Jupyter Notebook supports adding rich content to its cells. Lets take a look some of the things you can do with your cells using Markup and Code.
-
-
 
 ### Cell Types
 
 There are 3 cell types you can create in a Notebook: Code, Markdown, Raw NBConvert. The <KBD>Cell</KBD> menu _Cell Type_ selection shows you them with their corresponding keyboard short-cut:
 
-<img src="../fig/cell_type_jupyter.png" alt="drawing" width="40%"/>
+[Cell Types](../python_lesson/fig/cell_type_jupyter.png)
 
 The primary cell types that you will use are the Code and Markdown cell types. You have already learned how code cells work, so let’s learn how to style your text with Markdown.
-
-
 
 ### Styling text with Markdown
 
@@ -196,35 +128,29 @@ Jupyter Notebook supports Markdown, which is a markup language that is a superse
 
 To write Markdown in the Notebook, lets first set a new cell to Markdown or use keyboard short-cut <KBD>M</KBD> and add some text to the cell: 
 
-<img src="../fig/md_cell_new_jupyter.png" alt="drawing" width="80%"/>
+![Styling cell with markdown](../python_lesson/fig/md_cell_new_jupyter.png)
 
 Run the cell using your favorite method and it should look like this: 
 
-<img src="../fig/md_cell_rendered_jupyter.png" alt="drawing" width="80%"/>
+![Rendered styling](python_lesson/fig/md_cell_rendered_jupyter.png)
 
 To make your text **BOLD**, use a double underscore or a double asterisk.
 
 Creating headers in Markdown involves placing a pound sign at the beginning of a line and making a space after! The more pound signs you use, the smaller the header. Jupyter Notebook even kind of previews it for you:
 
-<img src="../fig/md_headers_jupyter.png" alt="drawing" width="80%"/>
+![Headers in Markdown](../python_lesson/fig/md_headers_jupyter.png)
 
 Running the cell you are left with a beautiful header for your notebook. 
 
-<img src="../fig/md_headers_rendered_jupyter.png" alt="drawing" width="80%"/>
+![Rendered headers](../python_lesson/fig/md_headers_rendered_jupyter.png)
 
 In case you want to insert a code example that you don't expect to be run by the end user, there's a Markdown for that too! For inline code highlighting, just surround the code with backticks. If you want to insert a block of code, you can use triple backticks and also specify the programming language:
 
-<img src="../fig/md_syntax-highlight_jupyter.png" alt="drawing" width="80%"/>
+![Backticks](../python_lesson/fig/md_syntax-highlight_jupyter.png)
 
 Jupyter notebooks provide a wide set of features to explore and use. You will want to investigate more on the topic. Some important topics not covered are Exporting Notebooks, Installing Kernels, Notebook extensions, hosting your Jupyter Notebook on Jupyter Hub and more!
 
-> ## Python vs. Jupyter
->
-> You may be wondering why you type `jupyter notebook` to run the Python interpreter rather than just
-> `python`. This does also work but this is a much more basic interpreter than Jupyter Notebook that
-> doesn't have tab completion, syntax highlighting, etc. If you ever need an interactive
-> Python prompt, Jupyter notebook is the best option!
-{: .callout}
+# Quit Jupyter Notebooks
 
 To quit out, you can do the following:
 
@@ -232,12 +158,6 @@ To quit out, you can do the following:
 * In the shell press <KBD>Cntrl</KBD> <KBD>C</KBD> twice anmd then close the browser tab containing the running Jupyter Notebook. 
 
 This will then drop you back to the shell prompt you were at before.
-
-
-
-```{output}
-jupyer notebook
-```
 
 ::: {.callout-note collapse="true"}
 All text and materials in these workshops comes from the Data Carpentries. More especifically this lesson follows the Data Carpentries lesson "[Programming with Python](https://j-p-courneya.github.io/Intro-Python-Bioinformatics/)". 
