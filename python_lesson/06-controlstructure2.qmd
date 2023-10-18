@@ -96,7 +96,7 @@ Iterators take responsibility for two main actions:
 The general form of a loop is:
 
 ```{output}
-for item in a group of items:
+for item in group of items:
     # do things 
 ```
 
@@ -111,7 +111,7 @@ length = 0 #Counter
 vowels = 'aeiou'
 
 for char in vowels:
-    length = length + 1  #Update the counter
+    length += 1
 print('There are', length, 'vowels')
 ```
 
@@ -122,7 +122,7 @@ Since there are five characters in `'aeiou'`, the statement on line 3 will be ex
 - The first time around, `length` is zero (the value assigned to it on line 1) and `vowel` is `'a'`. The statement adds 1 to the old value of `length`, producing 1, and updates `length` to refer to that new value. 
 
 - The next time around, `vowel` is `'e'` and `length` is 1, so `length` is updated to be 2.
-- 
+
 -  After three more updates, `length` is 5; since there is nothing left in `'aeiou'` for Python to process, the loop finishes and the `print` statement on line 4 tells us our final answer.
 
 Note that a loop variable is just a variable that's being used to record progress in a loop. It still exists after the loop is over, and we can re-use variables previously defined as loop variables as well:
@@ -169,7 +169,7 @@ for index in range(0,len(cat_names),2):
 
 ## Count Occurences of Letters in a String
 
-Count the number of occurances of each letter in a string. Use a dictionary to store the number of times each letter comes up and the loop variable as the key to that dictionary.
+Count the number of occurences of each letter in a string. Use a dictionary to store the number of times each letter comes up and the loop variable as the key to that dictionary.
 
 You will need to check if the letter has been encountered before, i.e. is it `in` the dictionary? and if not, create it.
 
@@ -185,7 +185,7 @@ for char in my_str:
 print("Letter frequency:  ", letter_freq)
 ```
 
-### Looping Over Lists
+## Looping Over Lists
 
 The easiest way to loop over list is to follow the same pattern we have used for strings.
 
@@ -194,12 +194,11 @@ guests = ["Mario", "Luigi", "Peach"]
 
 for guest in guests:
     print(f"Welcome {guest}!")
-
 ```
 
 In general any **iterable** object can be loop through using this pattern. Iterable is an object which can be looped over or iterated over with the help of a for loop.
 
-### Looping Over Dictionaries
+## Looping Over Dictionaries
 
 Dictionaries are iterable objects, but when you iterate you are provided with keys.
 
@@ -236,7 +235,7 @@ for key, value in cat.items():
     print(f"{key}={value}")
 ```
 
-### While loops do exist!
+## While loops do exist!
 
 `while` is another example of iteration, and what it means is that while the condition still true, you need to execute the following process.
 
@@ -250,9 +249,12 @@ while times < 3:
 ```
 
 ::: {.callout-note appearance="minimal"}
+
 **Keypoints:**
+
 - "Use `for variable in sequence` to process the elements of a sequence one at a time."
 - "The body of a `for` loop must be indented."
 - "Use `len(thing)` to determine the length of something that contains other values."
+  
 :::
 
