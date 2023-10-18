@@ -95,7 +95,7 @@ Iterators take responsibility for two main actions:
 
 The general form of a loop is:
 
-```{output}
+```python
 for item in group of items:
     # do things 
 ```
@@ -237,7 +237,7 @@ for key, value in cat.items():
 
 ## While loops do exist!
 
-`while` is another example of iteration, and what it means is that while the condition still true, you need to execute the following process.
+`while` is another example of iteration, and what it means is that while the condition still true, the code will be repeating itself until is no longer true.
 
 Example of `while` loops: 
 ```{python}
