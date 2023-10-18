@@ -4,29 +4,23 @@ code-copy: true
 jupyter: python3
 ---
 
-::: {.callout-note collapse="true"}
-All text and materials in these part of the workshop comes from [Happy Belly Bioinformatics, An Introduction to Conda](https://astrobiomike.github.io/unix/conda-intro)
-CDABS has modified this lesson to better fit our techonogical capabilities.
-:::
+## What is Conda? How it works?
 
-## What is Conda?
+![Environment management with Conda](../python_lesson/fig/howcondaworks.png)
+Image from: [https://angus.readthedocs.io/en/2019/conda_tutorial.html](https://angus.readthedocs.io/en/2019/conda_tutorial.html)
 
-Conda virtual environments provide a way to install external packages without worrying about package conflicts. It is posible to create a web-development environment where we install Flask, Gunicorn and Requests libraries and a separate environment where we install pandas, biopython and other packages used to analyze data. Without virtual environments, a package installation may cause your operating system to break due to version conflicts. In the virtual environment, only programs run inside the enviroment will be affected by any of your installations.
+Conda virtual environments provide a way to install packages without worrying about package conflicts (eg. diferences on package version). 
+
+It is posible to create a web-development environment where we install Flask, Gunicorn and Requests libraries and a separate environment where we install pandas, biopython and other packages used to analyze data. Without virtual environments, a package installation may cause your operating system to break due to version conflicts. In the virtual environment, only programs run inside the enviroment will be affected by any of your installations.
+
+**What is a package?**
+
+A Package is a program that perform specific tasks. Like for example, `tidyverse` is a package for the R language,`pandas` is a package for Python language. Each package can include information related to its creation, versions and maintainers.
 
 
-::: {.callout-note appearance="minimal"}
-**Course Setup**
-Conda is already installed in your Virtual Machines. 
-If you are attempting to follow this intructions from your computer and do not have installed Conda, you can follow this instructions: 
+### Base environment
 
-Install [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/#quick-command-line-install)
-:::
-
-Once logged in your VM, open a terminal window to create a conda virtual environment. 
-
-## Base environment
-
-A 'base' conda environment, is like the home base inside conda. In this place we do not want to install programs because they may have conflicts with whatever you may end up doing in the future. 
+A 'base' conda environment, is like the home base inside conda. **In this place we do not want to install programs and/or packages** because they may have conflicts with whatever you may end up doing in the future. 
 
 To avoid any potential issues in between projects it is recomended to create a conda enviroment, and after activating the conda environment, install the packages that your research may need.
 
@@ -38,7 +32,7 @@ Your terminal display should look something similar to the following:
 
 The `(base)` symbolizes that you are in the conda base environment. 
 
-## Making a new environment
+### Making a new environment
 
 To create a new conda environment write the following command: 
 
@@ -74,7 +68,7 @@ Executing transaction: done
 #     $ conda deactivate
 ```
 
-## Activate an environment
+### Activate an environment
 
 After creating the new environment, you need to activate so you can use it. 
 To activate that environment, we need to execute:
@@ -125,7 +119,7 @@ python_abi                3.11                    2_cp311    conda-forge
 ...                       ...                     ...           ...
 ```
 
-## Exiting an environment
+### Exiting an environment
 
 You can deactivate a conda eniroment at any time by running the following code. 
 
@@ -133,19 +127,21 @@ You can deactivate a conda eniroment at any time by running the following code.
 conda deactivate
 ```
 
-## In class exercise: 
+#### In class exercise: 
 
 1) Move to the conda environment called 'python-intro'. 
 2) Then name two the conda packages that the `python-intro` environment has. 
 
 ::: {.callout-tip collapse="true"}
-## Solution
+# Solution
 
 1) `conda activate python-intro`
 2) Pandas, BioPython, Python...
-
 :::
 
-## Want to learn more about Conda Packages?
+
+:::{.callout-tip}
+### Want to learn more about Conda Packages?
 
 If you want to learn more about Conda Packages you can visit their repository at the [Anaconda Website](https://anaconda.org/anaconda/repo).
+:::
