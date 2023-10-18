@@ -132,7 +132,7 @@ To write Markdown in the Notebook, lets first set a new cell to Markdown or use 
 
 Run the cell using your favorite method and it should look like this: 
 
-![Rendered styling](python_lesson/fig/md_cell_rendered_jupyter.png)
+![Rendered styling](../python_lesson/fig/md_cell_rendered_jupyter.png)
 
 To make your text **BOLD**, use a double underscore or a double asterisk.
 
