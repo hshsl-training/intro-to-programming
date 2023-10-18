@@ -1,0 +1,260 @@
+---
+title: Control Structures II
+code-copy: true
+toc: true
+toc-depth: 4
+jupyter: python3
+---
+
+## Python Basics: For Loops
+
+::: {.callout-note appearance="minimal"}
+
+**Questions:**
+
+- "How can I do the same operations on many different values?"
+  
+**Objectives:**
+
+- "Explain what a `for` loop does."
+- "Correctly write `for` loops to repeat simple calculations."
+- "Trace changes to a loop variable as the loop runs."
+- "Trace changes to other variables as they are updated by a `for` loop."
+  
+:::
+
+It is very good coding practice to reuse as much code as posible as generally, the fewer lines of code there are, the fewer bugs you'll have. Loops are a very good way of doing this where a block of code is repeated a number of times or on each element in a collection. An example task that we might want to repeat is printing each character in a word on a line of its own.
+
+```{python}
+word = "lead"
+```
+
+We can access a character in a string using its index. For example, we can get the first character of the word `"lead"`, by using `word[0]`. One way to print each character is to use four `print` statements:
+
+```{python}
+print(word[0])
+print(word[1])
+print(word[2])
+print(word[3])
+```
+
+This is a bad approach for two reasons:
+
+1.  It doesn't scale.
+    If we want to print the characters in a string that's hundreds of letters long, we'd be better off just typing them in.
+
+2.  It's fragile.
+    If we give it a longer string, it only prints part of the data,and if we give it a shorter one, it produces an error because we're asking for characters that don't exist.
+
+```python
+word = 'tin'
+print(word[0])
+print(word[1])
+print(word[2])
+print(word[3])
+```
+
+```python
+t
+i
+n
+
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-3-7974b6cdaf14> in <module>()
+      3 print(word[1])
+      4 print(word[2])
+----> 5 print(word[3])
+
+IndexError: string index out of range
+
+```
+
+Here's a better approach:
+
+```{python}
+word = 'lead'
+for char in word:
+    print(char)
+```
+
+This is shorter --- certainly shorter than something that prints every character in a hundred-letter string --- and more robust as well. The improved version uses a `for` loop to repeat an operation --- in this case, printing --- once for each thing in a sequence.
+
+## Python Concepts: Iteration and Iterator
+
+Two very important concepts in Python are Iteration and Iterators. 
+
+The *Iteration* is a process of repeating the same piece of code several times, this is mostly used in a ` for` or `while` loops.
+
+The *Iterator* is an object that allows you to iterate over collections of data, such as lists, tuples, dictionaries, and sets. For this lesson we have only discussed list and dictionaries. 
+
+Iterators take responsibility for two main actions:
+
+- Returning the data from a stream or container one item at a time
+- Keeping track of the current and visited items
+
+The general form of a loop is:
+
+```{output}
+for item in group of items:
+    # do things 
+```
+
+We can call the loop variable anything we like, but there must be a colon at the end of the line starting the loop. Also, we must indent anything we want to run inside the loop. 
+
+## Updating variables with a `for` loop
+
+Here's another loop that repeatedly updates a variable:
+
+```{python}
+length = 0 #Counter
+vowels = 'aeiou'
+
+for char in vowels:
+    length += 1
+print('There are', length, 'vowels')
+```
+
+It's worth tracing the execution of this little program step by step. 
+
+Since there are five characters in `'aeiou'`, the statement on line 3 will be executed five times. 
+
+- The first time around, `length` is zero (the value assigned to it on line 1) and `vowel` is `'a'`. The statement adds 1 to the old value of `length`, producing 1, and updates `length` to refer to that new value. 
+
+- The next time around, `vowel` is `'e'` and `length` is 1, so `length` is updated to be 2.
+
+-  After three more updates, `length` is 5; since there is nothing left in `'aeiou'` for Python to process, the loop finishes and the `print` statement on line 4 tells us our final answer.
+
+Note that a loop variable is just a variable that's being used to record progress in a loop. It still exists after the loop is over, and we can re-use variables previously defined as loop variables as well:
+
+```{python}
+letter = 'z'
+for letter in 'abc':
+    print(letter)
+print('after the loop, letter is', letter)
+```
+
+Note also that finding the length of a string is such a common operation that Python actually has a built-in function to do it called `len`:
+
+```{python}
+print(len('aeiou'))
+```
+
+`len` is much faster than any function we could write ourselves, and much easier to read than a two-line loop; it will also give us the length of many other things that we haven't met yet, so we should always use it when we can.
+
+## From 1 to N
+
+Python has a built-in function called `range` that creates a sequence of numbers
+`range` can accept 1, 2, or 3 parameters.
+
+- If one parameter is given, `range` creates an array of that length, starting at zero and incrementing by 1.
+
+For example, `range(3)` produces the numbers `0, 1, 2`.
+
+ - If two parameters are given, `range` starts at the first and ends just before the second, incrementing by one. For example, `range(2, 5)` produces `2, 3, 4`.
+  
+ - If `range` is given 3 parameters, it starts at the first one, ends just before the second one, and increments by the third one. For exmaple `range(3, 10, 2)` produces `3, 5, 7, 9`.
+
+```{python}
+for num in range(2,16,3):
+    print(num)
+```
+
+You can also use range with the length of the list to iterate through a list. 
+```{python}
+cat_names = ["Tomasina", "Cometa", "Betsy", "Fiona"]
+for index in range(0,len(cat_names),2):
+    print(f"{index}){cat_names[index]}")
+```
+
+## Count Occurences of Letters in a String
+
+Count the number of occurences of each letter in a string. Use a dictionary to store the number of times each letter comes up and the loop variable as the key to that dictionary.
+
+You will need to check if the letter has been encountered before, i.e. is it `in` the dictionary? and if not, create it.
+
+```{python}
+my_str = "A long string that contains lots of different letters"
+letter_freq = {} # Dictionary as table of frequency
+
+for char in my_str:
+    char = char.lower() # Do not distinguish upper and lower case
+    if char not in letter_freq.keys():
+        letter_freq[char] = 0 # Initial frequency of 0
+    letter_freq[char] += 1
+print("Letter frequency:  ", letter_freq)
+```
+
+## Looping Over Lists
+
+The easiest way to loop over list is to follow the same pattern we have used for strings.
+
+```{python}
+guests = ["Mario", "Luigi", "Peach"]
+
+for guest in guests:
+    print(f"Welcome {guest}!")
+```
+
+In general any **iterable** object can be loop through using this pattern. Iterable is an object which can be looped over or iterated over with the help of a for loop.
+
+## Looping Over Dictionaries
+
+Dictionaries are iterable objects, but when you iterate you are provided with keys.
+
+```{python}
+cat = {"name": "Cometa", "color":"black","breed":"Russian-Blue"}
+
+for item in cat:
+    print(item)
+```
+
+You can verbosely request the keys, values or both of them by making use of the `keys`, `values` and `items` methods. The `items` method in particular provides both the keys and values at the same time.
+
+Getting the Keys:
+```{python}
+cat = {"name": "Cometa", "color":"black","breed":"Russian-Blue"}
+
+for key in cat.keys():
+    print(key)
+```
+
+Getting the values:
+```{python}
+cat = {"name": "Cometa", "color":"black","breed":"Russian-Blue"}
+
+for value in cat.values():
+    print(value)
+```
+
+Getting the both keys and values: 
+```{python}
+cat = {"name": "Cometa", "color":"black","breed":"Russian-Blue"}
+
+for key, value in cat.items():
+    print(f"{key}={value}")
+```
+
+## While loops do exist!
+
+`while` is another example of iteration, and what it means is that while the condition still true, you need to execute the following process.
+
+Example of `while` loops: 
+```{python}
+times = 0 #counter
+while times < 3:
+    print("Hello!")
+    times += 1 #update counter
+    print(times)
+```
+
+::: {.callout-note appearance="minimal"}
+
+**Keypoints:**
+
+- "Use `for variable in sequence` to process the elements of a sequence one at a time."
+- "The body of a `for` loop must be indented."
+- "Use `len(thing)` to determine the length of something that contains other values."
+  
+:::
+

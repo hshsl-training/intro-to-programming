@@ -1,0 +1,268 @@
+---
+title: List and Dictionaries
+code-copy: true
+toc: true
+toc-depth: 4
+jupyter: python3
+---
+
+# Python Basics: Lists and Dictionaries 
+
+We have learnt how to store single bits of data in variables but what happens when we have several bits of data that are associated with each other and need to be stored together? For example, a vector, array or list of names? For this we can use the built-in collection types of list and dict (short for dictionary). 
+
+## Lists 
+
+We create a list by putting values inside square brackets and separating the values with commas. Or we can initialize an empty list by using `list()`.
+
+::: {.callout-note appearance="simple"}
+
+**Code Example:**
+
+```{python}
+odds = [1, 3, 5, 7]
+print('odds are:', odds)
+even = [2, 4, 6, 8]
+print('even are:', even)
+empty = list()
+print('empty list:', empty)
+```
+
+:::
+
+### Indexing
+
+#### Starting From Zero
+
+::: {.callout-warning appearance="simple"}
+**Base-0 Index**
+
+It's very important to remember that Python (like many other languages) indexes it's collections
+from zero rather than one. In other words, the first element of list is given by index `0`, the
+second by index `1`, etc. Therefore the last element is given by the number of elements in the
+list minus one, e.g. for the example above, the last element is `odds[3]`.
+
+Programming languages like Fortran, MATLAB and R start counting at 1
+because that's what human beings have done for thousands of years.
+Languages in the C family (including C++, Java, Perl, and Python) count from 0
+because it represents an offset from the first value in the array (the second
+value is offset by one index from the first value). This is closer to the way
+that computers represent arrays (if you are interested in the historical
+reasons behind counting indices from zero, you can read
+[Mike Hoye's blog post](http://exple.tive.org/blarg/2013/10/22/citation-needed/)).
+:::
+
+:::: {.callout-note appearance="simple"}
+
+**Code Example:**
+
+```{python}
+digits=[1,2,3,4,5,6,7,8,9]
+print("digits[0] =", digits[0])
+print("digits[1] =", digits[1])
+print("digits[8] =", digits[8])
+```
+
+::::
+
+#### Negative Indexing
+
+You can use negative indices to access elements from the end of the list as well, so the last element would be -1, the penultimate -2, etc.:
+
+:::: {.callout-note appearance="simple"}
+**Code Example:**
+
+```{python}
+digits=[1,2,3,4,5,6,7,8,9]
+print("digits[0] =", digits[0])
+print("digits[-1] =", digits[-1])
+print("digits[-3] =", digits[-3])
+```
+
+::::
+
+It is possible to index strings in a similar way. From the begining using 0 and positive integers or from the end using negative numbers.
+
+:::: {.callout-note appearance="simple"}
+**Code Example:**
+
+```{python}
+message="Python uses indexing base zero."
+print("message[0] =", message[0])
+print("message[-1] =", message[-1])
+print("message[-3] =", message[-3])
+```
+
+::::
+
+#### Slicing Lists
+
+Subsets of lists and strings can be accessed by specifying ranges of values using a colon to separate the first and last+1 index required in the `[]` square brackets or indexing operator. This is commonly referred to as “slicing” the list/string.
+
+:::: {.callout-note appearance="simple"}
+**Code Example:**
+```{python}
+binomial_name = "Drosophila melanogaster"
+group = binomial_name[0:10]
+print("group:", group)
+
+species = binomial_name[11:24]
+print("species:", species)
+
+chromosomes = ["X", "Y", "2", "3", "4"]
+autosomes = chromosomes[2:5]
+print("autosomes:", autosomes)
+
+last = chromosomes[-1]
+print("last:", last)
+```
+::::
+
+### Lists are Mutable
+
+Data which can be modified in place is called mutable, while data which cannot be modified is called immutable. Strings and numbers are immutable. This does not mean that variables with string or number values are constants, but when we want to change the value of a string or number variable, we can only replace the old value with a completely new value.
+
+Lists and arrays, on the other hand, are mutable: we can modify them after they have been created. We can change individual elements, append new elements, or reorder the whole list. For some operations, like sorting, we can choose whether to use a function that modifies the data in-place or a function that returns a modified copy and leaves the original unchanged.
+
+:::: {.callout-note appearance="simple"}
+**Code Example:**
+
+```{python}
+mBros = ["mario", "Luigi"]
+print("Mario Brothers:", mBros)
+mBros[0]="Mario"
+print("Mario Brothers(fixed):", mBros)
+```
+
+::::
+
+:::: {.callout-tip appearance="simple"}
+#### Tuples: Immutable Lists
+
+Python offers another one dimentional data structure for multiple values that is immutable, the tuple. Unlike the list that is initialized with `[]` tuples are initialized using parenthesis `(1,2,3)` or `tuple(1,2,3)` for an empty tuple. 
+
+```{python}
+mBros = ("mario", "Luigi")
+print("Mario Brothers:", mBros)
+try:
+    mBros[0]="Mario"
+except Exception as error:
+    print("Error:", error)
+print("Mario Brothers(not updated):", mBros)
+```
+
+::::
+
+### Heterogeneous Lists
+Lists (and tuples) in Python can contain elements of different types. Example:
+
+```{python}
+sample_ages = [10, 12.5, 'Unknown']
+row_values = (30, None, True, "Galileo")
+```
+
+:::: {.callout-tip appearance="simple"}
+### Object Methods
+
+The `list`, `dict` and `string` types are actually more complicated objects than basic numbers. They have certain built-in bits of code that you can run on them. The functions that can be called from the object itself are called **object methods**. For example:
+
+```{python}
+my_str = "Programming is cool"
+print("What index contains an 'a'?", my_str.find("a"))
+print("What index contains 'ing'?", my_str.find("ing"))
+```
+
+This code asks Python to run the [function](https://j-p-courneya.github.io/Intro-Python-Bioinformatics/reference/#function) `find` on the string object pointed at by the variable my_str. 
+
+This dotted notation is used everywhere in Python: the object that appears before the dot contains the thing that appears after, [a method or an attribute](https://www.almabetter.com/bytes/tutorials/python/methods-and-attributes-in-python). The [str.find](https://docs.python.org/3/library/stdtypes.html#str.find) method is provided one parameter: the sub-string to look for in the string. This is sent to the code referened by the `find` method and after this code is run, it return the index of the sub-string (if found) and then continues. You can also have methods where input parameters are optional or not required, for example `my_str.split()`.
+::::
+
+There are many ways to change the contents of lists besides assigning new values to individual elements:
+
+```{python}
+odds = [1, 3, 5, 7]
+odds.append(11)
+print('odds after adding a value:', odds)
+```
+
+```{python}
+del odds[0]
+print('odds after removing the first element:', odds)
+```
+
+```{python}
+odds.reverse()
+print('odds after reversing:', odds)
+```
+
+
+:::: {.callout-warning appearance="simple"}
+#### Object Refence vs Copy
+While modifying in place, it is useful to remember that Python treats lists in a slightly counter-intuitive way.
+
+If we make a list and (attempt to) copy it then modify in place, we can cause all sorts of trouble:
+
+```{python}
+odds = [1, 3, 5, 7]
+primes = odds
+primes.append(2)
+print('primes:', primes)
+print('odds:', odds)
+```
+
+This is becasue the second variable `primes` is referencing the same list as `odds`. To make a copy of the list you can use the `copy` method:
+
+```{python}
+odds = [1, 3, 5, 7]
+primes = odds.copy()
+primes.append(2)
+print('primes:', primes)
+print('odds:', odds)
+```
+
+In this ocasion by using `copy` we create a new list with the same contents. This however consumes more compute resources and should be avoided when working with big data.
+::::
+
+## Dictionaries
+
+In Python, you can use a type of collection called a Dictionary. Values stored in a dictionary are associated with a key that you can then use to retrieve the value instead of using an index.
+
+Dictionaries are like lists. They both share the following properties:
+
+- Both can be used to store values.
+- Both can be changed in place and can grow and shrink on demand.
+- Both can be nested: a dictionary can contain another dictionary, a list can contain another list, and a list can contain a dictionary and vice versa.
+
+Example of a dictionary: 
+
+ ```{python}
+ cat = {
+    'name': 'Tomasina', 
+    'age': 5 , 
+    'color': 'white', 
+    'breed': 'american shorthair', 
+    'diagnosis': 'FIV',
+}
+ ```
+
+In this example the dictionary its called cat. The keys in this dictionary are `name`, `age`, `breed`, `color`, `diagnosis` and `owner`. The `value` is the object that is mapped to the `key`, like `"name":"Tomasina"`
+
+If you need to retrieve the value of a key, you can do the following:
+
+```{python}
+cat['name']
+```
+
+By using the key name, you can print out the values of the key. 
+
+You can use any immutable object as a key (in practice this is generally numbers or strings!) and store any object as the value including lists or other dicts. As with lists, there are several ways to add entries to a dictionary. The easiest of these is to simply reference a new key and assign it a value:
+
+```{python}
+cat['owner'] = 'Leo'
+print(cat)
+```
+
+The new key-value pair has been added at the end of the dictionary!
+
+The differences between lists and dictionaries is how objects are accessed. 
+A List objects is accessed by position index ([0,1,2…]) while dictionary objects are accessed using keys. 
+

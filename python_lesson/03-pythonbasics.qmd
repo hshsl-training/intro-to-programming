@@ -5,6 +5,7 @@ jupyter: python3
 ---
 
 ## Python Basics: Types, Objects, Values, Variables and Operators
+
 ::: {.callout-note appearance="minimal"}
 
 **Questions:**
