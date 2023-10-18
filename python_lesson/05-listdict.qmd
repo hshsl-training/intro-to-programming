@@ -10,6 +10,11 @@ jupyter: python3
 
 We have learn how to store single bits of data in variables but what happens when we have several bits of data that are associated with each other and need to be stored together? For example, a vector, array or list of names? For this we can use the built-in collection types of list and dict (short for dictionary). 
 
+**What are the Python Data Structures?**
+
+Data Structures are a way of organizing data so that it can be accessed more efficiently depending upon the situation. Data Structures are fundamentals of any programming language around which a program is built. For this workshop, we will be learning how to work with two data structures, Lists and Dictionaries. But be advise there are many others such as sets, tuples, string, hashes,and others. 
+
+
 ## Lists 
 
 We create a list by putting values inside square brackets and separating the values with commas. Or we can initialize an empty list by using `list()`.
@@ -234,15 +239,13 @@ Dictionaries are like lists. They both share the following properties:
 
 Example of a dictionary: 
 
- ```{python}
- cat = {
-    'name': 'Tomasina', 
-    'age': 5 , 
-    'color': 'white', 
+```{python}
+cat = {'name': 'Tomasina', 
+    'age': 5 ,
+    'color': 'white',
     'breed': 'american shorthair', 
-    'diagnosis': 'FIV',
-}
- ```
+    'diagnosis': 'FIV',}
+```
 
 In this example the dictionary its called cat. The keys in this dictionary are `name`, `age`, `breed`, `color`, `diagnosis` and `owner`. The `value` is the object that is mapped to the `key`, like `"name":"Tomasina"`
 
