@@ -3,40 +3,110 @@ title: "Python Packages: Pandas and BioPython"
 code-copy: true
 jupyter: python3
 ---
-Biopython features include parsers for various Bioinformatics file formats (BLAST, Clustalw, FASTA, Genbank,...), access to online services (NCBI, Expasy,...), interfaces to common and not-so-common programs (Clustalw, DSSP, MSMS...), a standard sequence class, various clustering modules, a KD tree data structure etc. and even documentation.
 
-Pairwise Sequence Alignments
+## Pandas 
+Python has lots of packages that allows you to manipulate data in different ways. 
+For example, Pandas allows you to manipulate dataset with a similar dataframe structure that the language R has. 
+
+Pandas is a Python package providing fast, flexible, and expressive data structures designed to make working with “relational” or “labeled” data both easy and intuitive. 
+
+Pandas is well suited for many different kinds of data:
+
+- Tabular data with heterogeneously-typed columns, as in an SQL table or Excel spreadsheet
+
+- Ordered and unordered (not necessarily fixed-frequency) time series data.
+
+- Arbitrary matrix data (homogeneously typed or heterogeneous) with row and column labels
+
+- Any other form of observational / statistical data sets. The data need not be labeled at all to be placed into a pandas data structure.
 
 
-# Biopython
+For today we are going to learn basics commands that will allow us to upload data from a CSV, perform commands that will allow us to get general data from the dataset and filter by column. 
 
+### Importing the Pandas package
+To work woth any package in python you have to download it through your package manager (in the case of this workshop would be Conda), and then import it. For this workshop, the conda enviroment already had installed Pandas. 
+
+The following code will allow you to import the package Pandas to your 
+```{python}
 import pandas as pd
-df = pd.read_csv('/Users/ifraticelli/Documents/Projects_Visual_Studio/intro-to-programming/python_lesson/combined_tidy_vcf.csv')
+```
 
+### How to load a CSV into Pandas
+
+```{python}
+df = pd.read_csv('../python_lesson/combined_tidy_vcf.csv')
+```
+
+Note: The directory path were the dataset is located may be in a diferent place than this example. 
+
+### Getting information about the dataset
+
+```{python}
 df.info()
+```
+
+### Getting the first rows of the dataset
+
+```{python}
 df.head()
+```
+
+### Getting the last rows of the dataset
+
+```{python}
 df.tail()
+```
+
+### Getting the name of the columns
+
+```{python}
 df.columns
+```
+
+### Identifiying Null values
+
+```{python}
 df.isnull()
+```
+
+### Identifiying Null values and counting them
+
+```{python}
 df.isnull().sum()
-df.loc[df['alt'].apply(len) >= 5]
+```
 
+### Filtering a column
+```{python}
+df.loc[df['ALT'].apply(len) >= 5]
+```
+
+## BioPython
+BioPython is another packages that Python includes. 
+
+It features include parsers for various Bioinformatics file formats (BLAST, Clustalw, FASTA, Genbank,...), access to online services (NCBI, Expasy,...), interfaces to common and not-so-common programs (Clustalw, DSSP, MSMS...), a standard sequence class, various clustering modules, a KD tree data structure etc. and even documentation.
+
+### To import BioPython Package
+
+```{python}
 from Bio import Seq, pairwise2
+```
 
-type(df.loc[8]['ref'])
-ref = df.loc[8]['ref']
-alt = df.loc[8]['alt']
+### Gatehring sequences from the dataset we uploaded to pandas
+```{python}
 
-#refseq = Seq.Seq(ref)
-#altseq = Seq.Seq(alt)
+ref = df.loc[8]['REF']
+alt = df.loc[8]['ALT']
 
+print(ref)
+print(alt)
+```
+
+### Auto Generate Alignments between the reference and the altered sequence
+```{python}
 alignments = pairwise2.align.globalxx(ref,alt)
 
 for alignment in alignments:
     print(pairwise2.format_alignment(*alignment))
 
-```{python}
-5+5
 ```
-
 

@@ -1,9 +1,3 @@
----
-title: Reproducible Research Enviroments with Python
-code-copy: true
-jupyter: python3
----
-
 ## What is reproducible research environments?
 
 The term reproducible research is the idea of compiling enough information about your code, data, text files, software use, software licencing, and other information that allows other researchers to replicate not only the computer systems used for analysis, but the experiment itself too. 
