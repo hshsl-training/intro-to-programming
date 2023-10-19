@@ -76,37 +76,72 @@ df.isnull().sum()
 ```
 
 ### Filtering a column
+
+In this example we are going to filter the dataset to alter allele sequences of at least length 10. To do this we need to apply a transformation to the `ALT` column using `apply`.
+
 ```{python}
-df.loc[df['ALT'].apply(len) >= 5]
+df['ALT'].apply(len)
+```
+
+This vector of lengths can then be compared to a minimum length to negerate a boolean vector.
+
+```{python}
+min_len = 10
+df['ALT'].apply(len) >= min_len
+```
+
+Using this boolean vector we can select only the rows that met the condition by using the [loc](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html) method. 
+
+```{python}
+df.loc[df['ALT'].apply(len) >= min_len]
 ```
 
 ## BioPython
 BioPython is another packages that Python includes. 
-
 It features include parsers for various Bioinformatics file formats (BLAST, Clustalw, FASTA, Genbank,...), access to online services (NCBI, Expasy,...), interfaces to common and not-so-common programs (Clustalw, DSSP, MSMS...), a standard sequence class, various clustering modules, a KD tree data structure etc. and even documentation.
 
 ### To import BioPython Package
+
+For this exersise we are going to import two BioPython (or simply `Bio`) sub-modules `Seq` and `pairwise2`.
 
 ```{python}
 from Bio import Seq, pairwise2
 ```
 
-### Gatehring sequences from the dataset we uploaded to pandas
-```{python}
+The [Seq](https://biopython.org/docs/1.75/api/Bio.Seq.html) module has a sequence object that stores sequence data in memory more efficiently than strings. 
 
-ref = df.loc[8]['REF']
-alt = df.loc[8]['ALT']
+The [pairwise2](https://biopython.org/docs/1.75/api/Bio.pairwise2.html) module has functions that can be used to compare sequences.
+
+### Gathering sequences from the dataset we loaded using pandas
+
+Select one of the rows found by the filter and extract the reference and the alter sequences.
+
+```{python}
+row = 8
+ref = Seq.Seq(df.loc[row]['REF'])
+alt = Seq.Seq(df.loc[row]['ALT'])
 
 print(ref)
 print(alt)
 ```
 
 ### Auto Generate Alignments between the reference and the altered sequence
+
+We can generate alignments between the reference and alter sequences using the `pairwise2.align.globalxx` function.
+
 ```{python}
 alignments = pairwise2.align.globalxx(ref,alt)
+print(len(alignments))
+```
 
+To visualize this alignments, pairwise2 provides the [format_alignment](https://biopython.org/docs/1.75/api/Bio.pairwise2.html#Bio.pairwise2.format_alignment) function that needs to receive multiple parameters. Thankfully
+
+```{python}
 for alignment in alignments:
     print(pairwise2.format_alignment(*alignment))
-
 ```
+
+
+
+
 
