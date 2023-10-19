@@ -330,7 +330,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#biopython" id="toc-biopython" class="nav-link" data-scroll-target="#biopython">BioPython</a>
   <ul class="collapse">
   <li><a href="#to-import-biopython-package" id="toc-to-import-biopython-package" class="nav-link" data-scroll-target="#to-import-biopython-package">To import BioPython Package</a></li>
-  <li><a href="#gatehring-sequences-from-the-dataset-we-uploaded-to-pandas" id="toc-gatehring-sequences-from-the-dataset-we-uploaded-to-pandas" class="nav-link" data-scroll-target="#gatehring-sequences-from-the-dataset-we-uploaded-to-pandas">Gatehring sequences from the dataset we uploaded to pandas</a></li>
+  <li><a href="#gathering-sequences-from-the-dataset-we-loaded-using-pandas" id="toc-gathering-sequences-from-the-dataset-we-loaded-using-pandas" class="nav-link" data-scroll-target="#gathering-sequences-from-the-dataset-we-loaded-using-pandas">Gathering sequences from the dataset we loaded using pandas</a></li>
   <li><a href="#auto-generate-alignments-between-the-reference-and-the-altered-sequence" id="toc-auto-generate-alignments-between-the-reference-and-the-altered-sequence" class="nav-link" data-scroll-target="#auto-generate-alignments-between-the-reference-and-the-altered-sequence">Auto Generate Alignments between the reference and the altered sequence</a></li>
   </ul></li>
   </ul>
@@ -1116,9 +1116,47 @@ dtype: int64</code></pre>
 </section>
 <section id="filtering-a-column" class="level3">
 <h3 class="anchored" data-anchor-id="filtering-a-column">Filtering a column</h3>
+<p>In this example we are going to filter the dataset to alter allele sequences of at least length 10. To do this we need to apply a transformation to the <code>ALT</code> column using <code>apply</code>.</p>
 <div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df.loc[df[<span class="st">'ALT'</span>].<span class="bu">apply</span>(<span class="bu">len</span>) <span class="op">&gt;=</span> <span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ALT'</span>].<span class="bu">apply</span>(<span class="bu">len</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>0      1
+1      1
+2      1
+3      9
+4      6
+      ..
+796    1
+797    3
+798    2
+799    1
+800    1
+Name: ALT, Length: 801, dtype: int64</code></pre>
+</div>
+</div>
+<p>This vector of lengths can then be compared to a minimum length to negerate a boolean vector.</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>min_len <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ALT'</span>].<span class="bu">apply</span>(<span class="bu">len</span>) <span class="op">&gt;=</span> min_len</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>0      False
+1      False
+2      False
+3      False
+4      False
+       ...  
+796    False
+797    False
+798    False
+799    False
+800    False
+Name: ALT, Length: 801, dtype: bool</code></pre>
+</div>
+</div>
+<p>Using this boolean vector we can select only the rows that met the condition by using the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html">loc</a> method.</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df.loc[df[<span class="st">'ALT'</span>].<span class="bu">apply</span>(<span class="bu">len</span>) <span class="op">&gt;=</span> min_len]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 
 
@@ -1151,54 +1189,6 @@ dtype: int64</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">3</td>
-<td>SRR2584863</td>
-<td>CP000819.1</td>
-<td>433359</td>
-<td>NaN</td>
-<td>CTTTTTTT</td>
-<td>CTTTTTTTT</td>
-<td>64.0000</td>
-<td>NaN</td>
-<td>True</td>
-<td>12.0</td>
-<td>...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>1</td>
-<td>1</td>
-<td>0,1,3,8</td>
-<td>60</td>
-<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
-<td>91,0</td>
-<td>1</td>
-<td>CTTTTTTTT</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">4</td>
-<td>SRR2584863</td>
-<td>CP000819.1</td>
-<td>473901</td>
-<td>NaN</td>
-<td>CCGC</td>
-<td>CCGCGC</td>
-<td>228.0000</td>
-<td>NaN</td>
-<td>True</td>
-<td>9.0</td>
-<td>...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>1</td>
-<td>1</td>
-<td>1,0,2,7</td>
-<td>60</td>
-<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
-<td>255,0</td>
-<td>1</td>
-<td>CCGCGC</td>
-</tr>
-<tr class="odd">
 <td data-quarto-table-cell-role="th">8</td>
 <td>SRR2584863</td>
 <td>CP000819.1</td>
@@ -1223,14 +1213,38 @@ dtype: int64</code></pre>
 <td>ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCC...</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">49</td>
+<td data-quarto-table-cell-role="th">60</td>
 <td>SRR2584866</td>
 <td>CP000819.1</td>
-<td>148134</td>
+<td>197681</td>
 <td>NaN</td>
-<td>AGGGG</td>
-<td>AGGGGG</td>
-<td>122.0000</td>
+<td>CTTTTTTTT</td>
+<td>CTTTTTTTTT</td>
+<td>50.0000</td>
+<td>NaN</td>
+<td>True</td>
+<td>13.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,0,9,4</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>80,0</td>
+<td>1</td>
+<td>CTTTTTTTTT</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">72</td>
+<td>SRR2584866</td>
+<td>CP000819.1</td>
+<td>294206</td>
+<td>NaN</td>
+<td>TGGGGGGG</td>
+<td>TGGGGGGGGG</td>
+<td>100.0000</td>
 <td>NaN</td>
 <td>True</td>
 <td>8.0</td>
@@ -1239,22 +1253,118 @@ dtype: int64</code></pre>
 <td>NaN</td>
 <td>1</td>
 <td>1</td>
-<td>0,0,3,5</td>
+<td>0,2,4,4</td>
 <td>60</td>
 <td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
-<td>152,0</td>
+<td>151,24</td>
 <td>1</td>
-<td>AGGGGG</td>
+<td>TGGGGGGGGG</td>
 </tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">50</td>
+<tr class="even">
+<td data-quarto-table-cell-role="th">78</td>
 <td>SRR2584866</td>
 <td>CP000819.1</td>
-<td>157998</td>
+<td>352369</td>
 <td>NaN</td>
-<td>GTTTTTTTTT</td>
+<td>AGGGGGGGG</td>
+<td>AGGGGGGGGG</td>
+<td>36.2447</td>
+<td>NaN</td>
+<td>True</td>
+<td>16.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>1,1,12,3</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>63,0</td>
+<td>1</td>
+<td>AGGGGGGGGG</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">197</td>
+<td>SRR2584866</td>
+<td>CP000819.1</td>
+<td>1021771</td>
+<td>NaN</td>
 <td>GTTTTTTTT</td>
-<td>19.4636</td>
+<td>GTTTTTTTTTT</td>
+<td>51.0000</td>
+<td>NaN</td>
+<td>True</td>
+<td>5.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,1,1,4</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>85,7</td>
+<td>1</td>
+<td>GTTTTTTTTTT</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">214</td>
+<td>SRR2584866</td>
+<td>CP000819.1</td>
+<td>1112067</td>
+<td>NaN</td>
+<td>TCCCCCCC</td>
+<td>TCCCCCCCCC</td>
+<td>46.4187</td>
+<td>NaN</td>
+<td>True</td>
+<td>4.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,0,3,1</td>
+<td>49</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>78,2</td>
+<td>1</td>
+<td>TCCCCCCCCC</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">237</td>
+<td>SRR2584866</td>
+<td>CP000819.1</td>
+<td>1172377</td>
+<td>NaN</td>
+<td>TCCCCCC</td>
+<td>TCCCCCCCCC</td>
+<td>225.0000</td>
+<td>NaN</td>
+<td>True</td>
+<td>8.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,0,5,3</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>255,0</td>
+<td>1</td>
+<td>TCCCCCCCCC</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">315</td>
+<td>SRR2584866</td>
+<td>CP000819.1</td>
+<td>1699806</td>
+<td>NaN</td>
+<td>CATGATGATGATGAT</td>
+<td>CATGATGATGAT</td>
+<td>153.0000</td>
 <td>NaN</td>
 <td>True</td>
 <td>6.0</td>
@@ -1263,36 +1373,108 @@ dtype: int64</code></pre>
 <td>NaN</td>
 <td>1</td>
 <td>1</td>
-<td>0,0,1,5</td>
+<td>1,2,4,2</td>
 <td>60</td>
 <td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
-<td>49,0</td>
+<td>255,75</td>
 <td>1</td>
-<td>GTTTTTTTT</td>
+<td>CATGATGATGAT</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">402</td>
+<td>SRR2584866</td>
+<td>CP000819.1</td>
+<td>2247096</td>
+<td>NaN</td>
+<td>TCCCCCCC</td>
+<td>TCCCCCCCCCC</td>
+<td>17.8332</td>
+<td>NaN</td>
+<td>True</td>
+<td>2.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>1,0,0,2</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>70,25</td>
+<td>1</td>
+<td>TCCCCCCCCCC</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
+<td data-quarto-table-cell-role="th">493</td>
+<td>SRR2584866</td>
+<td>CP000819.1</td>
+<td>2693113</td>
+<td>NaN</td>
+<td>GTTCTTCTTCTTC</td>
+<td>GTTCTTCTTC</td>
+<td>213.0000</td>
+<td>NaN</td>
+<td>True</td>
+<td>7.0</td>
 <td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,1,4,3</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>255,15</td>
+<td>1</td>
+<td>GTTCTTCTTC</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">516</td>
+<td>SRR2584866</td>
+<td>CP000819.1</td>
+<td>2788797</td>
+<td>NaN</td>
+<td>CAAAAAAAAA</td>
+<td>CAAAAAAAAAA</td>
+<td>59.0000</td>
+<td>NaN</td>
+<td>True</td>
+<td>14.0</td>
 <td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,0,6,8</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>89,0</td>
+<td>1</td>
+<td>CAAAAAAAAAA</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">548</td>
+<td>SRR2584866</td>
+<td>CP000819.1</td>
+<td>3052305</td>
+<td>NaN</td>
+<td>AGCGCGCGCGCG</td>
+<td>AGCGCGCGCG</td>
+<td>228.0000</td>
+<td>NaN</td>
+<td>True</td>
+<td>9.0</td>
 <td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,1,3,5</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>255,0</td>
+<td>1</td>
+<td>AGCGCGCGCG</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">722</td>
@@ -1319,78 +1501,6 @@ dtype: int64</code></pre>
 <td>GTTTTTTTTT</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">723</td>
-<td>SRR2584866</td>
-<td>CP000819.1</td>
-<td>4038529</td>
-<td>NaN</td>
-<td>GTTTTTTTTT</td>
-<td>GTTTTTTTT</td>
-<td>15.0048</td>
-<td>NaN</td>
-<td>True</td>
-<td>20.0</td>
-<td>...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>1</td>
-<td>1</td>
-<td>1,6,8,6</td>
-<td>60</td>
-<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
-<td>42,0</td>
-<td>1</td>
-<td>GTTTTTTTT</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">753</td>
-<td>SRR2584866</td>
-<td>CP000819.1</td>
-<td>4349281</td>
-<td>NaN</td>
-<td>ATTTTTTTT</td>
-<td>ATTTTTTT</td>
-<td>44.2229</td>
-<td>NaN</td>
-<td>True</td>
-<td>9.0</td>
-<td>...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>1</td>
-<td>1</td>
-<td>0,1,3,7</td>
-<td>60</td>
-<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
-<td>71,0</td>
-<td>1</td>
-<td>ATTTTTTT</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">761</td>
-<td>SRR2584866</td>
-<td>CP000819.1</td>
-<td>4392683</td>
-<td>NaN</td>
-<td>ACCCC</td>
-<td>ACCCCC</td>
-<td>155.0000</td>
-<td>NaN</td>
-<td>True</td>
-<td>16.0</td>
-<td>...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>1</td>
-<td>1</td>
-<td>0,3,8,7</td>
-<td>60</td>
-<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
-<td>182,0</td>
-<td>1</td>
-<td>ACCCCC</td>
-</tr>
-<tr class="odd">
 <td data-quarto-table-cell-role="th">794</td>
 <td>SRR2589044</td>
 <td>CP000819.1</td>
@@ -1417,7 +1527,7 @@ dtype: int64</code></pre>
 </tbody>
 </table>
 
-<p>82 rows × 29 columns</p>
+<p>14 rows × 29 columns</p>
 </div>
 </div>
 </div>
@@ -1425,22 +1535,26 @@ dtype: int64</code></pre>
 </section>
 <section id="biopython" class="level2">
 <h2 class="anchored" data-anchor-id="biopython">BioPython</h2>
-<p>BioPython is another packages that Python includes.</p>
-<p>It features include parsers for various Bioinformatics file formats (BLAST, Clustalw, FASTA, Genbank,…), access to online services (NCBI, Expasy,…), interfaces to common and not-so-common programs (Clustalw, DSSP, MSMS…), a standard sequence class, various clustering modules, a KD tree data structure etc. and even documentation.</p>
+<p>BioPython is another packages that Python includes. It features include parsers for various Bioinformatics file formats (BLAST, Clustalw, FASTA, Genbank,…), access to online services (NCBI, Expasy,…), interfaces to common and not-so-common programs (Clustalw, DSSP, MSMS…), a standard sequence class, various clustering modules, a KD tree data structure etc. and even documentation.</p>
 <section id="to-import-biopython-package" class="level3">
 <h3 class="anchored" data-anchor-id="to-import-biopython-package">To import BioPython Package</h3>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio <span class="im">import</span> Seq, pairwise2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For this exersise we are going to import two BioPython (or simply <code>Bio</code>) sub-modules <code>Seq</code> and <code>pairwise2</code>.</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio <span class="im">import</span> Seq, pairwise2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>The <a href="https://biopython.org/docs/1.75/api/Bio.Seq.html">Seq</a> module has a sequence object that stores sequence data in memory more efficiently than strings.</p>
+<p>The <a href="https://biopython.org/docs/1.75/api/Bio.pairwise2.html">pairwise2</a> module has functions that can be used to compare sequences.</p>
 </section>
-<section id="gatehring-sequences-from-the-dataset-we-uploaded-to-pandas" class="level3">
-<h3 class="anchored" data-anchor-id="gatehring-sequences-from-the-dataset-we-uploaded-to-pandas">Gatehring sequences from the dataset we uploaded to pandas</h3>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ref <span class="op">=</span> df.loc[<span class="dv">8</span>][<span class="st">'REF'</span>]</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>alt <span class="op">=</span> df.loc[<span class="dv">8</span>][<span class="st">'ALT'</span>]</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ref)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(alt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="gathering-sequences-from-the-dataset-we-loaded-using-pandas" class="level3">
+<h3 class="anchored" data-anchor-id="gathering-sequences-from-the-dataset-we-loaded-using-pandas">Gathering sequences from the dataset we loaded using pandas</h3>
+<p>Select one of the rows found by the filter and extract the reference and the alter sequences.</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>row <span class="op">=</span> <span class="dv">8</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>ref <span class="op">=</span> Seq.Seq(df.loc[row][<span class="st">'REF'</span>])</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>alt <span class="op">=</span> Seq.Seq(df.loc[row][<span class="st">'ALT'</span>])</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ref)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(alt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
 ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG</code></pre>
@@ -1449,11 +1563,18 @@ ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG</code></pre>
 </section>
 <section id="auto-generate-alignments-between-the-reference-and-the-altered-sequence" class="level3">
 <h3 class="anchored" data-anchor-id="auto-generate-alignments-between-the-reference-and-the-altered-sequence">Auto Generate Alignments between the reference and the altered sequence</h3>
-<div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>alignments <span class="op">=</span> pairwise2.align.globalxx(ref,alt)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> alignment <span class="kw">in</span> alignments:</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(pairwise2.format_alignment(<span class="op">*</span>alignment))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We can generate alignments between the reference and alter sequences using the <code>pairwise2.align.globalxx</code> function.</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>alignments <span class="op">=</span> pairwise2.align.globalxx(ref,alt)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(alignments))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>56</code></pre>
+</div>
+</div>
+<p>To visualize this alignments, pairwise2 provides the <a href="https://biopython.org/docs/1.75/api/Bio.pairwise2.html#Bio.pairwise2.format_alignment">format_alignment</a> function that needs to receive multiple parameters. Thankfully</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> alignment <span class="kw">in</span> alignments:</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(pairwise2.format_alignment(<span class="op">*</span>alignment))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG------------------------
 ||||||||||||||||||||||||||||||||                        
