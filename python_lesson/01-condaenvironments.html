@@ -199,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-python">    
         <li>
     <a class="dropdown-item" href="../python_lesson/00-introduction.html" rel="" target="">
- <span class="dropdown-text">Reproducible Research Enviroments with Python</span></a>
+ <span class="dropdown-text">Introduction to Python, Conda and Jupyter Notebooks</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../python_lesson/01-condaenvironments.html" rel="" target="">
@@ -219,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../python_lesson/05-listdict.html" rel="" target="">
- <span class="dropdown-text">List and Dictionaries</span></a>
+ <span class="dropdown-text">Data Structures: List and Dictionaries</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../python_lesson/06-controlstructure2.html" rel="" target="">
@@ -257,7 +257,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../python_lesson/00-introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reproducible Research Enviroments with Python</span></a>
+ <span class="menu-text">Introduction to Python, Conda and Jupyter Notebooks</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -287,7 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../python_lesson/05-listdict.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">List and Dictionaries</span></a>
+ <span class="menu-text">Data Structures: List and Dictionaries</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -312,13 +312,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-conda" id="toc-what-is-conda" class="nav-link active" data-scroll-target="#what-is-conda">What is Conda?</a></li>
+  <li><a href="#what-is-conda-how-it-works" id="toc-what-is-conda-how-it-works" class="nav-link active" data-scroll-target="#what-is-conda-how-it-works">What is Conda? How it works?</a>
+  <ul class="collapse">
   <li><a href="#base-environment" id="toc-base-environment" class="nav-link" data-scroll-target="#base-environment">Base environment</a></li>
   <li><a href="#making-a-new-environment" id="toc-making-a-new-environment" class="nav-link" data-scroll-target="#making-a-new-environment">Making a new environment</a></li>
   <li><a href="#activate-an-environment" id="toc-activate-an-environment" class="nav-link" data-scroll-target="#activate-an-environment">Activate an environment</a></li>
   <li><a href="#exiting-an-environment" id="toc-exiting-an-environment" class="nav-link" data-scroll-target="#exiting-an-environment">Exiting an environment</a></li>
-  <li><a href="#in-class-exercise" id="toc-in-class-exercise" class="nav-link" data-scroll-target="#in-class-exercise">In class exercise:</a></li>
-  <li><a href="#want-to-learn-more-about-conda-packages" id="toc-want-to-learn-more-about-conda-packages" class="nav-link" data-scroll-target="#want-to-learn-more-about-conda-packages">Want to learn more about Conda Packages?</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hshsl-training/intro-to-programming/edit/main/python_lesson/01-condaenvironments.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/hshsl-training/intro-to-programming/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -342,48 +342,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>All text and materials in these part of the workshop comes from <a href="https://astrobiomike.github.io/unix/conda-intro">Happy Belly Bioinformatics, An Introduction to Conda</a> CDABS has modified this lesson to better fit our techonogical capabilities.</p>
-</div>
-</div>
-</div>
-<section id="what-is-conda" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-conda">What is Conda?</h2>
-<p>Conda virtual environments provide a way to install external packages without worrying about package conflicts. It is posible to create a web-development environment where we install Flask, Gunicorn and Requests libraries and a separate environment where we install pandas, biopython and other packages used to analyze data. Without virtual environments, a package installation may cause your operating system to break due to version conflicts. In the virtual environment, only programs run inside the enviroment will be affected by any of your installations.</p>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Course Setup</strong> Conda is already installed in your Virtual Machines. If you are attempting to follow this intructions from your computer and do not have installed Conda, you can follow this instructions:</p>
-<p>Install <a href="https://docs.conda.io/projects/miniconda/en/latest/#quick-command-line-install">Miniconda</a></p>
-</div>
-</div>
-</div>
-<p>Once logged in your VM, open a terminal window to create a conda virtual environment.</p>
-</section>
-<section id="base-environment" class="level2">
-<h2 class="anchored" data-anchor-id="base-environment">Base environment</h2>
-<p>A ‘base’ conda environment, is like the home base inside conda. In this place we do not want to install programs because they may have conflicts with whatever you may end up doing in the future.</p>
+<section id="what-is-conda-how-it-works" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-conda-how-it-works">What is Conda? How it works?</h2>
+<p><img src="../python_lesson/fig/howcondaworks.png" class="img-fluid" alt="Environment management with Conda"> Image from: <a href="https://angus.readthedocs.io/en/2019/conda_tutorial.html">https://angus.readthedocs.io/en/2019/conda_tutorial.html</a></p>
+<p>Conda virtual environments provide a way to install packages without worrying about package conflicts (eg. diferences on package version).</p>
+<p>It is posible to create a web-development environment where we install Flask, Gunicorn and Requests libraries and a separate environment where we install pandas, biopython and other packages used to analyze data. Without virtual environments, a package installation may cause your operating system to break due to version conflicts. In the virtual environment, only programs run inside the enviroment will be affected by any of your installations.</p>
+<p><strong>What is a package?</strong></p>
+<p>A Package is a program that perform specific tasks. Like for example, <code>tidyverse</code> is a package for the R language,<code>pandas</code> is a package for Python language. Each package can include information related to its creation, versions and maintainers.</p>
+<section id="base-environment" class="level3">
+<h3 class="anchored" data-anchor-id="base-environment">Base environment</h3>
+<p>A ‘base’ conda environment, is like the home base inside conda. <strong>In this place we do not want to install programs and/or packages</strong> because they may have conflicts with whatever you may end up doing in the future.</p>
 <p>To avoid any potential issues in between projects it is recomended to create a conda enviroment, and after activating the conda environment, install the packages that your research may need.</p>
 <p>Your terminal display should look something similar to the following:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">student@hostname~</span> % </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The <code>(base)</code> symbolizes that you are in the conda base environment.</p>
 </section>
-<section id="making-a-new-environment" class="level2">
-<h2 class="anchored" data-anchor-id="making-a-new-environment">Making a new environment</h2>
+<section id="making-a-new-environment" class="level3">
+<h3 class="anchored" data-anchor-id="making-a-new-environment">Making a new environment</h3>
 <p>To create a new conda environment write the following command:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> name-of-the-new-environment</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The base command is <code>conda create</code>, then we are specifying the name of our new environment with <code>-n name-of-the-new-environment</code>. After hitting enter, the terminal is going to start some procesess and is going to ask you if you want to proceed with the creation of the conda environment. Select <code>y</code> (yes) and it will finish the process of creating the environment.</p>
@@ -410,8 +385,8 @@ Note
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">#     $ conda deactivate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="activate-an-environment" class="level2">
-<h2 class="anchored" data-anchor-id="activate-an-environment">Activate an environment</h2>
+<section id="activate-an-environment" class="level3">
+<h3 class="anchored" data-anchor-id="activate-an-environment">Activate an environment</h3>
 <p>After creating the new environment, you need to activate so you can use it. To activate that environment, we need to execute:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate name-of-the-new-environment</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>When you activate the environment, your terminal prompt will change to display the name of your new environment. That will letyou know that we have moved from the <code>base</code> environment to the new one.</p>
@@ -440,19 +415,18 @@ Note
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="ex">python_abi</span>                3.11                    2_cp311    conda-forge</span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span>                       ...                     ...           ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="exiting-an-environment" class="level2">
-<h2 class="anchored" data-anchor-id="exiting-an-environment">Exiting an environment</h2>
+<section id="exiting-an-environment" class="level3">
+<h3 class="anchored" data-anchor-id="exiting-an-environment">Exiting an environment</h3>
 <p>You can deactivate a conda eniroment at any time by running the following code.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactivate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="in-class-exercise" class="level2">
-<h2 class="anchored" data-anchor-id="in-class-exercise">In class exercise:</h2>
+<section id="in-class-exercise" class="level4">
+<h4 class="anchored" data-anchor-id="in-class-exercise">In class exercise:</h4>
 <ol type="1">
 <li>Move to the conda environment called ‘python-intro’.</li>
 <li>Then name two the conda packages that the <code>python-intro</code> environment has.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -461,7 +435,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li><code>conda activate python-intro</code></li>
@@ -470,12 +444,23 @@ Solution
 </div>
 </div>
 </div>
-</section>
-<section id="want-to-learn-more-about-conda-packages" class="level2">
-<h2 class="anchored" data-anchor-id="want-to-learn-more-about-conda-packages">Want to learn more about Conda Packages?</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Want to learn more about Conda Packages?
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>If you want to learn more about Conda Packages you can visit their repository at the <a href="https://anaconda.org/anaconda/repo">Anaconda Website</a>.</p>
+</div>
+</div>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

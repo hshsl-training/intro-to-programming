@@ -93,6 +93,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -199,7 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-python">    
         <li>
     <a class="dropdown-item" href="../python_lesson/00-introduction.html" rel="" target="">
- <span class="dropdown-text">Reproducible Research Enviroments with Python</span></a>
+ <span class="dropdown-text">Introduction to Python, Conda and Jupyter Notebooks</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../python_lesson/01-condaenvironments.html" rel="" target="">
@@ -219,7 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../python_lesson/05-listdict.html" rel="" target="">
- <span class="dropdown-text">List and Dictionaries</span></a>
+ <span class="dropdown-text">Data Structures: List and Dictionaries</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../python_lesson/06-controlstructure2.html" rel="" target="">
@@ -257,7 +260,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../python_lesson/00-introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reproducible Research Enviroments with Python</span></a>
+ <span class="menu-text">Introduction to Python, Conda and Jupyter Notebooks</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -287,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../python_lesson/05-listdict.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">List and Dictionaries</span></a>
+ <span class="menu-text">Data Structures: List and Dictionaries</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -312,7 +315,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#biopython" id="toc-biopython" class="nav-link active" data-scroll-target="#biopython">Biopython</a></li>
+  <li><a href="#pandas" id="toc-pandas" class="nav-link active" data-scroll-target="#pandas">Pandas</a>
+  <ul class="collapse">
+  <li><a href="#importing-the-pandas-package" id="toc-importing-the-pandas-package" class="nav-link" data-scroll-target="#importing-the-pandas-package">Importing the Pandas package</a></li>
+  <li><a href="#how-to-load-a-csv-into-pandas" id="toc-how-to-load-a-csv-into-pandas" class="nav-link" data-scroll-target="#how-to-load-a-csv-into-pandas">How to load a CSV into Pandas</a></li>
+  <li><a href="#getting-information-about-the-dataset" id="toc-getting-information-about-the-dataset" class="nav-link" data-scroll-target="#getting-information-about-the-dataset">Getting information about the dataset</a></li>
+  <li><a href="#getting-the-first-rows-of-the-dataset" id="toc-getting-the-first-rows-of-the-dataset" class="nav-link" data-scroll-target="#getting-the-first-rows-of-the-dataset">Getting the first rows of the dataset</a></li>
+  <li><a href="#getting-the-last-rows-of-the-dataset" id="toc-getting-the-last-rows-of-the-dataset" class="nav-link" data-scroll-target="#getting-the-last-rows-of-the-dataset">Getting the last rows of the dataset</a></li>
+  <li><a href="#getting-the-name-of-the-columns" id="toc-getting-the-name-of-the-columns" class="nav-link" data-scroll-target="#getting-the-name-of-the-columns">Getting the name of the columns</a></li>
+  <li><a href="#identifiying-null-values" id="toc-identifiying-null-values" class="nav-link" data-scroll-target="#identifiying-null-values">Identifiying Null values</a></li>
+  <li><a href="#identifiying-null-values-and-counting-them" id="toc-identifiying-null-values-and-counting-them" class="nav-link" data-scroll-target="#identifiying-null-values-and-counting-them">Identifiying Null values and counting them</a></li>
+  <li><a href="#filtering-a-column" id="toc-filtering-a-column" class="nav-link" data-scroll-target="#filtering-a-column">Filtering a column</a></li>
+  </ul></li>
+  <li><a href="#biopython" id="toc-biopython" class="nav-link" data-scroll-target="#biopython">BioPython</a>
+  <ul class="collapse">
+  <li><a href="#to-import-biopython-package" id="toc-to-import-biopython-package" class="nav-link" data-scroll-target="#to-import-biopython-package">To import BioPython Package</a></li>
+  <li><a href="#gatehring-sequences-from-the-dataset-we-uploaded-to-pandas" id="toc-gatehring-sequences-from-the-dataset-we-uploaded-to-pandas" class="nav-link" data-scroll-target="#gatehring-sequences-from-the-dataset-we-uploaded-to-pandas">Gatehring sequences from the dataset we uploaded to pandas</a></li>
+  <li><a href="#auto-generate-alignments-between-the-reference-and-the-altered-sequence" id="toc-auto-generate-alignments-between-the-reference-and-the-altered-sequence" class="nav-link" data-scroll-target="#auto-generate-alignments-between-the-reference-and-the-altered-sequence">Auto Generate Alignments between the reference and the altered sequence</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hshsl-training/intro-to-programming/edit/main/python_lesson/07-pandasbiopython.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/hshsl-training/intro-to-programming/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -336,25 +356,1390 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Biopython features include parsers for various Bioinformatics file formats (BLAST, Clustalw, FASTA, Genbank,…), access to online services (NCBI, Expasy,…), interfaces to common and not-so-common programs (Clustalw, DSSP, MSMS…), a standard sequence class, various clustering modules, a KD tree data structure etc. and even documentation.</p>
-<p>Pairwise Sequence Alignments</p>
-<section id="biopython" class="level1">
-<h1>Biopython</h1>
-<p>import pandas as pd df = pd.read_csv(‘/Users/ifraticelli/Documents/Projects_Visual_Studio/intro-to-programming/python_lesson/combined_tidy_vcf.csv’)</p>
-<p>df.info() df.head() df.tail() df.columns df.isnull() df.isnull().sum() df.loc[df[‘alt’].apply(len) &gt;= 5]</p>
-<p>from Bio import Seq, pairwise2</p>
-<p>type(df.loc[8][‘ref’]) ref = df.loc[8][‘ref’] alt = df.loc[8][‘alt’]</p>
-<p>#refseq = Seq.Seq(ref) #altseq = Seq.Seq(alt)</p>
-<p>alignments = pairwise2.align.globalxx(ref,alt)</p>
-<p>for alignment in alignments: print(pairwise2.format_alignment(*alignment))</p>
+<section id="pandas" class="level2">
+<h2 class="anchored" data-anchor-id="pandas">Pandas</h2>
+<p>Python has lots of packages that allows you to manipulate data in different ways. For example, Pandas allows you to manipulate dataset with a similar dataframe structure that the language R has.</p>
+<p>Pandas is a Python package providing fast, flexible, and expressive data structures designed to make working with “relational” or “labeled” data both easy and intuitive.</p>
+<p>Pandas is well suited for many different kinds of data:</p>
+<ul>
+<li><p>Tabular data with heterogeneously-typed columns, as in an SQL table or Excel spreadsheet</p></li>
+<li><p>Ordered and unordered (not necessarily fixed-frequency) time series data.</p></li>
+<li><p>Arbitrary matrix data (homogeneously typed or heterogeneous) with row and column labels</p></li>
+<li><p>Any other form of observational / statistical data sets. The data need not be labeled at all to be placed into a pandas data structure.</p></li>
+</ul>
+<p>For today we are going to learn basics commands that will allow us to upload data from a CSV, perform commands that will allow us to get general data from the dataset and filter by column.</p>
+<section id="importing-the-pandas-package" class="level3">
+<h3 class="anchored" data-anchor-id="importing-the-pandas-package">Importing the Pandas package</h3>
+<p>To work woth any package in python you have to download it through your package manager (in the case of this workshop would be Conda), and then import it. For this workshop, the conda enviroment already had installed Pandas.</p>
+<p>The following code will allow you to import the package Pandas to your</p>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="op">+</span><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>10</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="how-to-load-a-csv-into-pandas" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-load-a-csv-into-pandas">How to load a CSV into Pandas</h3>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../python_lesson/combined_tidy_vcf.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note: The directory path were the dataset is located may be in a diferent place than this example.</p>
+</section>
+<section id="getting-information-about-the-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="getting-information-about-the-dataset">Getting information about the dataset</h3>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 801 entries, 0 to 800
+Data columns (total 29 columns):
+ #   Column         Non-Null Count  Dtype  
+---  ------         --------------  -----  
+ 0   sample_id      801 non-null    object 
+ 1   CHROM          801 non-null    object 
+ 2   POS            801 non-null    int64  
+ 3   ID             0 non-null      float64
+ 4   REF            801 non-null    object 
+ 5   ALT            801 non-null    object 
+ 6   QUAL           801 non-null    float64
+ 7   FILTER         0 non-null      float64
+ 8   INDEL          801 non-null    bool   
+ 9   IDV            101 non-null    float64
+ 10  IMF            101 non-null    float64
+ 11  DP             801 non-null    int64  
+ 12  VDB            801 non-null    float64
+ 13  RPB            28 non-null     float64
+ 14  MQB            28 non-null     float64
+ 15  BQB            28 non-null     float64
+ 16  MQSB           753 non-null    float64
+ 17  SGB            801 non-null    float64
+ 18  MQ0F           801 non-null    float64
+ 19  ICB            0 non-null      float64
+ 20  HOB            0 non-null      float64
+ 21  AC             801 non-null    int64  
+ 22  AN             801 non-null    int64  
+ 23  DP4            801 non-null    object 
+ 24  MQ             801 non-null    int64  
+ 25  Indiv          801 non-null    object 
+ 26  gt_PL          801 non-null    object 
+ 27  gt_GT          801 non-null    int64  
+ 28  gt_GT_alleles  801 non-null    object 
+dtypes: bool(1), float64(14), int64(6), object(8)
+memory usage: 176.1+ KB</code></pre>
+</div>
+</div>
+</section>
+<section id="getting-the-first-rows-of-the-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="getting-the-first-rows-of-the-dataset">Getting the first rows of the dataset</h3>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">sample_id</th>
+<th data-quarto-table-cell-role="th">CHROM</th>
+<th data-quarto-table-cell-role="th">POS</th>
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">REF</th>
+<th data-quarto-table-cell-role="th">ALT</th>
+<th data-quarto-table-cell-role="th">QUAL</th>
+<th data-quarto-table-cell-role="th">FILTER</th>
+<th data-quarto-table-cell-role="th">INDEL</th>
+<th data-quarto-table-cell-role="th">IDV</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">ICB</th>
+<th data-quarto-table-cell-role="th">HOB</th>
+<th data-quarto-table-cell-role="th">AC</th>
+<th data-quarto-table-cell-role="th">AN</th>
+<th data-quarto-table-cell-role="th">DP4</th>
+<th data-quarto-table-cell-role="th">MQ</th>
+<th data-quarto-table-cell-role="th">Indiv</th>
+<th data-quarto-table-cell-role="th">gt_PL</th>
+<th data-quarto-table-cell-role="th">gt_GT</th>
+<th data-quarto-table-cell-role="th">gt_GT_alleles</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>SRR2584863</td>
+<td>CP000819.1</td>
+<td>9972</td>
+<td>NaN</td>
+<td>T</td>
+<td>G</td>
+<td>91.0</td>
+<td>NaN</td>
+<td>False</td>
+<td>NaN</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,0,0,4</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>121,0</td>
+<td>1</td>
+<td>G</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>SRR2584863</td>
+<td>CP000819.1</td>
+<td>263235</td>
+<td>NaN</td>
+<td>G</td>
+<td>T</td>
+<td>85.0</td>
+<td>NaN</td>
+<td>False</td>
+<td>NaN</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,1,0,5</td>
+<td>33</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>112,0</td>
+<td>1</td>
+<td>T</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>SRR2584863</td>
+<td>CP000819.1</td>
+<td>281923</td>
+<td>NaN</td>
+<td>G</td>
+<td>T</td>
+<td>217.0</td>
+<td>NaN</td>
+<td>False</td>
+<td>NaN</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,0,4,5</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>247,0</td>
+<td>1</td>
+<td>T</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>SRR2584863</td>
+<td>CP000819.1</td>
+<td>433359</td>
+<td>NaN</td>
+<td>CTTTTTTT</td>
+<td>CTTTTTTTT</td>
+<td>64.0</td>
+<td>NaN</td>
+<td>True</td>
+<td>12.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,1,3,8</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>91,0</td>
+<td>1</td>
+<td>CTTTTTTTT</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>SRR2584863</td>
+<td>CP000819.1</td>
+<td>473901</td>
+<td>NaN</td>
+<td>CCGC</td>
+<td>CCGCGC</td>
+<td>228.0</td>
+<td>NaN</td>
+<td>True</td>
+<td>9.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>1,0,2,7</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>255,0</td>
+<td>1</td>
+<td>CCGCGC</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 29 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="getting-the-last-rows-of-the-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="getting-the-last-rows-of-the-dataset">Getting the last rows of the dataset</h3>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">sample_id</th>
+<th data-quarto-table-cell-role="th">CHROM</th>
+<th data-quarto-table-cell-role="th">POS</th>
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">REF</th>
+<th data-quarto-table-cell-role="th">ALT</th>
+<th data-quarto-table-cell-role="th">QUAL</th>
+<th data-quarto-table-cell-role="th">FILTER</th>
+<th data-quarto-table-cell-role="th">INDEL</th>
+<th data-quarto-table-cell-role="th">IDV</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">ICB</th>
+<th data-quarto-table-cell-role="th">HOB</th>
+<th data-quarto-table-cell-role="th">AC</th>
+<th data-quarto-table-cell-role="th">AN</th>
+<th data-quarto-table-cell-role="th">DP4</th>
+<th data-quarto-table-cell-role="th">MQ</th>
+<th data-quarto-table-cell-role="th">Indiv</th>
+<th data-quarto-table-cell-role="th">gt_PL</th>
+<th data-quarto-table-cell-role="th">gt_GT</th>
+<th data-quarto-table-cell-role="th">gt_GT_alleles</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">796</td>
+<td>SRR2589044</td>
+<td>CP000819.1</td>
+<td>3481820</td>
+<td>NaN</td>
+<td>A</td>
+<td>G</td>
+<td>225.0</td>
+<td>NaN</td>
+<td>False</td>
+<td>NaN</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,0,4,8</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258904...</td>
+<td>255,0</td>
+<td>1</td>
+<td>G</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">797</td>
+<td>SRR2589044</td>
+<td>CP000819.1</td>
+<td>3893550</td>
+<td>NaN</td>
+<td>AG</td>
+<td>AGG</td>
+<td>101.0</td>
+<td>NaN</td>
+<td>True</td>
+<td>4.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,0,3,1</td>
+<td>52</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258904...</td>
+<td>131,0</td>
+<td>1</td>
+<td>AGG</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">798</td>
+<td>SRR2589044</td>
+<td>CP000819.1</td>
+<td>3901455</td>
+<td>NaN</td>
+<td>A</td>
+<td>AC</td>
+<td>70.0</td>
+<td>NaN</td>
+<td>True</td>
+<td>3.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,0,3,0</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258904...</td>
+<td>100,0</td>
+<td>1</td>
+<td>AC</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">799</td>
+<td>SRR2589044</td>
+<td>CP000819.1</td>
+<td>4100183</td>
+<td>NaN</td>
+<td>A</td>
+<td>G</td>
+<td>177.0</td>
+<td>NaN</td>
+<td>False</td>
+<td>NaN</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,0,3,5</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258904...</td>
+<td>207,0</td>
+<td>1</td>
+<td>G</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">800</td>
+<td>SRR2589044</td>
+<td>CP000819.1</td>
+<td>4431393</td>
+<td>NaN</td>
+<td>TGG</td>
+<td>T</td>
+<td>225.0</td>
+<td>NaN</td>
+<td>True</td>
+<td>10.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,0,4,6</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258904...</td>
+<td>255,0</td>
+<td>1</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 29 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="getting-the-name-of-the-columns" class="level3">
+<h3 class="anchored" data-anchor-id="getting-the-name-of-the-columns">Getting the name of the columns</h3>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>Index(['sample_id', 'CHROM', 'POS', 'ID', 'REF', 'ALT', 'QUAL', 'FILTER',
+       'INDEL', 'IDV', 'IMF', 'DP', 'VDB', 'RPB', 'MQB', 'BQB', 'MQSB', 'SGB',
+       'MQ0F', 'ICB', 'HOB', 'AC', 'AN', 'DP4', 'MQ', 'Indiv', 'gt_PL',
+       'gt_GT', 'gt_GT_alleles'],
+      dtype='object')</code></pre>
+</div>
+</div>
+</section>
+<section id="identifiying-null-values" class="level3">
+<h3 class="anchored" data-anchor-id="identifiying-null-values">Identifiying Null values</h3>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.isnull()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">sample_id</th>
+<th data-quarto-table-cell-role="th">CHROM</th>
+<th data-quarto-table-cell-role="th">POS</th>
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">REF</th>
+<th data-quarto-table-cell-role="th">ALT</th>
+<th data-quarto-table-cell-role="th">QUAL</th>
+<th data-quarto-table-cell-role="th">FILTER</th>
+<th data-quarto-table-cell-role="th">INDEL</th>
+<th data-quarto-table-cell-role="th">IDV</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">ICB</th>
+<th data-quarto-table-cell-role="th">HOB</th>
+<th data-quarto-table-cell-role="th">AC</th>
+<th data-quarto-table-cell-role="th">AN</th>
+<th data-quarto-table-cell-role="th">DP4</th>
+<th data-quarto-table-cell-role="th">MQ</th>
+<th data-quarto-table-cell-role="th">Indiv</th>
+<th data-quarto-table-cell-role="th">gt_PL</th>
+<th data-quarto-table-cell-role="th">gt_GT</th>
+<th data-quarto-table-cell-role="th">gt_GT_alleles</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+<td>...</td>
+<td>True</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+<td>...</td>
+<td>True</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+<td>...</td>
+<td>True</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>...</td>
+<td>True</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>...</td>
+<td>True</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">796</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+<td>...</td>
+<td>True</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">797</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>...</td>
+<td>True</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">798</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>...</td>
+<td>True</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">799</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+<td>...</td>
+<td>True</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">800</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>...</td>
+<td>True</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+</tbody>
+</table>
+
+<p>801 rows × 29 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="identifiying-null-values-and-counting-them" class="level3">
+<h3 class="anchored" data-anchor-id="identifiying-null-values-and-counting-them">Identifiying Null values and counting them</h3>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>sample_id          0
+CHROM              0
+POS                0
+ID               801
+REF                0
+ALT                0
+QUAL               0
+FILTER           801
+INDEL              0
+IDV              700
+IMF              700
+DP                 0
+VDB                0
+RPB              773
+MQB              773
+BQB              773
+MQSB              48
+SGB                0
+MQ0F               0
+ICB              801
+HOB              801
+AC                 0
+AN                 0
+DP4                0
+MQ                 0
+Indiv              0
+gt_PL              0
+gt_GT              0
+gt_GT_alleles      0
+dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="filtering-a-column" class="level3">
+<h3 class="anchored" data-anchor-id="filtering-a-column">Filtering a column</h3>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df.loc[df[<span class="st">'ALT'</span>].<span class="bu">apply</span>(<span class="bu">len</span>) <span class="op">&gt;=</span> <span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">sample_id</th>
+<th data-quarto-table-cell-role="th">CHROM</th>
+<th data-quarto-table-cell-role="th">POS</th>
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">REF</th>
+<th data-quarto-table-cell-role="th">ALT</th>
+<th data-quarto-table-cell-role="th">QUAL</th>
+<th data-quarto-table-cell-role="th">FILTER</th>
+<th data-quarto-table-cell-role="th">INDEL</th>
+<th data-quarto-table-cell-role="th">IDV</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">ICB</th>
+<th data-quarto-table-cell-role="th">HOB</th>
+<th data-quarto-table-cell-role="th">AC</th>
+<th data-quarto-table-cell-role="th">AN</th>
+<th data-quarto-table-cell-role="th">DP4</th>
+<th data-quarto-table-cell-role="th">MQ</th>
+<th data-quarto-table-cell-role="th">Indiv</th>
+<th data-quarto-table-cell-role="th">gt_PL</th>
+<th data-quarto-table-cell-role="th">gt_GT</th>
+<th data-quarto-table-cell-role="th">gt_GT_alleles</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3</td>
+<td>SRR2584863</td>
+<td>CP000819.1</td>
+<td>433359</td>
+<td>NaN</td>
+<td>CTTTTTTT</td>
+<td>CTTTTTTTT</td>
+<td>64.0000</td>
+<td>NaN</td>
+<td>True</td>
+<td>12.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,1,3,8</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>91,0</td>
+<td>1</td>
+<td>CTTTTTTTT</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4</td>
+<td>SRR2584863</td>
+<td>CP000819.1</td>
+<td>473901</td>
+<td>NaN</td>
+<td>CCGC</td>
+<td>CCGCGC</td>
+<td>228.0000</td>
+<td>NaN</td>
+<td>True</td>
+<td>9.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>1,0,2,7</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>255,0</td>
+<td>1</td>
+<td>CCGCGC</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>SRR2584863</td>
+<td>CP000819.1</td>
+<td>2103887</td>
+<td>NaN</td>
+<td>ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG</td>
+<td>ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCC...</td>
+<td>56.0000</td>
+<td>NaN</td>
+<td>True</td>
+<td>2.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,1,1,1</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>111,28</td>
+<td>1</td>
+<td>ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCC...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">49</td>
+<td>SRR2584866</td>
+<td>CP000819.1</td>
+<td>148134</td>
+<td>NaN</td>
+<td>AGGGG</td>
+<td>AGGGGG</td>
+<td>122.0000</td>
+<td>NaN</td>
+<td>True</td>
+<td>8.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,0,3,5</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>152,0</td>
+<td>1</td>
+<td>AGGGGG</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">50</td>
+<td>SRR2584866</td>
+<td>CP000819.1</td>
+<td>157998</td>
+<td>NaN</td>
+<td>GTTTTTTTTT</td>
+<td>GTTTTTTTT</td>
+<td>19.4636</td>
+<td>NaN</td>
+<td>True</td>
+<td>6.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,0,1,5</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>49,0</td>
+<td>1</td>
+<td>GTTTTTTTT</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">722</td>
+<td>SRR2584866</td>
+<td>CP000819.1</td>
+<td>4022380</td>
+<td>NaN</td>
+<td>GTTTTTTTT</td>
+<td>GTTTTTTTTT</td>
+<td>11.1284</td>
+<td>NaN</td>
+<td>True</td>
+<td>9.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>2,2,3,4</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>39,1</td>
+<td>1</td>
+<td>GTTTTTTTTT</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">723</td>
+<td>SRR2584866</td>
+<td>CP000819.1</td>
+<td>4038529</td>
+<td>NaN</td>
+<td>GTTTTTTTTT</td>
+<td>GTTTTTTTT</td>
+<td>15.0048</td>
+<td>NaN</td>
+<td>True</td>
+<td>20.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>1,6,8,6</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>42,0</td>
+<td>1</td>
+<td>GTTTTTTTT</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">753</td>
+<td>SRR2584866</td>
+<td>CP000819.1</td>
+<td>4349281</td>
+<td>NaN</td>
+<td>ATTTTTTTT</td>
+<td>ATTTTTTT</td>
+<td>44.2229</td>
+<td>NaN</td>
+<td>True</td>
+<td>9.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,1,3,7</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>71,0</td>
+<td>1</td>
+<td>ATTTTTTT</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">761</td>
+<td>SRR2584866</td>
+<td>CP000819.1</td>
+<td>4392683</td>
+<td>NaN</td>
+<td>ACCCC</td>
+<td>ACCCCC</td>
+<td>155.0000</td>
+<td>NaN</td>
+<td>True</td>
+<td>16.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,3,8,7</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258486...</td>
+<td>182,0</td>
+<td>1</td>
+<td>ACCCCC</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">794</td>
+<td>SRR2589044</td>
+<td>CP000819.1</td>
+<td>2103887</td>
+<td>NaN</td>
+<td>ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG</td>
+<td>ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG</td>
+<td>225.0000</td>
+<td>NaN</td>
+<td>True</td>
+<td>10.0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>0,0,1,9</td>
+<td>60</td>
+<td>/home/dcuser/dc_workshop/results/bam/SRR258904...</td>
+<td>255,0</td>
+<td>1</td>
+<td>ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG</td>
+</tr>
+</tbody>
+</table>
+
+<p>82 rows × 29 columns</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="biopython" class="level2">
+<h2 class="anchored" data-anchor-id="biopython">BioPython</h2>
+<p>BioPython is another packages that Python includes.</p>
+<p>It features include parsers for various Bioinformatics file formats (BLAST, Clustalw, FASTA, Genbank,…), access to online services (NCBI, Expasy,…), interfaces to common and not-so-common programs (Clustalw, DSSP, MSMS…), a standard sequence class, various clustering modules, a KD tree data structure etc. and even documentation.</p>
+<section id="to-import-biopython-package" class="level3">
+<h3 class="anchored" data-anchor-id="to-import-biopython-package">To import BioPython Package</h3>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio <span class="im">import</span> Seq, pairwise2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="gatehring-sequences-from-the-dataset-we-uploaded-to-pandas" class="level3">
+<h3 class="anchored" data-anchor-id="gatehring-sequences-from-the-dataset-we-uploaded-to-pandas">Gatehring sequences from the dataset we uploaded to pandas</h3>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ref <span class="op">=</span> df.loc[<span class="dv">8</span>][<span class="st">'REF'</span>]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>alt <span class="op">=</span> df.loc[<span class="dv">8</span>][<span class="st">'ALT'</span>]</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ref)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(alt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG</code></pre>
+</div>
+</div>
+</section>
+<section id="auto-generate-alignments-between-the-reference-and-the-altered-sequence" class="level3">
+<h3 class="anchored" data-anchor-id="auto-generate-alignments-between-the-reference-and-the-altered-sequence">Auto Generate Alignments between the reference and the altered sequence</h3>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>alignments <span class="op">=</span> pairwise2.align.globalxx(ref,alt)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> alignment <span class="kw">in</span> alignments:</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(pairwise2.format_alignment(<span class="op">*</span>alignment))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG------------------------
+||||||||||||||||||||||||||||||||                        
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCA----G--------------------
+|||||||||||||||||||||||||||||||    |                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCC----AG--------------------
+||||||||||||||||||||||||||||||    ||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGC---C-AG--------------------
+|||||||||||||||||||||||||||||   | ||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAGCCAGCCAG-C--C-AG--------------------
+|||||||||||||||||||||||||||| |  | ||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGC----CAG--------------------
+|||||||||||||||||||||||||||||    |||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAGCCAGCCAG-C---CAG--------------------
+|||||||||||||||||||||||||||| |   |||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAGCCAGCCAG----CCAG--------------------
+||||||||||||||||||||||||||||    ||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAGCCAGCCA----GCCAG--------------------
+|||||||||||||||||||||||||||    |||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAGCCAGCC----AGCCAG--------------------
+||||||||||||||||||||||||||    ||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAGCCAGC---C-AGCCAG--------------------
+|||||||||||||||||||||||||   | ||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAGCCAG-C--C-AGCCAG--------------------
+|||||||||||||||||||||||| |  | ||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAGCCAGC----CAGCCAG--------------------
+|||||||||||||||||||||||||    |||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAGCCAG-C---CAGCCAG--------------------
+|||||||||||||||||||||||| |   |||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAGCCAG----CCAGCCAG--------------------
+||||||||||||||||||||||||    ||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAGCCA----GCCAGCCAG--------------------
+|||||||||||||||||||||||    |||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAGCC----AGCCAGCCAG--------------------
+||||||||||||||||||||||    ||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAGC---C-AGCCAGCCAG--------------------
+|||||||||||||||||||||   | ||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAG-C--C-AGCCAGCCAG--------------------
+|||||||||||||||||||| |  | ||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAGC----CAGCCAGCCAG--------------------
+|||||||||||||||||||||    |||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAG-C---CAGCCAGCCAG--------------------
+|||||||||||||||||||| |   |||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCAG----CCAGCCAGCCAG--------------------
+||||||||||||||||||||    ||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCCA----GCCAGCCAGCCAG--------------------
+|||||||||||||||||||    |||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGCC----AGCCAGCCAGCCAG--------------------
+||||||||||||||||||    ||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGC---C-AGCCAGCCAGCCAG--------------------
+|||||||||||||||||   | ||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAG-C--C-AGCCAGCCAGCCAG--------------------
+|||||||||||||||| |  | ||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAGC----CAGCCAGCCAGCCAG--------------------
+|||||||||||||||||    |||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAG-C---CAGCCAGCCAGCCAG--------------------
+|||||||||||||||| |   |||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCAG----CCAGCCAGCCAGCCAG--------------------
+||||||||||||||||    ||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCCA----GCCAGCCAGCCAGCCAG--------------------
+|||||||||||||||    |||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGCC----AGCCAGCCAGCCAGCCAG--------------------
+||||||||||||||    ||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGC---C-AGCCAGCCAGCCAGCCAG--------------------
+|||||||||||||   | ||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAG-C--C-AGCCAGCCAGCCAGCCAG--------------------
+|||||||||||| |  | ||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAGC----CAGCCAGCCAGCCAGCCAG--------------------
+|||||||||||||    |||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAG-C---CAGCCAGCCAGCCAGCCAG--------------------
+|||||||||||| |   |||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCAG----CCAGCCAGCCAGCCAGCCAG--------------------
+||||||||||||    ||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCCA----GCCAGCCAGCCAGCCAGCCAG--------------------
+|||||||||||    |||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGCC----AGCCAGCCAGCCAGCCAGCCAG--------------------
+||||||||||    ||||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGC---C-AGCCAGCCAGCCAGCCAGCCAG--------------------
+|||||||||   | ||||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAG-C--C-AGCCAGCCAGCCAGCCAGCCAG--------------------
+|||||||| |  | ||||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAGC----CAGCCAGCCAGCCAGCCAGCCAG--------------------
+|||||||||    |||||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAG-C---CAGCCAGCCAGCCAGCCAGCCAG--------------------
+|||||||| |   |||||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCAG----CCAGCCAGCCAGCCAGCCAGCCAG--------------------
+||||||||    ||||||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCCA----GCCAGCCAGCCAGCCAGCCAGCCAG--------------------
+|||||||    |||||||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGCC----AGCCAGCCAGCCAGCCAGCCAGCCAG--------------------
+||||||    ||||||||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGC---C-AGCCAGCCAGCCAGCCAGCCAGCCAG--------------------
+|||||   | ||||||||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAG-C--C-AGCCAGCCAGCCAGCCAGCCAGCCAG--------------------
+|||| |  | ||||||||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAGC----CAGCCAGCCAGCCAGCCAGCCAGCCAG--------------------
+|||||    |||||||||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAG-C---CAGCCAGCCAGCCAGCCAGCCAGCCAG--------------------
+|||| |   |||||||||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACAG----CCAGCCAGCCAGCCAGCCAGCCAGCCAG--------------------
+||||    ||||||||||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+ACA----GCCAGCCAGCCAGCCAGCCAGCCAGCCAG--------------------
+|||    |||||||||||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+AC----AGCCAGCCAGCCAGCCAGCCAGCCAGCCAG--------------------
+||    ||||||||||||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+A---C-AGCCAGCCAGCCAGCCAGCCAGCCAGCCAG--------------------
+|   | ||||||||||||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+--A-C-AGCCAGCCAGCCAGCCAGCCAGCCAGCCAG--------------------
+  | | ||||||||||||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+A----CAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG--------------------
+|    |||||||||||||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+
+--A--CAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG--------------------
+  |  |||||||||||||||||||||||||||||||                    
+ACAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAGCCAG
+  Score=32
+</code></pre>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

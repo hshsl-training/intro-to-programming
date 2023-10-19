@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CDABS Intro to Programming - Reproducible Research Enviroments with Python</title>
+<title>CDABS Intro to Programming - Introduction to Python, Conda and Jupyter Notebooks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -165,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu" aria-labelledby="nav-menu-python">    
         <li>
     <a class="dropdown-item" href="../python_lesson/00-introduction.html" rel="" target="">
- <span class="dropdown-text">Reproducible Research Enviroments with Python</span></a>
+ <span class="dropdown-text">Introduction to Python, Conda and Jupyter Notebooks</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../python_lesson/01-condaenvironments.html" rel="" target="">
@@ -185,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../python_lesson/05-listdict.html" rel="" target="">
- <span class="dropdown-text">List and Dictionaries</span></a>
+ <span class="dropdown-text">Data Structures: List and Dictionaries</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../python_lesson/06-controlstructure2.html" rel="" target="">
@@ -208,7 +208,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../python_lesson/00-introduction.html">Reproducible Research Enviroments with Python</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../python_lesson/00-introduction.html">Introduction to Python, Conda and Jupyter Notebooks</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -223,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../python_lesson/00-introduction.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Reproducible Research Enviroments with Python</span></a>
+ <span class="menu-text">Introduction to Python, Conda and Jupyter Notebooks</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -253,7 +253,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../python_lesson/05-listdict.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">List and Dictionaries</span></a>
+ <span class="menu-text">Data Structures: List and Dictionaries</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -278,11 +278,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-reproducible-research-environments" id="toc-what-is-reproducible-research-environments" class="nav-link active" data-scroll-target="#what-is-reproducible-research-environments">What is reproducible research environments?</a></li>
-  <li><a href="#introduction-and-class-setup" id="toc-introduction-and-class-setup" class="nav-link" data-scroll-target="#introduction-and-class-setup">Introduction and Class Setup</a></li>
-  <li><a href="#what-is-a-virtual-machine" id="toc-what-is-a-virtual-machine" class="nav-link" data-scroll-target="#what-is-a-virtual-machine">What is a Virtual Machine?</a></li>
-  <li><a href="#what-are-the-benefits-of-a-virtual-machine" id="toc-what-are-the-benefits-of-a-virtual-machine" class="nav-link" data-scroll-target="#what-are-the-benefits-of-a-virtual-machine">What are the benefits of a Virtual Machine?</a></li>
-  <li><a href="#accessing-the-vm" id="toc-accessing-the-vm" class="nav-link" data-scroll-target="#accessing-the-vm">Accessing the VM</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives:</a></li>
+  <li><a href="#why-python-conda-and-jupyter-notebook" id="toc-why-python-conda-and-jupyter-notebook" class="nav-link" data-scroll-target="#why-python-conda-and-jupyter-notebook">Why Python, Conda and Jupyter Notebook?</a>
+  <ul class="collapse">
+  <li><a href="#what-is-reproducible-research-environments" id="toc-what-is-reproducible-research-environments" class="nav-link" data-scroll-target="#what-is-reproducible-research-environments">What is reproducible research environments?</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hshsl-training/intro-to-programming/edit/main/python_lesson/00-introduction.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/hshsl-training/intro-to-programming/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -291,7 +291,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Reproducible Research Enviroments with Python</h1>
+<h1 class="title">Introduction to Python, Conda and Jupyter Notebooks</h1>
 </div>
 
 
@@ -306,8 +306,21 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="what-is-reproducible-research-environments" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-reproducible-research-environments">What is reproducible research environments?</h2>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives:</h2>
+<ul>
+<li>Introduce participants to Conda, a popular package and virtual environment management tool.</li>
+<li>Introduce participants to Jupyter Notebooks</li>
+<li>Teach participants how to create, edit, and use Jupyter Notebooks effectively.</li>
+<li>Introduce participants to the fundamentals of Python programming.</li>
+</ul>
+</section>
+<section id="why-python-conda-and-jupyter-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="why-python-conda-and-jupyter-notebook">Why Python, Conda and Jupyter Notebook?</h2>
+<p>This course is designed to introduce participants to a <em>reproducible research environment</em>. Briefly, it attempts to provide an experience of how to interact with a Jupyter Notebooks web interface where documentation and computational processes are combined in a single document. Likewise, participants will be able to interact with the Conda package manager. Conda minimizes research software installation errors by allowing the creation of virtual environments. Finally, participants will be exposed to the Python programming language by being able to practice basic commands.</p>
+<section id="what-is-reproducible-research-environments" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-reproducible-research-environments">What is reproducible research environments?</h3>
+<p><img src="../python_lesson/fig/reproducibility.jpg" class="img-fluid" alt="Research Reproducibility"> Image from: <em>The Turing Way</em> project illustration by <em>Scriberia</em>. Used under a CC-BY 4.0 licence. <a href="DOI:%2010.5281/zenodo.3332807">DOI: 10.5281/zenodo.3332807</a>.</p>
 <p>The term reproducible research is the idea of compiling enough information about your code, data, text files, software use, software licencing, and other information that allows other researchers to replicate not only the computer systems used for analysis, but the experiment itself too.</p>
 <p>To accomplish this, there are softwares that allows you to automatically collect information about the programs, code or packages that you are using and the analytical changes that you are performing in your research environment. Some of those software are Jupyter Notebook and MiniConda.</p>
 <p>This is also very convenient for research labs or research colleages that need to share or emulate the same computing environment in order to perform their research.</p>
@@ -321,86 +334,13 @@ Want to learn more about research reproducibility?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Goodman, S. N., Fanelli, D., &amp; Ioannidis, J. P. A. (2016). What does research reproducibility mean? Science Translational Medicine, 8(341). doi: 10.1126/scitranslmed.aaf5027</p>
-<p>The Turing Way Community. (2021, November 10). The Turing Way: A handbook for reproducible, ethical and collaborative research. https://the-turing-way.netlify.app/index.html#</p>
-</div>
-</div>
-</section>
-<section id="introduction-and-class-setup" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-and-class-setup">Introduction and Class Setup</h2>
-<p>This course is designed to introduce participants to a reproducible research environment. Briefly, it attempts to provide an experience of how to interact with a Jupyter notebooks web interface where documentation and computational processes are combined in a single document. Likewise, participants will be able to interact with the Conda package manager. Conda minimizes research software installation errors by allowing the creation of virtual environments. Finally, participants will be exposed to the Python programming language by being able to practice basic commands, and will be briefly introduced to two Python packages, Pandas and BioPython.</p>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Objectives</strong></p>
-<ul>
-<li>Introduce participants to Conda, a popular package and environment management tool.</li>
-<li>Teach participants how to create and manage Conda environments.</li>
-<li>Introduce participants to Jupyter Notebooks</li>
-<li>Teach participants how to create, edit, and use Jupyter Notebooks effectively.</li>
-<li>Introduce participants to the fundamentals of Python programming.</li>
-<li>Provide hands-on experience through practical coding exercises.</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tecnological Resourses to Replicate this tutorial.
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li>Install <a href="https://www.virtualbox.org/wiki/Downloads">Oracle VM VirtualBox Manager</a>.</li>
-<li>Download <a href="https://ubuntu.com/download/desktop">Ubuntu Desktop</a>.</li>
-<li>Set up your <a href="https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview">Virtual Machine using VirtualBox &amp; Ubuntu Destkop</a>.</li>
-<li>Install <a href="https://docs.conda.io/projects/miniconda/en/latest/#quick-command-line-install">Miniconda</a> using the terminal in your newly created VM (remember to follow the Linux instructions).</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="what-is-a-virtual-machine" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-a-virtual-machine">What is a Virtual Machine?</h2>
-<p>A virtual machine simulates computer hardware by destinating a portion of your physical computer RAM, CPU and Storage to virtual device. Its like having a computer inside another computer. The software that deploys virtual machines is called a hypervisor. VirtualBox will be the hypervisor for this tutorial.</p>
-<p>[INSERT VM DIAGRAM]</p>
-</section>
-<section id="what-are-the-benefits-of-a-virtual-machine" class="level2">
-<h2 class="anchored" data-anchor-id="what-are-the-benefits-of-a-virtual-machine">What are the benefits of a Virtual Machine?</h2>
-<p>You can play around, break things, install multiple software, try different operating systems without harming your host machine’s operating system.</p>
-<p>For this workshop, we are using virtual machines so all participants have the same computing environment.</p>
-</section>
-<section id="accessing-the-vm" class="level2">
-<h2 class="anchored" data-anchor-id="accessing-the-vm">Accessing the VM</h2>
-<p>[MAKE INSTRUCTIONS FOR WINDOWS] [INSERT SCREENSHOTS]</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>All text and materials in these workshops comes from the Data Carpentries. More especifically this lesson follows the Data Carpentries lesson “<a href="https://j-p-courneya.github.io/Intro-Python-Bioinformatics/">Programming with Python</a>”.</p>
-<p>CDABS has modified this lesson to better fit our techonogical capabilities.</p>
-</div>
+<p>Goodman, S. N., Fanelli, D., &amp; Ioannidis, J. P. A. (2016). What does research reproducibility mean? Science Translational Medicine, 8(341). <a href="https://www.science.org/doi/10.1126/scitranslmed.aaf5027">doi: 10.1126/scitranslmed.aaf5027</a></p>
+<p>The Turing Way Community. (2021, November 10). The Turing Way: A handbook for reproducible, ethical and collaborative research. <a href="https://the-turing-way.netlify.app/index.html#">https://the-turing-way.netlify.app/index.html#</a></p>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

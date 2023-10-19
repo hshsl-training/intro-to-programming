@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CDABS Intro to Programming - List and Dictionaries</title>
+<title>CDABS Intro to Programming - Data Structures: List and Dictionaries</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -199,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-python">    
         <li>
     <a class="dropdown-item" href="../python_lesson/00-introduction.html" rel="" target="">
- <span class="dropdown-text">Reproducible Research Enviroments with Python</span></a>
+ <span class="dropdown-text">Introduction to Python, Conda and Jupyter Notebooks</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../python_lesson/01-condaenvironments.html" rel="" target="">
@@ -219,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../python_lesson/05-listdict.html" rel="" target="">
- <span class="dropdown-text">List and Dictionaries</span></a>
+ <span class="dropdown-text">Data Structures: List and Dictionaries</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../python_lesson/06-controlstructure2.html" rel="" target="">
@@ -242,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../python_lesson/05-listdict.html">List and Dictionaries</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../python_lesson/05-listdict.html">Data Structures: List and Dictionaries</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -257,7 +257,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../python_lesson/00-introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reproducible Research Enviroments with Python</span></a>
+ <span class="menu-text">Introduction to Python, Conda and Jupyter Notebooks</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -287,7 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../python_lesson/05-listdict.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">List and Dictionaries</span></a>
+ <span class="menu-text">Data Structures: List and Dictionaries</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -312,10 +312,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#python-basics-lists-and-dictionaries" id="toc-python-basics-lists-and-dictionaries" class="nav-link active" data-scroll-target="#python-basics-lists-and-dictionaries">Python Basics: Lists and Dictionaries</a>
-  <ul>
+  <li><a href="#python-basics-lists-and-dictionaries" id="toc-python-basics-lists-and-dictionaries" class="nav-link active" data-scroll-target="#python-basics-lists-and-dictionaries">Python Basics: Lists and Dictionaries</a></li>
   <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists">Lists</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#indexing" id="toc-indexing" class="nav-link" data-scroll-target="#indexing">Indexing</a>
   <ul class="collapse">
   <li><a href="#starting-from-zero" id="toc-starting-from-zero" class="nav-link" data-scroll-target="#starting-from-zero">Starting From Zero</a></li>
@@ -326,7 +325,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#heterogeneous-lists" id="toc-heterogeneous-lists" class="nav-link" data-scroll-target="#heterogeneous-lists">Heterogeneous Lists</a></li>
   </ul></li>
   <li><a href="#dictionaries" id="toc-dictionaries" class="nav-link" data-scroll-target="#dictionaries">Dictionaries</a></li>
-  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/hshsl-training/intro-to-programming/edit/main/python_lesson/05-listdict.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/hshsl-training/intro-to-programming/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -335,7 +333,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">List and Dictionaries</h1>
+<h1 class="title">Data Structures: List and Dictionaries</h1>
 </div>
 
 
@@ -350,9 +348,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="python-basics-lists-and-dictionaries" class="level1">
-<h1>Python Basics: Lists and Dictionaries</h1>
-<p>We have learnt how to store single bits of data in variables but what happens when we have several bits of data that are associated with each other and need to be stored together? For example, a vector, array or list of names? For this we can use the built-in collection types of list and dict (short for dictionary).</p>
+<section id="python-basics-lists-and-dictionaries" class="level2">
+<h2 class="anchored" data-anchor-id="python-basics-lists-and-dictionaries">Python Basics: Lists and Dictionaries</h2>
+<p>We have learn how to store single bits of data in variables but what happens when we have several bits of data that are associated with each other and need to be stored together? For example, a vector, array or list of names? For this we can use the built-in collection types of list and dict (short for dictionary).</p>
+<p><strong>What are the Python Data Structures?</strong></p>
+<p>Data Structures are a way of organizing data so that it can be accessed more efficiently depending upon the situation. Data Structures are fundamentals of any programming language around which a program is built. For this workshop, we will be learning how to work with two data structures, Lists and Dictionaries. But be advise there are many others such as sets, tuples, string, hashes,and others.</p>
+</section>
 <section id="lists" class="level2">
 <h2 class="anchored" data-anchor-id="lists">Lists</h2>
 <p>We create a list by putting values inside square brackets and separating the values with commas. Or we can initialize an empty list by using <code>list()</code>.</p>
@@ -656,11 +657,17 @@ odds: [1, 3, 5, 7]</code></pre>
 <li>Both can be nested: a dictionary can contain another dictionary, a list can contain another list, and a list can contain a dictionary and vice versa.</li>
 </ul>
 <p>Example of a dictionary:</p>
-<p>::: {.cell execution_count=15} <code>{.python .cell-code}  cat = {     'name': 'Tomasina',      'age': 5 ,      'color': 'white',      'breed': 'american shorthair',      'diagnosis': 'FIV',  }</code> :::</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>cat <span class="op">=</span> {<span class="st">'name'</span>: <span class="st">'Tomasina'</span>, </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'age'</span>: <span class="dv">5</span> ,</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'color'</span>: <span class="st">'white'</span>,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'breed'</span>: <span class="st">'american shorthair'</span>, </span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'diagnosis'</span>: <span class="st">'FIV'</span>,}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>In this example the dictionary its called cat. The keys in this dictionary are <code>name</code>, <code>age</code>, <code>breed</code>, <code>color</code>, <code>diagnosis</code> and <code>owner</code>. The <code>value</code> is the object that is mapped to the <code>key</code>, like <code>"name":"Tomasina"</code></p>
 <p>If you need to retrieve the value of a key, you can do the following:</p>
 <div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>cat[<span class="st">'name'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>cat[<span class="st">'name'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>'Tomasina'</code></pre>
 </div>
@@ -668,8 +675,8 @@ odds: [1, 3, 5, 7]</code></pre>
 <p>By using the key name, you can print out the values of the key.</p>
 <p>You can use any immutable object as a key (in practice this is generally numbers or strings!) and store any object as the value including lists or other dicts. As with lists, there are several ways to add entries to a dictionary. The easiest of these is to simply reference a new key and assign it a value:</p>
 <div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>cat[<span class="st">'owner'</span>] <span class="op">=</span> <span class="st">'Leo'</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>cat[<span class="st">'owner'</span>] <span class="op">=</span> <span class="st">'Leo'</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{'name': 'Tomasina', 'age': 5, 'color': 'white', 'breed': 'american shorthair', 'diagnosis': 'FIV', 'owner': 'Leo'}</code></pre>
 </div>
@@ -678,7 +685,6 @@ odds: [1, 3, 5, 7]</code></pre>
 <p>The differences between lists and dictionaries is how objects are accessed. A List objects is accessed by position index ([0,1,2…]) while dictionary objects are accessed using keys.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
